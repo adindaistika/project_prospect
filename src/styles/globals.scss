@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+    .menu-sidebar{
+        height: calc(100vh - 130px);
+    }
+}
