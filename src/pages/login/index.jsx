@@ -2,11 +2,11 @@ import Link from 'next/link';
 
 const Login = () => {
     return (
-        <div className="min-h-screen px-30px grid place-items-center">
-            <div className="w-full md:max-w-lg p-5 rounded-lg shadow-lg bg-white text-sky-800">
+        <div className="min-h-screen px-20px grid place-items-center">
+            <div className="w-full md:max-w-lg p-8 rounded-lg shadow-lg bg-white text-sky-800">
                 <img src="/static/auth/logo.png" className="w-[90px] m-auto"></img>
                 <h1 className="text-center mt-5 text-2xl font-bold">LOGIN PAGE</h1>
-                <form className="flex flex-col gap-3" action="">
+                <form className="flex flex-col gap-1" action="">
                     <label className="flex my-2 flex-col gap-1 text-xs w-full">
                         <span className="text-xs font-bold text-sky-800">Email</span>
                         <input
