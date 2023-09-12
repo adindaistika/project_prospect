@@ -12,10 +12,10 @@ const Signup = () => {
 
                 <form className="md:flex flex-col w-full" action="">
                     <div className="flex">
-                    <label className="flex my-2 p-3 md:w-1/1 flex-col gap-2 text-xs w-full">
+                    <label className="flex my-2 p-2 md:w-1/1 flex-col gap-2 text-xs w-full">
                         <span className="text-xs font-bold text-sky-800">First Name</span>
                         <input
-                            className="p-3 w-full rounded-md outline-none border border-sky-800 text-sky"
+                            className="p-3 rounded-md outline-none border border-sky-800 text-sky"
                             type="text"
                             required
                             placeholder="Your First Name"
@@ -23,10 +23,10 @@ const Signup = () => {
                             id="firstname"
                         />
                     </label>
-                    <label className="flex my-2 p-3 md:w-1/1 flex-col gap-2 text-xs w-full">
+                    <label className="flex my-2 p-2 md:w-1/1 flex-col gap-2 text-xs w-full">
                         <span className="text-xs font-bold text-sky-800">Last Name</span>
                         <input
-                            className="p-3 w-full rounded-md outline-none border border-sky-800 text-sky"
+                            className="p-3 rounded-md outline-none border border-sky-800 text-sky"
                             type="text"
                             required
                             placeholder="Your Last Name"

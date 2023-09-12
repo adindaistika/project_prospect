@@ -41,44 +41,44 @@ const Home = () => {
           <div className="shadow-md rounded-md p-3 flex justify-between items-center">
             <h5 className="font-bold">Meeting Seminar</h5>
             <div className="flex items-center gap-3">
-              <div className="bg-rose-400 p-1 w-max rounded-md">
-                <IconTrash color="rgb(185 28 28)" />
+              <div className="bg-red-600 p-1 w-max rounded-md">
+                <IconTrash color="#FFFFFF" />
               </div>
-              <div className="bg-green-400 p-1 w-max rounded-md">
-                <IconPencilMinus color="rgb(15 118 110)" />
-              </div>
-            </div>
-          </div>
-          <div className="shadow-md rounded-md p-3 flex justify-between items-center">
-            <h5 className="font-bold">Meeting Seminar</h5>
-            <div className="flex items-center gap-3">
-              <div className="bg-rose-400 p-1 w-max rounded-md">
-                <IconTrash color="rgb(185 28 28)" />
-              </div>
-              <div className="bg-green-400 p-1 w-max rounded-md">
-                <IconPencilMinus color="rgb(15 118 110)" />
+              <div className="bg-green-600 p-1 w-max rounded-md">
+                <IconPencilMinus color="#FFFFFF" />
               </div>
             </div>
           </div>
           <div className="shadow-md rounded-md p-3 flex justify-between items-center">
             <h5 className="font-bold">Meeting Seminar</h5>
             <div className="flex items-center gap-3">
-              <div className="bg-rose-400 p-1 w-max rounded-md">
-                <IconTrash color="rgb(185 28 28)" />
+              <div className="bg-red-600 p-1 w-max rounded-md">
+                <IconTrash color="#FFFFFF" />
               </div>
-              <div className="bg-green-400 p-1 w-max rounded-md">
-                <IconPencilMinus color="rgb(15 118 110)" />
+              <div className="bg-green-600 p-1 w-max rounded-md">
+                <IconPencilMinus color="#FFFFFF" />
               </div>
             </div>
           </div>
           <div className="shadow-md rounded-md p-3 flex justify-between items-center">
             <h5 className="font-bold">Meeting Seminar</h5>
             <div className="flex items-center gap-3">
-              <div className="bg-rose-400 p-1 w-max rounded-md">
-                <IconTrash color="rgb(185 28 28)" />
+              <div className="bg-red-600 p-1 w-max rounded-md">
+                <IconTrash color="#FFFFFF" />
               </div>
-              <div className="bg-green-400 p-1 w-max rounded-md">
-                <IconPencilMinus color="rgb(15 118 110)" />
+              <div className="bg-green-600 p-1 w-max rounded-md">
+                <IconPencilMinus color="#FFFFFF" />
+              </div>
+            </div>
+          </div>
+          <div className="shadow-md rounded-md p-3 flex justify-between items-center">
+            <h5 className="font-bold">Meeting Seminar</h5>
+            <div className="flex items-center gap-3">
+              <div className="bg-red-600 p-1 w-max rounded-md">
+                <IconTrash color="#FFFFFF" />
+              </div>
+              <div className="bg-green-600 p-1 w-max rounded-md">
+                <IconPencilMinus color="#FFFFFF" />
               </div>
             </div>
           </div>
