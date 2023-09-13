@@ -57,7 +57,7 @@ const Contact = () => {
             </div>
             <div className="flex justify-between items-center mt-8 mb-3">
                 <h5 className="text-lg font-semibold">All contact</h5>
-                <button className="p-2 bg-primary rounded-md text-xs text-second" type="button"> + Add Contact </button>
+                <button className="p-2 bg-primary rounded-md text-xs text-second" onClick={()=>window.location.href='contact/add'} type="button"> + Add Contact </button>
             </div>
             <div className="grid grid-cols-2 gap-3">
                 <div className="flex items-center gap-3 p-3 rounded-md shadow-md">

@@ -9,9 +9,12 @@ import { IconAddressBook } from "@tabler/icons-react";
 import { IconCalendarDue } from "@tabler/icons-react";
 import { IconUserCircle } from "@tabler/icons-react";
 import { IconHome2 } from "@tabler/icons-react";
+import { useRouter } from "next/router";
+import Link from 'next/link';
 
 
 const Navbar = () => {
+  const router = useRouter();
   return (
     <nav className="bg-primary p-3 space-y-3">
       <div>
@@ -19,19 +22,43 @@ const Navbar = () => {
         <h1 className="text-center text-white font-semibold">JONO</h1>
       </div>
       <div className="flex flex-col items-center gap-4">
-        <div className="bg-second p-2 w-max rounded-md">
-          <IconHome2 color="#0B588D" />
+        <Link href = {'/'}>
+        <div className={router.pathname === "/" && "bg-second p-2 w-max rounded-md"}>
+          <IconHome2 color={router.pathname === "/" ? "#0B588D" : "#FFFFFF"} />
         </div>
-        <IconUserCircle color="#ffffff"/>
-        <IconUsersGroup color="#ffffff"/>
-        <IconClipboardText color="#ffffff"/>
-        <IconCalendarDue color="#ffffff"/>
-        <IconMovie color="#ffffff" />
-        <IconAddressBook color="#ffffff" />
-        <IconAffiliate color="#ffffff"/>
-        <IconQuote color="#ffffff" />
-        <IconMessage color="#ffffff"/>
-        <IconLogout color="#ffffff"/>
+        </Link>
+        <Link href = {'/contact'}>
+        <div className={router.pathname === "/contact" && "bg-second p-2 w-max rounded-md"}>
+          <IconUserCircle color={router.pathname === "/contact" ? "#0B588D" : "#ffffff"} />
+        </div>
+        </Link>
+        <div className="bg-second p-2 w-max rounded-md">
+          <IconUsersGroup color="#0B588D" />
+        </div>
+        <div className="bg-second p-2 w-max rounded-md">
+          <IconClipboardText color="#0B588D" />
+        </div>
+        <div className="bg-second p-2 w-max rounded-md">
+          <IconCalendarDue color="#0B588D" />
+        </div>
+        <div className="bg-second p-2 w-max rounded-md">
+          <IconMovie color="#0B588D" />
+        </div>
+        <div className="bg-second p-2 w-max rounded-md">
+          <IconAddressBook color="#0B588D" />
+        </div>
+        <div className="bg-second p-2 w-max rounded-md">
+          <IconAffiliate color="#0B588D" />
+        </div>
+        <div className="bg-second p-2 w-max rounded-md">
+          <IconQuote color="#0B588D" />
+        </div>
+        <div className="bg-second p-2 w-max rounded-md">
+          <IconMessage color="#0B588D" />
+        </div>
+        <div className="bg-second p-2 w-max rounded-md">
+          <IconLogout color="#0B588D" />
+        </div>
       </div>
     </nav>
   );
