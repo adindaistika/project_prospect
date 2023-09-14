@@ -17,7 +17,7 @@ export default function App({ Component, pageProps }) {
       ) : (
         <div className="flex gap-3 h-screen">
           <Navbar />
-          <div className="p-[20px] overflow-y-scroll w-full text-black">
+          <div className="p-[20px] overflow-y-scroll w-full">
             <Component {...pageProps} />
           </div>
         </div>

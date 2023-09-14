@@ -5,38 +5,38 @@ import { IconBell } from "@tabler/icons-react";
 
 const Home = () => {
   return (
-    <main className="px-8">
-      <header className="flex justify-between lg:flex-row lg:items-center">
-        <div>
+    <main className="min-h-screen">
+      <header className="flex flex-col sm:flex-row justify-between lg:items-center">
+        <div className="mb-4 sm:mb-0">
           <h1 className="text-primary lg:text-left">Halo, Selamat datang Jono</h1>
-          <h5 className="text-slate-400 text-center lg:text-left">Good Morning</h5>
+          <h5 className="text-slate-400 text-center sm:text-left">Good Morning</h5>
         </div>
         <div className="flex gap-3 items-center">
-          <p>Agust 23,2023 4.30 PM</p>
+          <p>Agust 23, 2023 4.30 PM</p>
           <IconBell color="#0B588D" />
-          <img src="/static/auth/logo.png" className="w-[50px] m-auto"></img>
+          <img src="/static/auth/logo.png" className="w-[50px] m-auto" alt="Logo" />
         </div>
       </header>
       <div className="flex w-full mx-auto my-4 p-2 rounded-md shadow-md">
         <input className="outline-none w-full" type="text" name="search" id="search" />
         <IconSearch />
       </div>
-      <div className="flex gap-3 text-white lg:flex-row">
-        <div className="p-8  bg-[#214A00] rounded-md w-full">
+      <div className="flex flex-col sm:flex-row gap-3 text-white">
+        <div className="p-8 bg-[#214A00] rounded-md flex-1">
           <p className="text-center">0/0</p>
-          <p>Propespect Added</p>
+          <p>Prospect Added</p>
         </div>
-        <div className="p-8  bg-[#18046A] rounded-md w-full">
+        <div className="p-8 bg-[#18046A] rounded-md flex-1">
           <p className="text-center">0/0</p>
-          <p>Propespect Added</p>
+          <p>Prospect Added</p>
         </div>
-        <div className="p-8  bg-[#007383] rounded-md w-full">
+        <div className="p-8 bg-[#007383] rounded-md flex-1">
           <p className="text-center">0/0</p>
-          <p>Propespect Added</p>
+          <p>Prospect Added</p>
         </div>
       </div>
-      <div className="flex items-start gap-3 my-5 lg:flex-row">
-        <div className="space-y-3 w-full">
+      <div className="flex flex-col sm:flex-row gap-3 items-start my-5">
+        <div className="space-y-3 w-full sm:w-1/2">
           <h3 className="font-semibold">Event Terupdate</h3>
           <div className="shadow-md rounded-md p-3 flex justify-between items-center">
             <h5 className="font-bold">Meeting Seminar</h5>
@@ -83,9 +83,9 @@ const Home = () => {
             </div>
           </div>
         </div>
-        <div className="space-y-3 w-full lg:w-1/2">
-          <h3 className="font-semibold">Taks Terupdate</h3>
-          <div className="shadow-md rounded-md p-3 flex justify-between item-center">
+        <div className="space-y-3 w-full sm:w-1/2">
+          <h3 className="font-semibold">Tasks Terupdate</h3>
+          <div className="shadow-md rounded-md p-3 flex justify-between items-center">
             <div>
               <h5>Hasil meeting pada sore hari ini adalah ....</h5>
               <div className="text-xs my-2 flex gap-2 items-center flex-wrap">
@@ -100,7 +100,7 @@ const Home = () => {
               <p className="text-xs">Agust</p>
             </div>
           </div>
-          <div className="shadow-md rounded-md p-3 flex justify-between item-center">
+           <div className="shadow-md rounded-md p-3 flex justify-between items-center">
             <div>
               <h5>Hasil meeting pada sore hari ini adalah ....</h5>
               <div className="text-xs my-2 flex gap-2 items-center flex-wrap">
@@ -115,7 +115,7 @@ const Home = () => {
               <p className="text-xs">Agust</p>
             </div>
           </div>
-          <div className="shadow-md rounded-md p-3 flex justify-between item-center">
+          <div className="shadow-md rounded-md p-3 flex justify-between items-center">
             <div>
               <h5>Hasil meeting pada sore hari ini adalah ....</h5>
               <div className="text-xs my-2 flex gap-2 items-center flex-wrap">

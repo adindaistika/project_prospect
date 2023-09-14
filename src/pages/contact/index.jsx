@@ -9,8 +9,8 @@ import { IconBell } from "@tabler/icons-react";
 
 const Contact = () => {
     return (
-        <main>
-            <header className="flex justify-between items-center">
+        <main className="min-h-screen">
+            <header className="flex justify-between items-center mb-4">
                 <h1 className="text-primary font text-lg">Contact</h1>
                 <div className="flex gap-3 items-center">
                     <p>Agust 23,2023 4.30 PM</p>
@@ -22,28 +22,28 @@ const Contact = () => {
                 <input className="outline-none w-full" type="text" name="search" id="search" />
                 <IconSearch />
             </div>
-            <div className="flex items-center gap-5">
+            <div className="flex items-center sm:flex-row items-center gap-5">
                 <div className="flex gap-3 w-full">
-                    <span className="max-w-[90px] text-center flex flex-col items-center text-xs">
+                    <div className="max-w-[90px] text-center flex flex-col items-center text-xs">
                         <IconMessage2 color="#0B588D" />
                         <p>Mass Message</p>
-                    </span>
-                    <span className="max-w-[90px] text-center flex flex-col items-center text-xs">
+                    </div>
+                    <div className="max-w-[90px] text-center flex flex-col items-center text-xs">
                         <IconFileSpreadsheet color="#0B588D" />
                         <p>Import From Excel</p>
-                    </span>
-                    <span className="max-w-[90px] text-center flex flex-col items-center text-xs">
+                    </div>
+                    <div className="max-w-[90px] text-center flex flex-col items-center text-xs">
                         <IconDatabaseExport color="#0B588D" />
                         <p>Export Contact</p>
-                    </span>
-                    <span className="max-w-[70px] text-centerflex flex-col items-center text-xs">
+                    </div>
+                    <div className="max-w-[70px] text-centerflex flex-col items-center text-xs">
                         <IconAddressBook color="#0B588D" />
                         <p>Import from phonebook</p>
-                    </span>
-                    <span className="max-w-[50px] text-center flex flex-col items-center text-xs">
+                    </div>
+                    <div className="max-w-[50px] text-center flex flex-col items-center text-xs">
                         <IconQrcode color="#0B588D" />
                         <p>Scan business card</p>
-                    </span>
+                    </div>
                 </div>
                 <div className="w-full">
                     <button

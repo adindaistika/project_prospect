@@ -1,9 +1,9 @@
 const AddContact = () => {
     return (
-        <main className="w-full lg:max-w-3xl lg:mx-auto text-sky-800 p-7">
+        <main className="w-full lg:max-w-4xl lg:mx-auto text-sky-800 p-7">
             <h1 className="text-center font-bold text-2xl">Add Contact</h1>
             <form className="mt-5">
-                <div className="grid grid-cols-2 gap-3">
+                <div className="grid grid-cols-2 gap-3 ">
                     <label className="flex my-2 flex-col gap-1 text-xs w-full">
                         <span className="text-xs font-bold text-sky-800">First Name</span>
                         <input
