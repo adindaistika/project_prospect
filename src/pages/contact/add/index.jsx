@@ -63,12 +63,12 @@ const AddContact = () => {
                 <label className="flex flex-col w-full" htmlFor="category">
                     <span className="font-bold text-xs text-sky-800">Category</span>
                     <select
-                        className="bg-white-700 text-sky-800 border-2 border-sky-700 p-2 rounded-md outline-none"
+                        className="bg-white-700 text-xs text-sky-800 border border-sky-700 p-2 rounded-md outline-none"
                         name="actegory"
                         id="category">
-                        <option className="text-sky-800" value="prospects">prospects</option>
-                        <option className="text-sky-800" value="team">team</option>
-                        <option className="text-sky-800" value="client">client</option>
+                        <option className="text-sky-800 text-xs" value="prospects">prospects</option>
+                        <option className="text-sky-800 text-xs" value="team">team</option>
+                        <option className="text-sky-800 text-xs" value="client">client</option>
                     </select>
                 </label>
                 <button

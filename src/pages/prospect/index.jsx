@@ -5,7 +5,7 @@ import { IconSquareRoundedChevronRight } from "@tabler/icons-react";
 
 const Prospect = () => {
     return (
-        <main className="className=px-4 sm:px-8 md:px-16 lg:px-24 xl:px-30 min-h-screen">
+        <main className=" min-h-screen">
             <header className="flex justify-between items-center mb-4">
                 <h1 className="text-primary font text-lg">Prospect</h1>
                 <div className="flex gap-3 items-center">
@@ -18,16 +18,95 @@ const Prospect = () => {
                 <input className="outline-none w-full" type="text" name="search" id="search" />
                 <IconSearch />
             </div>
-            <div className="w-full">
-                <button
-                    className="flex shadow-md w-full justify-between rounded-md opacity-80 p-3"
-                    type="button" >
-                    <IconAddressBook />
-                    <p>All Contact</p>
-                    <IconSquareRoundedChevronRight />
-                </button>
+            <div className="flex gap-5 justify-between items-center">
+        <div className="w-1/2 ">
+          <button
+            className="flex shadow-md w-full justify-between rounded-md opacity-80 p-3"
+            type="button"
+          >
+            <IconAddressBook />
+            <p>All Contact</p>
+            <IconSquareRoundedChevronRight />
+          </button>
+        </div>
+        <select
+          className="bg-primary p-2 rounded-md outline-none w-36 text-white"
+          name="filter"
+          id="filter"
+        >
+          <option selected>Filter</option>
+          <option value="Prospect">Prospect</option>
+          <option value="Hot Leads">Hot Leads</option>
+          <option value="Actively Selling">Actively Selling</option>
+          <option value="Actively Followup">Actively Followup</option>
+          <option value="Won">Won</option>
+          <option value="Lost">Lost</option>
+        </select>
+      </div>
+      <div className="grid grid-cols-2 gap-3">
+                <div className="flex items-center gap-3 p-3 rounded-md shadow-md">
+                    <img src="/static/auth/profile.jpeg" className="w-[60px] mb-3 rounded-full"></img>
+                    <div>
+                        <p className="font-semibold">Adinda Istika Maulia</p>
+                        <p className="text-xs font-semibold text-slate-400"> Company ---- </p>
+                    </div>
+                </div>
+                <div className="flex items-center gap-3 p-3 rounded-md shadow-md">
+                    <img src="/static/auth/profile.jpeg" className="w-[60px] mb-3 rounded-full"></img>
+                    <div>
+                        <p className="font-semibold">Adinda Istika Maulia</p>
+                        <p className="text-xs font-semibold text-slate-400"> Company ---- </p>
+                    </div>
+                </div>
+                <div className="flex items-center gap-3 p-3 rounded-md shadow-md">
+                    <img src="/static/auth/profile.jpeg" className="w-[60px] mb-3 rounded-full"></img>
+                    <div>
+                        <p className="font-semibold">Adinda Istika Maulia</p>
+                        <p className="text-xs font-semibold text-slate-400"> Company ---- </p>
+                    </div>
+                </div>
+                <div className="flex items-center gap-3 p-3 rounded-md shadow-md">
+                    <img src="/static/auth/profile.jpeg" className="w-[60px] mb-3 rounded-full"></img>
+                    <div>
+                        <p className="font-semibold">Adinda Istika Maulia</p>
+                        <p className="text-xs font-semibold text-slate-400">
+                            Company ----
+                        </p>
+                    </div>
+                </div>
+                <div className="flex items-center gap-3 p-3 rounded-md shadow-md">
+                    <img src="/static/auth/profile.jpeg" className="w-[60px] mb-3 rounded-full"></img>
+                    <div>
+                        <p className="font-semibold">Adinda Istika Maulia</p>
+                        <p className="text-xs font-semibold text-slate-400">
+                            Company ----
+                        </p>
+                    </div>
+                </div>
+                <div className="flex items-center gap-3 p-3 rounded-md shadow-md">
+                    <img src="/static/auth/profile.jpeg" className="w-[60px] mb-3 rounded-full"></img>
+                    <div>
+                        <p className="font-semibold">Adinda Istika Maulia</p>
+                        <p className="text-xs font-semibold text-slate-400">
+                            Company ----
+                        </p>
+                    </div>
+                </div>
+                <div className="flex items-center gap-3 p-3 rounded-md shadow-md">
+                    <img src="/static/auth/profile.jpeg" className="w-[60px] mb-3 rounded-full"></img>
+                    <div>
+                        <p className="font-semibold">Adinda Istika Maulia</p>
+                        <p className="text-xs font-semibold text-slate-400">  Company ---- </p>
+                    </div>
+                </div>
+                <div className="flex items-center gap-3 p-3 rounded-md shadow-md">
+                    <img src="/static/auth/profile.jpeg" className="w-[60px] mb-3 rounded-full"></img>
+                    <div>
+                        <p className="font-semibold">Adinda Istika Maulia</p>
+                        <p className="text-xs font-semibold text-slate-400">  Company ---- </p>
+                    </div>
+                </div>
             </div>
-            <button className="p-2 bg-primary rounded-md text-xs text-second" onClick={() => window.location.href = 'contact/add'} type="button"> + Add Contact </button>
         </main>
     );
 };

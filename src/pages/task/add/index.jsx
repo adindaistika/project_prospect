@@ -17,7 +17,7 @@ const AddTask = () => {
                 <label className="flex flex-col" htmlFor="description">
                     <div className="font-bold text-sky-800 text-xs">Description</div>
                     <textarea
-                        className="outline-none w-full bg-white text-sky-800 border-2 border-sky-800 p-2 rounded-md text-xs"
+                        className="outline-none w-full bg-white text-sky-800 border border-sky-800 p-2 rounded-md text-xs"
                         name="description"
                         rows={5}
                         id="description"></textarea>
@@ -25,13 +25,12 @@ const AddTask = () => {
                 <label className="flex flex-col" htmlFor="selectContact">
                     <div className="font-bold text-sky-800 text-xs">Contact</div>
                     <select
-                        className="outline-none w-full bg-white text-sky-800 font-bold border-2 border-sky-800 p-2 rounded-md text-xs"
+                        className="outline-none w-full bg-white text-sky-800 font-bold border border-sky-800 p-2 rounded-md text-xs"
                         name="selectContact"
                         id="selectContact"
                     >
-                        <option className="text-sky-800" value="">Select Your Contact</option>
-                        <option className="text-sky-800" value="Vivi">Vivi</option>
                         <option className="text-sky-800" value="Adinda">Adinda</option>
+                        <option className="text-sky-800" value="Vivi">Vivi</option>
                         <option className="text-sky-800" value="Rahmat">Rahmat</option>
                     </select>
                 </label>
@@ -49,11 +48,10 @@ const AddTask = () => {
                 <label className="flex flex-col" htmlFor="selectContact">
                     <div className="font-semibold text-sky-800 text-xs">Priority</div>
                     <select
-                        className="outline-none w-full bg-white text-white font-semibold border-2 border-sky-800 p-2 rounded-md text-xs"
+                        className="outline-none w-full bg-white text-sky-800 font-semibold border border-sky-800 p-2 rounded-md text-xs"
                         name="selectContact"
                         id="selectContact"
                     >
-                        <option className="text-sky-800" value="">Select Task Priority</option>
                         <option className="text-sky-800" value="High">High</option>
                         <option className="text-sky-800" value="Medium">Medium</option>
                         <option className="text-sky-800" value="Low">Low</option>

@@ -37,9 +37,11 @@ const Navbar = () => {
             <IconUsersGroup color={router.pathname === "/prospect" ? "#0B588D" : "#FFFFFF"} />
           </div>
         </Link>
-        <div className="bg-second p-2 w-max rounded-md">
-          <IconClipboardText color="#0B588D" />
+        <Link href={'/task'}>
+        <div className={router.pathname === "/task" && "bg-second p-2 w-max rounded-md"}>
+          <IconClipboardText color={router.pathname === "/task" ? "#0B588D" : "#FFFFFF"} />
         </div>
+        </Link>
         <div className="bg-second p-2 w-max rounded-md">
           <IconCalendarDue color="#0B588D" />
         </div>

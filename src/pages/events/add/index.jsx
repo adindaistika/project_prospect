@@ -1,9 +1,15 @@
+
+import { IconMapPin } from "@tabler/icons-react";
 const AddEvents = () => {
+    module.exports = {
+        //....
+        Plugin: [require("daisyui")],
+    }
     return (
         <main className="w-full lg:max-w-3xl lg:mx-auto text-sky-800 p-7">
             <h1 className="text-center font-bold text-2xl">Add Events</h1>
             <form className="flex flex-col gap-3" action="">
-                <label className="flex my-2 flex-col gap-1 text-xs w-full">
+                <label className="flex  flex-col gap-1 text-xs w-full">
                     <div className="text-xs font-bold text-sky-800">Title</div>
                     <input
                         className="p-3 rounded-md outline-none border border-sky-800 text-sky"
@@ -28,11 +34,10 @@ const AddEvents = () => {
                 <label className="flex flex-col" htmlFor="selecttype">
                     <div className="font-bold text-sky-800 text-xs">Meeting Type</div>
                     <select
-                        className="outline-none w-full bg-white text-sky-800 font-bold border-2 border-sky-800 p-3 rounded-md text-xs"
+                        className="outline-none w-full bg-white text-sky-800 font-bold border border-sky-800 p-3 rounded-md text-xs"
                         name="selectType"
                         id="selectType"
                     >
-                        <option className="text-sky-800" value="">Select Type Meeting</option>
                         <option className="text-sky-800" value="Presentation">Presentation</option>
                         <option className="text-sky-800" value="Follow Up">Follow Up</option>
                         <option className="text-sky-800" value="Call">Call</option>
@@ -40,7 +45,7 @@ const AddEvents = () => {
                     </select>
                 </label>
                 <div className="grid grid-cols-2 gap-3 ">
-                    <label className="flex my-2 flex-col gap-1 text-xs w-full">
+                    <label className="flex  flex-col gap-1 text-xs w-full">
                         <span className="text-xs font-bold text-sky-800">Start Date</span>
                         <input
                             className="p-3 rounded-md outline-none border border-sky-800 text-sky"
@@ -51,7 +56,7 @@ const AddEvents = () => {
                             id="startdate"
                         />
                     </label>
-                    <label className="flex my-2 flex-col gap-1 text-xs w-ful">
+                    <label className="flex flex-col gap-1 text-xs w-ful">
                         <span className="text-xs font-bold text-sky-800">End Date</span>
                         <input
                             className="p-3 rounded-md outline-none border border-sky-800 text-sky"
@@ -63,7 +68,62 @@ const AddEvents = () => {
                         />
                     </label>
                 </div>
-
+                <form>
+                    <label className="flex flex-col gap-1 text-xs w-full">
+                        <span className="text-xs font-bold text-sky-800">Location</span>
+                        <div className="flex p-2 rounded-md outline-none border border-sky-800 text-skyw-full">
+                            <input
+                                className="w-full"
+                                type="text"
+                                required
+                                placeholder="Add Your Location"
+                                name="location"
+                                id="location"
+                            />
+                            <button className="btn" onClick={() => document.getElementById('my_modal_1').showModal()}>
+                                <IconMapPin />
+                            </button>
+                        </div>
+                    </label>
+                    <dialog id="my_modal_1" className="modal">
+                        <div className="modal-box">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3944.3934878151404!2d115.19195957393637!3d-8.654074788038768!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd2411e2ffc4c2d%3A0xb8de5c04c550fdf2!2sP.T.%20Galang%20Kangin%20Software!5e0!3m2!1sid!2sid!4v1694826375806!5m2!1sid!2sid"
+                                width="600" height="450" style={{ border: "0" }} allowfullscreen=""
+                                loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                            <div className="modal-action">
+                                <form method="dialog">
+                                    <button className="w-full bg-primary p-3 my-2 rounded-md shadow-md text-center text-xs text-white">Close</button>
+                                </form>
+                            </div>
+                        </div>
+                    </dialog>
+                </form>
+                <label className="flex  flex-col gap-1 text-xs w-full">
+                    <div className="text-xs font-bold text-sky-800">Set Time Reminder</div>
+                    <input
+                        className="p-3 rounded-md outline-none border border-sky-800 text-sky"
+                        type="time"
+                        required
+                        placeholder="Add Set Time Reminder"
+                        name="settimereminder"
+                        id="settimereminder"
+                    />
+                </label>
+                <label className="flex flex-col" htmlFor="note">
+                    <span className="font-semibold text-sky-800">Note</span>
+                    <textarea
+                        className="outline-none w-full bg-white text-sky-800 placeholder:italic placeholder:text-sky-800 border border-sky-800 p-2 rounded-md text-xs"
+                        name="note"
+                        rows={5}
+                        id="note"
+                    ></textarea>
+                </label>
+                <button
+                    className="mt-[20px] w-full bg-sky-800 hover:bg-transparent hover:text-sky-800 border-2 transition-all ease-in-out border-sky-800 p-3 text-xs rounded-md text-white font-bold"
+                    type="submit">
+                    Add Events
+                </button>
             </form>
         </main>
     )
