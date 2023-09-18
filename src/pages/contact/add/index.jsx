@@ -1,7 +1,16 @@
+import { IconBell } from "@tabler/icons-react";
+
 const AddContact = () => {
     return (
-        <main className="w-full lg:max-w-4xl lg:mx-auto text-sky-800 p-7">
-            <h1 className="text-center font-bold text-2xl">Add Contact</h1>
+        <main className="text-black min-h-screen">
+            <header className="flex justify-between items-center mb-4">
+                <h1 className="text-primary font text-lg">Add Contact</h1>
+                <div className="flex gap-3 items-center">
+                    <p>Agust 23,2023 4.30 PM</p>
+                    <IconBell color="#0B588D" />
+                    <img src="/static/auth/logo.png" className="w-[50px] m-auto"></img>
+                </div>
+            </header>
             <form className="mt-5">
                 <div className="grid grid-cols-2 gap-3 ">
                     <label className="flex my-2 flex-col gap-1 text-xs w-full">

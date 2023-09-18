@@ -37,7 +37,7 @@ const Home = () => {
       </div>
       <div className="flex flex-col sm:flex-row gap-3 items-start my-5">
         <div className="space-y-3 w-full sm:w-1/2">
-          <h3 className="font-semibold">Event Terupdate</h3>
+          <h3 className="font-semibold text-[10px] md:text-[24px]">Event Terupdate</h3>
           <div className="shadow-md rounded-md p-3 flex justify-between items-center">
             <h5 className="font-bold">Meeting Seminar</h5>
             <div className="flex items-center gap-3">

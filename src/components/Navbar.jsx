@@ -42,12 +42,16 @@ const Navbar = () => {
           <IconClipboardText color={router.pathname === "/task" ? "#0B588D" : "#FFFFFF"} />
         </div>
         </Link>
-        <div className="bg-second p-2 w-max rounded-md">
-          <IconCalendarDue color="#0B588D" />
+        <Link href={'/events'}>
+        <div className={router.pathname === "/events" && "bg-second p-2 w-max rounded-md"}>
+          <IconCalendarDue color={router.pathname === "/events" ? "#0B588D" : "#FFFFFF"} />
         </div>
-        <div className="bg-second p-2 w-max rounded-md">
-          <IconMovie color="#0B588D" />
+        </Link>
+        <Link href={'/tutorials'}>
+        <div className={router.pathname === "/tutorials" && "bg-second p-2 w-max rounded-md"}>
+          <IconMovie color={router.pathname === "/tutorials" ? "#0B588D" : "#FFFFFF"} />
         </div>
+        </Link>
         <div className="bg-second p-2 w-max rounded-md">
           <IconAddressBook color="#0B588D" />
         </div>

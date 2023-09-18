@@ -1,13 +1,21 @@
-
+import { IconBell } from "@tabler/icons-react";
 import { IconMapPin } from "@tabler/icons-react";
+
 const AddEvents = () => {
     module.exports = {
         //....
         Plugin: [require("daisyui")],
     }
     return (
-        <main className="w-full lg:max-w-3xl lg:mx-auto text-sky-800 p-7">
-            <h1 className="text-center font-bold text-2xl">Add Events</h1>
+        <main className="text-black min-h-screen">
+            <header className="flex justify-between items-center mb-4">
+                <h1 className="text-primary font text-lg">Add Events</h1>
+                <div className="flex gap-3 items-center">
+                    <p>Agust 23,2023 4.30 PM</p>
+                    <IconBell color="#0B588D" />
+                    <img src="/static/auth/logo.png" className="w-[50px] m-auto"></img>
+                </div>
+            </header>
             <form className="flex flex-col gap-3" action="">
                 <label className="flex  flex-col gap-1 text-xs w-full">
                     <div className="text-xs font-bold text-sky-800">Title</div>
@@ -83,21 +91,21 @@ const AddEvents = () => {
                             <button className="btn" onClick={() => document.getElementById('my_modal_1').showModal()}>
                                 <IconMapPin />
                             </button>
+                            <dialog id="my_modal_1" className="modal">
+                                <div className="modal-box">
+                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3944.3934878151404!2d115.19195957393637!3d-8.654074788038768!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd2411e2ffc4c2d%3A0xb8de5c04c550fdf2!2sP.T.%20Galang%20Kangin%20Software!5e0!3m2!1sid!2sid!4v1694826375806!5m2!1sid!2sid"
+                                        width="600" height="450" style={{ border: "0" }} allowfullscreen=""
+                                        loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                                    </iframe>
+                                    <div className="modal-action">
+                                        <form method="dialog">
+                                            <button className="w-full bg-primary p-3 my-2 rounded-md shadow-md text-center text-xs text-white">Close</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </dialog>
                         </div>
                     </label>
-                    <dialog id="my_modal_1" className="modal">
-                        <div className="modal-box">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3944.3934878151404!2d115.19195957393637!3d-8.654074788038768!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd2411e2ffc4c2d%3A0xb8de5c04c550fdf2!2sP.T.%20Galang%20Kangin%20Software!5e0!3m2!1sid!2sid!4v1694826375806!5m2!1sid!2sid"
-                                width="600" height="450" style={{ border: "0" }} allowfullscreen=""
-                                loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-                            </iframe>
-                            <div className="modal-action">
-                                <form method="dialog">
-                                    <button className="w-full bg-primary p-3 my-2 rounded-md shadow-md text-center text-xs text-white">Close</button>
-                                </form>
-                            </div>
-                        </div>
-                    </dialog>
                 </form>
                 <label className="flex  flex-col gap-1 text-xs w-full">
                     <div className="text-xs font-bold text-sky-800">Set Time Reminder</div>

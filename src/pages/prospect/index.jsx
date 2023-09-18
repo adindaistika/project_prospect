@@ -19,31 +19,31 @@ const Prospect = () => {
                 <IconSearch />
             </div>
             <div className="flex gap-5 justify-between items-center">
-        <div className="w-1/2 ">
-          <button
-            className="flex shadow-md w-full justify-between rounded-md opacity-80 p-3"
-            type="button"
-          >
-            <IconAddressBook />
-            <p>All Contact</p>
-            <IconSquareRoundedChevronRight />
-          </button>
-        </div>
-        <select
-          className="bg-primary p-2 rounded-md outline-none w-36 text-white"
-          name="filter"
-          id="filter"
-        >
-          <option selected>Filter</option>
-          <option value="Prospect">Prospect</option>
-          <option value="Hot Leads">Hot Leads</option>
-          <option value="Actively Selling">Actively Selling</option>
-          <option value="Actively Followup">Actively Followup</option>
-          <option value="Won">Won</option>
-          <option value="Lost">Lost</option>
-        </select>
-      </div>
-      <div className="grid grid-cols-2 gap-3">
+                <div className="w-1/2 ">
+                    <button
+                        className="flex shadow-md w-full justify-between rounded-md opacity-80 p-3"
+                        type="button"
+                    >
+                        <IconAddressBook />
+                        <p>All Contact</p>
+                        <IconSquareRoundedChevronRight />
+                    </button>
+                </div>
+                <select
+                    className="bg-primary p-2 rounded-md outline-none w-40 text-white"
+                    name="filter"
+                    id="filter"
+                >
+                    <option className="bg-white text-sky-800" selected>Filter</option>
+                    <option className="bg-white text-sky-800" value="Prospect" >Prospect</option>
+                    <option className="bg-white text-sky-800" value="Hot Leads">Hot Leads</option>
+                    <option className="bg-white text-sky-800" value="Actively Selling">Actively Selling</option>
+                    <option className="bg-white text-sky-800" value="Actively Followup">Actively Followup</option>
+                    <option className="bg-white text-sky-800" value="Won">Won</option>
+                    <option className="bg-white text-sky-800" value="Lost">Lost</option>
+                </select>
+            </div>
+            <div className="grid grid-cols-2 gap-3">
                 <div className="flex items-center gap-3 p-3 rounded-md shadow-md">
                     <img src="/static/auth/profile.jpeg" className="w-[60px] mb-3 rounded-full"></img>
                     <div>

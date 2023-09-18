@@ -17,7 +17,7 @@ const Task = () => {
                 </div>
             </header>
             <Link href={"/task/add"}>
-                <button className="bg-primary p-3 rounded-md shadow-md text-xs text-white" onClick={()=>window.location.href='task/add'}> + Add Task </button>
+                <button className="bg-primary p-3 rounded-md shadow-md text-xs text-white" onClick={() => window.location.href = 'task/add'}> + Add Task </button>
             </Link>
             <section className="text-sky-800">
                 <h2 className="text-primary my-3 font-semibold">Task terupdate</h2>
@@ -30,22 +30,22 @@ const Task = () => {
                         <p className="font-bold my-3">Lorem, ipsum dolor.</p>
                         <div className="flex justify-between items-end">
                             <div className="opacity-40">
-                                <div className="flex gap-2 items-center">
+                                <div className="flex gap-2 text-xs items-center">
                                     <IconCalendarEvent />
                                     <p>23 Mei 2023</p>
                                 </div>
-                                <div className="flex gap-2 items-center">
+                                <div className="flex gap-2 text-xs items-center">
                                     <IconClockHour4 />
                                     <p>04.00</p>
                                 </div>
                             </div>
                             <div className="space-x-2">
-                                <span className="text-white bg-orange-600 p-2 inline-block rounded-md">
+                                <div className="text-red-600 bg-red-400 p-2 inline-block rounded-md">
                                     <IconTrash width={20} />
-                                </span>
-                                <span className="text-white bg-green-500 p-2 inline-block rounded-md">
+                                </div>
+                                <div className="text-green-700 bg-green-500 p-2 inline-block rounded-md">
                                     <IconPencilMinus width={20} />
-                                </span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -57,22 +57,22 @@ const Task = () => {
                         <p className="font-bold my-3">Lorem, ipsum dolor.</p>
                         <div className="flex justify-between items-end">
                             <div className="opacity-40">
-                                <div className="flex gap-2 items-center">
+                                <div className="flex gap-2 text-xs items-center">
                                     <IconCalendarEvent />
                                     <p>23 Mei 2023</p>
                                 </div>
-                                <div className="flex gap-2 items-center">
+                                <div className="flex gap-2 text-xs items-center">
                                     <IconClockHour4 />
                                     <p>04.00</p>
                                 </div>
                             </div>
                             <div className="space-x-2">
-                                <span className="text-white bg-orange-600 p-2 inline-block rounded-md">
+                                <div className="text-red-600 bg-red-400 p-2 inline-block rounded-md">
                                     <IconTrash width={20} />
-                                </span>
-                                <span className="text-white bg-green-500 p-2 inline-block rounded-md">
+                                </div>
+                                <div className="text-green-700 bg-green-500 p-2 inline-block rounded-md">
                                     <IconPencilMinus width={20} />
-                                </span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -84,22 +84,22 @@ const Task = () => {
                         <p className="font-bold my-3">Lorem, ipsum dolor.</p>
                         <div className="flex justify-between items-end">
                             <div className="opacity-40">
-                                <div className="flex gap-2 items-center">
+                                <div className="flex gap-2 text-xs items-center">
                                     <IconCalendarEvent />
                                     <p>23 Mei 2023</p>
                                 </div>
-                                <div className="flex gap-2 items-center">
+                                <div className="flex gap-2 text-xs items-center">
                                     <IconClockHour4 />
                                     <p>04.00</p>
                                 </div>
                             </div>
                             <div className="space-x-2">
-                                <span className="text-white bg-orange-600 p-2 inline-block rounded-md">
+                                <div className="text-red-600 bg-red-400 p-2 inline-block rounded-md">
                                     <IconTrash width={20} />
-                                </span>
-                                <span className="text-white bg-green-500 p-2 inline-block rounded-md">
+                                </div>
+                                <div className="text-green-700 bg-green-500 p-2 inline-block rounded-md">
                                     <IconPencilMinus width={20} />
-                                </span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -111,22 +111,22 @@ const Task = () => {
                         <p className="font-bold my-3">Lorem, ipsum dolor.</p>
                         <div className="flex justify-between items-end">
                             <div className="opacity-40">
-                                <div className="flex gap-2 items-center">
+                                <div className="flex gap-2 text-xs items-center">
                                     <IconCalendarEvent />
                                     <p>23 Mei 2023</p>
                                 </div>
-                                <div className="flex gap-2 items-center">
+                                <div className="flex gap-2 text-xs items-center">
                                     <IconClockHour4 />
                                     <p>04.00</p>
                                 </div>
                             </div>
                             <div className="space-x-2">
-                                <span className="text-white bg-orange-600 p-2 inline-block rounded-md">
+                                <div className="text-red-600 bg-red-400 p-2 inline-block rounded-md">
                                     <IconTrash width={20} />
-                                </span>
-                                <span className="text-white bg-green-500 p-2 inline-block rounded-md">
+                                </div>
+                                <div className="text-green-700 bg-green-500 p-2 inline-block rounded-md">
                                     <IconPencilMinus width={20} />
-                                </span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -138,22 +138,22 @@ const Task = () => {
                         <p className="font-bold my-3">Lorem, ipsum dolor.</p>
                         <div className="flex justify-between items-end">
                             <div className="opacity-40">
-                                <div className="flex gap-2 items-center">
+                                <div className="flex gap-2 text-xs items-center">
                                     <IconCalendarEvent />
                                     <p>23 Mei 2023</p>
                                 </div>
-                                <div className="flex gap-2 items-center">
+                                <div className="flex gap-2 text-xs items-center">
                                     <IconClockHour4 />
                                     <p>04.00</p>
                                 </div>
                             </div>
                             <div className="space-x-2">
-                                <span className="text-white bg-orange-600 p-2 inline-block rounded-md">
+                                <div className="text-red-600 bg-red-400 p-2 inline-block rounded-md">
                                     <IconTrash width={20} />
-                                </span>
-                                <span className="text-white bg-green-500 p-2 inline-block rounded-md">
+                                </div>
+                                <div className="text-green-700 bg-green-500 p-2 inline-block rounded-md">
                                     <IconPencilMinus width={20} />
-                                </span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -165,22 +165,22 @@ const Task = () => {
                         <p className="font-bold my-3">Lorem, ipsum dolor.</p>
                         <div className="flex justify-between items-end">
                             <div className="opacity-40">
-                                <div className="flex gap-2 items-center">
+                                <div className="flex gap-2 text-xs items-center">
                                     <IconCalendarEvent />
                                     <p>23 Mei 2023</p>
                                 </div>
-                                <div className="flex gap-2 items-center">
+                                <div className="flex gap-2 text-xs items-center">
                                     <IconClockHour4 />
                                     <p>04.00</p>
                                 </div>
                             </div>
                             <div className="space-x-2">
-                                <span className="text-white bg-orange-600 p-2 inline-block rounded-md">
+                                <div className="text-red-600 bg-red-400 p-2 inline-block rounded-md">
                                     <IconTrash width={20} />
-                                </span>
-                                <span className="text-white bg-green-500 p-2 inline-block rounded-md">
+                                </div>
+                                <div className="text-green-700 bg-green-500 p-2 inline-block rounded-md">
                                     <IconPencilMinus width={20} />
-                                </span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -192,22 +192,22 @@ const Task = () => {
                         <p className="font-bold my-3">Lorem, ipsum dolor.</p>
                         <div className="flex justify-between items-end">
                             <div className="opacity-40">
-                                <div className="flex gap-2 items-center">
+                                <div className="flex gap-2 text-xs items-center">
                                     <IconCalendarEvent />
                                     <p>23 Mei 2023</p>
                                 </div>
-                                <div className="flex gap-2 items-center">
+                                <div className="flex gap-2 text-xs items-center">
                                     <IconClockHour4 />
                                     <p>04.00</p>
                                 </div>
                             </div>
                             <div className="space-x-2">
-                                <span className="text-white bg-orange-600 p-2 inline-block rounded-md">
+                                <div className="text-red-600 bg-red-400 p-2 inline-block rounded-md">
                                     <IconTrash width={20} />
-                                </span>
-                                <span className="text-white bg-green-500 p-2 inline-block rounded-md">
+                                </div>
+                                <div className="text-green-700 bg-green-500 p-2 inline-block rounded-md">
                                     <IconPencilMinus width={20} />
-                                </span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -219,22 +219,22 @@ const Task = () => {
                         <p className="font-bold my-3">Lorem, ipsum dolor.</p>
                         <div className="flex justify-between items-end">
                             <div className="opacity-40">
-                                <div className="flex gap-2 items-center">
+                                <div className="flex gap-2 text-xs items-center">
                                     <IconCalendarEvent />
                                     <p>23 Mei 2023</p>
                                 </div>
-                                <div className="flex gap-2 items-center">
+                                <div className="flex gap-2 text-xs items-center">
                                     <IconClockHour4 />
                                     <p>04.00</p>
                                 </div>
                             </div>
                             <div className="space-x-2">
-                                <span className="text-white bg-orange-600 p-2 inline-block rounded-md">
+                                <div className="text-red-600 bg-red-400 p-2 inline-block rounded-md">
                                     <IconTrash width={20} />
-                                </span>
-                                <span className="text-white bg-green-500 p-2 inline-block rounded-md">
+                                </div>
+                                <div className="text-green-700 bg-green-500 p-2 inline-block rounded-md">
                                     <IconPencilMinus width={20} />
-                                </span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -246,22 +246,22 @@ const Task = () => {
                         <p className="font-bold my-3">Lorem, ipsum dolor.</p>
                         <div className="flex justify-between items-end">
                             <div className="opacity-40">
-                                <div className="flex gap-2 items-center">
+                                <div className="flex gap-2 text-xs items-center">
                                     <IconCalendarEvent />
                                     <p>23 Mei 2023</p>
                                 </div>
-                                <div className="flex gap-2 items-center">
+                                <div className="flex gap-2 text-xs items-center">
                                     <IconClockHour4 />
                                     <p>04.00</p>
                                 </div>
                             </div>
                             <div className="space-x-2">
-                                <span className="text-white bg-orange-600 p-2 inline-block rounded-md">
+                                <div className="text-red-600 bg-red-400 p-2 inline-block rounded-md">
                                     <IconTrash width={20} />
-                                </span>
-                                <span className="text-white bg-green-500 p-2 inline-block rounded-md">
+                                </div>
+                                <div className="text-green-700 bg-green-500 p-2 inline-block rounded-md">
                                     <IconPencilMinus width={20} />
-                                </span>
+                                </div>
                             </div>
                         </div>
                     </div>
