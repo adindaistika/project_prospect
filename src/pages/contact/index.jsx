@@ -25,9 +25,10 @@ const Contact = () => {
             <div className="flex items-center sm:flex-row items-center gap-5">
                 <div className="flex gap-3 w-full">
                     <div className="max-w-[90px] text-center flex flex-col items-center text-xs">
-                        <IconMessage2 color="#0B588D" />
+                        <IconMessage2 onClick={()=>window.location.href='massmessage'} color="#0B588D" />
                         <p>Mass Message</p>
                     </div>
+
                     <div className="max-w-[90px] text-center flex flex-col items-center text-xs">
                         <IconFileSpreadsheet color="#0B588D" />
                         <p>Import From Excel</p>

@@ -9,7 +9,7 @@ const AddEvents = () => {
     return (
         <main className="text-black min-h-screen">
             <header className="flex justify-between items-center mb-4">
-                <h1 className="text-primary font text-lg">Add Events</h1>
+                <h1 className="text-primary font text-lg">Add Event</h1>
                 <div className="flex gap-3 items-center">
                     <p>Agust 23,2023 4.30 PM</p>
                     <IconBell color="#0B588D" />

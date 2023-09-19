@@ -42,10 +42,10 @@ const Events = () => {
                         <div className="flex justify-between items-center shadow-md px-3 py-2 rounded-md">
                             <p className="font-bold">Meeting seminar</p>
                             <div className="space-x-2">
-                                <div className="text-white bg-red-600 p-2 inline-block rounded-md">
+                                <div className="text-red-600 bg-red-400 p-2 inline-block rounded-md">
                                     <IconTrash width={20} />
                                 </div>
-                                <div className="text-white bg-green-500 p-2 inline-block rounded-md">
+                                <div className="text-green-700 bg-green-500 p-2 inline-block rounded-md">
                                     <IconPencilMinus width={20} />
                                 </div>
                             </div>
@@ -53,10 +53,10 @@ const Events = () => {
                         <div className="flex justify-between items-center shadow-md px-3 py-2 rounded-md">
                             <p className="font-bold">Meeting seminar</p>
                             <div className="space-x-2">
-                                <div className="text-white bg-red-600 p-2 inline-block rounded-md">
+                                <div className="text-red-600 bg-red-400 p-2 inline-block rounded-md">
                                     <IconTrash width={20} />
                                 </div>
-                                <div className="text-white bg-green-500 p-2 inline-block rounded-md">
+                                <div className="text-green-700 bg-green-500 p-2 inline-block rounded-md">
                                     <IconPencilMinus width={20} />
                                 </div>
                             </div>
@@ -64,10 +64,10 @@ const Events = () => {
                         <div className="flex justify-between items-center shadow-md px-3 py-2 rounded-md">
                             <p className="font-bold">Meeting seminar</p>
                             <div className="space-x-2">
-                                <div className="text-white bg-red-600 p-2 inline-block rounded-md">
+                                <div className="text-red-600 bg-red-400 p-2 inline-block rounded-md">
                                     <IconTrash width={20} />
                                 </div>
-                                <div className="text-white bg-green-500 p-2 inline-block rounded-md">
+                                <div className="text-green-700 bg-green-500 p-2 inline-block rounded-md">
                                     <IconPencilMinus width={20} />
                                 </div>
                             </div>
@@ -75,10 +75,10 @@ const Events = () => {
                         <div className="flex justify-between items-center shadow-md px-3 py-2 rounded-md">
                             <p className="font-bold">Meeting seminar</p>
                             <div className="space-x-2">
-                                <div className="text-white bg-red-600 p-2 inline-block rounded-md">
+                                <div className="text-red-600 bg-red-400 p-2 inline-block rounded-md">
                                     <IconTrash width={20} />
                                 </div>
-                                <div className="text-white bg-green-500 p-2 inline-block rounded-md">
+                                <div className="text-green-700 bg-green-500 p-2 inline-block rounded-md">
                                     <IconPencilMinus width={20} />
                                 </div>
                             </div>
@@ -86,10 +86,10 @@ const Events = () => {
                         <div className="flex justify-between items-center shadow-md px-3 py-2 rounded-md">
                             <p className="font-bold">Meeting seminar</p>
                             <div className="space-x-2">
-                                <div className="text-white bg-red-600 p-2 inline-block rounded-md">
+                                <div className="text-red-600 bg-red-400 p-2 inline-block rounded-md">
                                     <IconTrash width={20} />
                                 </div>
-                                <div className="text-white bg-green-500 p-2 inline-block rounded-md">
+                                <div className="text-green-700 bg-green-500 p-2 inline-block rounded-md">
                                     <IconPencilMinus width={20} />
                                 </div>
                             </div>
