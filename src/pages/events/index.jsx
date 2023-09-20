@@ -19,7 +19,7 @@ const Events = () => {
 
     }
     return (
-        <main className="text-black min-h-screen">
+        <main className=" min-h-screen">
             <header className="flex justify-between items-center mb-4">
                 <h1 className="text-primary font text-lg">Events</h1>
                 <div className="flex gap-3 items-center">

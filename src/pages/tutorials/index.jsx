@@ -15,9 +15,17 @@ const Tutorials = () => {
                 <iframe width="560" height="315" className="w-full mb-5" src="https://www.youtube.com/embed/W1MlXE5fBLM?si=dYQyTvSauKz5lNeU"
                     title="YouTube video player" frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                    <h1>djchsdcdsi</h1>
+
             </div>
-            <div className="collapse collapse-arrow bg-primary text-black">
+            <div tabIndex={0} className="collapse collapse-arrow border border-base-300 bg-base-200">
+                <div className="collapse-title text-xl font-medium">
+                    Focus me to see content
+                </div>
+                <div className="collapse-content">
+                    <p>tabIndex={0} attribute is necessary to make the div focusable</p>
+                </div>
+            </div>
+            {/* <div className="collapse collapse-arrow bg-primary text-black">
                 <input type="radio" name="my-accordion-2" checked="checked" />
                 <div className="collapse-title text-xl bg-primary font-medium">
                     Click to open this one and close others
@@ -32,7 +40,7 @@ const Tutorials = () => {
                         corporis id magni aut, harum suscipit?
                     </p>
                 </div>
-            </div>
+            </div> */}
         </main>
     )
 }

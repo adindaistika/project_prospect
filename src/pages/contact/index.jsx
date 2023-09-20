@@ -10,9 +10,9 @@ import { IconBell } from "@tabler/icons-react";
 const Contact = () => {
     return (
         <main className="min-h-screen">
-            <header className="flex justify-between items-center mb-4">
+            <header className="flex flex-col-reverse sm:flex-row justify-between items-center mb-4">
                 <h1 className="text-primary font text-lg">Contact</h1>
-                <div className="flex gap-3 items-center">
+                <div className="flex gap-3 items-center mb-2 sm:mb-0">
                     <p>Agust 23,2023 4.30 PM</p>
                     <IconBell color="#0B588D" />
                     <img src="/static/auth/logo.png" className="w-[50px] m-auto"></img>
@@ -57,36 +57,36 @@ const Contact = () => {
                 </div>
             </div>
             <div className="flex justify-between items-center mt-8 mb-3">
-                <h5 className="text-lg font-semibold">All contact</h5>
+                <h5 className="text-lg font-semibold text-[10px] md:text-[24px]">All contact</h5>
                 <button className="p-2 bg-primary rounded-md text-xs text-second" onClick={()=>window.location.href='contact/add'} type="button"> + Add Contact </button>
             </div>
-            <div className="grid grid-cols-2 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div className="flex items-center gap-3 p-3 rounded-md shadow-md">
                     <img src="/static/auth/profile.jpeg" className="w-[60px] mb-3 rounded-full"></img>
                     <div>
-                        <p className="font-semibold">Adinda Istika Maulia</p>
-                        <p className="text-xs font-semibold text-slate-400"> Company ---- </p>
+                        <p className="font-semibold text-[10px] md:text-[18px]">Adinda Istika Maulia</p>
+                        <p className=" font-semibold text-slate-400 text-[10px] md:text-[13px]"> Company ---- </p>
                     </div>
                 </div>
                 <div className="flex items-center gap-3 p-3 rounded-md shadow-md">
                     <img src="/static/auth/profile.jpeg" className="w-[60px] mb-3 rounded-full"></img>
                     <div>
-                        <p className="font-semibold">Adinda Istika Maulia</p>
-                        <p className="text-xs font-semibold text-slate-400"> Company ---- </p>
+                        <p className="font-semibold text-[10px] md:text-[18px]">Adinda Istika Maulia</p>
+                        <p className=" font-semibold text-slate-400 text-[10px] md:text-[13px]"> Company ---- </p>
                     </div>
                 </div>
                 <div className="flex items-center gap-3 p-3 rounded-md shadow-md">
                     <img src="/static/auth/profile.jpeg" className="w-[60px] mb-3 rounded-full"></img>
                     <div>
-                        <p className="font-semibold">Adinda Istika Maulia</p>
-                        <p className="text-xs font-semibold text-slate-400"> Company ---- </p>
+                        <p className="font-semibold text-[10px] md:text-[18px]">Adinda Istika Maulia</p>
+                        <p className=" font-semibold text-slate-400 text-[10px] md:text-[13px]"> Company ---- </p>
                     </div>
                 </div>
                 <div className="flex items-center gap-3 p-3 rounded-md shadow-md">
                     <img src="/static/auth/profile.jpeg" className="w-[60px] mb-3 rounded-full"></img>
                     <div>
-                        <p className="font-semibold">Adinda Istika Maulia</p>
-                        <p className="text-xs font-semibold text-slate-400">
+                        <p className="font-semibold text-[10px] md:text-[18px]">Adinda Istika Maulia</p>
+                        <p className=" font-semibold text-slate-400 text-[10px] md:text-[13px]">
                             Company ----
                         </p>
                     </div>
@@ -94,8 +94,8 @@ const Contact = () => {
                 <div className="flex items-center gap-3 p-3 rounded-md shadow-md">
                     <img src="/static/auth/profile.jpeg" className="w-[60px] mb-3 rounded-full"></img>
                     <div>
-                        <p className="font-semibold">Adinda Istika Maulia</p>
-                        <p className="text-xs font-semibold text-slate-400">
+                        <p className="font-semibold text-[10px] md:text-[18px]">Adinda Istika Maulia</p>
+                        <p className=" font-semibold text-slate-400 text-[10px] md:text-[13px]">
                             Company ----
                         </p>
                     </div>
@@ -103,8 +103,8 @@ const Contact = () => {
                 <div className="flex items-center gap-3 p-3 rounded-md shadow-md">
                     <img src="/static/auth/profile.jpeg" className="w-[60px] mb-3 rounded-full"></img>
                     <div>
-                        <p className="font-semibold">Adinda Istika Maulia</p>
-                        <p className="text-xs font-semibold text-slate-400">
+                        <p className="font-semibold text-[10px] md:text-[18px]">Adinda Istika Maulia</p>
+                        <p className=" font-semibold text-slate-400 text-[10px] md:text-[13px]">
                             Company ----
                         </p>
                     </div>
@@ -112,15 +112,15 @@ const Contact = () => {
                 <div className="flex items-center gap-3 p-3 rounded-md shadow-md">
                     <img src="/static/auth/profile.jpeg" className="w-[60px] mb-3 rounded-full"></img>
                     <div>
-                        <p className="font-semibold">Adinda Istika Maulia</p>
-                        <p className="text-xs font-semibold text-slate-400">  Company ---- </p>
+                        <p className="font-semibold text-[10px] md:text-[18px]">Adinda Istika Maulia</p>
+                        <p className=" font-semibold text-slate-400 text-[10px] md:text-[13px]">  Company ---- </p>
                     </div>
                 </div>
                 <div className="flex items-center gap-3 p-3 rounded-md shadow-md">
                     <img src="/static/auth/profile.jpeg" className="w-[60px] mb-3 rounded-full"></img>
                     <div>
-                        <p className="font-semibold">Adinda Istika Maulia</p>
-                        <p className="text-xs font-semibold text-slate-400">  Company ---- </p>
+                        <p className="font-semibold text-[10px] md:text-[18px]">Adinda Istika Maulia</p>
+                        <p className=" font-semibold text-slate-400 text-[10px] md:text-[13px]">  Company ---- </p>
                     </div>
                 </div>
             </div>

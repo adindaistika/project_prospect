@@ -39,7 +39,7 @@ const Home = () => {
         <div className="space-y-3 w-full sm:w-1/2">
           <h3 className="font-semibold text-[10px] md:text-[24px]">Event Terupdate</h3>
           <div className="shadow-md rounded-md p-3 flex justify-between items-center">
-            <h5 className="font-bold">Meeting Seminar</h5>
+            <h5 className="font-bold text-[10px] md:text-[18px]">Meeting Seminar</h5>
             <div className="flex items-center gap-3">
               <div className="bg-red-600 p-1 w-max rounded-md">
                 <IconTrash color="#FFFFFF" />
@@ -50,7 +50,7 @@ const Home = () => {
             </div>
           </div>
           <div className="shadow-md rounded-md p-3 flex justify-between items-center">
-            <h5 className="font-bold">Meeting Seminar</h5>
+            <h5 className="font-bold text-[10px] md:text-[18px]">Meeting Seminar</h5>
             <div className="flex items-center gap-3">
               <div className="bg-red-600 p-1 w-max rounded-md">
                 <IconTrash color="#FFFFFF" />
@@ -61,7 +61,7 @@ const Home = () => {
             </div>
           </div>
           <div className="shadow-md rounded-md p-3 flex justify-between items-center">
-            <h5 className="font-bold">Meeting Seminar</h5>
+            <h5 className="font-bold text-[10px] md:text-[18px]">Meeting Seminar</h5>
             <div className="flex items-center gap-3">
               <div className="bg-red-600 p-1 w-max rounded-md">
                 <IconTrash color="#FFFFFF" />
@@ -72,7 +72,7 @@ const Home = () => {
             </div>
           </div>
           <div className="shadow-md rounded-md p-3 flex justify-between items-center">
-            <h5 className="font-bold">Meeting Seminar</h5>
+            <h5 className="font-bold text-[10px] md:text-[18px]">Meeting Seminar</h5>
             <div className="flex items-center gap-3">
               <div className="bg-red-600 p-1 w-max rounded-md">
                 <IconTrash color="#FFFFFF" />
@@ -84,10 +84,10 @@ const Home = () => {
           </div>
         </div>
         <div className="space-y-3 w-full sm:w-1/2">
-          <h3 className="font-semibold">Tasks Terupdate</h3>
+          <h3 className="font-semibold text-[10px] md:text-[24px]">Tasks Terupdate</h3>
           <div className="shadow-md rounded-md p-3 flex justify-between items-center">
             <div>
-              <h5>Hasil meeting pada sore hari ini adalah ....</h5>
+              <h5 className="text-[10px] md:text-[18px]">Hasil meeting pada sore hari ini adalah ....</h5>
               <div className="text-xs my-2 flex gap-2 items-center flex-wrap">
                 <div> Contact Adinda {""} </div>
                 <div className="bg-slate-400 text-[10px] px-2 py-1 rounded-full">
@@ -96,13 +96,13 @@ const Home = () => {
               </div>
             </div>
             <div className="text-center">
-              <h6 className="font-semibold">23</h6>
-              <p className="text-xs">Agust</p>
+              <h6 className="font-semibold text-[10px] md:text-[18px]">23</h6>
+              <p className="text-xs text-[10px] md:text-[18px]">Agust</p>
             </div>
           </div>
            <div className="shadow-md rounded-md p-3 flex justify-between items-center">
             <div>
-              <h5>Hasil meeting pada sore hari ini adalah ....</h5>
+              <h5 className="text-[10px] md:text-[18px]">Hasil meeting pada sore hari ini adalah ....</h5>
               <div className="text-xs my-2 flex gap-2 items-center flex-wrap">
                 <div> Contact Adinda {""} </div>
                 <div className="bg-slate-400 text-[10px] px-2 py-1 rounded-full">
@@ -111,13 +111,13 @@ const Home = () => {
               </div>
             </div>
             <div className="text-center">
-              <h6 className="font-semibold">23</h6>
-              <p className="text-xs">Agust</p>
+              <h6 className="font-semibold text-[10px] md:text-[18px]">23</h6>
+              <p className="text-xs text-[10px] md:text-[18px]">Agust</p>
             </div>
           </div>
           <div className="shadow-md rounded-md p-3 flex justify-between items-center">
             <div>
-              <h5>Hasil meeting pada sore hari ini adalah ....</h5>
+              <h5 className="text-[10px] md:text-[18px]">Hasil meeting pada sore hari ini adalah ....</h5>
               <div className="text-xs my-2 flex gap-2 items-center flex-wrap">
                 <div> Contact Adinda {""} </div>
                 <div className="bg-slate-400 text-[10px] px-2 py-1 rounded-full">
@@ -126,8 +126,8 @@ const Home = () => {
               </div>
             </div>
             <div className="text-center">
-              <h6 className="font-semibold">23</h6>
-              <p className="text-xs">Agust</p>
+              <h6 className="font-semibold text-[10px] md:text-[18px]">23</h6>
+              <p className="text-xs text-[10px] md:text-[18px]">Agust</p>
             </div>
           </div>
         </div>

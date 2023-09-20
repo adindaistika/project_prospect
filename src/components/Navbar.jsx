@@ -52,18 +52,26 @@ const Navbar = () => {
           <IconMovie color={router.pathname === "/tutorials" ? "#0B588D" : "#FFFFFF"} />
         </div>
         </Link>
-        <div className="bg-second p-2 w-max rounded-md">
-          <IconAddressBook color="#0B588D" />
+        <Link href={'/subscription'}>
+        <div className={router.pathname === "/subscription" && "bg-second p-2 w-max rounded-md"}>
+          <IconAddressBook color={router.pathname === "/subscription" ? "#0B588D" : "#FFFFFF"} />
         </div>
-        <div className="bg-second p-2 w-max rounded-md">
-          <IconAffiliate color="#0B588D" />
+        </Link>
+        <Link href={'/referrals'}>
+        <div className={router.pathname === "/referrals" && "bg-second p-2 w-max rounded-md"}>
+          <IconAffiliate color={router.pathname === "/referrals" ? "#0B588D"  : "#FFFFFF"} />
         </div>
-        <div className="bg-second p-2 w-max rounded-md">
-          <IconQuote color="#0B588D" />
+        </Link>
+        <Link href={'/feedback'}>
+        <div className={router.pathname === "/feedback" && "bg-second p-2 w-max rounded-md"}>
+          <IconQuote color={router.pathname === "/feedback" ? "#0B588D" : "#FFFFFF"} />
         </div>
-        <div className="bg-second p-2 w-max rounded-md">
-          <IconMessage color="#0B588D" />
+        </Link>
+        <Link href={'/messagetemplate'}>
+        <div className={router.pathname === "/messagetemplate" && "bg-second p-2 w-max rounded-md"}>
+          <IconMessage color={router.pathname === "/messagetemplate" ? "#0B588D" : "#FFFFFF"} />
         </div>
+        </Link>
       </div>
       <div className="p-2 w-max rounded-md m-auto">
         <IconLogout color="#fff" />

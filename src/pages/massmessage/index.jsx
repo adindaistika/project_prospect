@@ -15,7 +15,7 @@ const Massmessage = () => {
                 </div>
             </header>
             <div className="grid justify-items-end mt-8 mb-3">
-                <button className="p-3 bg-primary rounded-md text-xs text-second" onClick={() => window.location.href = 'massmessage/add'} type="button"> + Add Message </button>
+                <button className="p-3 bg-primary rounded-md text-xs text-second" onClick={() => window.location.href = 'massmessage/sendmessage'} type="button"> + Add Message </button>
             </div>
             <div className="w-full my-5 gap-3">
                 <table
