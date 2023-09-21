@@ -1,13 +1,14 @@
-import {IconBell} from "@tabler/icons-react";
+import { IconBell } from "@tabler/icons-react";
 const AddTask = () => {
     return (
         <main className="text-black min-h-screen">
-            <header className="flex justify-between items-center mb-4">
-                <h1 className="text-primary font text-lg">Add Task</h1>
+            <header className="flex flex-col sm:flex-row justify-between lg:items-center">
+                <div className="mb-4 sm:mb-0">
+                    <h1 className="text-black lg:text-left font-semibold">ADD TASK</h1>
+                </div>
                 <div className="flex gap-3 items-center">
-                    <p>Agust 23,2023 4.30 PM</p>
                     <IconBell color="#0B588D" />
-                    <img src="/static/auth/logo.png" className="w-[50px] m-auto"></img>
+                    <img src="/static/auth/profile.jpeg" className="w-[50px] m-auto" alt="Logo" />
                 </div>
             </header>
             <form className="flex flex-col gap-3" action="">

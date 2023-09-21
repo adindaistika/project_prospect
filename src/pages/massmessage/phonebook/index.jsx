@@ -5,12 +5,13 @@ import { IconTrash } from "@tabler/icons-react";
 const Phonebook = () => {
     return (
         <main>
-            <header className="flex justify-between items-center mb-4">
-                <h1 className="text-primary font text-lg">Pemilihan Contact</h1>
+            <header className="flex flex-col sm:flex-row justify-between lg:items-center">
+                <div className="mb-4 sm:mb-0">
+                    <h1 className="text-black lg:text-left font-semibold">PEMILIHAN CONTACT</h1>
+                </div>
                 <div className="flex gap-3 items-center">
-                    <p>Agust 23,2023 4.30 PM</p>
                     <IconBell color="#0B588D" />
-                    <img src="/static/auth/logo.png" className="w-[50px] m-auto"></img>
+                    <img src="/static/auth/profile.jpeg" className="w-[50px] m-auto" alt="Logo" />
                 </div>
             </header>
             <div className="flex justify-between items-center mt-8 mb-3">

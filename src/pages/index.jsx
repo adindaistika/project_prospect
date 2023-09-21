@@ -1,4 +1,3 @@
-import { IconSearch } from "@tabler/icons-react";
 import { IconPencilMinus } from "@tabler/icons-react";
 import { IconTrash } from "@tabler/icons-react";
 import { IconBell } from "@tabler/icons-react";
@@ -8,29 +7,27 @@ const Home = () => {
     <main className="min-h-screen">
       <header className="flex flex-col sm:flex-row justify-between lg:items-center">
         <div className="mb-4 sm:mb-0">
-          <h1 className="text-primary lg:text-left">Halo, Selamat datang Jono</h1>
-          <h5 className="text-slate-400 text-center sm:text-left">Good Morning</h5>
+          <h1 className="text-black lg:text-left font-semibold">DASHBOARD</h1>
         </div>
         <div className="flex gap-3 items-center">
-          <p>Agust 23, 2023 4.30 PM</p>
           <IconBell color="#0B588D" />
-          <img src="/static/auth/logo.png" className="w-[50px] m-auto" alt="Logo" />
+          <img src="/static/auth/profile.jpeg" className="w-[50px] m-auto" alt="Logo" />
         </div>
       </header>
-      <div className="flex w-full mx-auto my-4 p-2 rounded-md shadow-md">
-        <input className="outline-none w-full" type="text" name="search" id="search" />
-        <IconSearch />
+      <div className="home-banner flex flex-col w-full mx-auto my-4 p-10 rounded-md shadow-md bg-sky-600">
+        <h1 className="text-white lg:text-left font-bold text-">Halo, Selamat datang Jono</h1>
+        <h5 className="text-white text-center sm:text-left mt-2">Good Morning</h5>
       </div>
       <div className="flex flex-col sm:flex-row gap-3 text-white">
-        <div className="p-8 bg-[#214A00] rounded-md flex-1">
+        <div className="rectangle1-banner p-8 bg-[#214A00] rounded-md flex-1">
           <p className="text-center">0/0</p>
           <p>Prospect Added</p>
         </div>
-        <div className="p-8 bg-[#18046A] rounded-md flex-1">
+        <div className="rectangle2-banner p-8 bg-[#18046A] rounded-md flex-1">
           <p className="text-center">0/0</p>
           <p>Prospect Added</p>
         </div>
-        <div className="p-8 bg-[#007383] rounded-md flex-1">
+        <div className="rectangle3-banner p-8 bg-[#007383] rounded-md flex-1">
           <p className="text-center">0/0</p>
           <p>Prospect Added</p>
         </div>
@@ -40,52 +37,63 @@ const Home = () => {
           <h3 className="font-semibold text-[10px] md:text-[24px]">Event Terupdate</h3>
           <div className="shadow-md rounded-md p-3 flex justify-between items-center">
             <h5 className="font-bold text-[10px] md:text-[18px]">Meeting Seminar</h5>
-            <div className="flex items-center gap-3">
-              <div className="bg-red-600 p-1 w-max rounded-md">
-                <IconTrash color="#FFFFFF" />
+            <div className="flex items-center gap-2">
+              <div className="bg-transparent  w-max">
+                <IconTrash color="red" />
               </div>
-              <div className="bg-green-600 p-1 w-max rounded-md">
-                <IconPencilMinus color="#FFFFFF" />
-              </div>
-            </div>
-          </div>
-          <div className="shadow-md rounded-md p-3 flex justify-between items-center">
-            <h5 className="font-bold text-[10px] md:text-[18px]">Meeting Seminar</h5>
-            <div className="flex items-center gap-3">
-              <div className="bg-red-600 p-1 w-max rounded-md">
-                <IconTrash color="#FFFFFF" />
-              </div>
-              <div className="bg-green-600 p-1 w-max rounded-md">
-                <IconPencilMinus color="#FFFFFF" />
+              <div className="bg-transparent p-1 w-max">
+                <IconPencilMinus color="green" />
               </div>
             </div>
           </div>
           <div className="shadow-md rounded-md p-3 flex justify-between items-center">
             <h5 className="font-bold text-[10px] md:text-[18px]">Meeting Seminar</h5>
-            <div className="flex items-center gap-3">
-              <div className="bg-red-600 p-1 w-max rounded-md">
-                <IconTrash color="#FFFFFF" />
+            <div className="flex items-center gap-2">
+              <div className="bg-transparent p-1 w-max">
+                <IconTrash color="red" />
               </div>
-              <div className="bg-green-600 p-1 w-max rounded-md">
-                <IconPencilMinus color="#FFFFFF" />
+              <div className="bg-transparent p-1 w-max">
+                <IconPencilMinus color="green" />
               </div>
             </div>
           </div>
           <div className="shadow-md rounded-md p-3 flex justify-between items-center">
             <h5 className="font-bold text-[10px] md:text-[18px]">Meeting Seminar</h5>
-            <div className="flex items-center gap-3">
-              <div className="bg-red-600 p-1 w-max rounded-md">
-                <IconTrash color="#FFFFFF" />
+            <div className="flex items-center gap-2">
+              <div className="bg-transparent p-1 w-max">
+                <IconTrash color="red" />
               </div>
-              <div className="bg-green-600 p-1 w-max rounded-md">
-                <IconPencilMinus color="#FFFFFF" />
+              <div className="bg-transparent p-1 w-max">
+                <IconPencilMinus color="green" />
+              </div>
+            </div>
+          </div>
+          <div className="shadow-md rounded-md p-3 flex justify-between items-center">
+            <h5 className="font-bold text-[10px] md:text-[18px]">Meeting Seminar</h5>
+            <div className="flex items-center gap-2">
+              <div className="bg-transparent p-1 w-max">
+                <IconTrash color="red" />
+              </div>
+              <div className="bg-transparent p-1 w-max">
+                <IconPencilMinus color="green" />
+              </div>
+            </div>
+          </div>
+          <div className="shadow-md rounded-md p-3 flex justify-between items-center">
+            <h5 className="font-bold text-[10px] md:text-[18px]">Meeting Seminar</h5>
+            <div className="flex items-center gap-2">
+              <div className="bg-transparent p-1 w-max">
+                <IconTrash color="red" />
+              </div>
+              <div className="bg-transparent p-1 w-max">
+                <IconPencilMinus color="green" />
               </div>
             </div>
           </div>
         </div>
         <div className="space-y-3 w-full sm:w-1/2">
           <h3 className="font-semibold text-[10px] md:text-[24px]">Tasks Terupdate</h3>
-          <div className="shadow-md rounded-md p-3 flex justify-between items-center">
+          <div className="bg-slate-200 shadow-md rounded-md p-3 flex justify-between items-center">
             <div>
               <h5 className="text-[10px] md:text-[18px]">Hasil meeting pada sore hari ini adalah ....</h5>
               <div className="text-xs my-2 flex gap-2 items-center flex-wrap">
@@ -94,25 +102,6 @@ const Home = () => {
                   Reminder : 23/09/2023 04.00 PM
                 </div>
               </div>
-            </div>
-            <div className="text-center">
-              <h6 className="font-semibold text-[10px] md:text-[18px]">23</h6>
-              <p className="text-xs text-[10px] md:text-[18px]">Agust</p>
-            </div>
-          </div>
-           <div className="shadow-md rounded-md p-3 flex justify-between items-center">
-            <div>
-              <h5 className="text-[10px] md:text-[18px]">Hasil meeting pada sore hari ini adalah ....</h5>
-              <div className="text-xs my-2 flex gap-2 items-center flex-wrap">
-                <div> Contact Adinda {""} </div>
-                <div className="bg-slate-400 text-[10px] px-2 py-1 rounded-full">
-                  Reminder : 23/09/2023 04.00 PM
-                </div>
-              </div>
-            </div>
-            <div className="text-center">
-              <h6 className="font-semibold text-[10px] md:text-[18px]">23</h6>
-              <p className="text-xs text-[10px] md:text-[18px]">Agust</p>
             </div>
           </div>
           <div className="shadow-md rounded-md p-3 flex justify-between items-center">
@@ -125,9 +114,16 @@ const Home = () => {
                 </div>
               </div>
             </div>
-            <div className="text-center">
-              <h6 className="font-semibold text-[10px] md:text-[18px]">23</h6>
-              <p className="text-xs text-[10px] md:text-[18px]">Agust</p>
+          </div>
+          <div className="shadow-md rounded-md p-3 flex justify-between items-center">
+            <div>
+              <h5 className="text-[10px] md:text-[18px]">Hasil meeting pada sore hari ini adalah ....</h5>
+              <div className="text-xs my-2 flex gap-2 items-center flex-wrap">
+                <div> Contact Adinda {""} </div>
+                <div className="bg-slate-400 text-[10px] px-2 py-1 rounded-full">
+                  Reminder : 23/09/2023 04.00 PM
+                </div>
+              </div>
             </div>
           </div>
         </div>

@@ -20,12 +20,13 @@ const Events = () => {
     }
     return (
         <main className=" min-h-screen">
-            <header className="flex justify-between items-center mb-4">
-                <h1 className="text-primary font text-lg">Events</h1>
+            <header className="flex flex-col sm:flex-row justify-between lg:items-center">
+                <div className="mb-4 sm:mb-0">
+                    <h1 className="text-black lg:text-left font-semibold">EVENTS</h1>
+                </div>
                 <div className="flex gap-3 items-center">
-                    <p>Agust 23,2023 4.30 PM</p>
                     <IconBell color="#0B588D" />
-                    <img src="/static/auth/logo.png" className="w-[50px] m-auto"></img>
+                    <img src="/static/auth/profile.jpeg" className="w-[50px] m-auto" alt="Logo" />
                 </div>
             </header>
             <div className="flex gap-5">
@@ -39,57 +40,57 @@ const Events = () => {
                     </div>
                     <p className="opacity-50">30 Januari 2023</p>
                     <div className="space-y-3">
-                        <div className="flex justify-between items-center shadow-md px-3 py-2 rounded-md">
+                        <div className="flex justify-between items-center shadow-md px-4 py-4 rounded-md">
                             <p className="font-bold">Meeting seminar</p>
-                            <div className="space-x-2">
-                                <div className="text-red-600 bg-red-400 p-2 inline-block rounded-md">
+                            <div className="space-x-1 flex items-center gap-2">
+                                <div className="text-red-600">
                                     <IconTrash width={20} />
                                 </div>
-                                <div className="text-green-700 bg-green-500 p-2 inline-block rounded-md">
+                                <div className="text-green-700">
                                     <IconPencilMinus width={20} />
                                 </div>
                             </div>
                         </div>
-                        <div className="flex justify-between items-center shadow-md px-3 py-2 rounded-md">
+                        <div className="flex justify-between items-center shadow-md px-4 py-4 rounded-md">
                             <p className="font-bold">Meeting seminar</p>
-                            <div className="space-x-2">
-                                <div className="text-red-600 bg-red-400 p-2 inline-block rounded-md">
+                            <div className="space-x-1 flex items-center gap-2">
+                                <div className="text-red-600">
                                     <IconTrash width={20} />
                                 </div>
-                                <div className="text-green-700 bg-green-500 p-2 inline-block rounded-md">
+                                <div className="text-green-700">
                                     <IconPencilMinus width={20} />
                                 </div>
                             </div>
                         </div>
-                        <div className="flex justify-between items-center shadow-md px-3 py-2 rounded-md">
+                        <div className="flex justify-between items-center shadow-md px-4 py-4 rounded-md">
                             <p className="font-bold">Meeting seminar</p>
-                            <div className="space-x-2">
-                                <div className="text-red-600 bg-red-400 p-2 inline-block rounded-md">
+                            <div className="space-x-1 flex items-center gap-2">
+                                <div className="text-red-600">
                                     <IconTrash width={20} />
                                 </div>
-                                <div className="text-green-700 bg-green-500 p-2 inline-block rounded-md">
+                                <div className="text-green-700">
                                     <IconPencilMinus width={20} />
                                 </div>
                             </div>
                         </div>
-                        <div className="flex justify-between items-center shadow-md px-3 py-2 rounded-md">
+                        <div className="flex justify-between items-center shadow-md px-4 py-4 rounded-md">
                             <p className="font-bold">Meeting seminar</p>
-                            <div className="space-x-2">
-                                <div className="text-red-600 bg-red-400 p-2 inline-block rounded-md">
+                            <div className="space-x-1 flex items-center gap-2">
+                                <div className="text-red-600">
                                     <IconTrash width={20} />
                                 </div>
-                                <div className="text-green-700 bg-green-500 p-2 inline-block rounded-md">
+                                <div className="text-green-700">
                                     <IconPencilMinus width={20} />
                                 </div>
                             </div>
                         </div>
-                        <div className="flex justify-between items-center shadow-md px-3 py-2 rounded-md">
+                        <div className="flex justify-between items-center shadow-md px-4 py-4 rounded-md">
                             <p className="font-bold">Meeting seminar</p>
-                            <div className="space-x-2">
-                                <div className="text-red-600 bg-red-400 p-2 inline-block rounded-md">
+                            <div className="space-x-1 flex items-center gap-2">
+                                <div className="text-red-600">
                                     <IconTrash width={20} />
                                 </div>
-                                <div className="text-green-700 bg-green-500 p-2 inline-block rounded-md">
+                                <div className="text-green-700">
                                     <IconPencilMinus width={20} />
                                 </div>
                             </div>

@@ -3,20 +3,21 @@ import { IconBell } from "@tabler/icons-react";
 const AddContact = () => {
     return (
         <main className="text-black min-h-screen">
-            <header className="flex justify-between items-center mb-4">
-                <h1 className="text-primary font text-lg">Add Contact</h1>
+            <header className="flex flex-col sm:flex-row justify-between lg:items-center">
+                <div className="mb-4 sm:mb-0">
+                    <h1 className="text-black lg:text-left font-semibold">ADD CONTACT</h1>
+                </div>
                 <div className="flex gap-3 items-center">
-                    <p>Agust 23,2023 4.30 PM</p>
                     <IconBell color="#0B588D" />
-                    <img src="/static/auth/logo.png" className="w-[50px] m-auto"></img>
+                    <img src="/static/auth/profile.jpeg" className="w-[50px] m-auto" alt="Logo" />
                 </div>
             </header>
             <form className="mt-5">
                 <div className="grid grid-cols-2 gap-3 ">
                     <label className="flex my-2 flex-col gap-1 text-xs w-full">
-                        <span className="text-xs font-bold text-sky-800">First Name</span>
+                        <span className="text-xs font-bold text-sky-600">First Name</span>
                         <input
-                            className="p-3 rounded-md outline-none border border-sky-800 text-sky"
+                            className="p-3 rounded-md outline-none border border-sky-600 text-sky"
                             type="text"
                             required
                             placeholder="Your First Name"
@@ -25,9 +26,9 @@ const AddContact = () => {
                         />
                     </label>
                     <label className="flex my-2 flex-col gap-1 text-xs w-ful">
-                        <span className="text-xs font-bold text-sky-800">Last Name</span>
+                        <span className="text-xs font-bold text-sky-600">Last Name</span>
                         <input
-                            className="p-3 rounded-md outline-none border border-sky-800 text-sky"
+                            className="p-3 rounded-md outline-none border border-sky-600 text-sky"
                             type="text"
                             required
                             placeholder="Your Last Name"
@@ -37,9 +38,9 @@ const AddContact = () => {
                     </label>
                 </div>
                 <label className="flex my-2 flex-col gap-1 text-xs w-full">
-                    <span className="text-xs font-bold text-sky-800">Phone Number</span>
+                    <span className="text-xs font-bold text-sky-600">Phone Number</span>
                     <input
-                        className="p-3 rounded-md outline-none border border-sky-800 text-sky"
+                        className="p-3 rounded-md outline-none border border-sky-600 text-sky"
                         type="text"
                         required
                         placeholder="Your Phone Number"
@@ -48,9 +49,9 @@ const AddContact = () => {
                     />
                 </label>
                 <label className="flex my-2 flex-col gap-1 text-xs w-full">
-                    <span className="text-xs font-bold text-sky-800">Home phone number</span>
+                    <span className="text-xs font-bold text-sky-600">Home phone number</span>
                     <input
-                        className="p-3 rounded-md outline-none border border-sky-800 text-sky"
+                        className="p-3 rounded-md outline-none border border-sky-600 text-sky"
                         type="text"
                         required
                         placeholder="Your Home Phone Number"
@@ -59,9 +60,9 @@ const AddContact = () => {
                     />
                 </label>
                 <label className="flex my-2 flex-col gap-1 text-xs w-full">
-                    <span className="text-xs font-bold text-sky-800">Work phone number</span>
+                    <span className="text-xs font-bold text-sky-600">Work phone number</span>
                     <input
-                        className="p-3 rounded-md outline-none border border-sky-800 text-sky"
+                        className="p-3 rounded-md outline-none border border-sky-600 text-sky"
                         type="text"
                         required
                         placeholder="Your Work Phone Number"
@@ -70,18 +71,18 @@ const AddContact = () => {
                     />
                 </label>
                 <label className="flex flex-col w-full" htmlFor="category">
-                    <span className="font-bold text-xs text-sky-800">Category</span>
+                    <span className="font-bold text-xs text-sky-600">Category</span>
                     <select
-                        className="bg-white-700 text-xs text-sky-800 border border-sky-700 p-2 rounded-md outline-none"
+                        className="bg-white-700 text-xs text-sky-600 border border-sky-700 p-2 rounded-md outline-none"
                         name="actegory"
                         id="category">
-                        <option className="text-sky-800 text-xs" value="prospects">prospects</option>
-                        <option className="text-sky-800 text-xs" value="team">team</option>
-                        <option className="text-sky-800 text-xs" value="client">client</option>
+                        <option className="text-sky-600 text-xs" value="prospects">prospects</option>
+                        <option className="text-sky-600 text-xs" value="team">team</option>
+                        <option className="text-sky-600 text-xs" value="client">client</option>
                     </select>
                 </label>
                 <button
-                    className="mt-[20px] w-full bg-sky-800 hover:bg-transparent hover:text-sky-800 border-2 transition-all ease-in-out border-sky-800 p-3 text-xs rounded-md text-white font-bold"
+                    className="mt-[20px] w-full bg-sky-600 hover:bg-transparent hover:text-sky-600 border-2 transition-all ease-in-out border-sky-600 p-3 text-xs rounded-md text-white font-bold"
                     type="submit">
                     Add Contact
                 </button>

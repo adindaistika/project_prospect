@@ -3,12 +3,13 @@ import { IconBell } from "@tabler/icons-react";
 const Tutorials = () => {
     return (
         <main>
-            <header className="flex justify-between items-center mb-4">
-                <h1 className="text-primary font text-lg">Tutorial</h1>
+            <header className="flex flex-col sm:flex-row justify-between lg:items-center">
+                <div className="mb-4 sm:mb-0">
+                    <h1 className="text-black lg:text-left font-semibold">TUTORIALS</h1>
+                </div>
                 <div className="flex gap-3 items-center">
-                    <p>Agust 23,2023 4.30 PM</p>
                     <IconBell color="#0B588D" />
-                    <img src="/static/auth/logo.png" className="w-[50px] m-auto"></img>
+                    <img src="/static/auth/profile.jpeg" className="w-[50px] m-auto" alt="Logo" />
                 </div>
             </header>
             <div>
@@ -17,20 +18,12 @@ const Tutorials = () => {
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
             </div>
-            <div tabIndex={0} className="collapse collapse-arrow border border-base-300 bg-base-200">
-                <div className="collapse-title text-xl font-medium">
-                    Focus me to see content
-                </div>
-                <div className="collapse-content">
-                    <p>tabIndex={0} attribute is necessary to make the div focusable</p>
-                </div>
-            </div>
-            {/* <div className="collapse collapse-arrow bg-primary text-black">
+            <div className="collapse collapse-arrow bg-primary text-white">
                 <input type="radio" name="my-accordion-2" checked="checked" />
                 <div className="collapse-title text-xl bg-primary font-medium">
-                    Click to open this one and close others
+                    Click to open this deskription
                 </div>
-                <div className="collapse-content pt-3 text-black">
+                <div className="collapse-content pt-3 text-white">
                     <p>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis ea
                         praesentium ratione illo hic doloribus dolorem sunt nostrum
@@ -40,7 +33,7 @@ const Tutorials = () => {
                         corporis id magni aut, harum suscipit?
                     </p>
                 </div>
-            </div> */}
+            </div>
         </main>
     )
 }

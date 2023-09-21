@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 @import './calendar.scss';
+@import './home.scss';
 
 body {
     .menu-sidebar {
@@ -28,10 +29,13 @@ body {
 
     table {
         border: none;
+
         thead {
             border: none;
+
             tr {
                 border: none;
+
                 th:first-child {
                     border-radius: 10px 0 0 0;
                     border: none;
@@ -41,9 +45,28 @@ body {
                     border-radius: 0 10px 0 0;
                     border: none;
                 }
+
+        tbody {
+            border: none;
+
+            tr :last-child {
+                 border: none;
+
+                td:first-child {
+                    border-radius: 10px 0 0 0;
+                    border: none;
+                }
+
+                td:last-child {
+                    border-radius: 0 10px 0 0;
+                    border: none;
+                }
+
             }
         }
     }
+}
+}
 
     // CALENDER
 

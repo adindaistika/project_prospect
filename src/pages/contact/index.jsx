@@ -10,12 +10,13 @@ import { IconBell } from "@tabler/icons-react";
 const Contact = () => {
     return (
         <main className="min-h-screen">
-            <header className="flex flex-col-reverse sm:flex-row justify-between items-center mb-4">
-                <h1 className="text-primary font text-lg">Contact</h1>
-                <div className="flex gap-3 items-center mb-2 sm:mb-0">
-                    <p>Agust 23,2023 4.30 PM</p>
+            <header className="flex flex-col sm:flex-row justify-between lg:items-center">
+                <div className="mb-4 sm:mb-0">
+                    <h1 className="text-black lg:text-left font-semibold">CONTACT</h1>
+                </div>
+                <div className="flex gap-3 items-center">
                     <IconBell color="#0B588D" />
-                    <img src="/static/auth/logo.png" className="w-[50px] m-auto"></img>
+                    <img src="/static/auth/profile.jpeg" className="w-[50px] m-auto" alt="Logo" />
                 </div>
             </header>
             <div className="flex w-full mx-auto my-4 p-2 rounded-md shadow-md">
@@ -25,7 +26,7 @@ const Contact = () => {
             <div className="flex items-center sm:flex-row items-center gap-5">
                 <div className="flex gap-3 w-full">
                     <div className="max-w-[90px] text-center flex flex-col items-center text-xs">
-                        <IconMessage2 onClick={()=>window.location.href='massmessage'} color="#0B588D" />
+                        <IconMessage2 onClick={() => window.location.href = 'massmessage'} color="#0B588D" />
                         <p>Mass Message</p>
                     </div>
 
@@ -58,7 +59,7 @@ const Contact = () => {
             </div>
             <div className="flex justify-between items-center mt-8 mb-3">
                 <h5 className="text-lg font-semibold text-[10px] md:text-[24px]">All contact</h5>
-                <button className="p-2 bg-primary rounded-md text-xs text-second" onClick={()=>window.location.href='contact/add'} type="button"> + Add Contact </button>
+                <button className="p-2 bg-sky-600 rounded-md text-xs text-second" onClick={() => window.location.href = 'contact/add'} type="button"> + Add Contact </button>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div className="flex items-center gap-3 p-3 rounded-md shadow-md">

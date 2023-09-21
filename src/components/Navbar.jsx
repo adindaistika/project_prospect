@@ -15,68 +15,85 @@ import Link from 'next/link';
 
 const Navbar = () => {
   const router = useRouter();
+  module.exports = {
+    //....
+    Plugin: [require("daisyui")],
+  }
   return (
-    <div className="bg-primary p-3 space-y-3 h-[100vh] w-[140px]">
+    <div className="bg-white p-[30px] drop-shadow-xl space-y-3 h-[100vh] w-[235px]">
       <div>
-        <img src="/static/auth/profile.jpeg" className="w-[80px] h-[80px] object-cover m-auto mb-3 rounded-full"></img>
-        <h1 className="text-center text-white font-semibold">JONO</h1>
+        <img src="/static/auth/logo.png" className="w-[88px] m-auto" ></img>
       </div>
-      <div className="flex flex-col items-center gap-4 menu-sidebar overflow-y-scroll">
-        <Link href={'/'}>
-          <div className={router.pathname === "/" && "bg-second p-2 w-max rounded-md"}>
-            <IconHome2 color={router.pathname === "/" ? "#0B588D" : "#FFFFFF"} />
-          </div>
-        </Link>
-        <Link href={'/contact'}>
-          <div className={router.pathname === "/contact" && "bg-second p-2 w-max rounded-md"}>
-            <IconUserCircle color={router.pathname === "/contact" ? "#0B588D" : "#FFFFFF"} />
-          </div>
-        </Link>
-        <Link href={'/prospect'}>
-          <div className={router.pathname === "/prospect" && "bg-second p-2 w-max rounded-md"}>
-            <IconUsersGroup color={router.pathname === "/prospect" ? "#0B588D" : "#FFFFFF"} />
-          </div>
-        </Link>
-        <Link href={'/task'}>
-        <div className={router.pathname === "/task" && "bg-second p-2 w-max rounded-md"}>
-          <IconClipboardText color={router.pathname === "/task" ? "#0B588D" : "#FFFFFF"} />
+      <div className="flex flex-col items-center gap-[10px] menu-sidebar overflow-y-scroll pr-[2px]">
+        <div className={`items-center p-2 w-full rounded-md ${router.pathname === "/" ? "bg-sky-600" : ""}`}>
+          <Link href={'/'} className={`w-full flex flex-row`}>
+            <IconHome2 color={router.pathname === "/" ? "#FFFFFF" : "#0B588D"} />
+            <div className={`ml-2 cursor-pointer ${router.pathname === "/" ? "text-white" : "text-sky-800"}`}>Dashboard</div>
+          </Link>
         </div>
-        </Link>
-        <Link href={'/events'}>
-        <div className={router.pathname === "/events" && "bg-second p-2 w-max rounded-md"}>
-          <IconCalendarDue color={router.pathname === "/events" ? "#0B588D" : "#FFFFFF"} />
+        <div className={`items-center p-2 w-full rounded-md ${router.pathname === "/contact" ? "bg-sky-600" : ""}`}>
+          <Link href={'/contact'} className={`w-full flex flex-row`}>
+            <IconUserCircle color={router.pathname === "/contact" ? "#FFFFFF" : "#0B588D"} />
+            <div className={`ml-2 cursor-pointer ${router.pathname === "/contact" ? "text-white" : "text-sky-800"}`}>Contact</div>
+          </Link>
         </div>
-        </Link>
-        <Link href={'/tutorials'}>
-        <div className={router.pathname === "/tutorials" && "bg-second p-2 w-max rounded-md"}>
-          <IconMovie color={router.pathname === "/tutorials" ? "#0B588D" : "#FFFFFF"} />
+        <div className={`items-center p-2 w-full rounded-md ${router.pathname === "/prospect" ? "bg-sky-600" : ""}`}>
+          <Link href={'/prospect'} className={`w-full flex flex-row`}>
+            <IconUsersGroup color={router.pathname === "/prospect" ? "#FFFFFF" : "#0B588D"} />
+            <div className={`ml-2 cursor-pointer ${router.pathname === "/prospect" ? "text-white" : "text-sky-800"}`}>Prospect</div>
+          </Link>
         </div>
-        </Link>
-        <Link href={'/subscription'}>
-        <div className={router.pathname === "/subscription" && "bg-second p-2 w-max rounded-md"}>
-          <IconAddressBook color={router.pathname === "/subscription" ? "#0B588D" : "#FFFFFF"} />
+        <div className={`items-center p-2 w-full rounded-md ${router.pathname === "/task" ? "bg-sky-600" : ""}`}>
+          <Link href={'/task'} className={`w-full flex flex-row`}>
+            <IconClipboardText color={router.pathname === "/task" ? "#FFFFFF" : "#0B588D"} />
+            <div className={`ml-2 cursor-pointer ${router.pathname === "/task" ? "text-white" : "text-sky-800"}`}>Task</div>
+          </Link>
         </div>
-        </Link>
-        <Link href={'/referrals'}>
-        <div className={router.pathname === "/referrals" && "bg-second p-2 w-max rounded-md"}>
-          <IconAffiliate color={router.pathname === "/referrals" ? "#0B588D"  : "#FFFFFF"} />
+        <div className={`items-center p-2 w-full rounded-md ${router.pathname === "/events" ? "bg-sky-600" : ""}`}>
+          <Link href={'/events'} className={`w-full flex flex-row`}>
+            <IconCalendarDue color={router.pathname === "/events" ? "#FFFFFF" : "#0B588D"} />
+            <div className={`ml-2 cursor-pointer ${router.pathname === "/events" ? "text-white" : "text-sky-800"}`}>Events</div>
+          </Link>
         </div>
-        </Link>
-        <Link href={'/feedback'}>
-        <div className={router.pathname === "/feedback" && "bg-second p-2 w-max rounded-md"}>
-          <IconQuote color={router.pathname === "/feedback" ? "#0B588D" : "#FFFFFF"} />
+        <div className={`items-center p-2 w-full rounded-md ${router.pathname === "/tutorials" ? "bg-sky-600" : ""}`}>
+          <Link href={'/tutorials'} className={`w-full flex flex-row`}>
+            <IconMovie color={router.pathname === "/tutorials" ? "#FFFFFF" : "#0B588D"} />
+            <div className={`ml-2 cursor-pointer ${router.pathname === "/tutorials" ? "text-white" : "text-sky-800"}`}>Tutorials</div>
+          </Link>
         </div>
-        </Link>
-        <Link href={'/messagetemplate'}>
-        <div className={router.pathname === "/messagetemplate" && "bg-second p-2 w-max rounded-md"}>
-          <IconMessage color={router.pathname === "/messagetemplate" ? "#0B588D" : "#FFFFFF"} />
+        <div className={`items-center p-2 w-full rounded-md ${router.pathname === "/subscription" ? "bg-sky-600" : ""}`}>
+          <Link href={'/subscription'} className={`w-full flex flex-row`}>
+            <IconAddressBook color={router.pathname === "/subscription" ? "#FFFFFF" : "#0B588D"} />
+            <div className={`ml-2 cursor-pointer ${router.pathname === "/subscription" ? "text-white" : "text-sky-800"}`}>Subscription</div>
+          </Link>
         </div>
+        <div className={`items-center p-2 w-full rounded-md ${router.pathname === "/referrals" ? "bg-sky-600" : ""}`}>
+          <Link href={'/referrals'} className={`w-full flex flex-row`}>
+            <IconAffiliate color={router.pathname === "/referrals" ? "#FFFFFF" : "#0B588D"} />
+            <div className={`ml-2 cursor-pointer ${router.pathname === "/referrals" ? "text-white" : "text-sky-800"}`}>Referrals</div>
+          </Link>
+        </div>
+
+        <div className={`items-center p-2 w-full rounded-md ${router.pathname === "/feedback" ? "bg-sky-600" : ""}`}>
+          <Link href={'/feedback'} className={`w-full flex flex-row`}>
+            <IconQuote color={router.pathname === "/feedback" ? "#FFFFFFF" : "#0B588D"} />
+            <div className={`ml-2 cursor-pointer ${router.pathname === "/feedback" ? "text-white" : "text-sky-800"}`}>Feedback</div>
+          </Link>
+        </div>
+        <div className={`items-center p-2 w-full rounded-md ${router.pathname === "/messagetemplate" ? "bg-sky-600" : ""}`}>
+          <Link href={'/messagetemplate'} className={`w-full flex flex-row`}>
+            <IconMessage color={router.pathname === "/messagetemplate" ? "#FFFFFF" : "#0B588D"} />
+            <div className={`ml-2 cursor-pointer ${router.pathname === "/messagetemplate" ? "text-white" : "text-sky-800"}`}>Messagetemplate</div>
+          </Link>
+        </div>
+      </div>
+      <div className={`items-center p-2 w-full rounded-md ${router.pathname === "/logout" ? "bg-sky-600" : ""}`}>
+        <Link href={'/logout'} className={`w-full flex flex-row`}>
+          <IconLogout color={router.pathname === "/logout" ? "#FFFFFF" : "#0B588D"} />
+          <div className={`ml-2 cursor-pointer ${router.pathname === "/logout" ? "text-white" : "text-sky-800"}`}>Logout</div>
         </Link>
       </div>
-      <div className="p-2 w-max rounded-md m-auto">
-        <IconLogout color="#fff" />
-      </div>
-    </div>
+    </div >
   );
 };
 

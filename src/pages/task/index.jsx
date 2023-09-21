@@ -8,24 +8,25 @@ import Link from "next/link";
 const Task = () => {
     return (
         <main className="min-h-screen">
-            <header className="flex justify-between items-center mb-4">
-                <h1 className="text-primary font text-lg">Task</h1>
+            <header className="flex flex-col sm:flex-row justify-between lg:items-center">
+                <div className="mb-4 sm:mb-0">
+                    <h1 className="text-black lg:text-left font-semibold">TASK</h1>
+                </div>
                 <div className="flex gap-3 items-center">
-                    <p>Agust 23,2023 4.30 PM</p>
                     <IconBell color="#0B588D" />
-                    <img src="/static/auth/logo.png" className="w-[50px] m-auto"></img>
+                    <img src="/static/auth/profile.jpeg" className="w-[50px] m-auto" alt="Logo" />
                 </div>
             </header>
             <Link href={"/task/add"}>
-                <button className="bg-primary p-3 rounded-md shadow-md text-xs text-white" onClick={() => window.location.href = 'task/add'}> + Add Task </button>
+                <button className="bg-sky-600 p-3 rounded-md shadow-md text-xs text-white" onClick={() => window.location.href = 'task/add'}> + Add Task </button>
             </Link>
-            <section className="text-sky-800">
-                <h2 className="text-primary my-3 font-semibold">Task terupdate</h2>
+            <section className="text-sky-600">
+                <h2 className="text-sky-600 my-3 font-semibold">Task terupdate</h2>
                 <div className="flex gap-3 justify-center flex-wrap">
                     <div className="shadow-md rounded-md w-80 p-3">
                         <div className="flex justify-between text-white">
-                            <p className="bg-primary p-2 rounded-md text-xs">1 minute ago</p>
-                            <p className="bg-green-500 p-2 rounded-md text-xs">Finish</p>
+                            <p className="bg-sky-600 p-2 rounded-md text-xs">1 minute ago</p>
+                            <p className="bg-green-700 p-2 rounded-md text-xs">Finish</p>
                         </div>
                         <p className="font-bold my-3">Lorem, ipsum dolor.</p>
                         <div className="flex justify-between items-end">
@@ -39,11 +40,11 @@ const Task = () => {
                                     <p>04.00</p>
                                 </div>
                             </div>
-                            <div className="space-x-2">
-                                <div className="text-red-600 bg-red-400 p-2 inline-block rounded-md">
+                            <div className="flex items-center gap-2">
+                                <div className="text-red-600 ">
                                     <IconTrash width={20} />
                                 </div>
-                                <div className="text-green-700 bg-green-500 p-2 inline-block rounded-md">
+                                <div className="text-green-700 ">
                                     <IconPencilMinus width={20} />
                                 </div>
                             </div>
@@ -51,8 +52,8 @@ const Task = () => {
                     </div>
                     <div className="shadow-md rounded-md w-80 p-3">
                         <div className="flex justify-between text-white">
-                            <p className="bg-primary p-2 rounded-md text-xs">1 minute ago</p>
-                            <p className="bg-green-500 p-2 rounded-md text-xs">Finish</p>
+                            <p className="bg-sky-600 p-2 rounded-md text-xs">1 minute ago</p>
+                            <p className="bg-green-700 p-2 rounded-md text-xs">Finish</p>
                         </div>
                         <p className="font-bold my-3">Lorem, ipsum dolor.</p>
                         <div className="flex justify-between items-end">
@@ -66,11 +67,11 @@ const Task = () => {
                                     <p>04.00</p>
                                 </div>
                             </div>
-                            <div className="space-x-2">
-                                <div className="text-red-600 bg-red-400 p-2 inline-block rounded-md">
+                            <div className="flex items-center gap-2">
+                                <div className="text-red-600 ">
                                     <IconTrash width={20} />
                                 </div>
-                                <div className="text-green-700 bg-green-500 p-2 inline-block rounded-md">
+                                <div className="text-green-700 ">
                                     <IconPencilMinus width={20} />
                                 </div>
                             </div>
@@ -78,8 +79,8 @@ const Task = () => {
                     </div>
                     <div className="shadow-md rounded-md w-80 p-3">
                         <div className="flex justify-between text-white">
-                            <p className="bg-primary p-2 rounded-md text-xs">1 minute ago</p>
-                            <p className="bg-green-500 p-2 rounded-md text-xs">Finish</p>
+                            <p className="bg-sky-600 p-2 rounded-md text-xs">1 minute ago</p>
+                            <p className="bg-green-700 p-2 rounded-md text-xs">Finish</p>
                         </div>
                         <p className="font-bold my-3">Lorem, ipsum dolor.</p>
                         <div className="flex justify-between items-end">
@@ -93,11 +94,11 @@ const Task = () => {
                                     <p>04.00</p>
                                 </div>
                             </div>
-                            <div className="space-x-2">
-                                <div className="text-red-600 bg-red-400 p-2 inline-block rounded-md">
+                            <div className="flex items-center gap-2">
+                                <div className="text-red-600 ">
                                     <IconTrash width={20} />
                                 </div>
-                                <div className="text-green-700 bg-green-500 p-2 inline-block rounded-md">
+                                <div className="text-green-700 ">
                                     <IconPencilMinus width={20} />
                                 </div>
                             </div>
@@ -105,8 +106,8 @@ const Task = () => {
                     </div>
                     <div className="shadow-md rounded-md w-80 p-3">
                         <div className="flex justify-between text-white">
-                            <p className="bg-primary p-2 rounded-md text-xs">1 minute ago</p>
-                            <p className="bg-green-500 p-2 rounded-md text-xs">Finish</p>
+                            <p className="bg-sky-600 p-2 rounded-md text-xs">1 minute ago</p>
+                            <p className="bg-green-700 p-2 rounded-md text-xs">Finish</p>
                         </div>
                         <p className="font-bold my-3">Lorem, ipsum dolor.</p>
                         <div className="flex justify-between items-end">
@@ -120,11 +121,11 @@ const Task = () => {
                                     <p>04.00</p>
                                 </div>
                             </div>
-                            <div className="space-x-2">
-                                <div className="text-red-600 bg-red-400 p-2 inline-block rounded-md">
+                            <div className="flex items-center gap-2">
+                                <div className="text-red-600 ">
                                     <IconTrash width={20} />
                                 </div>
-                                <div className="text-green-700 bg-green-500 p-2 inline-block rounded-md">
+                                <div className="text-green-700 ">
                                     <IconPencilMinus width={20} />
                                 </div>
                             </div>
@@ -132,8 +133,8 @@ const Task = () => {
                     </div>
                     <div className="shadow-md rounded-md w-80 p-3">
                         <div className="flex justify-between text-white">
-                            <p className="bg-primary p-2 rounded-md text-xs">1 minute ago</p>
-                            <p className="bg-green-500 p-2 rounded-md text-xs">Finish</p>
+                            <p className="bg-sky-600 p-2 rounded-md text-xs">1 minute ago</p>
+                            <p className="bg-green-700 p-2 rounded-md text-xs">Finish</p>
                         </div>
                         <p className="font-bold my-3">Lorem, ipsum dolor.</p>
                         <div className="flex justify-between items-end">
@@ -147,11 +148,11 @@ const Task = () => {
                                     <p>04.00</p>
                                 </div>
                             </div>
-                            <div className="space-x-2">
-                                <div className="text-red-600 bg-red-400 p-2 inline-block rounded-md">
+                            <div className="flex items-center gap-2">
+                                <div className="text-red-600 ">
                                     <IconTrash width={20} />
                                 </div>
-                                <div className="text-green-700 bg-green-500 p-2 inline-block rounded-md">
+                                <div className="text-green-700 ">
                                     <IconPencilMinus width={20} />
                                 </div>
                             </div>
@@ -159,8 +160,8 @@ const Task = () => {
                     </div>
                     <div className="shadow-md rounded-md w-80 p-3">
                         <div className="flex justify-between text-white">
-                            <p className="bg-primary p-2 rounded-md text-xs">1 minute ago</p>
-                            <p className="bg-green-500 p-2 rounded-md text-xs">Finish</p>
+                            <p className="bg-sky-600 p-2 rounded-md text-xs">1 minute ago</p>
+                            <p className="bg-green-700 p-2 rounded-md text-xs">Finish</p>
                         </div>
                         <p className="font-bold my-3">Lorem, ipsum dolor.</p>
                         <div className="flex justify-between items-end">
@@ -174,11 +175,11 @@ const Task = () => {
                                     <p>04.00</p>
                                 </div>
                             </div>
-                            <div className="space-x-2">
-                                <div className="text-red-600 bg-red-400 p-2 inline-block rounded-md">
+                            <div className="flex items-center gap-2">
+                                <div className="text-red-600 ">
                                     <IconTrash width={20} />
                                 </div>
-                                <div className="text-green-700 bg-green-500 p-2 inline-block rounded-md">
+                                <div className="text-green-700 ">
                                     <IconPencilMinus width={20} />
                                 </div>
                             </div>
@@ -186,8 +187,8 @@ const Task = () => {
                     </div>
                     <div className="shadow-md rounded-md w-80 p-3">
                         <div className="flex justify-between text-white">
-                            <p className="bg-primary p-2 rounded-md text-xs">1 minute ago</p>
-                            <p className="bg-green-500 p-2 rounded-md text-xs">Finish</p>
+                            <p className="bg-sky-600 p-2 rounded-md text-xs">1 minute ago</p>
+                            <p className="bg-green-700 p-2 rounded-md text-xs">Finish</p>
                         </div>
                         <p className="font-bold my-3">Lorem, ipsum dolor.</p>
                         <div className="flex justify-between items-end">
@@ -201,11 +202,11 @@ const Task = () => {
                                     <p>04.00</p>
                                 </div>
                             </div>
-                            <div className="space-x-2">
-                                <div className="text-red-600 bg-red-400 p-2 inline-block rounded-md">
+                            <div className="flex items-center gap-2">
+                                <div className="text-red-600 ">
                                     <IconTrash width={20} />
                                 </div>
-                                <div className="text-green-700 bg-green-500 p-2 inline-block rounded-md">
+                                <div className="text-green-700 ">
                                     <IconPencilMinus width={20} />
                                 </div>
                             </div>
@@ -213,8 +214,8 @@ const Task = () => {
                     </div>
                     <div className="shadow-md rounded-md w-80 p-3">
                         <div className="flex justify-between text-white">
-                            <p className="bg-primary p-2 rounded-md text-xs">1 minute ago</p>
-                            <p className="bg-green-500 p-2 rounded-md text-xs">Finish</p>
+                            <p className="bg-sky-600 p-2 rounded-md text-xs">1 minute ago</p>
+                            <p className="bg-green-700 p-2 rounded-md text-xs">Finish</p>
                         </div>
                         <p className="font-bold my-3">Lorem, ipsum dolor.</p>
                         <div className="flex justify-between items-end">
@@ -228,11 +229,11 @@ const Task = () => {
                                     <p>04.00</p>
                                 </div>
                             </div>
-                            <div className="space-x-2">
-                                <div className="text-red-600 bg-red-400 p-2 inline-block rounded-md">
+                            <div className="flex items-center gap-2">
+                                <div className="text-red-600 ">
                                     <IconTrash width={20} />
                                 </div>
-                                <div className="text-green-700 bg-green-500 p-2 inline-block rounded-md">
+                                <div className="text-green-700 ">
                                     <IconPencilMinus width={20} />
                                 </div>
                             </div>
@@ -240,8 +241,8 @@ const Task = () => {
                     </div>
                     <div className="shadow-md rounded-md w-80 p-3">
                         <div className="flex justify-between text-white">
-                            <p className="bg-primary p-2 rounded-md text-xs">1 minute ago</p>
-                            <p className="bg-green-500 p-2 rounded-md text-xs">Finish</p>
+                            <p className="bg-sky-600 p-2 rounded-md text-xs">1 minute ago</p>
+                            <p className="bg-green-700 p-2 rounded-md text-xs">Finish</p>
                         </div>
                         <p className="font-bold my-3">Lorem, ipsum dolor.</p>
                         <div className="flex justify-between items-end">
@@ -255,11 +256,11 @@ const Task = () => {
                                     <p>04.00</p>
                                 </div>
                             </div>
-                            <div className="space-x-2">
-                                <div className="text-red-600 bg-red-400 p-2 inline-block rounded-md">
+                            <div className="space-x-1 flex items-center gap-2">
+                                <div className="text-red-600">
                                     <IconTrash width={20} />
                                 </div>
-                                <div className="text-green-700 bg-green-500 p-2 inline-block rounded-md">
+                                <div className="text-green-700">
                                     <IconPencilMinus width={20} />
                                 </div>
                             </div>

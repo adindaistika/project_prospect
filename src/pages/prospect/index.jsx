@@ -6,12 +6,13 @@ import { IconSquareRoundedChevronRight } from "@tabler/icons-react";
 const Prospect = () => {
     return (
         <main className=" min-h-screen">
-            <header className="flex justify-between items-center mb-4">
-                <h1 className="text-primary font text-lg">Prospect</h1>
+            <header className="flex flex-col sm:flex-row justify-between lg:items-center">
+                <div className="mb-4 sm:mb-0">
+                    <h1 className="text-black lg:text-left font-semibold">PROSPECT</h1>
+                </div>
                 <div className="flex gap-3 items-center">
-                    <p>Agust 23,2023 4.30 PM</p>
                     <IconBell color="#0B588D" />
-                    <img src="/static/auth/logo.png" className="w-[50px] m-auto"></img>
+                    <img src="/static/auth/profile.jpeg" className="w-[50px] m-auto" alt="Logo" />
                 </div>
             </header>
             <div className="flex w-full mx-auto my-4 p-2 rounded-md shadow-md">
@@ -30,17 +31,17 @@ const Prospect = () => {
                     </button>
                 </div>
                 <select
-                    className="bg-primary p-2 rounded-md outline-none w-40 text-white"
+                    className="bg-sky-600 p-2 rounded-md outline-none w-40 text-white"
                     name="filter"
                     id="filter"
                 >
-                    <option className="bg-white text-sky-800" selected>Filter</option>
-                    <option className="bg-white text-sky-800" value="Prospect" >Prospect</option>
-                    <option className="bg-white text-sky-800" value="Hot Leads">Hot Leads</option>
-                    <option className="bg-white text-sky-800" value="Actively Selling">Actively Selling</option>
-                    <option className="bg-white text-sky-800" value="Actively Followup">Actively Followup</option>
-                    <option className="bg-white text-sky-800" value="Won">Won</option>
-                    <option className="bg-white text-sky-800" value="Lost">Lost</option>
+                    <option className="bg-white text-sky-600" selected>Filter</option>
+                    <option className="bg-white text-sky-600" value="Prospect" >Prospect</option>
+                    <option className="bg-white text-sky-600" value="Hot Leads">Hot Leads</option>
+                    <option className="bg-white text-sky-600" value="Actively Selling">Actively Selling</option>
+                    <option className="bg-white text-sky-600" value="Actively Followup">Actively Followup</option>
+                    <option className="bg-white text-sky-600" value="Won">Won</option>
+                    <option className="bg-white text-sky-600" value="Lost">Lost</option>
                 </select>
             </div>
             <div className="grid grid-cols-2 gap-3">
