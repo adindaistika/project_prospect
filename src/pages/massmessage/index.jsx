@@ -12,7 +12,7 @@ const Massmessage = () => {
                 </div>
                 <div className="flex gap-3 items-center">
                     <IconBell color="#0B588D" />
-                    <img src="/static/auth/profile.jpeg" className="w-[50px] m-auto" alt="Logo" />
+                    <img src="/static/auth/profile.jpeg" className="w-[50px] m-auto rounded-full" alt="Logo" />
                 </div>
             </header>
             <div className="grid justify-items-end mt-8 mb-3">
@@ -21,28 +21,28 @@ const Massmessage = () => {
             <div className="w-full my-5 gap-3">
                 <table
                     cellPadding={8}
-                    className="w-full border-collapse border border-slate-500 table-fixed"
+                    className="w-full border-collapse border border-slate-300"
                 >
                     <thead className="bg-sky-600">
                         <tr>
-                            <th className="border border-slate-600 text-white">No</th>
-                            <th className="border border-slate-600 text-white">Message</th>
-                            <th className="border border-slate-600 text-white">Action</th>
+                            <th className="border border-slate-300 text-white">No</th>
+                            <th className="border border-slate-300 text-white">Message</th>
+                            <th className="border border-slate-300 text-white">Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td className="border border-slate-600 text-center">1</td>
-                            <td className="border border-slate-600">Halo meeting hari ini sangat menyenangkan....</td>
-                            <td className="text-xs font-semibold border border-slate-600">
-                                <div className="flex justify-center items-center space-x-2">
-                                    <div className="text-sky-600 bg-sky-400 p-2 inline-block rounded-md ">
+                            <td className="border border-slate-300 text-center">1</td>
+                            <td className="border border-slate-300">Halo meeting hari ini sangat menyenangkan....</td>
+                            <td className="text-xs font-semibold border border-slate-300">
+                                <div className="flex justify-center items-center gap-2">
+                                    <div className="text-sky-600 ">
                                         <IconSend width={20} />
                                     </div>
-                                    <div className="text-red-600 bg-red-400 p-2 inline-block rounded-md ">
+                                    <div className="text-red-600 ">
                                         <IconTrash width={20} />
                                     </div>
-                                    <div className="text-green-700 bg-green-500 p-2 inline-block rounded-md">
+                                    <div className="text-green-700 ">
                                         <IconPencilMinus width={20} />
                                     </div>
                                 </div>
@@ -51,17 +51,17 @@ const Massmessage = () => {
                     </tbody>
                     <tbody>
                         <tr>
-                            <td className="border border-slate-600 text-center">2</td>
-                            <td className="border border-slate-600">Halo meeting hari ini sangat menyenangkan....</td>
-                            <td className="text-xs font-semibold border border-slate-600">
-                                <div className="flex justify-center items-center space-x-2">
-                                    <div className="text-sky-600 bg-sky-400 p-2 inline-block rounded-md ">
+                            <td className="border border-slate-300 text-center">2</td>
+                            <td className="border border-slate-300">Halo meeting hari ini sangat menyenangkan....</td>
+                            <td className="text-xs font-semibold border border-slate-300">
+                            <div className="flex justify-center items-center gap-2">
+                                    <div className="text-sky-600 ">
                                         <IconSend width={20} />
                                     </div>
-                                    <div className="text-red-600 bg-red-400 p-2 inline-block rounded-md">
+                                    <div className="text-red-600 ">
                                         <IconTrash width={20} />
                                     </div>
-                                    <div className="text-green-700 bg-green-500 p-2 inline-block rounded-md">
+                                    <div className="text-green-700 ">
                                         <IconPencilMinus width={20} />
                                     </div>
                                 </div>
@@ -70,17 +70,17 @@ const Massmessage = () => {
                     </tbody>
                     <tbody>
                         <tr>
-                            <td className="border border-slate-600 text-center">3</td>
-                            <td className="border border-slate-600">Halo meeting hari ini sangat menyenangkan....</td>
-                            <td className="text-xs font-semibold border border-slate-600">
-                                <div className="flex justify-center items-center space-x-2">
-                                    <div className="text-sky-600 bg-sky-400 p-2 inline-block rounded-md ">
+                            <td className="border border-slate-300 text-center">3</td>
+                            <td className="border border-slate-300">Halo meeting hari ini sangat menyenangkan....</td>
+                            <td className="text-xs font-semibold border border-slate-300">
+                            <div className="flex justify-center items-center gap-2">
+                                    <div className="text-sky-600 ">
                                         <IconSend width={20} />
                                     </div>
-                                    <div className="text-red-600 bg-red-400 p-2 inline-block rounded-md ">
+                                    <div className="text-red-600 ">
                                         <IconTrash width={20} />
                                     </div>
-                                    <div className="text-green-700 bg-green-500 p-2 inline-block rounded-md">
+                                    <div className="text-green-700 ">
                                         <IconPencilMinus width={20} />
                                     </div>
                                 </div>
@@ -89,17 +89,17 @@ const Massmessage = () => {
                     </tbody>
                     <tbody>
                         <tr>
-                            <td className="border border-slate-600 text-center">4</td>
-                            <td className="border border-slate-600">Halo meeting hari ini sangat menyenangkan....</td>
-                            <td className="text-xs font-semibold border border-slate-600">
-                                <div className="flex justify-center items-center space-x-2">
-                                    <div className="text-sky-600 bg-sky-400 p-2 inline-block rounded-md ">
+                            <td className="border border-slate-300 text-center">4</td>
+                            <td className="border border-slate-300">Halo meeting hari ini sangat menyenangkan....</td>
+                            <td className="text-xs font-semibold border border-slate-300">
+                            <div className="flex justify-center items-center gap-2">
+                                    <div className="text-sky-600 ">
                                         <IconSend width={20} />
                                     </div>
-                                    <div className="text-red-600 bg-red-400 p-2 inline-block rounded-md ">
+                                    <div className="text-red-600 ">
                                         <IconTrash width={20} />
                                     </div>
-                                    <div className="text-green-700 bg-green-500 p-2 inline-block rounded-md">
+                                    <div className="text-green-700 ">
                                         <IconPencilMinus width={20} />
                                     </div>
                                 </div>

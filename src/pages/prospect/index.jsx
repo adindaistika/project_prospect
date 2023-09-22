@@ -12,7 +12,7 @@ const Prospect = () => {
                 </div>
                 <div className="flex gap-3 items-center">
                     <IconBell color="#0B588D" />
-                    <img src="/static/auth/profile.jpeg" className="w-[50px] m-auto" alt="Logo" />
+                    <img src="/static/auth/profile.jpeg" className="w-[50px] m-auto full" alt="Logo" />
                 </div>
             </header>
             <div className="flex w-full mx-auto my-4 p-2 rounded-md shadow-md">

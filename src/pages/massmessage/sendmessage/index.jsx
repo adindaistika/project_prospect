@@ -52,14 +52,14 @@ const sendmessage = () => {
                                 </div>
                             </td>
                             <td className="text-xs font-semibold border border-slate-600">
-                                <div className="flex justify-center items-center space-x-2">
-                                    <div className="text-red-600 bg-red-400 p-2 inline-block rounded-md ">
-                                        <IconTrash width={20} />
-                                    </div>
-                                    <div className="text-green-700 bg-green-500 p-2 inline-block rounded-md">
-                                        <IconPencilMinus width={20} />
-                                    </div>
+                            <div className="flex justify-center items-center gap-2">
+                                <div className="text-red-600 ">
+                                    <IconTrash width={20} />
                                 </div>
+                                <div className="text-green-700 ">
+                                    <IconPencilMinus width={20} />
+                                </div>
+                            </div>
                             </td>
                         </tr>
                     </tbody>
@@ -75,14 +75,14 @@ const sendmessage = () => {
                                 </div>
                             </td>
                             <td className="text-xs font-semibold border border-slate-600">
-                                <div className="flex justify-center items-center space-x-2">
-                                    <div className="text-red-600 bg-red-400 p-2 inline-block rounded-md">
-                                        <IconTrash width={20} />
-                                    </div>
-                                    <div className="text-green-700 bg-green-500 p-2 inline-block rounded-md">
-                                        <IconPencilMinus width={20} />
-                                    </div>
+                            <div className="flex justify-center items-center gap-2">
+                                <div className="text-red-600 ">
+                                    <IconTrash width={20} />
                                 </div>
+                                <div className="text-green-700 ">
+                                    <IconPencilMinus width={20} />
+                                </div>
+                            </div>
                             </td>
                         </tr>
                     </tbody>
@@ -98,14 +98,14 @@ const sendmessage = () => {
                                 </div>
                             </td>
                             <td className="text-xs font-semibold border border-slate-600">
-                                <div className="flex justify-center items-center space-x-2">
-                                    <div className="text-red-600 bg-red-400 p-2 inline-block rounded-md ">
-                                        <IconTrash width={20} />
-                                    </div>
-                                    <div className="text-green-700 bg-green-500 p-2 inline-block rounded-md">
-                                        <IconPencilMinus width={20} />
-                                    </div>
+                            <div className="flex justify-center items-center gap-2">
+                                <div className="text-red-600 ">
+                                    <IconTrash width={20} />
                                 </div>
+                                <div className="text-green-700 ">
+                                    <IconPencilMinus width={20} />
+                                </div>
+                            </div>
                             </td>
                         </tr>
                     </tbody>
@@ -121,14 +121,14 @@ const sendmessage = () => {
                                 </div>
                             </td>
                             <td className="text-xs font-semibold border border-slate-600">
-                                <div className="flex justify-center items-center space-x-2">
-                                    <div className="text-red-600 bg-red-400 p-2 inline-block rounded-md ">
-                                        <IconTrash width={20} />
-                                    </div>
-                                    <div className="text-green-700 bg-green-500 p-2 inline-block rounded-md">
-                                        <IconPencilMinus width={20} />
-                                    </div>
+                            <div className="flex justify-center items-center gap-2">
+                                <div className="text-red-600 ">
+                                    <IconTrash width={20} />
                                 </div>
+                                <div className="text-green-700 ">
+                                    <IconPencilMinus width={20} />
+                                </div>
+                            </div>
                             </td>
                         </tr>
                     </tbody>

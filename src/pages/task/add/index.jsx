@@ -8,7 +8,7 @@ const AddTask = () => {
                 </div>
                 <div className="flex gap-3 items-center">
                     <IconBell color="#0B588D" />
-                    <img src="/static/auth/profile.jpeg" className="w-[50px] m-auto" alt="Logo" />
+                    <img src="/static/auth/profile.jpeg" className="w-[50px] m-auto full" alt="Logo" />
                 </div>
             </header>
             <form className="flex flex-col gap-3" action="">

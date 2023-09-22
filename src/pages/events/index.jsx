@@ -1,7 +1,7 @@
 import { IconTrash } from "@tabler/icons-react";
 import { IconPencilMinus } from "@tabler/icons-react";
 import { IconBell } from "@tabler/icons-react";
-import dynamic from "next/dynamic";
+import  dynamic from "next/dynamic";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -26,7 +26,7 @@ const Events = () => {
                 </div>
                 <div className="flex gap-3 items-center">
                     <IconBell color="#0B588D" />
-                    <img src="/static/auth/profile.jpeg" className="w-[50px] m-auto" alt="Logo" />
+                    <img src="/static/auth/profile.jpeg" className="w-[50px] m-auto rounded-full" alt="Logo" />
                 </div>
             </header>
             <div className="flex gap-5">

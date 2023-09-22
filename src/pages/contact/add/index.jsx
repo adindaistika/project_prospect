@@ -9,7 +9,7 @@ const AddContact = () => {
                 </div>
                 <div className="flex gap-3 items-center">
                     <IconBell color="#0B588D" />
-                    <img src="/static/auth/profile.jpeg" className="w-[50px] m-auto" alt="Logo" />
+                    <img src="/static/auth/profile.jpeg" className="w-[50px] m-auto rounded-full" alt="Logo" />
                 </div>
             </header>
             <form className="mt-5">

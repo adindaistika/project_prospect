@@ -11,7 +11,7 @@ const Home = () => {
         </div>
         <div className="flex gap-3 items-center">
           <IconBell color="#0B588D" />
-          <img src="/static/auth/profile.jpeg" className="w-[50px] m-auto" alt="Logo" />
+          <img src="/static/auth/profile.jpeg" className="w-[50px] m-auto rounded-full" alt="Logo" />
         </div>
       </header>
       <div className="home-banner flex flex-col w-full mx-auto my-4 p-10 rounded-md shadow-md bg-sky-600">
@@ -36,7 +36,12 @@ const Home = () => {
         <div className="space-y-3 w-full sm:w-1/2">
           <h3 className="font-semibold text-[10px] md:text-[24px]">Event Terupdate</h3>
           <div className="shadow-md rounded-md p-3 flex justify-between items-center">
-            <h5 className="font-bold text-[10px] md:text-[18px]">Meeting Seminar</h5>
+            <div>
+              <h5 className="font-bold text-[10px] md:text-[18px]">
+                Meeting Seminar
+              </h5>
+              <p className="text-xs">28 Agustus 2023</p>
+            </div>
             <div className="flex items-center gap-2">
               <div className="bg-transparent  w-max">
                 <IconTrash color="red" />
@@ -47,7 +52,12 @@ const Home = () => {
             </div>
           </div>
           <div className="shadow-md rounded-md p-3 flex justify-between items-center">
-            <h5 className="font-bold text-[10px] md:text-[18px]">Meeting Seminar</h5>
+            <div>
+              <h5 className="font-bold text-[10px] md:text-[18px]">
+                Meeting Seminar
+              </h5>
+              <p className="text-xs">28 Agustus 2023</p>
+            </div>
             <div className="flex items-center gap-2">
               <div className="bg-transparent p-1 w-max">
                 <IconTrash color="red" />
@@ -58,7 +68,12 @@ const Home = () => {
             </div>
           </div>
           <div className="shadow-md rounded-md p-3 flex justify-between items-center">
-            <h5 className="font-bold text-[10px] md:text-[18px]">Meeting Seminar</h5>
+            <div>
+              <h5 className="font-bold text-[10px] md:text-[18px]">
+                Meeting Seminar
+              </h5>
+              <p className="text-xs">28 Agustus 2023</p>
+            </div>
             <div className="flex items-center gap-2">
               <div className="bg-transparent p-1 w-max">
                 <IconTrash color="red" />
@@ -69,18 +84,12 @@ const Home = () => {
             </div>
           </div>
           <div className="shadow-md rounded-md p-3 flex justify-between items-center">
-            <h5 className="font-bold text-[10px] md:text-[18px]">Meeting Seminar</h5>
-            <div className="flex items-center gap-2">
-              <div className="bg-transparent p-1 w-max">
-                <IconTrash color="red" />
-              </div>
-              <div className="bg-transparent p-1 w-max">
-                <IconPencilMinus color="green" />
-              </div>
+            <div>
+              <h5 className="font-bold text-[10px] md:text-[18px]">
+                Meeting Seminar
+              </h5>
+              <p className="text-xs">28 Agustus 2023</p>
             </div>
-          </div>
-          <div className="shadow-md rounded-md p-3 flex justify-between items-center">
-            <h5 className="font-bold text-[10px] md:text-[18px]">Meeting Seminar</h5>
             <div className="flex items-center gap-2">
               <div className="bg-transparent p-1 w-max">
                 <IconTrash color="red" />
@@ -93,7 +102,7 @@ const Home = () => {
         </div>
         <div className="space-y-3 w-full sm:w-1/2">
           <h3 className="font-semibold text-[10px] md:text-[24px]">Tasks Terupdate</h3>
-          <div className="bg-slate-200 shadow-md rounded-md p-3 flex justify-between items-center">
+          <div className="bg-sky-100 shadow-md rounded-md p-3 flex justify-between items-center">
             <div>
               <h5 className="text-[10px] md:text-[18px]">Hasil meeting pada sore hari ini adalah ....</h5>
               <div className="text-xs my-2 flex gap-2 items-center flex-wrap">
