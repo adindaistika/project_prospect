@@ -22,7 +22,7 @@ const Task = () => {
             </Link>
             <section className="text-sky-600">
                 <h2 className="text-sky-600 my-3 font-semibold">Task terupdate</h2>
-                <div className="flex gap-3 justify-center flex-wrap">
+                <div className="flex gap-3 flex-wrap">
                     <div className="shadow-md rounded-md w-80 p-3">
                         <div className="flex justify-between text-white">
                             <p className="bg-sky-600 p-2 rounded-md text-xs">1 minute ago</p>

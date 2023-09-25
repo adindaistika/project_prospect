@@ -18,7 +18,7 @@ const Messagetemplate = () => {
             <div className="w-full my-5 gap-3">
                 <table
                     cellPadding={8}
-                    className="w-full border-collapse border border-slate-300 ">
+                    className="w-full border-collapse border border-slate-300 shadow-lg ">
                     <thead className="bg-sky-600">
                         <tr>
                             <th className="border border-slate-300 text-white">No</th>
@@ -32,7 +32,7 @@ const Messagetemplate = () => {
                             <td className="border border-slate-300 text-center">1</td>
                             <td className="border border-slate-300 text-center">Adinda Istika</td>
                             <td className="border border-slate-300 text-center">
-                            Halo meeting hari ini sangat menyenangkan....
+                            Halo meeting hari ini sangat menyenangkan
                             </td>
                             <td className="text-xs font-semibold border border-slate-300">
                                 <div className="flex justify-center items-center gap-2">
@@ -45,13 +45,11 @@ const Messagetemplate = () => {
                             </div>
                             </td>
                         </tr>
-                    </tbody>
-                    <tbody>
                         <tr>
                             <td className="border border-slate-300 text-center">2</td>
                             <td className="border border-slate-300 text-center">Octaviani</td>
                             <td className="border border-slate-300 text-center">
-                            Halo meeting hari ini sangat menyenangkan....
+                            Halo meeting hari ini sangat menyenangkan
                             </td>
                             <td className="text-xs font-semibold border border-slate-300">
                             <div className="flex justify-center items-center gap-2">
@@ -64,13 +62,11 @@ const Messagetemplate = () => {
                             </div>
                             </td>
                         </tr>
-                    </tbody>
-                    <tbody>
                         <tr>
                             <td className="border border-slate-300 text-center">3</td>
                             <td className="border border-slate-300 text-center">Jono joni</td>
                             <td className="border border-slate-300 text-center">
-                            Halo meeting hari ini sangat menyenangkan....
+                            Halo meeting hari ini sangat menyenangkan
                             </td>
                             <td className="text-xs font-semibold border border-slate-300">
                             <div className="flex justify-center items-center gap-2">
@@ -83,13 +79,11 @@ const Messagetemplate = () => {
                             </div>
                             </td>
                         </tr>
-                    </tbody>
-                    <tbody>
                         <tr>
                             <td className="border border-slate-300 text-center">4</td>
                             <td className="border border-slate-300 text-center">meloni</td>
                             <td className="border border-slate-300 text-center">
-                            Halo meeting hari ini sangat menyenangkan....
+                            Halo meeting hari ini sangat menyenangkan
                             </td>
                             <td className="text-xs font-semibold border border-slate-300">
                             <div className="flex justify-center items-center gap-2">

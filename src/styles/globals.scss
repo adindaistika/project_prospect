@@ -28,7 +28,9 @@ body {
     }
 
     table {
-        border: none;
+        border: none !important;
+        border-collapse: separate !important;
+        border-spacing: 0;
 
         thead {
             border: none;
@@ -46,27 +48,26 @@ body {
                     border: none;
                 }
 
+            }
+        }
+
         tbody {
             border: none;
 
-            tr :last-child {
-                 border: none;
+            tr:last-child {
+                border: none;
 
                 td:first-child {
-                    border-radius: 10px 0 0 0;
-                    border: none;
+                    border-radius: 0 0 0 10px;
                 }
 
                 td:last-child {
-                    border-radius: 0 10px 0 0;
-                    border: none;
+                    border-radius: 0 0 10px 0;
                 }
 
             }
         }
     }
-}
-}
 
     // CALENDER
 

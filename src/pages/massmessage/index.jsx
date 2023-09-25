@@ -48,8 +48,6 @@ const Massmessage = () => {
                                 </div>
                             </td>
                         </tr>
-                    </tbody>
-                    <tbody>
                         <tr>
                             <td className="border border-slate-300 text-center">2</td>
                             <td className="border border-slate-300">Halo meeting hari ini sangat menyenangkan....</td>
@@ -67,8 +65,6 @@ const Massmessage = () => {
                                 </div>
                             </td>
                         </tr>
-                    </tbody>
-                    <tbody>
                         <tr>
                             <td className="border border-slate-300 text-center">3</td>
                             <td className="border border-slate-300">Halo meeting hari ini sangat menyenangkan....</td>
@@ -86,8 +82,6 @@ const Massmessage = () => {
                                 </div>
                             </td>
                         </tr>
-                    </tbody>
-                    <tbody>
                         <tr>
                             <td className="border border-slate-300 text-center">4</td>
                             <td className="border border-slate-300">Halo meeting hari ini sangat menyenangkan....</td>

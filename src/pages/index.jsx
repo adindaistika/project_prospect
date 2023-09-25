@@ -21,15 +21,15 @@ const Home = () => {
       <div className="flex flex-col sm:flex-row gap-3 text-white">
         <div className="rectangle1-banner p-8 bg-[#214A00] rounded-md flex-1">
           <p className="text-center">0/0</p>
-          <p>Prospect Added</p>
+          <p className="text-center">Prospect Added</p>
         </div>
         <div className="rectangle2-banner p-8 bg-[#18046A] rounded-md flex-1">
           <p className="text-center">0/0</p>
-          <p>Prospect Added</p>
+          <p className="text-center">Prospect Added</p>
         </div>
         <div className="rectangle3-banner p-8 bg-[#007383] rounded-md flex-1">
           <p className="text-center">0/0</p>
-          <p>Prospect Added</p>
+          <p className="text-center">Prospect Added</p>
         </div>
       </div>
       <div className="flex flex-col sm:flex-row gap-3 items-start my-5">

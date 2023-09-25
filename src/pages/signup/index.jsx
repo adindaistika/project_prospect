@@ -12,28 +12,28 @@ const Signup = () => {
 
                 <form className="md:flex flex-col w-full" action="">
                     <div className="flex">
-                    <label className="flex my-2 p-2 md:w-1/1 flex-col gap-2 text-xs w-full">
-                        <span className="text-xs font-bold text-sky-600">First Name</span>
-                        <input
-                            className="p-3 rounded-md outline-none border border-sky-600 text-sky"
-                            type="text"
-                            required
-                            placeholder="Your First Name"
-                            name="firstname"
-                            id="firstname"
-                        />
-                    </label>
-                    <label className="flex my-2 p-2 md:w-1/1 flex-col gap-2 text-xs w-full">
-                        <span className="text-xs font-bold text-sky-600">Last Name</span>
-                        <input
-                            className="p-3 rounded-md outline-none border border-sky-600 text-sky"
-                            type="text"
-                            required
-                            placeholder="Your Last Name"
-                            name="lastname"
-                            id="lastname"
-                        />
-                    </label>
+                        <label className="flex my-2 p-2 md:w-1/1 flex-col gap-2 text-xs w-full">
+                            <span className="text-xs font-bold text-sky-600">First Name</span>
+                            <input
+                                className="p-3 rounded-md outline-none border border-sky-600 text-sky"
+                                type="text"
+                                required
+                                placeholder="Your First Name"
+                                name="firstname"
+                                id="firstname"
+                            />
+                        </label>
+                        <label className="flex my-2 p-2 md:w-1/1 flex-col gap-2 text-xs w-full">
+                            <span className="text-xs font-bold text-sky-600">Last Name</span>
+                            <input
+                                className="p-3 rounded-md outline-none border border-sky-600 text-sky"
+                                type="text"
+                                required
+                                placeholder="Your Last Name"
+                                name="lastname"
+                                id="lastname"
+                            />
+                        </label>
                     </div>
                     <label className="flex my-1 flex-col gap-1 text-xs w-full">
                         <span className="text-xs font-bold text-sky-600">Email</span>
@@ -60,8 +60,8 @@ const Signup = () => {
                     <Link href={'/sign up'}></Link>
                     <button className="bg-sky-600 hover:bg-transparent hover:text-sky-600 border-2 transition-all ease-in-out border-sky-600 p-3 text-xs rounded-md text-white font-bold">Sign Up Account</button>
                     <p className="text-xs font-semibold text-center mb-10">
-                    Have an account? Login
-                </p>
+                        Have an account? Login
+                    </p>
                 </form>
             </div>
         </div>

@@ -31,27 +31,27 @@ const sendmessage = () => {
             <div className="w-full my-5 gap-3">
                 <table
                     cellPadding={8}
-                    className="w-full border-collapse border border-slate-500 table-fixed">
+                    className="w-full border-collapse border border-slate-300 table-fixed">
                     <thead className="bg-sky-600">
                         <tr>
-                            <th className="border border-slate-600 text-white">No</th>
-                            <th className="border border-slate-600 text-white">Nama</th>
-                            <th className="border border-slate-600 text-white">Status</th>
-                            <th className="border border-slate-600 text-white">Action</th>
+                            <th className="border border-slate-300 text-white">No</th>
+                            <th className="border border-slate-300 text-white">Nama</th>
+                            <th className="border border-slate-300 text-white">Status</th>
+                            <th className="border border-slate-300 text-white">Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td className="border border-slate-600 text-center">1</td>
-                            <td className="border border-slate-600 text-center">Adinda Istika</td>
-                            <td className="border border-slate-600 text-center">
+                            <td className="border border-slate-300 text-center">1</td>
+                            <td className="border border-slate-300 text-center">Adinda Istika</td>
+                            <td className="border border-slate-300 text-center">
                                 <div className="flex justify-center items-center space-x-2">
                                     <div className="bg-amber-400 p-2 w-20 inline-block rounded ">
                                         <h5 className="text-white">Pending</h5>
                                     </div>
                                 </div>
                             </td>
-                            <td className="text-xs font-semibold border border-slate-600">
+                            <td className="text-xs font-semibold border border-slate-300">
                             <div className="flex justify-center items-center gap-2">
                                 <div className="text-red-600 ">
                                     <IconTrash width={20} />
@@ -62,19 +62,18 @@ const sendmessage = () => {
                             </div>
                             </td>
                         </tr>
-                    </tbody>
-                    <tbody>
+                   
                         <tr>
-                            <td className="border border-slate-600 text-center">2</td>
-                            <td className="border border-slate-600 text-center">Octaviani</td>
-                            <td className="border border-slate-600 text-center">
+                            <td className="border border-slate-300 text-center">2</td>
+                            <td className="border border-slate-300 text-center">Octaviani</td>
+                            <td className="border border-slate-300 text-center">
                                 <div className="flex justify-center items-center space-x-2">
                                     <div className="bg-red-700 p-2 w-20 inline-block rounded ">
                                         <h5 className="text-white">Gagal</h5>
                                     </div>
                                 </div>
                             </td>
-                            <td className="text-xs font-semibold border border-slate-600">
+                            <td className="text-xs font-semibold border border-slate-300">
                             <div className="flex justify-center items-center gap-2">
                                 <div className="text-red-600 ">
                                     <IconTrash width={20} />
@@ -85,19 +84,18 @@ const sendmessage = () => {
                             </div>
                             </td>
                         </tr>
-                    </tbody>
-                    <tbody>
+                    
                         <tr>
-                            <td className="border border-slate-600 text-center">3</td>
-                            <td className="border border-slate-600 text-center">Jono joni</td>
-                            <td className="border border-slate-600 text-center">
+                            <td className="border border-slate-300 text-center">3</td>
+                            <td className="border border-slate-300 text-center">Jono joni</td>
+                            <td className="border border-slate-300 text-center">
                                 <div className="flex justify-center items-center space-x-2">
                                     <div className="bg-green-700 p-2 w-20 inline-block rounded ">
                                         <h5 className="text-white">Berhasil</h5>
                                     </div>
                                 </div>
                             </td>
-                            <td className="text-xs font-semibold border border-slate-600">
+                            <td className="text-xs font-semibold border border-slate-300">
                             <div className="flex justify-center items-center gap-2">
                                 <div className="text-red-600 ">
                                     <IconTrash width={20} />
@@ -108,19 +106,17 @@ const sendmessage = () => {
                             </div>
                             </td>
                         </tr>
-                    </tbody>
-                    <tbody>
                         <tr>
-                            <td className="border border-slate-600 text-center">4</td>
-                            <td className="border border-slate-600 text-center">meloni</td>
-                            <td className="border border-slate-600 text-center">
+                            <td className="border border-slate-300 text-center">4</td>
+                            <td className="border border-slate-300 text-center">meloni</td>
+                            <td className="border border-slate-300 text-center">
                                 <div className="flex justify-center items-center space-x-2">
                                     <div className="bg-green-700 p-2 w-20 inline-block rounded ">
                                         <h5 className="text-white">Berhasil</h5>
                                     </div>
                                 </div>
                             </td>
-                            <td className="text-xs font-semibold border border-slate-600">
+                            <td className="text-xs font-semibold border border-slate-300">
                             <div className="flex justify-center items-center gap-2">
                                 <div className="text-red-600 ">
                                     <IconTrash width={20} />
