@@ -1,133 +1,106 @@
-import { IconSearch } from "@tabler/icons-react";
-import { IconFileSpreadsheet } from "@tabler/icons-react";
-import { IconDatabaseExport } from "@tabler/icons-react";
-import { IconSquareRoundedChevronRight } from "@tabler/icons-react";
-import { IconQrcode } from "@tabler/icons-react";
-import { IconAddressBook } from "@tabler/icons-react";
-import { IconMessage2 } from "@tabler/icons-react";
-import { IconBell } from "@tabler/icons-react";
+import { IconPencilMinus } from "@tabler/icons-react";
+import { IconTrash } from "@tabler/icons-react";
+import Image from "next/image";
 
 const Contact = () => {
-    return (
-        <main className="min-h-screen">
-            <header className="flex flex-col sm:flex-row justify-between lg:items-center">
-                <div className="mb-4 sm:mb-0">
-                    <h1 className="text-black lg:text-left font-semibold">CONTACT</h1>
-                </div>
-                <div className="flex gap-3 items-center">
-                    <IconBell color="#0B588D" />
-                    <img src="/static/auth/profile.jpeg" className="w-[50px] m-auto" alt="Logo" />
-                </div>
-            </header>
-            <div className="flex w-full mx-auto my-4 p-2 rounded-md shadow-md">
-                <input className="outline-none w-full" type="text" name="search" id="search" />
-                <IconSearch />
-            </div>
-            <div className="flex items-center sm:flex-row items-center gap-5">
-                <div className="flex gap-3 w-full">
-                    <div className="max-w-[90px] text-center flex flex-col items-center text-xs">
-                        <IconMessage2 onClick={() => window.location.href = 'massmessage'} color="#0B588D" />
-                        <p>Mass Message</p>
+  return (
+    <div className="flex flex-col rounded-md shadow-md">
+        <h1 className="font-bold my-3 text-xl">CONTACT</h1>
+      <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
+        <div className="inline-block min-w-full py-2 sm:px-6 lg:px-8 shadows-md">
+          <div className="overflow-hidden">
+            <table className="min-w-full text-left text-sm font-light">
+              <thead className="border-t font-medium dark:border-neutral-500">
+                <tr>
+                  <th scope="col" className="px-6 py-4">
+                    ID
+                  </th>
+                  <th scope="col" className="px-6 py-4">
+                    Nama
+                  </th>
+                  <th scope="col" className="px-6 py-4">
+                    Phone Number
+                  </th>
+                  <th scope="col" className="px-6 py-4">
+                    Action
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="border-t dark:border-neutral-500 text-slate-600">
+                  <td className="whitespace-nowrap px-6 py-4 font-medium">1</td>
+                  <td className="whitespace-nowrap px-6 py-4 flex items-center gap-3">
+                    <Image src="/static/auth/kontak.jpg" className="rounded-full w-10 h-10 object-cover" width={42} height={42} alt="Image-kontak" />
+                    <span>jono bin joni</span>
+                  </td>
+                  <td className="whitespace-nowrap px-6 py-4">08123455777</td>
+                  <td className="whitespace-nowrap px-6 py-4 flex items-center gap-2">
+                    <div className="bg-transparent w-max">
+                      <IconTrash color="red" />
                     </div>
-
-                    <div className="max-w-[90px] text-center flex flex-col items-center text-xs">
-                        <IconFileSpreadsheet color="#0B588D" />
-                        <p>Import From Excel</p>
+                    <div className="bg-transparent p-1 w-max">
+                      <IconPencilMinus color="green" />
                     </div>
-                    <div className="max-w-[90px] text-center flex flex-col items-center text-xs">
-                        <IconDatabaseExport color="#0B588D" />
-                        <p>Export Contact</p>
+                  </td>
+                </tr>
+                <tr className="border-t dark:border-neutral-500 text-slate-600">
+                  <td className="whitespace-nowrap px-6 py-4 font-medium">2</td>
+                  <td className="whitespace-nowrap px-6 py-4 flex items-center gap-3">
+                    <Image
+                      src="/static/auth/kontak.jpg" className="rounded-full w-10 h-10 object-cover" width={42} height={42} alt="Image-kontak" />
+                    <span>jono bin joni</span>
+                  </td>
+                  <td className="whitespace-nowrap px-6 py-4">08123455777</td>
+                  <td className="whitespace-nowrap px-6 py-4 flex items-center gap-2">
+                    <div className="bg-transparent w-max">
+                      <IconTrash color="red" />
                     </div>
-                    <div className="max-w-[70px] text-centerflex flex-col items-center text-xs">
-                        <IconAddressBook color="#0B588D" />
-                        <p>Import from phonebook</p>
+                    <div className="bg-transparent p-1 w-max">
+                      <IconPencilMinus color="green" />
                     </div>
-                    <div className="max-w-[50px] text-center flex flex-col items-center text-xs">
-                        <IconQrcode color="#0B588D" />
-                        <p>Scan business card</p>
+                  </td>
+                </tr>
+                <tr className="border-t dark:border-neutral-500 text-slate-600">
+                  <td className="whitespace-nowrap px-6 py-4 font-medium">2</td>
+                  <td className="whitespace-nowrap px-6 py-4 flex items-center gap-3">
+                    <Image
+                      src="/static/auth/kontak.jpg" className="rounded-full w-10 h-10 object-cover" width={42} height={42} alt="Image-kontak" />
+                    <span>jono bin joni</span>
+                  </td>
+                  <td className="whitespace-nowrap px-6 py-4">08123455777</td>
+                  <td className="whitespace-nowrap px-6 py-4 flex items-center gap-2">
+                    <div className="bg-transparent w-max">
+                      <IconTrash color="red" />
                     </div>
-                </div>
-                <div className="w-full">
-                    <button
-                        className="flex shadow-md w-full justify-between rounded-md opacity-80 p-3"
-                        type="button" >
-                        <IconAddressBook />
-                        <p>All Contact</p>
-                        <IconSquareRoundedChevronRight />
-                    </button>
-                </div>
-            </div>
-            <div className="flex justify-between items-center mt-8 mb-3">
-                <h5 className="text-lg font-semibold text-[10px] md:text-[24px]">All contact</h5>
-                <button className="p-2 bg-sky-600 rounded-md text-xs text-second" onClick={() => window.location.href = 'contact/add'} type="button"> + Add Contact </button>
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <div className="flex items-center gap-3 p-3 rounded-md shadow-md">
-                    <img src="/static/auth/profile.jpeg" className="w-[60px] mb-3 rounded-full"></img>
-                    <div>
-                        <p className="font-semibold text-[10px] md:text-[18px]">Adinda Istika Maulia</p>
-                        <p className=" font-semibold text-slate-400 text-[10px] md:text-[13px]"> Company ---- </p>
+                    <div className="bg-transparent p-1 w-max">
+                      <IconPencilMinus color="green" />
                     </div>
-                </div>
-                <div className="flex items-center gap-3 p-3 rounded-md shadow-md">
-                    <img src="/static/auth/profile.jpeg" className="w-[60px] mb-3 rounded-full"></img>
-                    <div>
-                        <p className="font-semibold text-[10px] md:text-[18px]">Adinda Istika Maulia</p>
-                        <p className=" font-semibold text-slate-400 text-[10px] md:text-[13px]"> Company ---- </p>
+                  </td>
+                </tr>
+                <tr className="border-t dark:border-neutral-500 text-slate-600">
+                  <td className="whitespace-nowrap px-6 py-4 font-medium">2</td>
+                  <td className="whitespace-nowrap px-6 py-4 flex items-center gap-3">
+                    <Image
+                      src="/static/auth/kontak.jpg" className="rounded-full w-10 h-10 object-cover" width={42} height={42} alt="Image-kontak" />
+                    <span>jono bin joni</span>
+                  </td>
+                  <td className="whitespace-nowrap px-6 py-4">08123455777</td>
+                  <td className="whitespace-nowrap px-6 py-4 flex items-center gap-2">
+                    <div className="bg-transparent w-max">
+                      <IconTrash color="red" />
                     </div>
-                </div>
-                <div className="flex items-center gap-3 p-3 rounded-md shadow-md">
-                    <img src="/static/auth/profile.jpeg" className="w-[60px] mb-3 rounded-full"></img>
-                    <div>
-                        <p className="font-semibold text-[10px] md:text-[18px]">Adinda Istika Maulia</p>
-                        <p className=" font-semibold text-slate-400 text-[10px] md:text-[13px]"> Company ---- </p>
+                    <div className="bg-transparent p-1 w-max">
+                      <IconPencilMinus color="green" />
                     </div>
-                </div>
-                <div className="flex items-center gap-3 p-3 rounded-md shadow-md">
-                    <img src="/static/auth/profile.jpeg" className="w-[60px] mb-3 rounded-full"></img>
-                    <div>
-                        <p className="font-semibold text-[10px] md:text-[18px]">Adinda Istika Maulia</p>
-                        <p className=" font-semibold text-slate-400 text-[10px] md:text-[13px]">
-                            Company ----
-                        </p>
-                    </div>
-                </div>
-                <div className="flex items-center gap-3 p-3 rounded-md shadow-md">
-                    <img src="/static/auth/profile.jpeg" className="w-[60px] mb-3 rounded-full"></img>
-                    <div>
-                        <p className="font-semibold text-[10px] md:text-[18px]">Adinda Istika Maulia</p>
-                        <p className=" font-semibold text-slate-400 text-[10px] md:text-[13px]">
-                            Company ----
-                        </p>
-                    </div>
-                </div>
-                <div className="flex items-center gap-3 p-3 rounded-md shadow-md">
-                    <img src="/static/auth/profile.jpeg" className="w-[60px] mb-3 rounded-full"></img>
-                    <div>
-                        <p className="font-semibold text-[10px] md:text-[18px]">Adinda Istika Maulia</p>
-                        <p className=" font-semibold text-slate-400 text-[10px] md:text-[13px]">
-                            Company ----
-                        </p>
-                    </div>
-                </div>
-                <div className="flex items-center gap-3 p-3 rounded-md shadow-md">
-                    <img src="/static/auth/profile.jpeg" className="w-[60px] mb-3 rounded-full"></img>
-                    <div>
-                        <p className="font-semibold text-[10px] md:text-[18px]">Adinda Istika Maulia</p>
-                        <p className=" font-semibold text-slate-400 text-[10px] md:text-[13px]">  Company ---- </p>
-                    </div>
-                </div>
-                <div className="flex items-center gap-3 p-3 rounded-md shadow-md">
-                    <img src="/static/auth/profile.jpeg" className="w-[60px] mb-3 rounded-full"></img>
-                    <div>
-                        <p className="font-semibold text-[10px] md:text-[18px]">Adinda Istika Maulia</p>
-                        <p className=" font-semibold text-slate-400 text-[10px] md:text-[13px]">  Company ---- </p>
-                    </div>
-                </div>
-            </div>
-        </main>
-    );
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default Contact;
-

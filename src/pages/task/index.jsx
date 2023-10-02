@@ -18,24 +18,23 @@ const Task = () => {
                 </div>
             </header>
             <Link href={"/task/add"}>
-                <button className="bg-sky-600 p-3 rounded-md shadow-md text-xs text-white" onClick={() => window.location.href = 'task/add'}> + Add Task </button>
+                <button className="bg-sky-800 p-3 rounded-md shadow-md text-xs text-white" onClick={() => window.location.href = 'task/add'}> + Add Task </button>
             </Link>
-            <section className="text-sky-600">
-                <h2 className="text-sky-600 my-3 font-semibold">Task terupdate</h2>
+            <section className="text-sky-800">
+                <h2 className="text-sky-800 my-3 font-semibold">Task terupdate</h2>
                 <div className="flex gap-3 flex-wrap">
                     <div className="shadow-md rounded-md w-80 p-3">
-                        <div className="flex justify-between text-white">
-                            <p className="bg-sky-600 p-2 rounded-md text-xs">1 minute ago</p>
-                            <p className="bg-green-700 p-2 rounded-md text-xs">Finish</p>
+                        <div className="flex justify-between text-sky-900">
+                            <p className="bg-cyan-500 p-2 rounded-md text-xs font-bold">1 minute ago</p>
                         </div>
-                        <p className="font-bold my-3">Lorem, ipsum dolor.</p>
+                        <p className="font-bold my-3">Rapat Varash App</p>
                         <div className="flex justify-between items-end">
                             <div className="opacity-40">
-                                <div className="flex gap-2 text-xs items-center">
+                                <div className="flex gap-2 text-xs items-center text-slate-600">
                                     <IconCalendarEvent />
                                     <p>23 Mei 2023</p>
                                 </div>
-                                <div className="flex gap-2 text-xs items-center">
+                                <div className="flex gap-2 text-xs items-center text-slate-600">
                                     <IconClockHour4 />
                                     <p>04.00</p>
                                 </div>
@@ -50,222 +49,7 @@ const Task = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="shadow-md rounded-md w-80 p-3">
-                        <div className="flex justify-between text-white">
-                            <p className="bg-sky-600 p-2 rounded-md text-xs">1 minute ago</p>
-                            <p className="bg-green-700 p-2 rounded-md text-xs">Finish</p>
-                        </div>
-                        <p className="font-bold my-3">Lorem, ipsum dolor.</p>
-                        <div className="flex justify-between items-end">
-                            <div className="opacity-40">
-                                <div className="flex gap-2 text-xs items-center">
-                                    <IconCalendarEvent />
-                                    <p>23 Mei 2023</p>
-                                </div>
-                                <div className="flex gap-2 text-xs items-center">
-                                    <IconClockHour4 />
-                                    <p>04.00</p>
-                                </div>
-                            </div>
-                            <div className="flex items-center gap-2">
-                                <div className="text-red-600 ">
-                                    <IconTrash width={20} />
-                                </div>
-                                <div className="text-green-700 ">
-                                    <IconPencilMinus width={20} />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="shadow-md rounded-md w-80 p-3">
-                        <div className="flex justify-between text-white">
-                            <p className="bg-sky-600 p-2 rounded-md text-xs">1 minute ago</p>
-                            <p className="bg-green-700 p-2 rounded-md text-xs">Finish</p>
-                        </div>
-                        <p className="font-bold my-3">Lorem, ipsum dolor.</p>
-                        <div className="flex justify-between items-end">
-                            <div className="opacity-40">
-                                <div className="flex gap-2 text-xs items-center">
-                                    <IconCalendarEvent />
-                                    <p>23 Mei 2023</p>
-                                </div>
-                                <div className="flex gap-2 text-xs items-center">
-                                    <IconClockHour4 />
-                                    <p>04.00</p>
-                                </div>
-                            </div>
-                            <div className="flex items-center gap-2">
-                                <div className="text-red-600 ">
-                                    <IconTrash width={20} />
-                                </div>
-                                <div className="text-green-700 ">
-                                    <IconPencilMinus width={20} />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="shadow-md rounded-md w-80 p-3">
-                        <div className="flex justify-between text-white">
-                            <p className="bg-sky-600 p-2 rounded-md text-xs">1 minute ago</p>
-                            <p className="bg-green-700 p-2 rounded-md text-xs">Finish</p>
-                        </div>
-                        <p className="font-bold my-3">Lorem, ipsum dolor.</p>
-                        <div className="flex justify-between items-end">
-                            <div className="opacity-40">
-                                <div className="flex gap-2 text-xs items-center">
-                                    <IconCalendarEvent />
-                                    <p>23 Mei 2023</p>
-                                </div>
-                                <div className="flex gap-2 text-xs items-center">
-                                    <IconClockHour4 />
-                                    <p>04.00</p>
-                                </div>
-                            </div>
-                            <div className="flex items-center gap-2">
-                                <div className="text-red-600 ">
-                                    <IconTrash width={20} />
-                                </div>
-                                <div className="text-green-700 ">
-                                    <IconPencilMinus width={20} />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="shadow-md rounded-md w-80 p-3">
-                        <div className="flex justify-between text-white">
-                            <p className="bg-sky-600 p-2 rounded-md text-xs">1 minute ago</p>
-                            <p className="bg-green-700 p-2 rounded-md text-xs">Finish</p>
-                        </div>
-                        <p className="font-bold my-3">Lorem, ipsum dolor.</p>
-                        <div className="flex justify-between items-end">
-                            <div className="opacity-40">
-                                <div className="flex gap-2 text-xs items-center">
-                                    <IconCalendarEvent />
-                                    <p>23 Mei 2023</p>
-                                </div>
-                                <div className="flex gap-2 text-xs items-center">
-                                    <IconClockHour4 />
-                                    <p>04.00</p>
-                                </div>
-                            </div>
-                            <div className="flex items-center gap-2">
-                                <div className="text-red-600 ">
-                                    <IconTrash width={20} />
-                                </div>
-                                <div className="text-green-700 ">
-                                    <IconPencilMinus width={20} />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="shadow-md rounded-md w-80 p-3">
-                        <div className="flex justify-between text-white">
-                            <p className="bg-sky-600 p-2 rounded-md text-xs">1 minute ago</p>
-                            <p className="bg-green-700 p-2 rounded-md text-xs">Finish</p>
-                        </div>
-                        <p className="font-bold my-3">Lorem, ipsum dolor.</p>
-                        <div className="flex justify-between items-end">
-                            <div className="opacity-40">
-                                <div className="flex gap-2 text-xs items-center">
-                                    <IconCalendarEvent />
-                                    <p>23 Mei 2023</p>
-                                </div>
-                                <div className="flex gap-2 text-xs items-center">
-                                    <IconClockHour4 />
-                                    <p>04.00</p>
-                                </div>
-                            </div>
-                            <div className="flex items-center gap-2">
-                                <div className="text-red-600 ">
-                                    <IconTrash width={20} />
-                                </div>
-                                <div className="text-green-700 ">
-                                    <IconPencilMinus width={20} />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="shadow-md rounded-md w-80 p-3">
-                        <div className="flex justify-between text-white">
-                            <p className="bg-sky-600 p-2 rounded-md text-xs">1 minute ago</p>
-                            <p className="bg-green-700 p-2 rounded-md text-xs">Finish</p>
-                        </div>
-                        <p className="font-bold my-3">Lorem, ipsum dolor.</p>
-                        <div className="flex justify-between items-end">
-                            <div className="opacity-40">
-                                <div className="flex gap-2 text-xs items-center">
-                                    <IconCalendarEvent />
-                                    <p>23 Mei 2023</p>
-                                </div>
-                                <div className="flex gap-2 text-xs items-center">
-                                    <IconClockHour4 />
-                                    <p>04.00</p>
-                                </div>
-                            </div>
-                            <div className="flex items-center gap-2">
-                                <div className="text-red-600 ">
-                                    <IconTrash width={20} />
-                                </div>
-                                <div className="text-green-700 ">
-                                    <IconPencilMinus width={20} />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="shadow-md rounded-md w-80 p-3">
-                        <div className="flex justify-between text-white">
-                            <p className="bg-sky-600 p-2 rounded-md text-xs">1 minute ago</p>
-                            <p className="bg-green-700 p-2 rounded-md text-xs">Finish</p>
-                        </div>
-                        <p className="font-bold my-3">Lorem, ipsum dolor.</p>
-                        <div className="flex justify-between items-end">
-                            <div className="opacity-40">
-                                <div className="flex gap-2 text-xs items-center">
-                                    <IconCalendarEvent />
-                                    <p>23 Mei 2023</p>
-                                </div>
-                                <div className="flex gap-2 text-xs items-center">
-                                    <IconClockHour4 />
-                                    <p>04.00</p>
-                                </div>
-                            </div>
-                            <div className="flex items-center gap-2">
-                                <div className="text-red-600 ">
-                                    <IconTrash width={20} />
-                                </div>
-                                <div className="text-green-700 ">
-                                    <IconPencilMinus width={20} />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="shadow-md rounded-md w-80 p-3">
-                        <div className="flex justify-between text-white">
-                            <p className="bg-sky-600 p-2 rounded-md text-xs">1 minute ago</p>
-                            <p className="bg-green-700 p-2 rounded-md text-xs">Finish</p>
-                        </div>
-                        <p className="font-bold my-3">Lorem, ipsum dolor.</p>
-                        <div className="flex justify-between items-end">
-                            <div className="opacity-40">
-                                <div className="flex gap-2 text-xs items-center">
-                                    <IconCalendarEvent />
-                                    <p>23 Mei 2023</p>
-                                </div>
-                                <div className="flex gap-2 text-xs items-center">
-                                    <IconClockHour4 />
-                                    <p>04.00</p>
-                                </div>
-                            </div>
-                            <div className="space-x-1 flex items-center gap-2">
-                                <div className="text-red-600">
-                                    <IconTrash width={20} />
-                                </div>
-                                <div className="text-green-700">
-                                    <IconPencilMinus width={20} />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
                 </div>
             </section>
         </main>
