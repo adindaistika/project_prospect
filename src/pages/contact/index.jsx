@@ -4,10 +4,11 @@ import Image from "next/image";
 
 const Contact = () => {
   return (
-    <div className="flex flex-col rounded-md shadow-md">
-        <h1 className="font-bold my-3 text-xl">CONTACT</h1>
-      <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
-        <div className="inline-block min-w-full py-2 sm:px-6 lg:px-8 shadows-md">
+    <div className="w-full">
+      <div className="">
+        <h1 className="mb-5 text-black lg:text-left text-lg font-bold">CONTACT</h1>
+        </div>
+        <div className="inline-block min-w-full shadow-2xl rounded-md">
           <div className="overflow-hidden">
             <table className="min-w-full text-left text-sm font-light">
               <thead className="border-t font-medium dark:border-neutral-500">
@@ -99,7 +100,6 @@ const Contact = () => {
           </div>
         </div>
       </div>
-    </div>
   );
 };
 

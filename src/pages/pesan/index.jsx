@@ -6,12 +6,14 @@ import Image from "next/image";
 
 const pesan = () => {
     return (
-        <div className="flex flex-col rounded-md shadow-md">
-            <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
-                <div className="inline-block min-w-full py-2 sm:px-6 lg:px-8 shadows-md">
-                <div className="flex justify-between items-center text-primary">
-                        <Link href={"/"}>+ Tambah Pesan Baru</Link>
-                    </div>
+        <div className="w-full">
+            <div className="">
+            <h1 className="mb-5 text-black lg:text-left text-lg font-bold">PESAN</h1>
+            </div>
+            <div className="text-primary">
+                    <Link className="mb-5 block text-right" href={"/"}>+ Tambah Pesan Baru</Link>
+                </div>
+                <div className="inline-block min-w-full shadow-2xl rounded-md">
                     <div className="overflow-hidden">
                         <table className="min-w-full text-left text-sm font-light">
                             <thead className="border-t font-medium dark:border-neutral-500">
@@ -81,7 +83,6 @@ const pesan = () => {
                     </div>
                 </div>
             </div>
-        </div>
     );
 };
 

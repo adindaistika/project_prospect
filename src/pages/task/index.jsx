@@ -3,7 +3,8 @@ import { IconClockHour4 } from "@tabler/icons-react";
 import { IconPencilMinus } from "@tabler/icons-react";
 import { IconTrash } from "@tabler/icons-react";
 import { IconBell } from "@tabler/icons-react";
-import Link from "next/link";
+import {IconClipboardText} from "@tabler/icons-react";
+import AddTask from "./add";
 
 const Task = () => {
     return (
@@ -17,15 +18,13 @@ const Task = () => {
                     <img src="/static/auth/profile.jpeg" className="w-[50px] m-auto" alt="Logo" />
                 </div>
             </header>
-            <Link href={"/task/add"}>
-                <button className="bg-sky-800 p-3 rounded-md shadow-md text-xs text-white" onClick={() => window.location.href = 'task/add'}> + Add Task </button>
-            </Link>
+            <AddTask />
             <section className="text-sky-800">
                 <h2 className="text-sky-800 my-3 font-semibold">Task terupdate</h2>
                 <div className="flex gap-3 flex-wrap">
-                    <div className="shadow-md rounded-md w-80 p-3">
+                    <div className="shadow-2xl rounded-md w-64 p-3">
                         <div className="flex justify-between text-sky-900">
-                            <p className="bg-cyan-500 p-2 rounded-md text-xs font-bold">1 minute ago</p>
+                            <p className="bg-blue-300 p-2 rounded-md text-xs font-bold">1 minute ago</p>
                         </div>
                         <p className="font-bold my-3">Rapat Varash App</p>
                         <div className="flex justify-between items-end">
@@ -40,6 +39,9 @@ const Task = () => {
                                 </div>
                             </div>
                             <div className="flex items-center gap-2">
+                                <div className="text-black">
+                                    <IconClipboardText width={20} />
+                                </div>
                                 <div className="text-red-600 ">
                                     <IconTrash width={20} />
                                 </div>
@@ -49,7 +51,6 @@ const Task = () => {
                             </div>
                         </div>
                     </div>
-
                 </div>
             </section>
         </main>
