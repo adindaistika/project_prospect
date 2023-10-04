@@ -2,18 +2,9 @@ import { IconPencilMinus } from "@tabler/icons-react";
 import { IconTrash } from "@tabler/icons-react";
 import { IconBell } from "@tabler/icons-react";
 
-const Home = () => {
+export default function Home() {
   return (
     <main className="min-h-screen">
-      <header className="flex flex-col sm:flex-row justify-between lg:items-center">
-        <div className="mb-4 sm:mb-0">
-          <h1 className="text-black lg:text-left font-semibold">DASHBOARD</h1>
-        </div>
-        <div className="flex gap-3 items-center">
-          <IconBell color="#0B588D" />
-          <img src="/static/auth/profile.jpeg" className="w-[50px] m-auto rounded-full" alt="Logo" />
-        </div>
-      </header>
       <div className="home-banner flex flex-col w-full mx-auto my-4 p-10 rounded-md shadow-md bg-sky-600">
         <h1 className="text-white lg:text-left font-bold text-">Halo, Selamat datang Jono</h1>
         <h5 className="text-white text-center sm:text-left mt-2">Good Morning</h5>
@@ -141,4 +132,8 @@ const Home = () => {
   );
 };
 
-export default Home;
+export async function getServerSideProps() {
+  return {
+    props: {title: 'DASHBOARD'},
+  };
+}
