@@ -40,7 +40,7 @@ const Navbar = () => {
         </div>
       }
       {mobile && !hiddenSide &&
-        <div onClick={() => handleSidebar()} className={`transition-all delay-300 duration-200 fixed w-full h-[100vh] bg-transparent ${mobile && !hiddenSide && ' bg-[#232222a8]'}`}></div>
+        <div onClick={() => handleSidebar()} className={`transition-all delay-300 duration-200 fixed w-full h-[100vh] ${hiddenSide && 'bg-transparent'} ${mobile && !hiddenSide && ' bg-[#232222a8]'}`}></div>
       }
       <div className={`transition-all duration-200 bg-white p-[30px] drop-shadow-xl space-y-3 h-[100vh] w-[235px] ${mobile && 'fixed left-0'} ${mobile && hiddenSide && ' left-[-235px]'}`}>
         <div>

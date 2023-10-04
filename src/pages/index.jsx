@@ -7,7 +7,7 @@ export default function Home() {
     <main className="min-h-screen">
       <div className="home-banner flex flex-col w-full mx-auto my-4 p-10 rounded-md shadow-md bg-sky-600">
         <h1 className="text-white lg:text-left font-bold text-">Halo, Selamat datang Jono</h1>
-        <h5 className="text-white text-center sm:text-left mt-2">Good Morning</h5>
+        <h5 className="text-white sm:text-left mt-2">Good Morning</h5>
       </div>
       <div className="flex flex-col sm:flex-row gap-3 text-white">
         <div className="rectangle1-banner p-8 bg-[#214A00] rounded-md flex-1">

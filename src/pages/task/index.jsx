@@ -4,27 +4,24 @@ import { IconPencilMinus } from "@tabler/icons-react";
 import { IconTrash } from "@tabler/icons-react";
 import { IconBell } from "@tabler/icons-react";
 import {IconClipboardText} from "@tabler/icons-react";
-import AddTask from "./add";
+import ModalTask from "@/components/modal/modalTask";
 
-const Task = () => {
+export default function Task() {
     return (
         <main className="min-h-screen">
-            <header className="flex flex-col sm:flex-row justify-between lg:items-center">
-                <div className="mb-4 sm:mb-0">
-                    <h1 className="text-black lg:text-left font-semibold">TASK</h1>
-                </div>
-                <div className="flex gap-3 items-center">
-                    <IconBell color="#0B588D" />
-                    <img src="/static/auth/profile.jpeg" className="w-[50px] m-auto" alt="Logo" />
-                </div>
-            </header>
-            <AddTask />
+            <button
+                className="bg-sky-600 p-3 rounded-md shadow-md text-xs text-white font-regular"
+                onClick={() => document.getElementById("modal-task").showModal()}
+            >
+                Add Task
+            </button>
+            <ModalTask />
             <section className="text-sky-800">
                 <h2 className="text-sky-800 my-3 font-semibold">Task terupdate</h2>
                 <div className="flex gap-3 flex-wrap">
                     <div className="shadow-2xl rounded-md w-64 p-3">
                         <div className="flex justify-between text-sky-900">
-                            <p className="bg-blue-300 p-2 rounded-md text-xs font-bold">1 minute ago</p>
+                            <p className="bg-blue-300 p-2 rounded-md text-xs font-regular">1 minute ago</p>
                         </div>
                         <p className="font-bold my-3">Rapat Varash App</p>
                         <div className="flex justify-between items-end">
@@ -57,4 +54,8 @@ const Task = () => {
     );
 };
 
-export default Task;
+export async function getServerSideProps(){
+    return{
+        props: {title:'TASK'}
+    }
+}

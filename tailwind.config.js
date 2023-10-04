@@ -6,6 +6,12 @@ module.exports = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    fontFamily: {
+      "regular": "Poppins-Regular",
+      "medium": "Poppins-Medium",
+      "bold": "Poppins-Bold",
+      "extra-bold": "Poppins-ExtraBold",
+    },
     extend: {
       colors: {
         primary: "#0B588D",

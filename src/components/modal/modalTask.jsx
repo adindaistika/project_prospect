@@ -1,13 +1,7 @@
-const AddTask = () => {
+const ModalTask = () => {
     return (
         <>
-            <button
-                className="bg-sky-600 p-3 rounded-md shadow-md text-xs text-white"
-                onClick={() => document.getElementById("my_modal_2").showModal()}
-            >
-                Add Task
-            </button>
-            <dialog id="my_modal_2" className="modal">
+            <dialog id="modal-task" className="modal">
                 <div className="modal-box">
                     <form method="dialog">
                         <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
@@ -102,9 +96,10 @@ const AddTask = () => {
                         </button>
                     </form>
                 </div>
+                <form method="dialog" class="modal-backdrop bg-[#0000004d]"><button>close</button></form>
             </dialog>
         </>
     );
 };
 
-export default AddTask;
+export default ModalTask;
