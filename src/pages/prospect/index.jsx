@@ -1,20 +1,10 @@
 import { IconSearch } from "@tabler/icons-react";
-import { IconBell } from "@tabler/icons-react";
 import { IconAddressBook } from "@tabler/icons-react";
 import { IconSquareRoundedChevronRight } from "@tabler/icons-react";
 
-const Prospect = () => {
+export default function prospect() {
     return (
         <main className=" min-h-screen">
-            <header className="flex flex-col sm:flex-row justify-between lg:items-center">
-                <div className="mb-4 sm:mb-0">
-                    <h1 className="text-black lg:text-left font-semibold">PROSPECT</h1>
-                </div>
-                <div className="flex gap-3 items-center">
-                    <IconBell color="#0B588D" />
-                    <img src="/static/auth/profile.jpeg" className="w-[50px] m-auto full" alt="Logo" />
-                </div>
-            </header>
             <div className="flex w-full mx-auto my-4 p-2 rounded-md shadow-md">
                 <input className="outline-none w-full" type="text" name="search" id="search" />
                 <IconSearch />
@@ -112,5 +102,9 @@ const Prospect = () => {
     );
 };
 
-export default Prospect;
+export async function getServerSideProps() {
+    return {
+      props: {title: 'PROSPECT'},
+    };
+  }
 

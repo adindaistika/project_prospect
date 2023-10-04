@@ -4,12 +4,9 @@ import { IconSend } from "@tabler/icons-react";
 import Link from "next/link";
 import Image from "next/image";
 
-const pesan = () => {
+export default function Pesan() {
     return (
         <div className="w-full">
-            <div className="">
-            <h1 className="mb-5 text-black lg:text-left text-lg font-bold">PESAN</h1>
-            </div>
             <div className="text-primary">
                     <Link className="mb-5 block text-right" href={"/"}>+ Tambah Pesan Baru</Link>
                 </div>
@@ -86,4 +83,8 @@ const pesan = () => {
     );
 };
 
-export default pesan;
+export async function getServerSideProps() {
+    return {
+      props: {title: 'PESAN'},
+    };
+  }

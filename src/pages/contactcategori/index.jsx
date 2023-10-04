@@ -3,12 +3,9 @@ import { IconTrash } from "@tabler/icons-react";
 import { IconClipboardText } from "@tabler/icons-react";
 import Link from "next/link";
 
-const contactcategori = () => {
+export default function contactcategori() {
     return (
         <div className="w-full">
-            <div className="">
-                <h1 className="mb-5 text-black lg:text-left text-lg font-bold">CONTACT CATEGORY</h1>
-            </div>
             <div className="text-primary">
                 <Link className="mb-5 block text-right" href={"/"}>+ Tulis Pesan Baru</Link>
             </div>
@@ -94,4 +91,8 @@ const contactcategori = () => {
     );
 };
 
-export default contactcategori;
+export async function getServerSideProps() {
+    return {
+      props: {title: 'CONTACT CATEGORY'},
+    };
+  }

@@ -48,17 +48,30 @@ const ModalTask = () => {
                                 id="description"
                             ></textarea>
                         </label>
-                        <label className="flex my-2 flex-col gap-1 text-xs w-ful">
-                            <div className="text-xs font-bold">Date Time</div>
-                            <input
-                                className="p-3 rounded-md outline-none border-slate-300 border text-sky"
-                                type="date"
-                                required
-                                placeholder="Add date time"
-                                name="date"
-                                id="date"
-                            />
-                        </label>
+                        <div className="grid grid-cols-2 gap-3 ">
+                            <label className="flex  flex-col gap-1 text-xs w-full">
+                                <span className="text-xs font-bold text-black">Start Date</span>
+                                <input
+                                    className="p-3 rounded-md outline-none border border-slate-300 text-black"
+                                    type="date"
+                                    required
+                                    placeholder="Add Start Date"
+                                    name="startdate"
+                                    id="startdate"
+                                />
+                            </label>
+                            <label className="flex flex-col gap-1 text-xs w-ful">
+                                <span className="text-xs font-bold text-black">End Date</span>
+                                <input
+                                    className="p-3 rounded-md outline-none border border-slate-300 text-black"
+                                    type="date"
+                                    required
+                                    placeholder="Add End Date"
+                                    name="enddate"
+                                    id="enddate"
+                                />
+                            </label>
+                        </div>
                         <label className="flex flex-col" htmlFor="selectContact">
                             <div className="font-semibold text-xs">Priority</div>
                             <select
@@ -77,15 +90,15 @@ const ModalTask = () => {
                                 </option>
                             </select>
                         </label>
-                        <label className="flex my-2 flex-col gap-1 text-xs w-ful">
-                            <div className="text-xs font-bold">Reminder</div>
+                        <label className="flex  flex-col gap-1 text-xs w-full">
+                            <div className="text-xs font-bold text-black">Set Time Reminder</div>
                             <input
-                                className="p-3 rounded-md outline-none border-slate-300 border text-sky"
-                                type="date"
+                                className="p-3 rounded-md outline-none border border-slate-300 text-black"
+                                type="time"
                                 required
-                                placeholder="Add rimender"
-                                name="rimender"
-                                id="rimender"
+                                placeholder="Add Set Time Reminder"
+                                name="settimereminder"
+                                id="settimereminder"
                             />
                         </label>
                         <button

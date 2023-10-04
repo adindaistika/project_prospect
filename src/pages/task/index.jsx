@@ -2,7 +2,6 @@ import { IconCalendarEvent } from "@tabler/icons-react";
 import { IconClockHour4 } from "@tabler/icons-react";
 import { IconPencilMinus } from "@tabler/icons-react";
 import { IconTrash } from "@tabler/icons-react";
-import { IconBell } from "@tabler/icons-react";
 import {IconClipboardText} from "@tabler/icons-react";
 import ModalTask from "@/components/modal/modalTask";
 
