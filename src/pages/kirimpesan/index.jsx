@@ -6,10 +6,9 @@ import { IconVideo } from "@tabler/icons-react";
 import { IconFileDescription } from "@tabler/icons-react";
 import Image from "next/image";
 
-const kirimpesan = () => {
+export default function Kirimpesan() {
     return (
         <div>
-            <h1 className="font-bold my-3 text-xl">KIRIM PESAN</h1>
             <div className="p-9 rounded-md shadow-md text-slate-600">
                 <p>
                     Selamat Malam, saya sedang mengecek kontak yang masih aktif.
@@ -198,4 +197,8 @@ const kirimpesan = () => {
     );
 };
 
-export default kirimpesan;
+export async function getServerSideProps() {
+    return {
+      props: {title: 'KIRIM PESAN'},
+    };
+  }

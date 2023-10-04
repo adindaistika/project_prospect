@@ -6,7 +6,7 @@ import { IconFileDescription } from "@tabler/icons-react";
 import { IconUpload } from "@tabler/icons-react";
 import { useState } from "react";
 
-const EditPesan = () => {
+export default function EditPesan() {
     const [file, setFile] = useState([]);
 
     const handleFile = (e) => {
@@ -20,9 +20,6 @@ const EditPesan = () => {
     };
     return (
         <div>
-            <div className="mb-4 sm:mb-0">
-                <h1 className="text-black lg:text-left text-lg font-bold">EDIT PESAN</h1>
-            </div>
             <form className="my-3" action="">
                 <input
                     type="text"
@@ -93,4 +90,8 @@ const EditPesan = () => {
     );
 };
 
-export default EditPesan;
+export async function getServerSideProps() {
+    return {
+      props: {title: 'EDITPESAN'},
+    };
+  }

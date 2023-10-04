@@ -2,22 +2,12 @@ import { IconCalendarEvent } from "@tabler/icons-react";
 import { IconClockHour4 } from "@tabler/icons-react";
 import { IconPencilMinus } from "@tabler/icons-react";
 import { IconTrash } from "@tabler/icons-react";
-import { IconBell } from "@tabler/icons-react";
 import {IconClipboardText} from "@tabler/icons-react";
 import AddTask from "./add";
 
-const Task = () => {
+export default function Task() {
     return (
         <main className="min-h-screen">
-            <header className="flex flex-col sm:flex-row justify-between lg:items-center">
-                <div className="mb-4 sm:mb-0">
-                    <h1 className="text-black lg:text-left font-semibold">TASK</h1>
-                </div>
-                <div className="flex gap-3 items-center">
-                    <IconBell color="#0B588D" />
-                    <img src="/static/auth/profile.jpeg" className="w-[50px] m-auto" alt="Logo" />
-                </div>
-            </header>
             <AddTask />
             <section className="text-sky-800">
                 <h2 className="text-sky-800 my-3 font-semibold">Task terupdate</h2>
@@ -57,4 +47,9 @@ const Task = () => {
     );
 };
 
-export default Task;
+export async function getServerSideProps() {
+    return {
+      props: {title: 'TASK'},
+    };
+  }
+
