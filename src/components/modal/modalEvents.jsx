@@ -1,6 +1,20 @@
 import { IconMapPin } from "@tabler/icons-react";
+import LocationPicker from "../LocationPicker";
+import { useState } from "react";
+import { useEffect } from "react";
 
 const ModalEvents = () => {
+    const [location, setLocation] = useState({ lat: 0, lng: 0 });
+    const [locationSelect, setLocationSelect] = useState();
+
+    const handleLocationChange = (newLocation) => {
+      setLocation(newLocation);
+      document.getElementById('my_modal_1').close()
+    };
+
+    useEffect(() => {
+        setLocationSelect(`${location.lat}  ${location.lng}`)
+    }, [location])
 
     return (
         <>
@@ -13,6 +27,7 @@ const ModalEvents = () => {
                     </form>
                     <h3 className="font-bold text-lg text-black">Add Events</h3>
                     <form className="flex flex-col gap-3" action="">
+                        {/* Form input lainnya dan tombol submit */}
                         <label className="flex my-2 flex-col gap-1 text-xs w-ful">
                             <div className="text-xs font-bold text-black">Title</div>
                             <input
@@ -76,23 +91,16 @@ const ModalEvents = () => {
                                     placeholder="Add Your Location"
                                     name="location"
                                     id="location"
+                                    value={locationSelect}
                                 />
                                 <button className="btn" onClick={() => document.getElementById('my_modal_1').showModal()}>
                                         <IconMapPin />
                                     </button>
                                 <dialog id="my_modal_1" className="modal">
-                                        <div className="modal-box">
-                                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3944.3934878151404!2d115.19195957393637!3d-8.654074788038768!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd2411e2ffc4c2d%3A0xb8de5c04c550fdf2!2sP.T.%20Galang%20Kangin%20Software!5e0!3m2!1sid!2sid!4v1694826375806!5m2!1sid!2sid"
-                                                width="600" height="450" style={{ border: "0" }} allowfullscreen=""
-                                                loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-                                            </iframe>
-                                            <div className="modal-action">
-                                                <div method="dialog">
-                                                    <button className="w-full bg-primary p-3 my-2 rounded-md shadow-md text-center text-xs text-white">Close</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </dialog>
+                                    <div className="modal-box">
+                                        <LocationPicker onLocationChange={handleLocationChange} />
+                                    </div>
+                                </dialog>
                             </div>
                         </label>
                         <label className="flex  flex-col gap-1 text-xs w-full">
