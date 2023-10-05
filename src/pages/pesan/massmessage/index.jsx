@@ -6,7 +6,7 @@ import { IconVideo } from "@tabler/icons-react";
 import { IconFileDescription } from "@tabler/icons-react";
 import Image from "next/image";
 
-export default function Kirimpesan() {
+export default function MassMessage() {
     return (
         <div>
             <div className="p-9 rounded-md shadow-md text-slate-600">
@@ -199,6 +199,6 @@ export default function Kirimpesan() {
 
 export async function getServerSideProps() {
     return {
-      props: {title: 'KIRIM PESAN'},
+      props: {title: 'MASS MESSAGE'},
     };
   }

@@ -4,7 +4,7 @@ import { IconSend } from "@tabler/icons-react";
 import Link from "next/link";
 import Image from "next/image";
 
-export default function Pesan() {
+export default function Message() {
     return (
         <div className="w-full">
             <div className="text-primary">
@@ -85,6 +85,6 @@ export default function Pesan() {
 
 export async function getServerSideProps() {
     return {
-      props: {title: 'PESAN'},
+      props: {title: 'MESSAGE'},
     };
   }

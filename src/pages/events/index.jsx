@@ -1,10 +1,9 @@
 import { IconTrash } from "@tabler/icons-react";
 import { IconPencilMinus } from "@tabler/icons-react";
-import { IconBell } from "@tabler/icons-react";
 import dynamic from "next/dynamic";
-import Link from "next/link";
+import ModalEvents from "@/components/modal/modalevents";
 import { useState } from "react";
-import AddEvents from "./add";
+
 
 export default function Events() {
     const [dateState, setDateState] = useState(new Date());
@@ -28,7 +27,13 @@ export default function Events() {
                 <div className="w-full">
                     <div className="flex justify-between items-center text-primary">
                         <h5 className="font-bold">Your Event</h5>
-                        <AddEvents/>
+                        <button
+                            className="bg-sky-600 p-3 rounded-md shadow-md text-xs text-white font-regular"
+                            onClick={() => document.getElementById("modalevents").showModal()}
+                        >
+                            Add Task
+                        </button>
+                        <ModalEvents />
                     </div>
                     <p className="opacity-50">30 Januari 2023</p>
                     <div className="space-y-3">
@@ -121,6 +126,6 @@ export default function Events() {
 
 export async function getServerSideProps() {
     return {
-      props: {title: 'EVENTS'},
+        props: { title: 'EVENTS' },
     };
-  }
+}

@@ -54,7 +54,7 @@ const Navbar = () => {
             </Link>
           </div>
           <div className={`items-center p-2 w-full rounded-md ${router.pathname === "/contact" ? "bg-sky-600" : ""}`}>
-            <Link href={'/contact'} className={`w-full flex flex-row`}>
+            <Link href={'/contactcategory'} className={`w-full flex flex-row`}>
               <IconUserCircle color={router.pathname === "/contact" ? "#FFFFFF" : "#0B588D"} />
               <div className={`ml-2 cursor-pointer ${router.pathname === "/contact" ? "text-white" : "text-sky-800"}`}>Contact</div>
             </Link>

@@ -36,9 +36,9 @@ export default function contactcategori() {
                                 </td>
                                 <td className="whitespace-nowrap px-6 py-4">bc tgl 14 mei batch 1</td>
                                 <td className="whitespace-nowrap px-6 py-4 flex items-center gap-2">
-                                    <div className="bg-transparent p-1 w-max">
+                                    <Link href={'/contactcategory/1'} className="bg-transparent p-1 w-max">
                                         <IconClipboardText color="black" />
-                                    </div>
+                                    </Link>
                                     <div className="bg-transparent w-max">
                                         <IconTrash color="red" />
                                     </div>

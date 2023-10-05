@@ -1,19 +1,10 @@
 import { IconMapPin } from "@tabler/icons-react";
 
-export default function AddEvents() {
-    module.exports = {
-        //....
-        Plugin: [require("daisyui")],
-    }
+const ModalEvents = () => {
+
     return (
         <>
-            <button
-                className="bg-sky-600 p-3 rounded-md shadow-md text-xs text-white"
-                onClick={() => document.getElementById("my_modal_2").showModal()}
-            >
-                Add Events
-            </button>
-            <dialog id="my_modal_2" className="modal">
+            <dialog id="modalevents" className="modal">
                 <div className="modal-box">
                     <form method="dialog">
                         <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
@@ -75,37 +66,35 @@ export default function AddEvents() {
                                 />
                             </label>
                         </div>
-                        <form>
-                            <label className="flex flex-col gap-1 text-xs w-full">
-                                <span className="text-xs font-bold text-black">Location</span>
-                                <div className="flex p-2 rounded-md outline-none border border-slate-300 text-skyw-full">
-                                    <input
-                                        className="w-full"
-                                        type="text"
-                                        required
-                                        placeholder="Add Your Location"
-                                        name="location"
-                                        id="location"
-                                    />
-                                    <button className="btn" onClick={() => document.getElementById('my_modal_1').showModal()}>
+                        <label className="flex flex-col gap-1 text-xs w-full">
+                            <span className="text-xs font-bold text-black">Location</span>
+                            <div className="flex p-2 rounded-md outline-none border border-slate-300 text-skyw-full">
+                                <input
+                                    className="w-full"
+                                    type="text"
+                                    required
+                                    placeholder="Add Your Location"
+                                    name="location"
+                                    id="location"
+                                />
+                                <button className="btn" onClick={() => document.getElementById('my_modal_1').showModal()}>
                                         <IconMapPin />
                                     </button>
-                                    <dialog id="my_modal_1" className="modal">
+                                <dialog id="my_modal_1" className="modal">
                                         <div className="modal-box">
                                             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3944.3934878151404!2d115.19195957393637!3d-8.654074788038768!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd2411e2ffc4c2d%3A0xb8de5c04c550fdf2!2sP.T.%20Galang%20Kangin%20Software!5e0!3m2!1sid!2sid!4v1694826375806!5m2!1sid!2sid"
                                                 width="600" height="450" style={{ border: "0" }} allowfullscreen=""
                                                 loading="lazy" referrerpolicy="no-referrer-when-downgrade">
                                             </iframe>
                                             <div className="modal-action">
-                                                <form method="dialog">
+                                                <div method="dialog">
                                                     <button className="w-full bg-primary p-3 my-2 rounded-md shadow-md text-center text-xs text-white">Close</button>
-                                                </form>
+                                                </div>
                                             </div>
                                         </div>
                                     </dialog>
-                                </div>
-                            </label>
-                        </form>
+                            </div>
+                        </label>
                         <label className="flex  flex-col gap-1 text-xs w-full">
                             <div className="text-xs font-bold text-black">Set Time Reminder</div>
                             <input
@@ -139,8 +128,4 @@ export default function AddEvents() {
     );
 };
 
-export async function getServerSideProps() {
-    return {
-        props: { title: 'ADD EVENTS' },
-    };
-}
+export default ModalEvents;

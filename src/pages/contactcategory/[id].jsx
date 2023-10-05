@@ -2,12 +2,9 @@ import { IconPencilMinus } from "@tabler/icons-react";
 import { IconTrash } from "@tabler/icons-react";
 import Image from "next/image";
 
-const Contact = () => {
+export default function Contact() {
   return (
     <div className="w-full">
-      <div className="">
-        <h1 className="mb-5 text-black lg:text-left text-lg font-bold">CONTACT</h1>
-        </div>
         <div className="inline-block min-w-full shadow-2xl rounded-md">
           <div className="overflow-hidden">
             <table className="min-w-full text-left text-sm font-light">
@@ -103,4 +100,8 @@ const Contact = () => {
   );
 };
 
-export default Contact;
+export async function getServerSideProps() {
+  return {
+      props: { title: 'CONTACT' },
+  };
+}

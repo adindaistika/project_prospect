@@ -2,19 +2,9 @@ import { IconBell } from "@tabler/icons-react";
 import { IconPencilMinus } from "@tabler/icons-react";
 import { IconTrash } from "@tabler/icons-react";
 
-const Messagetemplate = () => {
+export default function Messagetemplate() {
     return (
         <main>
-            <header className="flex flex-col sm:flex-row justify-between lg:items-center">
-                <div className="mb-4 sm:mb-0">
-                    <h1 className="text-black lg:text-left font-semibold">MESSAGE TEMPLATE</h1>
-                </div>
-                <div className="flex gap-3 items-center">
-                    <IconBell color="#0B588D" />
-                    <img src="/static/auth/profile.jpeg" className="w-[50px] m-auto" alt="Logo" />
-                </div>
-            </header>
-
             <div className="w-full my-5 gap-3">
                 <table
                     cellPadding={8}
@@ -102,4 +92,8 @@ const Messagetemplate = () => {
         </main>
     )
 }
-export default Messagetemplate;
+export async function getServerSideProps() {
+    return {
+        props: { title: 'MESSAGE TEMPLATE' },
+    };
+}
