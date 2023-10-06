@@ -11,8 +11,8 @@ const Signup = () => {
                 </p>
 
                 <form className="md:flex flex-col w-full" action="">
-                    <div className="flex">
-                        <label className="flex my-2 p-2 md:w-1/1 flex-col gap-2 text-xs w-full">
+                    <div className="grid grid-cols-2 gap-3 ">
+                        <label className="flex my-2 flex-col gap-1 text-xs w-full">
                             <span className="text-xs font-bold text-sky-600">First Name</span>
                             <input
                                 className="p-3 rounded-md outline-none border border-sky-600 text-sky"
@@ -23,7 +23,7 @@ const Signup = () => {
                                 id="firstname"
                             />
                         </label>
-                        <label className="flex my-2 p-2 md:w-1/1 flex-col gap-2 text-xs w-full">
+                        <label className="flex my-2 flex-col gap-1 text-xs w-ful">
                             <span className="text-xs font-bold text-sky-600">Last Name</span>
                             <input
                                 className="p-3 rounded-md outline-none border border-sky-600 text-sky"

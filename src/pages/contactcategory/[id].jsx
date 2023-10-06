@@ -7,9 +7,8 @@ export default function Contact() {
   return (
     <div className="w-full">
       <button
-        className="text-xs text-primary font-bold mb-5 "
-        onClick={() => document.getElementById("modalcontact").showModal()}
-      >
+        className=" mb-5 font-bold text-right"
+        onClick={() => document.getElementById("modalcontact").showModal()}>
         + Add Contact
       </button>
       <ModalContact />
@@ -28,6 +27,12 @@ export default function Contact() {
                   Phone Number
                 </th>
                 <th scope="col" className="px-6 py-4">
+                  Work Phone Number
+                </th>
+                <th scope="col" className="px-6 py-4">
+                  Home Phone Number
+                </th>
+                <th scope="col" className="px-6 py-4">
                   Action
                 </th>
               </tr>
@@ -40,6 +45,8 @@ export default function Contact() {
                   <span>jono bin joni</span>
                 </td>
                 <td className="whitespace-nowrap px-6 py-4">08123455777</td>
+                <td className="whitespace-nowrap px-6 py-4">08777</td>
+                <td className="whitespace-nowrap px-6 py-4">0812345</td>
                 <td className="whitespace-nowrap px-6 py-4 flex items-center gap-2">
                   <div className="bg-transparent w-max">
                     <IconTrash color="red" />
@@ -57,6 +64,8 @@ export default function Contact() {
                   <span>jono bin joni</span>
                 </td>
                 <td className="whitespace-nowrap px-6 py-4">08123455777</td>
+                <td className="whitespace-nowrap px-6 py-4">08777</td>
+                <td className="whitespace-nowrap px-6 py-4">0812345</td>
                 <td className="whitespace-nowrap px-6 py-4 flex items-center gap-2">
                   <div className="bg-transparent w-max">
                     <IconTrash color="red" />
@@ -74,6 +83,8 @@ export default function Contact() {
                   <span>jono bin joni</span>
                 </td>
                 <td className="whitespace-nowrap px-6 py-4">08123455777</td>
+                <td className="whitespace-nowrap px-6 py-4">08777</td>
+                <td className="whitespace-nowrap px-6 py-4">0812345</td>
                 <td className="whitespace-nowrap px-6 py-4 flex items-center gap-2">
                   <div className="bg-transparent w-max">
                     <IconTrash color="red" />
@@ -91,6 +102,8 @@ export default function Contact() {
                   <span>jono bin joni</span>
                 </td>
                 <td className="whitespace-nowrap px-6 py-4">08123455777</td>
+                <td className="whitespace-nowrap px-6 py-4">08777</td>
+                <td className="whitespace-nowrap px-6 py-4">0812345</td>
                 <td className="whitespace-nowrap px-6 py-4 flex items-center gap-2">
                   <div className="bg-transparent w-max">
                     <IconTrash color="red" />

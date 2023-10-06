@@ -6,9 +6,6 @@ import Link from "next/link";
 export default function contactcategori() {
     return (
         <div className="w-full">
-            <div className="text-primary">
-                <Link className="mb-5 block text-right" href={"/"}>+ Tulis Pesan Baru</Link>
-            </div>
             <div className="inline-block min-w-full shadow-2xl rounded-md">
                 <div className="overflow-hidden">
                     <table className="min-w-full text-left text-sm font-light">

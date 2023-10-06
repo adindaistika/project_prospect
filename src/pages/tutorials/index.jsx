@@ -1,20 +1,13 @@
-
-import { IconBell } from "@tabler/icons-react";
-
 export default function Tutorials() {
     return (
         <main>
             <div>
-                <iframe
-                    width="560"
-                    height="315"
-                    className="w-full rounded-lg mb-5"
+                <iframe width="560" height="315" className="w-full rounded-lg mb-5"
                     src="https://www.youtube.com/embed/W1MlXE5fBLM?si=dYQyTvSauKz5lNeU"
                     title="YouTube video player"
                     frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen
-                ></iframe>
+                    allowfullscreen></iframe>
             </div>
             <div className="collapse collapse-arrow shadow-md border bg-white text-black">
                 <input type="radio" name="my-accordion-2" checked="checked" />
