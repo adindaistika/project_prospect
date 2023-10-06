@@ -20,18 +20,18 @@ export default function Events() {
     }
     return (
         <main className=" min-h-screen">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                <div className="calendar bg-slate-400 rounded-md">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                <div className="calendar rounded-md">
                     <DynamicCalendar tileClassName={({ activeStartDate, date, view }) => tileClassName(date)} onChange={changeDate} value={dateState} next2Label={''} nextLabel={'>'} prevLabel={'<'} prev2Label={''} />
                 </div>
                 <div className="w-full">
                     <div className="flex justify-between items-center text-primary">
                         <h5 className="font-bold">Your Event</h5>
                         <button
-                            className="bg-sky-600 p-3 rounded-md shadow-md text-xs text-white font-regular"
+                            className="text-xs text-primary font-bold"
                             onClick={() => document.getElementById("modalevents").showModal()}
                         >
-                            Add Task
+                            + Add Events
                         </button>
                         <ModalEvents />
                     </div>

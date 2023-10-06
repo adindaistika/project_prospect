@@ -1,99 +1,90 @@
-import { IconBell } from "@tabler/icons-react";
 import { IconPencilMinus } from "@tabler/icons-react";
 import { IconTrash } from "@tabler/icons-react";
+import { IconSend } from "@tabler/icons-react";
+import Link from "next/link";
+import Image from "next/image";
 
-export default function Messagetemplate() {
+export default function Message() {
     return (
-        <main>
-            <div className="w-full my-5 gap-3">
-                <table
-                    cellPadding={8}
-                    className="w-full border-collapse border border-slate-300 shadow-lg ">
-                    <thead className="bg-sky-600">
-                        <tr>
-                            <th className="border border-slate-300 text-white">No</th>
-                            <th className="border border-slate-300 text-white">Nama</th>
-                            <th className="border border-slate-300 text-white">Message</th>
-                            <th className="border border-slate-300 text-white">Action</th>
-                        </tr>
-                    </thead>
-                    <tbody> 
-                        <tr>
-                            <td className="border border-slate-300 text-center">1</td>
-                            <td className="border border-slate-300 text-center">Adinda Istika</td>
-                            <td className="border border-slate-300 text-center">
-                            Halo meeting hari ini sangat menyenangkan
-                            </td>
-                            <td className="text-xs font-semibold border border-slate-300">
-                                <div className="flex justify-center items-center gap-2">
-                                <div className="text-red-600 ">
-                                    <IconTrash width={20} />
-                                </div>
-                                <div className="text-green-700 ">
-                                    <IconPencilMinus width={20} />
-                                </div>
-                            </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td className="border border-slate-300 text-center">2</td>
-                            <td className="border border-slate-300 text-center">Octaviani</td>
-                            <td className="border border-slate-300 text-center">
-                            Halo meeting hari ini sangat menyenangkan
-                            </td>
-                            <td className="text-xs font-semibold border border-slate-300">
-                            <div className="flex justify-center items-center gap-2">
-                                <div className="text-red-600 ">
-                                    <IconTrash width={20} />
-                                </div>
-                                <div className="text-green-700 ">
-                                    <IconPencilMinus width={20} />
-                                </div>
-                            </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td className="border border-slate-300 text-center">3</td>
-                            <td className="border border-slate-300 text-center">Jono joni</td>
-                            <td className="border border-slate-300 text-center">
-                            Halo meeting hari ini sangat menyenangkan
-                            </td>
-                            <td className="text-xs font-semibold border border-slate-300">
-                            <div className="flex justify-center items-center gap-2">
-                                <div className="text-red-600 ">
-                                    <IconTrash width={20} />
-                                </div>
-                                <div className="text-green-700 ">
-                                    <IconPencilMinus width={20} />
-                                </div>
-                            </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td className="border border-slate-300 text-center">4</td>
-                            <td className="border border-slate-300 text-center">meloni</td>
-                            <td className="border border-slate-300 text-center">
-                            Halo meeting hari ini sangat menyenangkan
-                            </td>
-                            <td className="text-xs font-semibold border border-slate-300">
-                            <div className="flex justify-center items-center gap-2">
-                                <div className="text-red-600 ">
-                                    <IconTrash width={20} />
-                                </div>
-                                <div className="text-green-700 ">
-                                    <IconPencilMinus width={20} />
-                                </div>
-                            </div>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+        <div className="w-full">
+            <div className="text-primary">
+                    <Link className="mb-5 block text-right" href={"/"}>+ Tambah Pesan Baru</Link>
+                </div>
+                <div className="inline-block min-w-full shadow-2xl rounded-md">
+                    <div className="overflow-hidden">
+                        <table className="min-w-full text-left text-sm font-light">
+                            <thead className="border-t font-medium dark:border-neutral-500">
+                                <tr>
+                                    <th scope="col" className="px-6 py-4">
+                                        ID
+                                    </th>
+                                    <th scope="col" className="px-6 py-4">
+                                        Nama
+                                    </th>
+                                    <th scope="col" className="px-6 py-4">
+                                        Title
+                                    </th>
+                                    <th scope="col" className="px-6 py-4">
+                                        Message
+                                    </th>
+                                    <th scope="col" className="px-6 py-4">
+                                        Action
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr className="border-t dark:border-neutral-500">
+                                    <td className="whitespace-nowrap px-6 py-4 font-medium">1</td>
+                                    <td className="whitespace-nowrap px-6 py-4 flex items-center gap-3">
+                                        <Image
+                                            src="/static/auth/kontak.jpg" className="rounded-full w-10 h-10 object-cover" width={42} height={42} alt="Image-kontak" />
+                                        <span>jono bin joni</span>
+                                    </td>
+                                    <td className="whitespace-nowrap px-6 py-4">Test Kontak Hp Aktif</td>
+                                    <td className="whitespace-nowrap px-6 py-4">Selamat malam saya sedang mengecek kontak...</td>
+                                    <td className="whitespace-nowrap px-6 py-4 flex items-center gap-2">
+                                        <div className="bg-transparent w-max">
+                                            <IconSend color="black" />
+                                        </div>
+                                        <div className="bg-transparent p-1 w-max">
+                                            <IconPencilMinus color="green" />
+                                        </div>
+                                        <div className="bg-transparent w-max">
+                                            <IconTrash color="red" />
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr className="border-t dark:border-neutral-500">
+                                    <td className="whitespace-nowrap px-6 py-4 font-medium">2</td>
+                                    <td className="whitespace-nowrap px-6 py-4 flex items-center gap-3">
+                                        <Image
+                                            src="/static/auth/kontak.jpg" className="rounded-full w-10 h-10 object-cover" width={42} height={42} alt="Image-kontak" />
+                                        <span>jono bin joni</span>
+                                    </td>
+                                    <td className="whitespace-nowrap px-6 py-4">Promo</td>
+                                    <td className="whitespace-nowrap px-6 py-4">Promo bulan April</td>
+                                    <td className="whitespace-nowrap px-6 py-4 flex items-center gap-2">
+                                        <div className="bg-transparent w-max">
+                                            <IconSend color="black" />
+                                        </div>
+                                        <div className="bg-transparent p-1 w-max">
+                                            <IconPencilMinus color="green" />
+                                        </div>
+                                        <div className="bg-transparent w-max">
+                                            <IconTrash color="red" />
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
-        </main>
-    )
-}
+    );
+};
+
 export async function getServerSideProps() {
     return {
-        props: { title: 'MESSAGE TEMPLATE' },
+      props: {title: 'MESSAGE'},
     };
-}
+  }
