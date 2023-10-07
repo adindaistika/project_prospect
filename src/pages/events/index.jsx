@@ -1,7 +1,7 @@
 import { IconTrash } from "@tabler/icons-react";
 import { IconPencilMinus } from "@tabler/icons-react";
 import dynamic from "next/dynamic";
-import ModalEvents from "@/components/modal/modalevents";
+import ModalEvents from "@/components/modal/modalEvents";
 import { useState } from "react";
 
 

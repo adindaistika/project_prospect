@@ -95,7 +95,6 @@ const Navbar = () => {
               <div className={`ml-2 cursor-pointer ${router.pathname === "/referrals" ? "text-white" : "text-sky-800"}`}>Referrals</div>
             </Link>
           </div>
-
           <div className={`items-center p-2 w-full rounded-md ${router.pathname === "/feedback" ? "bg-sky-600" : ""}`}>
             <Link href={'/feedback'} className={`w-full flex flex-row`}>
               <IconQuote color={router.pathname === "/feedback" ? "#FFFFFFF" : "#0B588D"} />
@@ -115,6 +114,7 @@ const Navbar = () => {
             <div className={`ml-2 cursor-pointer ${router.pathname === "/logout" ? "text-white" : "text-sky-800"}`}>Logout</div>
           </Link>
         </div>
+        
       </div >
     </div>
   );

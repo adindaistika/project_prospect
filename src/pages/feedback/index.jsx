@@ -1,7 +1,7 @@
 "use client";
 import { IconBell } from "@tabler/icons-react";
-import Popup from "./Popup";
-import Card from "./Card";
+import Popup from "./popup";
+import Card from "./card";
 import { useState } from "react";
 
 export default function Feedback() {
@@ -14,7 +14,7 @@ export default function Feedback() {
   return (
     <main>
       <Popup submit={feed} />
-      <div className="grid grid-cols-3 my-5 gap-3">
+      <div className="grid md:grid-cols-3 my-5 gap-3">
         {comment.map((item, index) => (
           <Card key={index} comment={item.comment} />
         ))}
