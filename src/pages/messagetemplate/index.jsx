@@ -8,7 +8,7 @@ export default function Messagetemplate() {
     return (
         <div className="w-full">
             <div className="text-primary">
-                <Link className="mb-5 block text-right" href={"/"}>+ Tambah Pesan Baru</Link>
+                <Link className="mb-5 block text-right" href={"/messagetemplate/add"}>+ Add Pesan</Link>
             </div>
             <div className="overflow-x-scroll pb-[33px] shadow-2xl rounded-md">
                 <table className="w-max inline-block text-left text-sm font-light">
@@ -53,14 +53,16 @@ export default function Messagetemplate() {
                                 Selamat malam saya sedang mengecek kontak...
                             </td>
                             <td className="whitespace-nowrap px-6 pt-[17px] pr-[75px] flex items-center gap-2">
-                                <div className="bg-transparent w-max">
-                                    
+                                <Link
+                                    href={"/messagetemplate/message"}
+                                    className="bg-transparent p-1 w-max"
+                                >
                                     <IconSend color="black" />
-                                </div>
+                                </Link>
                                 <div className="bg-transparent p-1 w-max">
                                     <IconPencilMinus color="green" />
                                 </div>
-                                <div className="bg-transparent w-max">
+                                <div className="bg-transparent  p-1 w-max">
                                     <IconTrash color="red" />
                                 </div>
                             </td>
@@ -84,13 +86,16 @@ export default function Messagetemplate() {
                                 Promo bulan April
                             </td>
                             <td className="whitespace-nowrap px-6 pt-[17px] pr-[75px] flex items-center gap-2">
-                                <div className="bg-transparent w-max">
+                                <Link
+                                    href={"/messagetemplate/message"}
+                                    className="bg-transparent p-1 w-max"
+                                >
                                     <IconSend color="black" />
-                                </div>
+                                </Link>
                                 <div className="bg-transparent p-1 w-max">
                                     <IconPencilMinus color="green" />
                                 </div>
-                                <div className="bg-transparent w-max">
+                                <div className="bg-transparent p-1 w-max">
                                     <IconTrash color="red" />
                                 </div>
                             </td>

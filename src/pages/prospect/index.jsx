@@ -18,8 +18,7 @@ export default function prospect() {
           <div className="w-full md:w-1/2">
             <button
               className="flex shadow-md w-full justify-between rounded-md opacity-80 p-3"
-              type="button"
-            >
+              type="button" >
               <IconAddressBook />
               <p>All Contact</p>
               <IconSquareRoundedChevronRight />
@@ -55,10 +54,7 @@ export default function prospect() {
         </div>
         <div className="grid md:grid-cols-2 gap-3">
           <div className="flex items-center gap-3 p-3 rounded-md shadow-md">
-            <img
-              src="/static/auth/profile.jpeg"
-              className="w-[60px] mb-3 rounded-full"
-            ></img>
+            <img src="/static/auth/profile.jpeg" className="w-[60px] mb-3 rounded-full" ></img>
             <div>
               <p className="font-semibold">Adinda Istika Maulia</p>
               <p className="text-xs font-semibold text-slate-400">

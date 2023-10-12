@@ -6,7 +6,7 @@ import Link from "next/link";
 export default function contactcategori() {
     return (
       <div className="w-full">
-        <div className="overflow-x-scroll shadow-2xl rounded-md">
+        <div className="shadow-2xl rounded-md">
           <table className="w-max table-auto text-left text-sm font-light">
             <thead className="font-medium dark:border-neutral-500">
               <tr>
@@ -27,7 +27,7 @@ export default function contactcategori() {
             <tbody>
               <tr className="border-t dark:border-neutral-500 text-slate-600">
                 <td className="whitespace-nowrap px-6 py-4 font-medium">1</td>
-                <td className="whitespace-nowrap px-6 py-4 flex items-center gap-3">
+                <td className="whitespace-nowrap px-6 py-4 flex items-center ">
                   <span>jono bin joni</span>
                 </td>
                 <td className="whitespace-nowrap px-6 py-4">

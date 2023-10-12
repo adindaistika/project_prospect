@@ -1,4 +1,21 @@
+import { useForm } from 'react-hook-form';
+import * as yup from "yup";
+import { yupResolver } from '@hookform/resolvers/yup';
+
 const ModalTask = () => {
+    const schema = yup.object({
+        email: yup.string().required(),
+        password: yup.string().required(),
+      }).required();
+    
+      const { register, handleSubmit, formState: { errors } } = useForm({
+        resolver: yupResolver(schema)
+      });
+    
+      const onSubmit = async (data) => {
+        console.log(data)
+
+      }
     return (
         <>
             <dialog id="modal-task" className="modal">
@@ -9,7 +26,7 @@ const ModalTask = () => {
                         </button>
                     </form>
                     <h3 className="font-bold text-lg">Add Task</h3>
-                    <form className="flex flex-col gap-3" action="">
+                    <form className="flex flex-col gap-3" onSubmit={handleSubmit(onSubmit)}>
                         <label className="flex my-2 flex-col gap-1 text-xs w-ful">
                             <div className="text-xs font-bold">Title</div>
                             <input
