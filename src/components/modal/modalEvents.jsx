@@ -15,6 +15,7 @@ const ModalEvents = () => {
     useEffect(() => {
         setLocationSelect(`${location.lat}  ${location.lng}`)
     }, [location])
+    
 
     return (
         <>

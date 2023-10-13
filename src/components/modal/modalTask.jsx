@@ -4,8 +4,10 @@ import { yupResolver } from '@hookform/resolvers/yup';
 
 const ModalTask = () => {
     const schema = yup.object({
-        email: yup.string().required(),
-        password: yup.string().required(),
+        title: yup.string().required(),
+        relate_to: yup.string().required(),
+        note: yup.string().required(),
+        priority: yup.string().required(),
       }).required();
     
       const { register, handleSubmit, formState: { errors } } = useForm({
@@ -36,6 +38,7 @@ const ModalTask = () => {
                                 placeholder="Add Title"
                                 name="title"
                                 id="title"
+                                {...register('title')}
                             />
                         </label>
                         <label className="flex flex-col" htmlFor="selectContact">
@@ -44,6 +47,7 @@ const ModalTask = () => {
                                 className="outline-none w-full bg-white font-bold border-slate-300 border p-2 rounded-md text-xs"
                                 name="selectContact"
                                 id="selectContact"
+                                {...register('relate_to')}
                             >
                                 <option className="" value="Adinda">
                                     Adinda
@@ -56,13 +60,14 @@ const ModalTask = () => {
                                 </option>
                             </select>
                         </label>
-                        <label className="flex flex-col" htmlFor="description">
-                            <div className="font-bold text-xs">Description</div>
+                        <label className="flex flex-col" htmlFor="note">
+                            <div className="font-bold text-xs">Note</div>
                             <textarea
                                 className="outline-none w-full bg-white border-slate-300 border p-2 rounded-md text-xs"
-                                name="description"
+                                name="note"
                                 rows={5}
-                                id="description"
+                                id="note"
+                                {...register('note')}
                             ></textarea>
                         </label>
                         <div className="grid grid-cols-2 gap-3 ">
@@ -95,6 +100,7 @@ const ModalTask = () => {
                                 className="outline-none w-full bg-white font-semibold border-slate-300 border p-2 rounded-md text-xs"
                                 name="selectContact"
                                 id="selectContact"
+                                {...register('priority')}
                             >
                                 <option className="" value="High">
                                     High

@@ -7,13 +7,13 @@ export default function Contact() {
   return (
     <div className="w-full">
       <button
-        className=" mb-5 font-bold text-right"
+        className=" mb-5 block text-right"
         onClick={() => document.getElementById("modalcontact").showModal()}
       >
         + Add Contact
       </button>
       <ModalContact />
-      <div className="overflow-x-scroll shadow-2xl rounded-md">
+      <div className=" shadow-2xl rounded-md">
         <table className="w-max table-auto text-left text-sm font-light">
           <thead className="border-t font-medium dark:border-neutral-500">
             <tr>
