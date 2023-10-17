@@ -6,7 +6,7 @@ import { IconVideo } from "@tabler/icons-react";
 import { IconFileDescription } from "@tabler/icons-react";
 import Image from "next/image";
 
-export default function MassMessage() {
+export default function Message() {
     return (
         <div>
             <div className="p-9 rounded-md shadow-md text-slate-600">
@@ -199,6 +199,6 @@ export default function MassMessage() {
 
 export async function getServerSideProps() {
     return {
-      props: {title: 'MASS MESSAGE'},
+      props: {title: 'MESSAGE'},
     };
   }
