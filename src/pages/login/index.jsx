@@ -2,8 +2,11 @@ import Link from 'next/link';
 import { useForm } from 'react-hook-form';
 import * as yup from "yup";
 import { yupResolver } from '@hookform/resolvers/yup';
+import { useDispatch } from 'react-redux';
+import { loginUser } from '../../../store/reducers/auth/auth.action';
 
 const Login = () => {
+    const dispatch = useDispatch();
 
     const schema = yup.object({
         email: yup.string().required(),
@@ -15,17 +18,29 @@ const Login = () => {
       });
     
       const onSubmit = async (data) => {
-        console.log(data)
-
+        try {
+            // set_busy(true);
+            await dispatch(loginUser(data));
+            router.push('/')
+          } catch (e) {
+            // set_busy(false);
+            if(e.response?.data){
+            //   Swallalert('error-form',Object.values(e.response.data.errors)[0])
+                alert('gagal');
+            }else{
+                // Swallalert('error', e.response);
+                alert('gagal');
+            }
+          }
       }
 
 
     return (
-        <div className="min-h-screen px-20px grid place-items-center">
+        <div className="min-h-screen px-[20px] grid place-items-center">
             <div className="w-full md:max-w-lg p-8 rounded-lg shadow-lg bg-white text-sky-600">
                 <img src="/static/auth/logo.png" className="w-[90px] m-auto" alt="Logo"></img>
                 <h1 className="text-center mt-5 text-2xl font-bold">LOGIN PAGE</h1>
-                <form className="flex flex-col gap-1" onSubmit={handleSubmit(onSubmit)}>
+                <form className="flex flex-col gap-1 mb-4" onSubmit={handleSubmit(onSubmit)}>
                     <label className="flex my-2 flex-col gap-1 text-xs w-full">
                         <span className="text-xs font-bold text-sky-600">Email</span>
                         <input

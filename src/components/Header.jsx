@@ -1,4 +1,5 @@
 import { IconBell } from "@tabler/icons-react";
+import Image from "next/image";
 
 const Header = (props)=> {
     const { data } = props;
