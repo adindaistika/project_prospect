@@ -29,6 +29,7 @@ const App = (data) => {
       if (tokens) {
         if (router.pathname === '/login') return router.push('/dashboard')
       } else {
+        if (router.pathname === '/signup') return router.push('/signup')
         return router.push('/login')
       }
     } catch (e) {

@@ -2,8 +2,13 @@ import Link from 'next/link';
 import { useForm } from 'react-hook-form';
 import * as yup from "yup";
 import { yupResolver } from '@hookform/resolvers/yup';
+import { useDispatch } from 'react-redux';
+import { registrationUser } from '../../../store/reducers/auth/auth.action';
 
 const Signup = () => {
+    const dispatch = useDispatch();
+
+
     const schema = yup.object({
         first_name: yup.string().required(),
         last_name: yup.string().required(),
@@ -19,7 +24,7 @@ const Signup = () => {
     
       const onSubmit = async (data) => {
         console.log(data)
-
+        dispatch(registrationUser(data))
       }
     return (
         <div className="w-full px-[30px]  grid place-items-center">

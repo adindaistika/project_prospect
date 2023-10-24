@@ -4,9 +4,14 @@ import * as yup from "yup";
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useDispatch } from 'react-redux';
 import { loginUser } from '../../../store/reducers/auth/auth.action';
+import { useRouter } from 'next/router';
+import { Swallalert } from '../../../helper/helper';
+import { useState } from 'react';
 
 const Login = () => {
     const dispatch = useDispatch();
+    const router = useRouter();
+    const [busy, set_busy] = useState();
 
     const schema = yup.object({
         email: yup.string().required(),
@@ -19,17 +24,15 @@ const Login = () => {
     
       const onSubmit = async (data) => {
         try {
-            // set_busy(true);
+            set_busy(true);
             await dispatch(loginUser(data));
             router.push('/')
           } catch (e) {
-            // set_busy(false);
+            set_busy(false);
             if(e.response?.data){
-            //   Swallalert('error-form',Object.values(e.response.data.errors)[0])
-                alert('gagal');
+                Swallalert('error-form',Object.values(e.response.data.errors)[0])
             }else{
-                // Swallalert('error', e.response);
-                alert('gagal');
+                Swallalert('error', e.response);
             }
           }
       }
