@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 import * as yup from "yup";
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useDispatch } from 'react-redux';
+import { Swallalert } from '../../../helper/helper';
 import { registrationUser } from '../../../store/reducers/auth/auth.action';
 
 const Signup = () => {
@@ -23,8 +24,17 @@ const Signup = () => {
       });
     
       const onSubmit = async (data) => {
-        console.log(data)
-        dispatch(registrationUser(data))
+        try {
+            console.log (dispatch(registrationUser(data)));
+            router.push('/')
+          } catch (e) {
+            alert(e);
+            if(e.response?.data){
+                Swallalert('error-form',Object.values(e.response.data.errors)[0])
+            }else{
+                Swallalert('error', e.response);
+            }
+          }
       }
     return (
         <div className="w-full px-[30px]  grid place-items-center">
@@ -48,7 +58,7 @@ const Signup = () => {
                                 {...register('first_name')}
                             />
                         </label>
-                        <label className="flex my-2 flex-col gap-1 text-xs w-ful">
+                        <label className="flex my-2 flex-col gap-1 text-xs w-full">
                             <span className="text-xs font-bold text-sky-600">Last Name</span>
                             <input
                                 className="p-3 rounded-md outline-none border border-sky-600 text-sky"
@@ -97,18 +107,18 @@ const Signup = () => {
                             {...register('password_confirmation')}
                         />
                     </label>
-                    <label className="flex my-1 flex-col gap-1 text-xs w-full">
-                        <span className="text-xs font-bold text-sky-600">Referal Code</span>
-                        <input
-                            className="p-3 w-full rounded-md outline-none border border-sky-600 text-sky"
-                            type="text"
-                            required
-                            placeholder="Your Referal Code"
-                            name="inviter_referral_code"
-                            id="inviter_referral_code"
-                            {...register('inviter_referral_code')}
-                        />
-                    </label>
+                    <label className="flex my-2 flex-col gap-1 text-xs w-full">
+                            <span className="text-xs font-bold text-sky-600">Referal Code</span>
+                            <input
+                                className="p-3 rounded-md outline-none border border-sky-600 text-sky"
+                                type="text"
+                                required
+                                placeholder="Your Referal Code"
+                                name="inviter_referral_code"
+                                id="inviter_referral_code"
+                                {...register('inviter_referral_code')}
+                            />
+                        </label>
                     <Link href={'/sign up'}></Link>
                     <button className="bg-sky-600 hover:bg-transparent hover:text-sky-600 border-2 transition-all ease-in-out border-sky-600 p-3 text-xs rounded-md text-white font-bold">Sign Up Account</button>
                     <p className="text-xs font-semibold text-center mb-10">

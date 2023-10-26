@@ -1,5 +1,17 @@
+import { deleteCookie, getCookie } from 'cookies-next';
 import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
+
+export const setCookie = (name, value, days) => {
+    var expires = "";
+    var date = new Date();
+    date.setTime(date.getTime() + (12 * 60 * 60 * 1000));
+    expires = "; path=/; expires=" + date.toUTCString();
+    document.cookie = name + "=" + (value || "") + expires + "; path=/";
+}
+export const eraseCookie = (name) => {
+    document.cookie = name + '=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+}
 
 export const Swallalert = (condition, e, html) => {
     switch (condition) {
@@ -52,6 +64,7 @@ export const useWindowSize = () => {
         width: undefined,
         height: undefined,
     });
+    const token = getCookie('access_token');
     useEffect(() => {
         if (typeof window !== 'undefined') {
             function handleResize() {

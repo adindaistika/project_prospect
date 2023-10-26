@@ -28,6 +28,7 @@ const Login = () => {
             await dispatch(loginUser(data));
             router.push('/')
           } catch (e) {
+            alert(e);
             set_busy(false);
             if(e.response?.data){
                 Swallalert('error-form',Object.values(e.response.data.errors)[0])

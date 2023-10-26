@@ -27,7 +27,7 @@ export default function contactcategori() {
             <tbody>
               <tr className="border-t dark:border-neutral-500 text-slate-600">
                 <td className="whitespace-nowrap px-6 py-4 font-medium">1</td>
-                <td className="whitespace-nowrap px-6 py-4 flex items-center ">
+                <td className="whitespace-nowrap px-6 py-4  items-center ">
                   <span>jono bin joni</span>
                 </td>
                 <td className="whitespace-nowrap px-6 py-4">
@@ -50,7 +50,7 @@ export default function contactcategori() {
               </tr>
               <tr className="border-t dark:border-neutral-500 text-slate-600">
                 <td className="whitespace-nowrap px-6 py-4 font-medium">2</td>
-                <td className="whitespace-nowrap px-6 py-4 flex items-center gap-3">
+                <td className="whitespace-nowrap px-6 py-4  items-center gap-3">
                   <span>jono bin joni</span>
                 </td>
                 <td className="whitespace-nowrap px-6 py-4">
