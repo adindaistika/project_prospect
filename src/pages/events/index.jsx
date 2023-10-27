@@ -3,13 +3,16 @@ import { IconPencilMinus } from "@tabler/icons-react";
 import dynamic from "next/dynamic";
 import ModalEvents from "@/components/modal/modalEvents";
 import { useState } from "react";
+import axios from "axios";
+import { useEffect } from "react";
 
 
 export default function Events() {
     const [dateState, setDateState] = useState(new Date());
     const DynamicCalendar = dynamic(() => import('react-calendar'), {
         ssr: false,
-    })
+    });
+    const [events, setEvents] = useState([])
 
     const changeDate = () => {
 
@@ -18,6 +21,17 @@ export default function Events() {
     const tileClassName = () => {
 
     }
+
+    const getEvents = async () => {
+        const data = await axios.get(`${process.env.BASE_URL}/event`);
+        // setEvents(data);
+        console.log(data);
+    }
+
+    useEffect(() => {
+        getEvents()
+    }, [])
+
     return (
         <main className=" min-h-screen">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
@@ -37,86 +51,24 @@ export default function Events() {
                     </div>
                     <p className="opacity-50">30 Januari 2023</p>
                     <div className="space-y-3">
-                        <div className="shadow-md rounded-md p-3 flex justify-between items-center">
-                            <div>
-                                <h5 className="font-bold text-[10px] md:text-[18px]">
-                                    Meeting Seminar
-                                </h5>
-                                <p className="text-xs">28 Agustus 2023</p>
-                            </div>
-                            <div className="flex items-center gap-2">
-                                <div className="bg-transparent p-1 w-max">
-                                    <IconTrash color="red" />
+                        {events.map((item) => (
+                            <div className="shadow-md rounded-md p-3 flex justify-between items-center">
+                                <div>
+                                    <h5 className="font-bold text-[10px] md:text-[18px]">
+                                        {item.meeting_type}
+                                    </h5>
+                                    <p className="text-xs">{item.start_date}3</p>
                                 </div>
-                                <div className="bg-transparent p-1 w-max">
-                                    <IconPencilMinus color="green" />
-                                </div>
-                            </div>
-                        </div>
-                        <div className="shadow-md rounded-md p-3 flex justify-between items-center">
-                            <div>
-                                <h5 className="font-bold text-[10px] md:text-[18px]">
-                                    Meeting Seminar
-                                </h5>
-                                <p className="text-xs">28 Agustus 2023</p>
-                            </div>
-                            <div className="flex items-center gap-2">
-                                <div className="bg-transparent p-1 w-max">
-                                    <IconTrash color="red" />
-                                </div>
-                                <div className="bg-transparent p-1 w-max">
-                                    <IconPencilMinus color="green" />
+                                <div className="flex items-center gap-2">
+                                    <div className="bg-transparent p-1 w-max">
+                                        <IconTrash color="red" />
+                                    </div>
+                                    <div className="bg-transparent p-1 w-max">
+                                        <IconPencilMinus color="green" />
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div className="shadow-md rounded-md p-3 flex justify-between items-center">
-                            <div>
-                                <h5 className="font-bold text-[10px] md:text-[18px]">
-                                    Meeting Seminar
-                                </h5>
-                                <p className="text-xs">28 Agustus 2023</p>
-                            </div>
-                            <div className="flex items-center gap-2">
-                                <div className="bg-transparent p-1 w-max">
-                                    <IconTrash color="red" />
-                                </div>
-                                <div className="bg-transparent p-1 w-max">
-                                    <IconPencilMinus color="green" />
-                                </div>
-                            </div>
-                        </div>
-                        <div className="shadow-md rounded-md p-3 flex justify-between items-center">
-                            <div>
-                                <h5 className="font-bold text-[10px] md:text-[18px]">
-                                    Meeting Seminar
-                                </h5>
-                                <p className="text-xs">28 Agustus 2023</p>
-                            </div>
-                            <div className="flex items-center gap-2">
-                                <div className="bg-transparent p-1 w-max">
-                                    <IconTrash color="red" />
-                                </div>
-                                <div className="bg-transparent p-1 w-max">
-                                    <IconPencilMinus color="green" />
-                                </div>
-                            </div>
-                        </div>
-                        <div className="shadow-md rounded-md p-3 flex justify-between items-center">
-                            <div>
-                                <h5 className="font-bold text-[10px] md:text-[18px]">
-                                    Meeting Seminar
-                                </h5>
-                                <p className="text-xs">28 Agustus 2023</p>
-                            </div>
-                            <div className="flex items-center gap-2">
-                                <div className="bg-transparent p-1 w-max">
-                                    <IconTrash color="red" />
-                                </div>
-                                <div className="bg-transparent p-1 w-max">
-                                    <IconPencilMinus color="green" />
-                                </div>
-                            </div>
-                        </div>
+                        ))}
                     </div>
                 </div>
             </div>
