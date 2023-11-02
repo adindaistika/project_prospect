@@ -2,41 +2,51 @@ import Link from 'next/link';
 import { useForm } from 'react-hook-form';
 import * as yup from "yup";
 import { yupResolver } from '@hookform/resolvers/yup';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { loginUser } from '../../../store/reducers/auth/auth.action';
 import { useRouter } from 'next/router';
 import { Swallalert } from '../../../helper/helper';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { getEvent } from '../../../store/reducers/events/events.action';
 
 const Login = () => {
     const dispatch = useDispatch();
     const router = useRouter();
     const [busy, set_busy] = useState();
+    // const { data_event } = useSelector(state => state.event)
 
     const schema = yup.object({
         email: yup.string().required(),
         password: yup.string().required(),
-      }).required();
-    
-      const { register, handleSubmit, formState: { errors } } = useForm({
+    }).required();
+
+    const { register, handleSubmit, formState: { errors } } = useForm({
         resolver: yupResolver(schema)
-      });
-    
-      const onSubmit = async (data) => {
+    });
+
+    // useEffect(() => {
+    //     dispatch(getEvent())
+    // }, [])
+
+    // useEffect(() => {
+    //     console.log(data_event?.products)
+    // }, [data_event])
+
+    const onSubmit = async (data) => {
         try {
             set_busy(true);
             await dispatch(loginUser(data));
             router.push('/')
-          } catch (e) {
+        } catch (e) {
             alert(e);
             set_busy(false);
-            if(e.response?.data){
-                Swallalert('error-form',Object.values(e.response.data.errors)[0])
-            }else{
+            if (e.response?.data) {
+                Swallalert('error-form', Object.values(e.response.data.errors)[0])
+            } else {
                 Swallalert('error', e.response);
             }
-          }
-      }
+        }
+    }
 
 
     return (

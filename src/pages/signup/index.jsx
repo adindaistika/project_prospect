@@ -123,10 +123,10 @@ const Signup = () => {
                     </label>
                     <Link href={'/sign up'}></Link>
                     <button className="bg-sky-600 hover:bg-transparent hover:text-sky-600 border-2 transition-all ease-in-out border-sky-600 p-3 text-xs rounded-md text-white font-bold">Sign Up Account</button>
-                    <p className="text-xs font-semibold text-center mb-10">
-                        Have an account? <Link href={'/login'}> Login </Link>
-                    </p>
                 </form>
+                <p className="text-xs font-semibold text-center mb-10">
+                    Have an account? <Link href={'/login'}> Login </Link>
+                </p>
             </div>
         </div>
     );

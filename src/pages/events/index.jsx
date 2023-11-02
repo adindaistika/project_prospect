@@ -5,6 +5,8 @@ import ModalEvents from "@/components/modal/modalEvents";
 import { useState } from "react";
 import axios from "axios";
 import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { getEvent } from "../../../store/reducers/events/events.action";
 
 
 export default function Events() {
@@ -13,6 +15,7 @@ export default function Events() {
         ssr: false,
     });
     const [events, setEvents] = useState([])
+    const dispatch = useDispatch();
 
     const changeDate = () => {
 
@@ -22,14 +25,8 @@ export default function Events() {
 
     }
 
-    const getEvents = async () => {
-        const data = await axios.get(`${process.env.BASE_URL}/event`);
-        // setEvents(data);
-        console.log(data);
-    }
-
     useEffect(() => {
-        getEvents()
+        dispatch(getEvent())
     }, [])
 
     return (

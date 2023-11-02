@@ -58,6 +58,27 @@ const ModalEvents = () => {
                                 </option>
                             </select>
                         </label>
+                        <label className="flex flex-col" htmlFor="selectContact">
+                            <div className="font-bold text-xs text-black">Meeting Type</div>
+                            <select
+                                className="outline-none w-full bg-white font-bold border-slate-300 border p-2 rounded-md text-xs text-black"
+                                name="selectContact"
+                                id="selectContact"
+                            >
+                                <option className="text-black" value="presentation">
+                                    presentation
+                                </option>
+                                <option className="text-black" value="follow up">
+                                    follow up
+                                </option>
+                                <option className="text-black" value="call">
+                                call
+                                </option>
+                                <option className="text-black" value="other">
+                                other
+                                </option>
+                            </select>
+                        </label>
                         <div className="grid grid-cols-2 gap-3 ">
                             <label className="flex  flex-col gap-1 text-xs w-full">
                                 <span className="text-xs font-bold text-black">Start Date</span>
