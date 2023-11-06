@@ -7,7 +7,7 @@ import { loginUser } from '../../../store/reducers/auth/auth.action';
 import { useRouter } from 'next/router';
 import { Swallalert } from '../../../helper/helper';
 import { useEffect, useState } from 'react';
-import { getEvent } from '../../../store/reducers/events/events.action';
+// import { getEvent } from '../../../store/reducers/events/events.action';
 
 const Login = () => {
     const dispatch = useDispatch();

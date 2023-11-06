@@ -1,7 +1,9 @@
 import { combineReducers } from 'redux';
 import { authReducers } from './auth/auth.reducer';
 import { eventReducers } from './events/events.reducer';
+import { contactReducers } from './contact/contact.reducer';
 export default combineReducers({
     auth: authReducers,
-    event: eventReducers
+    event: eventReducers,
+    contact: contactReducers,
 })

@@ -23,5 +23,16 @@ export const registrationUser = (payload) => async () => {
     }
 }
 
+export const logoutUser = () => async (dispatch) => {
+    try {
+        await apiClient().post('/logout');
+        dispatch({
+            type: types.LOGOUT_USER
+        });
+    } catch (err) {
+        throw err;
+    }
+}
+
 
 

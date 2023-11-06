@@ -1,8 +1,10 @@
 import { useForm } from 'react-hook-form';
 import * as yup from "yup";
 import { yupResolver } from '@hookform/resolvers/yup';
+import { addContact } from '../../../store/reducers/contact/contact.action';
+import { useDispatch } from 'react-redux';
 
-const ModalContact = () => {
+const ModalContact = async () => {
     const schema = yup.object({
         first_name: yup.string().required(),
         last_name: yup.string().required(),
@@ -16,6 +18,19 @@ const ModalContact = () => {
     const { register, handleSubmit, formState: { errors } } = useForm({
         resolver: yupResolver(schema)
     });
+
+    try {
+        set_busy(true);
+        if (!id) {
+            await dispatch(addContact(data_contact))
+        }
+    }
+    catch (e) {
+        set_busy(false);
+        if (e.response?.data_contact?.errors.phone) {
+            Swallalert('error', e.response);
+        }
+    }
 
     const onSubmit = async (data) => {
         console.log(data)
@@ -113,7 +128,7 @@ const ModalContact = () => {
                                 name="category_id"
                                 id="category_id"
                                 {...register('category_id')}
-                                >
+                            >
                                 <option className="text-black text-xs" value="prospects">prospects</option>
                                 <option className="text-black text-xs" value="team">team</option>
                                 <option className="text-black text-xs" value="client">client</option>

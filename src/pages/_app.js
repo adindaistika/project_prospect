@@ -21,13 +21,13 @@ const App = (data) => {
     check();
   }, [router.pathname])
 
-  
+
   const check = async () => {
     try {
       const tokens = getCookie('access_token') || null
       set_token(tokens)
       if (tokens) {
-        if (router.pathname === '/login') return router.push('/dashboard')
+        if (router.pathname === '/login') return router.push('/')
       } else {
         if (router.pathname === '/signup') return router.push('/signup')
         return router.push('/login')
@@ -35,7 +35,7 @@ const App = (data) => {
     } catch (e) {
       deleteCookie('token');
     }
-    
+
   }
 
   return (
