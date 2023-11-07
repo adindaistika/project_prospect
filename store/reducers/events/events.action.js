@@ -12,3 +12,12 @@ export const getEvent = (payload) => async (dispatch) => {
         throw err
     }
 }
+
+export const postEvent = (payload) => async () => {
+    try {
+        let response = await apiClient().post(`/event`, payload);
+        return response?.data.status;
+    } catch (err) {
+        throw err;
+    }
+};

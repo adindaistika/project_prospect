@@ -1,43 +1,50 @@
+import React from 'react';
 import { useForm } from 'react-hook-form';
 import * as yup from "yup";
 import { yupResolver } from '@hookform/resolvers/yup';
-import { addContact } from '../../../store/reducers/contact/contact.action';
-import { useDispatch } from 'react-redux';
+
+
+const schema = yup.object({
+    first_name: yup.string().required(),
+    last_name: yup.string().required(),
+    phone_number: yup.string().required(),
+    home_number: yup.string().required(),
+    work_number: yup.string().required(),
+    email: yup.string().required(),
+    category_id: yup.string().required(),
+})
 
 const ModalContact = async () => {
-    const schema = yup.object({
-        first_name: yup.string().required(),
-        last_name: yup.string().required(),
-        phone_number: yup.string().required(),
-        home_number: yup.string().required(),
-        work_number: yup.string().required(),
-        email: yup.string().required(),
-        category_id: yup.string().required(),
-    }).required();
 
-    const { register, handleSubmit, formState: { errors } } = useForm({
-        resolver: yupResolver(schema)
-    });
+    // const { register, handleSubmit, formState: { errors }, reset } = useForm({
+    //     resolver: yupResolver(schema)
+    // });
 
-    try {
-        set_busy(true);
-        if (!id) {
-            await dispatch(addContact(data_contact))
-        }
-    }
-    catch (e) {
-        set_busy(false);
-        if (e.response?.data_contact?.errors.phone) {
-            Swallalert('error', e.response);
-        }
-    }
 
-    const onSubmit = async (data) => {
+    const onAddContact = async (data) => {
         console.log(data)
+        // try {
+        //     set_busy(true);
+        //     if (!id) {
+        //         await dispatch(addContact(data_contact))
+        //     }
+        // }
+        // catch (e) {
+        //     set_busy(false);
+        //     if (e.response?.data_contact?.errors.phone) {
+        //         Swallalert(e.response);
+        //     }
+        // }
 
     }
     return (
         <>
+            <button
+                className=" mb-5 block text-right"
+                onClick={() => document.getElementById("modalcontact").showModal()}
+            >
+                + Add Contact
+            </button>
             <dialog id="modalcontact" className="modal">
                 <div className="modal-box">
                     <form method="dialog">
@@ -46,7 +53,7 @@ const ModalContact = async () => {
                         </button>
                     </form>
                     <h3 className="font-bold text-lg">Add Contact</h3>
-                    <form className="mt-5 " onSubmit={handleSubmit(onSubmit)}>
+                    <form className="mt-5 " onSubmit={handleSubmit(onAddContact)}>
                         <div className="grid grid-cols-2 gap-3 ">
                             <label className="flex my-2 flex-col gap-1 text-xs w-full">
                                 <span className="text-xs font-bold text-black">First Name</span>
