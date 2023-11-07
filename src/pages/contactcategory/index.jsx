@@ -35,7 +35,7 @@ export default function contactcategori() {
   return (
     <div className="w-full">
       <div className="shadow-2xl rounded-md">
-        <table className="w-max table-auto text-left text-sm font-light">
+        <table className="w-full table-auto text-left text-sm font-light">
           <thead className="font-medium dark:border-neutral-500">
             <tr>
               <th scope="col" className="px-6 py-4">

@@ -23,6 +23,15 @@ export const Swallalert = (condition, e, html) => {
                 showCancelButton:true,
                 cancelButtonText: 'Close',
                 allowOutsideClick: false,
+            })  
+        case 'error-form':
+            return Swal.fire({
+                text: e? e : 'Proses error',
+                imageUrl: '/static/icons/icon-alert/error.png',
+                showConfirmButton: false,
+                showCancelButton:true,
+                cancelButtonText: 'Close',
+                allowOutsideClick: false,
             })
         case 'warning':
             return Swal.fire({
