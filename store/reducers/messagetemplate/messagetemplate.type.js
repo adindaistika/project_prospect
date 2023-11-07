@@ -1,0 +1,4 @@
+export default {
+    DATA_MESSAGETEMPLATE: "DATA_MESSAGETEMPLATE",
+  };
+  

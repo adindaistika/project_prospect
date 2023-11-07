@@ -8,7 +8,7 @@ export default function Messagetemplate() {
     return (
         <div className="w-full">
             <div className="text-primary">
-                <Link className="mb-5 block text-right" href={"/messagetemplate/add"}>+ Add Pesan</Link>
+                <Link className="mb-5 block text-right" href={"/messagetemplate/add"}>+ Add template</Link>
             </div>
             <div className="overflow-x-scroll pb-[33px] shadow-2xl rounded-md">
                 <table className="w-max inline-block text-left text-sm font-light">

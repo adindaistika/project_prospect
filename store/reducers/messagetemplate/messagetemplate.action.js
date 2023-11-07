@@ -1,11 +1,11 @@
-import types from "./massmessage.type";
+import types from "./messagetemplate.type";
 import apiClient from "../../../helper/apiClient";
 
-export const getMassmessage = () => async (dispatch) => {
+export const getMessagetemplate = () => async (dispatch) => {
   try {
     let response = await apiClient().get(`/message-template`);
     dispatch({
-      type: types.DATA_MASSMESSAGE,
+      type: types.DATA_MESSAGETEMPLATE,
       payload: response?.data,
     });
   } catch (err) {
@@ -13,11 +13,11 @@ export const getMassmessage = () => async (dispatch) => {
   }
 };
 
-export const getMassmessageById = (payload) => async (dispatch) => {
+export const getMessagetemplateById = (payload) => async (dispatch) => {
   try {
     let response = await apiClient().get(`/message-template/${payload.id}`);
     dispatch({
-      type: types.DATA_MASSMESSAGE,
+      type: types.DATA_MESSAGETEMPLATE,
       payload: response?.data,
     });
   } catch (err) {
@@ -25,7 +25,7 @@ export const getMassmessageById = (payload) => async (dispatch) => {
   }
 };
 
-export const postMassmessage = (payload) => async () => {
+export const postMessagetemplate = (payload) => async () => {
   try {
     let response = await apiClient().post(
       `/message-template?title=${payload.title}&message=${payload.message}`,
@@ -42,7 +42,7 @@ export const postMassmessage = (payload) => async () => {
   }
 };
 
-export const putMassmessage = (payload) => async () => {
+export const putMessagetemplate = (payload) => async () => {
   try {
     let response = await apiClient().put(
       `/message-template/${payload.id}`,
