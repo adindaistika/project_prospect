@@ -9,6 +9,7 @@ import store from "../../store/store";
 import { Provider } from "react-redux";
 import { deleteCookie, getCookie } from "cookies-next";
 import { useEffect, useState } from "react";
+import Head from "next/head";
 
 const App = (data) => {
   const { Component, props } = data;
@@ -39,25 +40,40 @@ const App = (data) => {
   }
 
   return (
-    <div className="min-h-screen bg-second">
-      {!token ? (
-        <div className="">
-          <div>
-            <Component {...props.pageProps} />
+    <>
+        <Head>
+          <title>Prosfect</title>
+          <meta name='description' content='Wellcome to Prosfect' />
+          <meta name="twitter:title" content="Prosfect" />
+          <meta name="twitter:description" content="Wellcome to Prosfect" />
+          <meta name="og:title" content="Prosfect" />
+          <meta name="og:description" content="Wellcome to Prosfect" />
+          <meta name="apple-mobile-web-app-title" content="Prosfect" />
+          <meta name="viewport"
+            content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+        </Head>
+        <main>
+          <div className="min-h-screen bg-second">
+            {!token ? (
+              <div className="">
+                <div>
+                  <Component {...props.pageProps} />
+                </div>
+              </div>
+            ) : (
+              <div className="min-h-screen">
+                <Navbar />
+                <div className={`p-[20px] ${!mobile && 'ml-[235px]'} pt-[100px]`}>
+                  {!mobile &&
+                    <Header data={...props.pageProps} />
+                  }
+                  <Component {...props.pageProps} />
+                </div>
+              </div>
+            )}
           </div>
-        </div>
-      ) : (
-        <div className="min-h-screen">
-          <Navbar />
-          <div className={`p-[20px] ${!mobile && 'ml-[235px]'} pt-[100px]`}>
-            {!mobile &&
-              <Header data={...props.pageProps} />
-            }
-            <Component {...props.pageProps} />
-          </div>
-        </div>
-      )}
-    </div>
+        </main>
+    </>
   );
 }
 const myApp = ({ Component, ...rest }) => {

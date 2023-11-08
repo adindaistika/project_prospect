@@ -8,10 +8,17 @@ import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import * as yup from 'yup'
 import { yupResolver } from "@hookform/resolvers/yup";
+import { useState } from "react";
+import { useRouter } from "next/router";
+import ReactPaginate from "react-paginate";
 
 export default function Contact() {
   const dispatch = useDispatch();
-  const { data_contact } = useSelector(state => state.contact)
+  const { data_contact, data_contact_meta } = useSelector(state => state.contact);
+  const [show_modal, set_modal] = useState(false);
+  const [item_id, set_item_id] = useState(null);
+  const router = useRouter();
+  const { id } = router.query;
 
 
   const handleEdit = async (data) => {
@@ -33,20 +40,44 @@ export default function Contact() {
   }
 
   useEffect(() => {
-    dispatch(getContact())
+    let payload = {
+      page: 1
+    }
+    dispatch(getContact(payload))
   }, [])
+
+  useEffect(() => {
+    console.log(show_modal);
+  },[show_modal])
+
+  const showModal = () => {
+      set_item_id(null);
+      set_modal(true);
+  }
+
+  const showUpdateModal = (id) => {
+      set_item_id(id);
+      set_modal(true);
+  }
+
+  const handlePaginationList= (page) => {
+      let currentQuery = {
+          page: page.selected + 1
+      }
+      dispatch(getContact(currentQuery));
+  }
 
   return (
     <div className="w-full">
       <div className="flex w-full justify-end">
         <button
           className=" mb-5 block text-right btn font-semibold"
-          onClick={() => document.getElementById("modalcontact").showModal()}
+          onClick={() => showModal()}
         >
           + Add Contact
         </button>
       </div>
-      <ModalContact></ModalContact>
+      <ModalContact set_show_modal={set_modal} show={show_modal} id={item_id} category_id={ id }></ModalContact>
       <div className=" shadow-2xl rounded-md">
         <table className="w-full table-auto text-left text-sm font-light">
           <thead className="border-t font-medium dark:border-neutral-500">
@@ -100,120 +131,27 @@ export default function Contact() {
                     <IconPencilMinus color="green" />
                   </div>
                 </td>
-                {/* <dialog id={`editcontact_${item.id}`} className="modal">
-                  <div className="modal-box">
-                    <form method="dialog">
-                      <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
-                        ✕
-                      </button>
-                    </form>
-                    <h3 className="font-bold text-lg">Edit Contact</h3>
-                    <form className="mt-5 " onSubmit={() => {
-                      handleSubmit(handleEdit)
-                      return document.getElementById(`editcontact_${item.id}`).close()
-                    }
-                    }>
-                      <div className="grid grid-cols-2 gap-3 ">
-                        <label className="flex my-2 flex-col gap-1 text-xs w-full">
-                          <span className="text-xs font-bold text-black">First Name</span>
-                          <input
-                            className="p-3 rounded-md outline-none border border-slate-300 text-sky"
-                            type="text"
-                            required
-                            placeholder="Your First Name"
-                            name="first_name"
-                            id="first_name"
-                            {...register('first_name')}
-                          />
-                        </label>
-                        <label className="flex my-2 flex-col gap-1 text-xs w-ful">
-                          <span className="text-xs font-bold text-black">Last Name</span>
-                          <input
-                            className="p-3 rounded-md outline-none border border-slate-300 text-sky"
-                            type="text"
-                            required
-                            placeholder="Your Last Name"
-                            name="last_name"
-                            id="last_name"
-                            {...register('last_name')}
-                          />
-                        </label>
-                      </div>
-                      <label className="flex my-2 flex-col gap-1 text-xs w-full">
-                        <span className="text-xs font-bold text-black">Phone Number</span>
-                        <input
-                          className="p-3 rounded-md outline-none border border-slate-300 text-sky"
-                          type="text"
-                          required
-                          placeholder="Your Phone Number"
-                          name="phone_number"
-                          id="phone_number"
-                          {...register('phone_number')}
-                        />
-                      </label>
-                      <label className="flex my-2 flex-col gap-1 text-xs w-full">
-                        <span className="text-xs font-bold text-black">Home phone number</span>
-                        <input
-                          className="p-3 rounded-md outline-none border border-slate-300 text-sky"
-                          type="text"
-                          required
-                          placeholder="Your Home Number"
-                          name="home_number"
-                          id="home_number"
-                          {...register('home_number')}
-                        />
-                      </label>
-                      <label className="flex my-2 flex-col gap-1 text-xs w-full">
-                        <span className="text-xs font-bold text-black">Work phone number</span>
-                        <input
-                          className="p-3 rounded-md outline-none border border-slate-300 text-sky"
-                          type="text"
-                          required
-                          placeholder="Your Work  Number"
-                          name="work_number"
-                          id="work_number"
-                          {...register('work_number')}
-                        />
-                      </label>
-                      <label className="flex my-2 flex-col gap-1 text-xs w-full">
-                        <span className="text-xs font-bold text-black">Email</span>
-                        <input
-                          className="p-3 rounded-md outline-none border border-slate-300 text-sky"
-                          type="email"
-                          required
-                          placeholder="Your Email"
-                          name="email"
-                          id="email"
-                          {...register('email')}
-                        />
-                      </label>
-                      <label className="flex flex-col w-full" htmlFor="category_id">
-                        <span className="font-bold text-xs text-black">Category</span>
-                        <select
-                          className="bg-white-700 text-xs text-black border border-slate-300 p-2 rounded-md outline-none"
-                          name="category_id"
-                          id="category_id"
-                          {...register('category_id')}
-                        >
-                          <option className="text-black text-xs" value="prospects">prospects</option>
-                          <option className="text-black text-xs" value="team">team</option>
-                          <option className="text-black text-xs" value="client">client</option>
-                        </select>
-                      </label>
-                      <button
-                        className="mt-3 w-full bg-sky-800 hover:bg-transparent hover transition-all ease-in-out p-3 text-xs rounded-md text-white font-bold"
-                        type="submit"
-                      >
-                        Edit Contact
-                      </button>
-                    </form>
-                  </div>
-                  <form method="dialog" className="modal-backdrop bg-[#0000004d]"><button>close</button></form>
-                </dialog> */}
               </tr>
             ))}
           </tbody>
         </table>
+        <div>
+            {data_contact?.length > 0 && (
+                <ReactPaginate
+                    previousLabel={'<'}
+                    nextLabel={'>'}
+                    breakLabel={'...'}
+                    breakClassName={'break-me'}
+                    activeClassName={'active'}
+                    containerClassName={'pagination'}
+                    subContainerClassName={'pages pagination'}
+                    pageCount={data_contact_meta?.last_page}
+                    marginPagesDisplayed={2}
+                    pageRangeDisplayed={5}
+                    onPageChange={(e) => handlePaginationList(e)}
+                />
+            )}
+        </div>
       </div>
     </div>
   );
