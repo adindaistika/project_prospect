@@ -9,6 +9,11 @@ export const contactReducers = (state = initialState, action) => {
                 data_contact: action.payload.data,
                 data_contact_meta: action.payload.meta
             };
+            case types.DETAIL_CONTACT:
+                return {
+                    ...state,
+                    detail_contact: action.payload.data,
+                };
         default:
             return state;
     }

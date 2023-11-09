@@ -3,7 +3,7 @@ import types from "./contact.type";
 
 export const getContact = (payload) => async (dispatch) => {
     try {
-        let response = await apiClient().get(`/contact?perPage=10&page=${payload.page}`);
+        let response = await apiClient().get(`/contact?perPage=10&page=${payload}`);
         dispatch({
             type: types.DATA_CONTACT,
             payload: response?.data,
@@ -15,7 +15,7 @@ export const getContact = (payload) => async (dispatch) => {
 
 export const getContactById = (payload) => async (dispatch) => {
     try {
-        let response = await apiClient().get(`/contact/${payload.id}`);
+        let response = await apiClient().get(`/contact/${payload}`);
 
         dispatch({
             type: types.DATA_CONTACT,

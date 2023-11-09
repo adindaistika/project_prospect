@@ -2,22 +2,23 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import * as yup from "yup";
 import { yupResolver } from '@hookform/resolvers/yup';
-import { getContact, postContact } from '../../../store/reducers/contact/contact.action';
+import { getContact, getContactById, postContact } from '../../../store/reducers/contact/contact.action';
 import { useState } from 'react';
 import { Swallalert } from '../../../helper/helper';
 import { useRef } from 'react';
 import { IconX } from '@tabler/icons-react';
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 
-export default function ModalContact(payload){
-    const { show, set_show_modal, id, category_id} = payload;
+export default function ModalContact(payload) {
+    const { show, set_show_modal, id, category_id } = payload;
     const [busy, set_busy] = useState(false);
+    const { detail_contact } = useSelector(state => state.contact);
     const ref = useRef(null);
     const dispatch = useDispatch();
-    
-    
+
+
     const schema = yup.object({
         first_name: yup.string().required("required"),
         last_name: yup.string().required("required"),
@@ -27,15 +28,18 @@ export default function ModalContact(payload){
         email: yup.string().required("required"),
         category_id: yup.string().required("required"),
     })
-    
+
     const { register, handleSubmit, setValue, formState: { errors }, reset } = useForm({
         resolver: yupResolver(schema)
     });
 
     useEffect(() => {
         setValue('category_id', category_id);
-    },[category_id])
+    }, [category_id])
 
+    useEffect(() => {
+        setValue()
+    })
 
     const onSubmit = async (data) => {
         try {
@@ -45,7 +49,7 @@ export default function ModalContact(payload){
             }
             await set_busy(false);
             Swallalert('success', {
-                message:'Data berhasil disimpan'
+                message: 'Data berhasil disimpan'
             });
             await set_show_modal(false)
             await dispatch(getContact())
@@ -59,15 +63,20 @@ export default function ModalContact(payload){
                 Swallalert('error', e.response);
             }
         }
-
     }
+    useEffect(() => {
+        if (id) {
+            dispatch(getContactById(id))
+        }
+    }, [id, show])
+
     return (
         <>
             <div className={`bg-[#000]/60 modal animated faster overflow-y-auto fixed w-full h-full bg-grey-cover top-0 left-0 items-center justify-center flex z-50   ${show ? 'modal-active z-50 opacity-100 pointer-events-auto' : 'pointer-events-none opacity-0'}`} >
                 <div className="relative w-full h-auto my-auto">
                     <div className="modal-content rounded-[10px] w-full h-auto tablet:h-auto tablet:my-10 max-w-[640px] bg-white mx-auto tablet:rounded-md z-50 relative self-center py-[22px] px-[26px] md:my-0 md:w-[100vw]" ref={ref}>
                         <div className="flex justify-between">
-                            <div className="text-lg font-bold">{"Add Contact"}</div>
+                            <div className="text-lg font-bold">{id ? "Update Contact" : "Add Contact "}</div>
                             <div className="cursor-pointer" onClick={() => !busy ? set_show_modal(false) : false}>
                                 <IconX />
                             </div>

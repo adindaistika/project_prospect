@@ -48,23 +48,23 @@ export default function Contact() {
 
   useEffect(() => {
     console.log(show_modal);
-  },[show_modal])
+  }, [show_modal])
 
   const showModal = () => {
-      set_item_id(null);
-      set_modal(true);
+    set_item_id(null);
+    set_modal(true);
   }
 
   const showUpdateModal = (id) => {
-      set_item_id(id);
-      set_modal(true);
+    set_item_id(id);
+    set_modal(true);
   }
 
-  const handlePaginationList= (page) => {
-      let currentQuery = {
-          page: page.selected + 1
-      }
-      dispatch(getContact(currentQuery));
+  const handlePaginationList = (page) => {
+    let currentQuery = {
+      page: page.selected + 1
+    }
+    dispatch(getContact(currentQuery));
   }
 
   return (
@@ -77,7 +77,7 @@ export default function Contact() {
           + Add Contact
         </button>
       </div>
-      <ModalContact set_show_modal={set_modal} show={show_modal} id={item_id} category_id={ id }></ModalContact>
+      <ModalContact set_show_modal={set_modal} show={show_modal} id={item_id} category_id={id}></ModalContact>
       <div className=" shadow-2xl rounded-md">
         <table className="w-full table-auto text-left text-sm font-light">
           <thead className="border-t font-medium dark:border-neutral-500">
@@ -127,7 +127,7 @@ export default function Contact() {
                   <div onClick={() => handleDelete(item.id)} className="bg-transparent cursor-pointer w-max">
                     <IconTrash color="red" />
                   </div>
-                  <div onClick={() => document.getElementById(`editcontact_${item.id}`).showModal()} className="bg-transparent p-1 cursor-pointer w-max">
+                  <div onClick={() => showUpdateModal(item.id)} className="bg-transparent p-1 cursor-pointer w-max">
                     <IconPencilMinus color="green" />
                   </div>
                 </td>
@@ -136,21 +136,21 @@ export default function Contact() {
           </tbody>
         </table>
         <div>
-            {data_contact?.length > 0 && (
-                <ReactPaginate
-                    previousLabel={'<'}
-                    nextLabel={'>'}
-                    breakLabel={'...'}
-                    breakClassName={'break-me'}
-                    activeClassName={'active'}
-                    containerClassName={'pagination'}
-                    subContainerClassName={'pages pagination'}
-                    pageCount={data_contact_meta?.last_page}
-                    marginPagesDisplayed={2}
-                    pageRangeDisplayed={5}
-                    onPageChange={(e) => handlePaginationList(e)}
-                />
-            )}
+          {data_contact?.length > 0 && (
+            <ReactPaginate
+              previousLabel={'<'}
+              nextLabel={'>'}
+              breakLabel={'...'}
+              breakClassName={'break-me'}
+              activeClassName={'active'}
+              containerClassName={'pagination'}
+              subContainerClassName={'pages pagination'}
+              pageCount={data_contact_meta?.last_page}
+              marginPagesDisplayed={2}
+              pageRangeDisplayed={5}
+              onPageChange={(e) => handlePaginationList(e)}
+            />
+          )}
         </div>
       </div>
     </div>

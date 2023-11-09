@@ -1,4 +1,5 @@
 export default {
     data_contact: [],
-    data_contact_meta: {}
+    data_contact_meta: {},
+    detail_contact: []
 }
