@@ -2,7 +2,7 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import * as yup from "yup";
 import { yupResolver } from '@hookform/resolvers/yup';
-import { getContact, getContactById, postContact } from '../../../store/reducers/contact/contact.action';
+import { getContact, getContactById, postContact, updateContact } from '../../../store/reducers/contact/contact.action';
 import { useState } from 'react';
 import { Swallalert } from '../../../helper/helper';
 import { useRef } from 'react';
@@ -14,7 +14,7 @@ import { useDispatch, useSelector } from 'react-redux';
 export default function ModalContact(payload) {
     const { show, set_show_modal, id, category_id } = payload;
     const [busy, set_busy] = useState(false);
-    const { detail_contact } = useSelector(state => state.contact);
+    const { detail_contact, data_contact_meta } = useSelector(state => state.contact);
     const ref = useRef(null);
     const dispatch = useDispatch();
 
@@ -37,22 +37,48 @@ export default function ModalContact(payload) {
         setValue('category_id', category_id);
     }, [category_id])
 
+    
     useEffect(() => {
-        setValue()
-    })
+        if (id) {
+            dispatch(getContactById(id)) //Jika id tidak null atau pada saat update akan menjalankan function getContactById
+        }
+    }, [id, show])
 
+    // Jika detail kontak tidak null/pada saat update akan setValue field yang dibutuhkan
+    useEffect(() => {
+        if(detail_contact){
+            setValue('first_name', detail_contact?.firstName);
+            setValue('last_name', detail_contact?.lastName);
+            setValue('phone_number', detail_contact?.phoneNumber);
+            setValue('home_number', detail_contact?.homeNumber);
+            setValue('work_number', detail_contact?.workNumber);
+            setValue('email', detail_contact?.email);
+        }
+        console.log(data_contact_meta.current_page)
+    },[detail_contact])
+    
     const onSubmit = async (data) => {
+        let payload = {
+            id: id,
+            form:data
+        }
+        let dataContact = {
+            page: data_contact_meta.current_page
+        }
         try {
             await set_busy(true);
-            if (!id) {
-                await dispatch(postContact(data))
+            if (!id) { //jika tidak ada id/tambah data
+                await dispatch(postContact(data)) 
+            }else{ //jika ada id/update data
+                await dispatch(updateContact(payload))
             }
             await set_busy(false);
             Swallalert('success', {
                 message: 'Data berhasil disimpan'
             });
+            console.log(data_contact_meta.current_page)
+            await dispatch(getContact(dataContact))
             await set_show_modal(false)
-            await dispatch(getContact())
         }
         catch (e) {
             alert(e)
@@ -64,11 +90,6 @@ export default function ModalContact(payload) {
             }
         }
     }
-    useEffect(() => {
-        if (id) {
-            dispatch(getContactById(id))
-        }
-    }, [id, show])
 
     return (
         <>
@@ -182,7 +203,7 @@ export default function ModalContact(payload) {
                                     type="button"
                                     onClick={handleSubmit(onSubmit)}
                                 >
-                                    Add Contact
+                                    {id ? 'Update Contact' : 'Add Contact'}
                                 </button>
                             </form>
                         </div>

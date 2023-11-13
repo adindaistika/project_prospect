@@ -4,14 +4,14 @@ import { IconClipboardText } from "@tabler/icons-react";
 import Link from "next/link";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getContact } from "../../../store/reducers/contact/contact.action";
+import { getContact, getContactCategory } from "../../../store/reducers/contact/contact.action";
 
 export default function contactcategori() {
   const dispatch = useDispatch();
-  const { data_contact } = useSelector(state => state.contact)
+  const { data_contact_category } = useSelector(state => state.contact)
 
   useEffect(() => {
-    dispatch(getContact())
+    dispatch(getContactCategory(1))
   }, [])
 
   // const handleEdit = async (data) => {
@@ -19,12 +19,10 @@ export default function contactcategori() {
   // }
 
   const handleDelete = async (id) => {
-    console.log(id)
     try {
       let konfirmasi = confirm("Are you sure?")
       if (konfirmasi) {
         dispatch(deleteContactById({ id }))
-        dispatch(getContact())
       }
     }
     catch (e) {
@@ -54,11 +52,11 @@ export default function contactcategori() {
           </thead>
           <tbody>
             {
-              data_contact.length > 0 && data_contact.map((item, i) => (
+              data_contact_category.length > 0 && data_contact_category.map((item, i) => (
                 <tr className="border-t dark:border-neutral-500 text-slate-600">
                   <td className="whitespace-nowrap px-6 py-4 font-medium">{i + 1}</td>
                   <td className="whitespace-nowrap px-6 py-4  items-center ">
-                    <span>{`${item.firstName} ${item.lastName}`}</span>
+                    <span>{item.category_name}</span>
                   </td>
                   <td className="whitespace-nowrap px-6 py-4">
                     bc tgl 14 mei batch 1

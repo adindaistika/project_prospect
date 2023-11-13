@@ -1,9 +1,20 @@
 import apiClient from "../../../helper/apiClient";
 import types from "./contact.type";
 
+export const getContactCategory = (payload) => async (dispatch) => {
+    try {
+        let response = await apiClient().get(`/category?page=${payload}`);
+        dispatch({
+            type: types.DATA_CONTACT_CATEGORY,
+            payload: response?.data,
+        });
+    } catch (err) {
+        throw err;
+    }
+};
 export const getContact = (payload) => async (dispatch) => {
     try {
-        let response = await apiClient().get(`/contact?perPage=10&page=${payload}`);
+        let response = await apiClient().get(`/contact?perPage=10&page=${payload.page}`);
         dispatch({
             type: types.DATA_CONTACT,
             payload: response?.data,
@@ -18,7 +29,7 @@ export const getContactById = (payload) => async (dispatch) => {
         let response = await apiClient().get(`/contact/${payload}`);
 
         dispatch({
-            type: types.DATA_CONTACT,
+            type: types.DETAIL_CONTACT,
             payload: response?.data,
         });
     } catch (err) {
@@ -35,17 +46,9 @@ export const postContact = (payload) => async () => {
     }
 };
 
-export const putContact = (payload) => async () => {
+export const updateContact = (payload) => async () => {
     try {
-        let response = await apiClient().put(
-            `/contact/${payload.category_id}`,
-            payload,
-            {
-                headers: {
-                    "Content-type": "multipart/form-data",
-                },
-            }
-        );
+        let response = await apiClient().put(`/contact/${payload.id}`, payload.form);
         return response?.data.status;
     } catch (err) {
         throw err;
