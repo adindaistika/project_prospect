@@ -2,11 +2,7 @@ import { IconPencilMinus } from "@tabler/icons-react";
 import { IconTrash } from "@tabler/icons-react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  getEventComming,
-  getGoal,
-  getTaskTerupdate,
-} from "../../store/reducers/dashboard/dashboard.action";
+import {getEventComming, getGoal,getTaskTerupdate,} from "../../store/reducers/dashboard/dashboard.action";
 import { getCookie } from "cookies-next";
 
 export default function Home() {
@@ -28,6 +24,7 @@ export default function Home() {
       "July",
       "Agustus",
       "September",
+      "Oktober",
       "November",
       "Desember",
     ];
@@ -50,7 +47,7 @@ export default function Home() {
     <main className="min-h-screen">
       <div className="home-banner flex flex-col w-full mx-auto my-4 p-10 rounded-md shadow-md bg-sky-600">
         <h1 className="text-white lg:text-left font-bold text-">
-          Halo, Selamat datang {getCookie("fullname")}
+          Halo, Selamat datang <span>{getCookie("fullname")}</span>
         </h1>
         <h5 className="text-white sm:text-left mt-2">Good Morning</h5>
       </div>
@@ -119,7 +116,7 @@ export default function Home() {
                 <div>
                   <h5 className="text-[10px] md:text-[18px]">{item.title}</h5>
                   <div className="text-xs my-2 flex gap-2 items-center flex-wrap">
-                    <div> Contact Adinda {""} </div>
+                    <div> Contact Adinda </div>
                     <div className="bg-slate-400 text-[10px] px-2 py-1 rounded-full">
                       Reminder : {item.reminder}
                     </div>

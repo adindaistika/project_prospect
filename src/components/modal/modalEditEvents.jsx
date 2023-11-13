@@ -6,9 +6,12 @@ import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useDispatch } from "react-redux";
-import {getEvent,postEvent,} from "../../../store/reducers/events/events.action";
+import {
+  getEvent,
+  postEvent,
+} from "../../../store/reducers/events/events.action";
 
-const ModalEvents = () => {
+const ModalEditEvents = ({ id }) => {
   const [location, setLocation] = useState({ lat: 0, lng: 0 });
   const [locationSelect, setLocationSelect] = useState();
   const dispatch = useDispatch();
@@ -42,7 +45,7 @@ const ModalEvents = () => {
     dispatch(postEvent(data));
     dispatch(getEvent());
     reset();
-    document.getElementById("modalevents").close();
+    document.getElementById("modalEditEvents").close();
   };
 
   useEffect(() => {
@@ -51,14 +54,14 @@ const ModalEvents = () => {
 
   return (
     <>
-      <dialog id="modalevents" className="modal">
+      <dialog id={`modalEditEvents_${id}`} className="modal">
         <div className="modal-box">
           <form method="dialog">
             <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
               ✕
             </button>
           </form>
-          <h3 className="font-bold text-lg text-black">Add Events</h3>
+          <h3 className="font-bold text-lg text-black">Edit Events</h3>
           <form
             className="flex flex-col gap-3"
             onSubmit={handleSubmit(addEvent)}
@@ -220,7 +223,7 @@ const ModalEvents = () => {
               className="mt-3 w-full bg-sky-800 hover:bg-transparent hover transition-all ease-in-out p-3 text-xs rounded-md text-white font-bold"
               type="submit"
             >
-              Kirim
+              Edit
             </button>
           </form>
         </div>
@@ -229,4 +232,4 @@ const ModalEvents = () => {
   );
 };
 
-export default ModalEvents;
+export default ModalEditEvents;

@@ -1,15 +1,19 @@
-import { createStore, applyMiddleware } from 'redux';
-import thunk from 'redux-thunk';
-import { composeWithDevTools } from 'redux-devtools-extension';
-import rootReducer from './reducers';
+import { createStore, applyMiddleware } from "redux";
+import thunk from "redux-thunk";
+import { composeWithDevTools } from "redux-devtools-extension";
+import rootReducer from "./reducers";
 
 const initialState = {};
 const middleware = [thunk];
 
-const store = createStore(rootReducer, initialState, composeWithDevTools(applyMiddleware(...middleware)));
+const store = createStore(
+    rootReducer,
+    initialState,
+    composeWithDevTools(applyMiddleware(...middleware))
+);
 
 store.subscribe(() => {
-    console.log("From contact ", store.getState().contact);
-})
+    console.log(store.getState());
+});
 
 export default store;

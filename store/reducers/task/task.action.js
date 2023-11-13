@@ -27,8 +27,13 @@ export const getTaskById = (payload) => async (dispatch) => {
 };
 
 export const postTask = (payload) => async () => {
+  console.log("From payload: ", payload);
   try {
-    let response = await apiClient().post(`/task`, payload);
+    let response = await apiClient().post(`/task`, payload, {
+      headers: {
+        "Content-type": "multipart/form-data",
+      },
+    });
     return response?.data.status;
   } catch (err) {
     throw err;

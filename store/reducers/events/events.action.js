@@ -6,7 +6,7 @@ export const getEvent = () => async (dispatch) => {
     let response = await apiClient().get(`/event?page=1`);
     dispatch({
       type: types.DATA_EVENT,
-      payload: response?.data,
+      payload: response?.data.data,
     });
   } catch (err) {
     throw err;
