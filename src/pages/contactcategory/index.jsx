@@ -5,33 +5,50 @@ import Link from "next/link";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getContact, getContactCategory } from "../../../store/reducers/contact/contact.action";
+import ModalContact from "@/components/modal/modalContact";
+import { useState } from "react";
+import { useRouter } from "next/router";
 
 export default function contactcategori() {
   const dispatch = useDispatch();
-  const { data_contact_category } = useSelector(state => state.contact)
+  const { data_contact_category } = useSelector(state => state.contact);
+  const [item_id, set_item_id] = useState(null);
+  const [show_modal, set_modal] = useState(false);
+  const router = useRouter();
+  const { id } = router.query;
 
   useEffect(() => {
-    dispatch(getContactCategory(1))
-  }, [])
+    dispatch(getContactCategory(1));
+  }, []);
 
-  // const handleEdit = async (data) => {
-  //   console.log(data);
-  // }
+
+  const handleEdit = async (data) => {
+    console.log(data);
+  }
 
   const handleDelete = async (id) => {
     try {
-      let konfirmasi = confirm("Are you sure?")
+      let konfirmasi = confirm("Are you sure?");
       if (konfirmasi) {
-        dispatch(deleteContactById({ id }))
+        dispatch(deleteContactById({ id }));
       }
-    }
-    catch (e) {
+    } catch (e) {
       console.log(e);
     }
-  }
+  };
+  
+  const showUpdateModal = (id) => {
+    set_item_id(id);
+    set_modal(true);
+  };
+
+  useEffect(() => {
+    console.log(show_modal);
+  }, [show_modal]);
 
   return (
     <div className="w-full">
+       <ModalContact set_show_modal={set_modal} show={show_modal} id={item_id} category_id={id}></ModalContact>
       <div className="shadow-2xl rounded-md">
         <table className="w-full table-auto text-left text-sm font-light">
           <thead className="font-medium dark:border-neutral-500">
@@ -71,7 +88,7 @@ export default function contactcategori() {
                     <div onClick={() => handleDelete(item.id)} className="bg-transparent w-max">
                       <IconTrash color="red" />
                     </div>
-                    <div onClick={() => document.getElementById(`editcontact_${item.id}`).showModal()} className="bg-transparent p-1 w-max">
+                    <div onClick={() => showUpdateModal(item.id)} className="bg-transparent p-1 w-max">
                       <IconPencilMinus color="green" />
                     </div>
                   </td>

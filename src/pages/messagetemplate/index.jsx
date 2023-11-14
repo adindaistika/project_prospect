@@ -8,7 +8,7 @@ export default function Messagetemplate() {
     return (
         <div className="w-full">
             <div className="text-primary">
-                <Link className="mb-5 block text-right" href={"/messagetemplate/add"}>+ Add template</Link>
+                <Link className="mb-5 block text-right" href={"/messagetemplate/add"}>+ Add Message</Link>
             </div>
             <div className="overflow-x-scroll pb-[33px] shadow-2xl rounded-md">
                 <table className="w-max inline-block text-left text-sm font-light">
@@ -16,9 +16,6 @@ export default function Messagetemplate() {
                         <tr>
                             <th scope="col" className="px-6 pt-[30px]  pl-[39px] pb-[18px]">
                                 ID
-                            </th>
-                            <th scope="col" className="px-6 pt-[30px] pb-[18px]">
-                                Nama
                             </th>
                             <th scope="col" className="px-6 pt-[30px] pb-[18px]">
                                 Title
@@ -35,16 +32,6 @@ export default function Messagetemplate() {
                         <tr className="border-t border-neutral-300">
                             <td className="whitespace-nowrap px-6 pt-[17px] pl-[39px] font-medium">
                                 1
-                            </td>
-                            <td className="whitespace-nowrap px-6 pt-[17px] flex items-center gap-3">
-                                <Image
-                                    src="/static/auth/kontak.jpg"
-                                    className="rounded-full w-10 h-10 object-cover"
-                                    width={42}
-                                    height={42}
-                                    alt="Image-kontak"
-                                />
-                                <span>jono bin joni</span>
                             </td>
                             <td className="whitespace-nowrap px-6 pt-[17px]">
                                 Test Kontak Hp Aktif
@@ -70,16 +57,6 @@ export default function Messagetemplate() {
                         <tr className="border-t dark:border-neutral-500">
                             <td className="whitespace-nowrap px-6 pt-[17px] pl-[39px] font-medium">
                                 2
-                            </td>
-                            <td className="whitespace-nowrap px-6 pt-[17px] flex items-center gap-3">
-                                <Image
-                                    src="/static/auth/kontak.jpg"
-                                    className="rounded-full w-10 h-10 object-cover"
-                                    width={42}
-                                    height={42}
-                                    alt="Image-kontak"
-                                />
-                                <span>jono bin joni</span>
                             </td>
                             <td className="whitespace-nowrap px-6 pt-[17px]">Promo</td>
                             <td className="whitespace-nowrap px-6 pt-[17px]">

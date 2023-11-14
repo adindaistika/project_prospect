@@ -37,7 +37,7 @@ export default function ModalContact(payload) {
         setValue('category_id', category_id);
     }, [category_id])
 
-    
+
     useEffect(() => {
         if (id) {
             dispatch(getContactById(id)) //Jika id tidak null atau pada saat update akan menjalankan function getContactById
@@ -46,7 +46,7 @@ export default function ModalContact(payload) {
 
     // Jika detail kontak tidak null/pada saat update akan setValue field yang dibutuhkan
     useEffect(() => {
-        if(detail_contact){
+        if (detail_contact) {
             setValue('first_name', detail_contact?.firstName);
             setValue('last_name', detail_contact?.lastName);
             setValue('phone_number', detail_contact?.phoneNumber);
@@ -55,12 +55,12 @@ export default function ModalContact(payload) {
             setValue('email', detail_contact?.email);
         }
         console.log(data_contact_meta.current_page)
-    },[detail_contact])
-    
+    }, [detail_contact])
+
     const onSubmit = async (data) => {
         let payload = {
             id: id,
-            form:data
+            form: data
         }
         let dataContact = {
             page: data_contact_meta.current_page
@@ -68,8 +68,8 @@ export default function ModalContact(payload) {
         try {
             await set_busy(true);
             if (!id) { //jika tidak ada id/tambah data
-                await dispatch(postContact(data)) 
-            }else{ //jika ada id/update data
+                await dispatch(postContact(data))
+            } else { //jika ada id/update data
                 await dispatch(updateContact(payload))
             }
             await set_busy(false);
@@ -192,9 +192,12 @@ export default function ModalContact(payload) {
                                         id="category_id"
                                         {...register('category_id')}
                                     >
-                                        <option className="text-black text-xs" value="prospects">prospects</option>
-                                        <option className="text-black text-xs" value="team">team</option>
-                                        <option className="text-black text-xs" value="client">client</option>
+                                        <option className="text-black text-xs" value="Prospects">Prospects</option>
+                                        <option className="text-black text-xs" value="Hot Leads">Hot Leads</option>
+                                        <option className="text-black text-xs" value="Actively Selling">Actively Selling</option>
+                                        <option className="text-black text-xs" value="Actively Followup">Actively Followup</option>
+                                        <option className="text-black text-xs" value="Won">Won</option>
+                                        <option className="text-black text-xs" value="Lost">Lost</option>
                                     </select>
                                     <p className='text-red-500'>{errors.category_id?.message}</p>
                                 </label> */}

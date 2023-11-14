@@ -6,7 +6,7 @@ import { IconFileDescription } from "@tabler/icons-react";
 import { IconUpload } from "@tabler/icons-react";
 import { useState } from "react";
 
-export default function AddPesan() {
+export default function AddMessage() {
     const [file, setFile] = useState([]);
 
     const handleFile = (e) => {
@@ -92,6 +92,6 @@ export default function AddPesan() {
 
 export async function getServerSideProps() {
     return {
-      props: {title: 'ADDPESAN'},
+        props: { title: 'ADD MESSAGE' },
     };
-  }
+}
