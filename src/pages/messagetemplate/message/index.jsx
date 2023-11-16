@@ -47,19 +47,19 @@ export default function Message() {
                     <IconPlus />
                     <span>Tambah Kontak</span>
                 </button>
-                <button
+                {/* <button
                     className="flex justify-center items-center gap-3 p-3 rounded-md bg-green-800 text-white shadow-md"
                     type="button"
                 >
                     <IconDownload />
                     <span>Import Phonebook</span>
-                </button>
+                </button> */}
                 <button
                     className="flex justify-center items-center gap-3 p-3 rounded-md bg-indigo-800 text-white shadow-md"
                     type="button"
                 >
                     <IconFileImport />
-                    <span>Import File</span>
+                    <span>Import Form Excel</span>
                 </button>
                 <button
                     className="flex justify-center items-center gap-3 p-3 rounded-md bg-sky-800 text-white shadow-md "
@@ -138,8 +138,8 @@ export default function Message() {
                                             </span>
                                         </td>
                                         <td className="whitespace-nowrap px-6 py-4 text-slate-600">
-                                        Selamat Malam, saya sedang mengecek kontak yang masih aktif.
-                                        tolong di balas pesannya agar saya tahu kontaknya masih aktif Terimakasih
+                                            Selamat Malam, saya sedang mengecek kontak yang masih aktif.
+                                            tolong di balas pesannya agar saya tahu kontaknya masih aktif Terimakasih
                                         </td>
                                         <td className="whitespace-nowrap px-6 py-4 flex items-center gap-2">
                                             <div className="bg-transparent p-1 w-max">
@@ -165,7 +165,7 @@ export default function Message() {
                                             </span>
                                         </td>
                                         <td className="whitespace-nowrap px-6 py-4">
-                                           Berhasil Mengirim Pesan 
+                                            Berhasil Mengirim Pesan
                                         </td>
                                         <td className="whitespace-nowrap px-6 py-4 flex items-center gap-2">
                                             <div className="bg-transparent p-1 w-max">
@@ -199,6 +199,6 @@ export default function Message() {
 
 export async function getServerSideProps() {
     return {
-      props: {title: 'MESSAGE'},
+        props: { title: 'MESSAGE' },
     };
-  }
+}

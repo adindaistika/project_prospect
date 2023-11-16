@@ -5,7 +5,7 @@ import ModalEvents from "@/components/modal/modalEvents";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {deleteEventById,getEvent,} from "../../../store/reducers/events/events.action";
+import { deleteEventById, getEvent, } from "../../../store/reducers/events/events.action";
 import ModalEditEvents from "@/components/modal/modalEditEvents";
 
 export default function Events() {
@@ -82,7 +82,7 @@ export default function Events() {
                                     </div>
                                     <div
                                         onClick={() =>
-                                            document.getElementById(`modalEditEvents_${item.id}`).showModal()   }
+                                            document.getElementById(`modalEditEvents_${item.id}`).showModal()}
                                         className="bg-transparent p-1 w-max"
                                     >
                                         <IconPencilMinus color="green" />

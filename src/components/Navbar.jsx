@@ -175,7 +175,7 @@ const Navbar = () => {
               </div>
             </Link>
           </div>
-          <div
+          {/* <div
             className={`items-center p-2 w-full rounded-md ${
               router.pathname === "/subscription" ? "bg-sky-600" : ""
             }`}
@@ -216,7 +216,7 @@ const Navbar = () => {
                 Referrals
               </div>
             </Link>
-          </div>
+          </div> */}
           <div
             className={`items-center p-2 w-full rounded-md ${
               router.pathname === "/feedback" ? "bg-sky-600" : ""

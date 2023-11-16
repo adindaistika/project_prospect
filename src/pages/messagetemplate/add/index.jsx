@@ -92,6 +92,6 @@ export default function AddMessage() {
 
 export async function getServerSideProps() {
     return {
-        props: { title: 'ADD MESSAGE' },
+        props: { title: 'ADD MESSAGE TEMPLATE' },
     };
 }

@@ -59,9 +59,9 @@ export default function contactcategori() {
               <th scope="col" className="px-6 py-4">
                 Nama
               </th>
-              <th scope="col" className="px-6 py-4">
+              {/* <th scope="col" className="px-6 py-4">
                 Title
-              </th>
+              </th> */}
               <th scope="col" className="px-6 py-4">
                 Action
               </th>
@@ -75,9 +75,9 @@ export default function contactcategori() {
                   <td className="whitespace-nowrap px-6 py-4  items-center ">
                     <span>{item.category_name}</span>
                   </td>
-                  <td className="whitespace-nowrap px-6 py-4">
+                  {/* <td className="whitespace-nowrap px-6 py-4">
                     bc tgl 14 mei batch 1
-                  </td>
+                  </td> */}
                   <td className="whitespace-nowrap px-6 py-4 flex items-center gap-2">
                     <Link
                       href={`/contactcategory/${item.id}`}
