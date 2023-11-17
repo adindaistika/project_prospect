@@ -13,12 +13,12 @@ export const getEvent = () => async (dispatch) => {
   }
 };
 
-export const getEventById = () => async (dispatch) => {
+export const getEventById = (payload) => async (dispatch) => {
   try {
     let response = await apiClient().get(`/event/${payload.id}`);
     dispatch({
-      type: types.DATA_EVENT,
-      payload: response?.data,
+      type: types.DATA_EVENT_ID,
+      payload: response?.data.data,
     });
   } catch (err) {
     throw err;

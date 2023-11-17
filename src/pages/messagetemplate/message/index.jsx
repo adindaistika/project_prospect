@@ -47,13 +47,13 @@ export default function Message() {
                     <IconPlus />
                     <span>Tambah Kontak</span>
                 </button>
-                {/* <button
+                <button
                     className="flex justify-center items-center gap-3 p-3 rounded-md bg-green-800 text-white shadow-md"
                     type="button"
                 >
                     <IconDownload />
                     <span>Import Phonebook</span>
-                </button> */}
+                </button>
                 <button
                     className="flex justify-center items-center gap-3 p-3 rounded-md bg-indigo-800 text-white shadow-md"
                     type="button"

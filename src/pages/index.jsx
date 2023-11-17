@@ -2,7 +2,7 @@ import { IconPencilMinus } from "@tabler/icons-react";
 import { IconTrash } from "@tabler/icons-react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {getEventComming, getGoal,getTaskTerupdate,} from "../../store/reducers/dashboard/dashboard.action";
+import {getEventComming,getGoal,getTaskTerupdate,} from "../../store/reducers/dashboard/dashboard.action";
 import { getCookie } from "cookies-next";
 
 export default function Home() {
@@ -114,11 +114,13 @@ export default function Home() {
             data_event_terupdate.map((item, i) => (
               <div className="bg-sky-100 shadow-md rounded-md p-3 flex justify-between items-center">
                 <div>
-                  <h5 className="text-[10px] md:text-[18px]">{item.title}</h5>
+                  <h5 className="text-[10px] font-bold md:text-[18px]">
+                    {item.name}
+                  </h5>
                   <div className="text-xs my-2 flex gap-2 items-center flex-wrap">
                     <div> Contact Adinda </div>
                     <div className="bg-slate-400 text-[10px] px-2 py-1 rounded-full">
-                      Reminder : {item.reminder}
+                      Reminder : {item.due_date}
                     </div>
                   </div>
                 </div>
