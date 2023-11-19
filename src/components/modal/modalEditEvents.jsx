@@ -8,10 +8,10 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useDispatch } from "react-redux";
 import {
   getEvent,
-  postEvent,
+  putEvent,
 } from "../../../store/reducers/events/events.action";
 
-const ModalEditEvents = ({ id }) => {
+const ModalEditEvents = ({ id, data }) => {
   const [location, setLocation] = useState({ lat: 0, lng: 0 });
   const [locationSelect, setLocationSelect] = useState();
   const dispatch = useDispatch();
@@ -29,11 +29,15 @@ const ModalEditEvents = ({ id }) => {
       longitude: yup.string().required(),
       location: yup.string().required(),
       note: yup.string().required(),
+      start_date: yup.string().required(),
+      end_date: yup.string().required(),
+      reminder: yup.string().required(),
     })
     .required();
 
   const {
     register,
+    setValue,
     reset,
     handleSubmit,
     formState: { errors },
@@ -42,15 +46,27 @@ const ModalEditEvents = ({ id }) => {
   });
 
   const addEvent = async (data) => {
-    dispatch(postEvent(data));
+    dispatch(putEvent({ id, ...data }));
     dispatch(getEvent());
     reset();
-    document.getElementById("modalEditEvents").close();
+    document.getElementById(`modalEditEvents_${id}`).close();
   };
 
   useEffect(() => {
     setLocationSelect(`${location.lat}  ${location.lng}`);
   }, [location]);
+
+  useEffect(() => {
+    setValue("title", data.title);
+    setValue("meeting_with", data.meeting_with);
+    setValue("latitude", data.latitude);
+    setValue("longitude", data.longitude);
+    setValue("location", data.location);
+    setValue("note", data.note);
+    setValue("start_date", data.start_date);
+    setValue("end_date", data.end_date);
+    setValue("reminder", data.reminder);
+  }, []);
 
   return (
     <>
@@ -79,24 +95,17 @@ const ModalEditEvents = ({ id }) => {
                 {...register("title")}
               />
             </label>
-            <label className="flex flex-col" htmlFor="selectContact">
+            <label className="flex my-2 flex-col gap-1 text-xs w-ful">
               <div className="font-bold text-xs text-black">Meeting With</div>
-              <select
-                className="outline-none w-full bg-white font-bold border-slate-300 border p-2 rounded-md text-xs text-black"
-                name="selectContact"
-                id="selectContact"
+              <input
+                className="p-3 rounded-md outline-none border-slate-300 border text-black"
+                type="text"
+                required
+                placeholder="Add Meeting With"
+                name="meeting_with"
+                id="meeting_with"
                 {...register("meeting_with")}
-              >
-                <option className="text-black" value="Adinda">
-                  Adinda
-                </option>
-                <option className="text-black" value="Vivi">
-                  Vivi
-                </option>
-                <option className="text-black" value="Rahmat">
-                  Rahmat
-                </option>
-              </select>
+              />
             </label>
             <label className="flex flex-col" htmlFor="selectContact">
               <div className="font-bold text-xs text-black">Meeting Type</div>

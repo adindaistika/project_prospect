@@ -51,105 +51,119 @@ const Navbar = () => {
       {mobile && !hiddenSide && (
         <div
           onClick={() => handleSidebar()}
-          className={`transition-all delay-300 duration-200 fixed w-full h-[100vh] ${hiddenSide && "bg-transparent"
-            } ${mobile && !hiddenSide && " bg-[#232222a8]"}`}
+          className={`transition-all delay-300 duration-200 fixed w-full h-[100vh] ${
+            hiddenSide && "bg-transparent"
+          } ${mobile && !hiddenSide && " bg-[#232222a8]"}`}
         ></div>
       )}
       <div
-        className={`transition-all duration-200 bg-white p-[30px] drop-shadow-xl space-y-3 h-[100vh] w-[235px] ${mobile && "fixed left-0"
-          } ${mobile && hiddenSide && " left-[-235px]"}`}
+        className={`transition-all duration-200 bg-white p-[30px] drop-shadow-xl space-y-3 h-[100vh] w-[235px] ${
+          mobile && "fixed left-0"
+        } ${mobile && hiddenSide && " left-[-235px]"}`}
       >
         <div>
           <img src="/static/auth/logo.png" className="w-[88px] m-auto"></img>
         </div>
         <div className="flex flex-col items-center gap-[10px] menu-sidebar overflow-y-auto pr-[2px]">
           <div
-            className={`items-center p-2 w-full rounded-md ${url === "" ? "bg-sky-600" : ""
-              }`}
+            className={`items-center p-2 w-full rounded-md ${
+              url === "" ? "bg-sky-600" : ""
+            }`}
           >
             <Link href={"/"} className={`w-full flex flex-row`}>
               <IconHome2 color={url === "" ? "#FFFFFF" : "#0B588D"} />
               <div
-                className={`ml-2 cursor-pointer ${url === "" ? "text-white" : "text-sky-800"
-                  }`}
+                className={`ml-2 cursor-pointer ${
+                  url === "" ? "text-white" : "text-sky-800"
+                }`}
               >
                 Dashboard
               </div>
             </Link>
           </div>
           <div
-            className={`items-center p-2 w-full rounded-md ${url === "contact" ? "bg-sky-600" : ""
-              }`}
+            className={`items-center p-2 w-full rounded-md ${
+              url === "contact" ? "bg-sky-600" : ""
+            }`}
           >
             <Link href={"/contactcategory"} className={`w-full flex flex-row`}>
               <IconUserCircle
                 color={url === "contact" ? "#FFFFFF" : "#0B588D"}
               />
               <div
-                className={`ml-2 cursor-pointer ${url === "contact" ? "text-white" : "text-sky-800"
-                  }`}
+                className={`ml-2 cursor-pointer ${
+                  url === "contact" ? "text-white" : "text-sky-800"
+                }`}
               >
                 Contact
               </div>
             </Link>
           </div>
           <div
-            className={`items-center p-2 w-full rounded-md ${url === "prospect" ? "bg-sky-600" : ""
-              }`}
+            className={`items-center p-2 w-full rounded-md ${
+              url === "prospect" ? "bg-sky-600" : ""
+            }`}
           >
             <Link href={"/prospect"} className={`w-full flex flex-row`}>
               <IconUsersGroup
                 color={url === "prospect" ? "#FFFFFF" : "#0B588D"}
               />
               <div
-                className={`ml-2 cursor-pointer ${url === "prospect" ? "text-white" : "text-sky-800"
-                  }`}
+                className={`ml-2 cursor-pointer ${
+                  url === "prospect" ? "text-white" : "text-sky-800"
+                }`}
               >
                 Prospect
               </div>
             </Link>
           </div>
           <div
-            className={`items-center p-2 w-full rounded-md ${url === "task" ? "bg-sky-600" : ""
-              }`}
+            className={`items-center p-2 w-full rounded-md ${
+              url === "task" ? "bg-sky-600" : ""
+            }`}
           >
             <Link href={"/task"} className={`w-full flex flex-row`}>
               <IconClipboardText
                 color={url === "task" ? "#FFFFFF" : "#0B588D"}
               />
               <div
-                className={`ml-2 cursor-pointer ${url === "task" ? "text-white" : "text-sky-800"
-                  }`}
+                className={`ml-2 cursor-pointer ${
+                  url === "task" ? "text-white" : "text-sky-800"
+                }`}
               >
                 Task
               </div>
             </Link>
           </div>
           <div
-            className={`items-center p-2 w-full rounded-md ${url === "events" ? "bg-sky-600" : ""
-              }`}
+            className={`items-center p-2 w-full rounded-md ${
+              url === "events" ? "bg-sky-600" : ""
+            }`}
           >
             <Link href={"/events"} className={`w-full flex flex-row`}>
               <IconCalendarDue
                 color={url === "events" ? "#FFFFFF" : "#0B588D"}
               />
               <div
-                className={`ml-2 cursor-pointer ${url === "events" ? "text-white" : "text-sky-800"
-                  }`}
+                className={`ml-2 cursor-pointer ${
+                  url === "events" ? "text-white" : "text-sky-800"
+                }`}
               >
                 Events
               </div>
             </Link>
           </div>
           <div
-            className={`items-center p-2 w-full rounded-md ${url === "tutorials" ? "bg-sky-600" : ""
-              }`}
+            className={`items-center p-2 w-full rounded-md ${
+              url === "tutorials" ? "bg-sky-600" : ""
+            }`}
           >
             <Link href={"/tutorials"} className={`w-full flex flex-row`}>
               <IconMovie color={url === "tutorials" ? "#FFFFFF" : "#0B588D"} />
               <div
-                className={`ml-2 cursor-pointer ${url === "tutorials" ? "text-white" : "text-sky-800"
-                  }`}
+                className={`ml-2 cursor-pointer ${
+                  url === "tutorials" ? "text-white" : "text-sky-800"
+                }`}
               >
                 Tutorials
               </div>
@@ -198,30 +212,34 @@ const Navbar = () => {
             </Link>
           </div> */}
           <div
-            className={`items-center p-2 w-full rounded-md ${url === "feedback" ? "bg-sky-600" : ""
-              }`}
+            className={`items-center p-2 w-full rounded-md ${
+              url === "feedback" ? "bg-sky-600" : ""
+            }`}
           >
             <Link href={"/feedback"} className={`w-full flex flex-row`}>
               <IconQuote color={url === "feedback" ? "#FFFFFFF" : "#0B588D"} />
               <div
-                className={`ml-2 cursor-pointer ${url === "feedback" ? "text-white" : "text-sky-800"
-                  }`}
+                className={`ml-2 cursor-pointer ${
+                  url === "feedback" ? "text-white" : "text-sky-800"
+                }`}
               >
                 Feedback
               </div>
             </Link>
           </div>
           <div
-            className={`items-center p-2 w-full rounded-md ${url === "messagetemplate" ? "bg-sky-600" : ""
-              }`}
+            className={`items-center p-2 w-full rounded-md ${
+              url === "messagetemplate" ? "bg-sky-600" : ""
+            }`}
           >
             <Link href={"/messagetemplate"} className={`w-full flex flex-row`}>
               <IconMessage
                 color={url === "messagetemplate" ? "#FFFFFF" : "#0B588D"}
               />
               <div
-                className={`ml-2 cursor-pointer ${url === "messagetemplate" ? "text-white" : "text-sky-800"
-                  }`}
+                className={`ml-2 cursor-pointer ${
+                  url === "messagetemplate" ? "text-white" : "text-sky-800"
+                }`}
               >
                 Messagetemplate
               </div>
@@ -229,8 +247,9 @@ const Navbar = () => {
           </div>
         </div>
         <div
-          className={`items-center p-2 w-full rounded-md ${url === "logout" ? "bg-sky-600" : ""
-            }`}
+          className={`items-center p-2 w-full rounded-md ${
+            url === "logout" ? "bg-sky-600" : ""
+          }`}
         >
           <div
             onClick={() => {
@@ -243,8 +262,9 @@ const Navbar = () => {
           >
             <IconLogout color={url === "logout" ? "#FFFFFF" : "#0B588D"} />
             <div
-              className={`ml-2 cursor-pointer ${url === "logout" ? "text-white" : "text-sky-800"
-                }`}
+              className={`ml-2 cursor-pointer ${
+                url === "logout" ? "text-white" : "text-sky-800"
+              }`}
             >
               Logout
             </div>

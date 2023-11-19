@@ -7,16 +7,18 @@ import { contactCategoryReducers } from "./contactcategory/contactcategory.reduc
 import { dashboardReducers } from "./dashboard/dashboard.reducer";
 import { prospectReducers } from "./prospect/prospect.reducer";
 import { taskReducers } from "./task/task.reducer";
+import { feedbackReducer } from "./feedback/feedback.reducer";
 import { tutorialReducers } from "./tutorial/tutorial.reducer";
 
 export default combineReducers({
-    auth: authReducers,
-    event: eventReducers,
-    contact: contactReducers,
-    messagetemplate: messagetemplateReducer,
-    contactcategory: contactCategoryReducers,
-    dashboard: dashboardReducers,
-    prospect: prospectReducers,
-    task: taskReducers,
-    tutorial: tutorialReducers,
+  auth: authReducers,
+  event: eventReducers,
+  contact: contactReducers,
+  messagetemplate: messagetemplateReducer,
+  contactcategory: contactCategoryReducers,
+  dashboard: dashboardReducers,
+  prospect: prospectReducers,
+  task: taskReducers,
+  feedback: feedbackReducer,
+  tutorial: tutorialReducers,
 });

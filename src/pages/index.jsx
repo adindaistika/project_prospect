@@ -2,8 +2,15 @@ import { IconPencilMinus } from "@tabler/icons-react";
 import { IconTrash } from "@tabler/icons-react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {getEventComming,getGoal,getTaskTerupdate,} from "../../store/reducers/dashboard/dashboard.action";
+import {
+  deleteEventComming,
+  getEventComming,
+  getGoal,
+  getTaskTerupdate,
+} from "../../store/reducers/dashboard/dashboard.action";
 import { getCookie } from "cookies-next";
+import ModalEditEvents from "@/components/modal/modalEditEvents";
+import ModalEditEventsComming from "@/components/modal/modalEditEventsComming";
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -36,6 +43,15 @@ export default function Home() {
 
     return tanggalBulanTahun;
   }
+
+  const handleDelete = (id) => {
+    dispatch(deleteEventComming({ id }));
+    dispatch(getEventComming());
+  };
+
+  const handleEdit = (id) => {
+    document.getElementById(`modalEditEventsComming_${id}`).showModal();
+  };
 
   useEffect(() => {
     dispatch(getTaskTerupdate());
@@ -93,13 +109,20 @@ export default function Home() {
                   </p>
                 </div>
                 <div className="flex items-center gap-2">
-                  <div className="bg-transparent  w-max">
+                  <div
+                    onClick={() => handleDelete(item.id)}
+                    className="bg-transparent cursor-pointer w-max"
+                  >
                     <IconTrash color="red" />
                   </div>
-                  <div className="bg-transparent p-1 w-max">
+                  <div
+                    onClick={() => handleEdit(item.id)}
+                    className="bg-transparent cursor-pointer p-1 w-max"
+                  >
                     <IconPencilMinus color="green" />
                   </div>
                 </div>
+                <ModalEditEventsComming id={item.id} />
               </div>
             ))
           ) : (

@@ -6,7 +6,10 @@ import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useDispatch } from "react-redux";
-import {getEvent,postEvent,} from "../../../store/reducers/events/events.action";
+import {
+  getEvent,
+  postEvent,
+} from "../../../store/reducers/events/events.action";
 
 const ModalEvents = () => {
   const [location, setLocation] = useState({ lat: 0, lng: 0 });
@@ -83,8 +86,8 @@ const ModalEvents = () => {
                 type="text"
                 required
                 placeholder="Add Meeting With"
-                name="title"
-                id="title"
+                name="meeting_with"
+                id="meeting_with"
                 {...register("meeting_with")}
               />
             </label>

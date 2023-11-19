@@ -18,7 +18,7 @@ export const getTaskById = (payload) => async (dispatch) => {
     let response = await apiClient().get(`/task/${payload.id}`);
 
     dispatch({
-      type: types.DATA_TASK,
+      type: types.DATA_TASK_ID,
       payload: response?.data,
     });
   } catch (err) {
@@ -42,15 +42,12 @@ export const postTask = (payload) => async () => {
 
 export const putTask = (payload) => async () => {
   try {
-    let response = await apiClient().put(
-      `/task/${payload.category_id}`,
-      payload,
-      {
-        headers: {
-          "Content-type": "multipart/form-data",
-        },
-      }
-    );
+    console.log("edit payload ", payload);
+    let response = await apiClient().put(`/task/${payload.id}`, payload, {
+      headers: {
+        "Content-type": "multipart/form-data",
+      },
+    });
     return response?.data.status;
   } catch (err) {
     throw err;

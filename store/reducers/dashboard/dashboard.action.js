@@ -36,3 +36,31 @@ export const getGoal = () => async (dispatch) => {
     throw err;
   }
 };
+
+export const editEventComming = (payload) => async () => {
+  try {
+    let response = await apiClient().put(
+      `/dashboard/up-coming-event/${payload.id}`,
+      payload,
+      {
+        headers: {
+          "Content-type": "multipart/form-data",
+        },
+      }
+    );
+    return response?.data.status;
+  } catch (err) {
+    throw err;
+  }
+};
+
+export const deleteEventComming = (payload) => async () => {
+  try {
+    let response = await apiClient().delete(
+      `/dashboard/up-coming-event/${payload.id}`
+    );
+    return response?.data.status;
+  } catch (err) {
+    throw err;
+  }
+};

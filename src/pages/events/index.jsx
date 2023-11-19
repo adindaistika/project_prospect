@@ -75,7 +75,7 @@ export default function Events() {
               >
                 <div>
                   <h5 className="font-bold text-[10px] md:text-[18px]">
-                    {item.meeting_type}
+                    {item.title}
                   </h5>
                   <p className="text-xs">{item.start_date}</p>
                 </div>
@@ -103,7 +103,7 @@ export default function Events() {
                     <IconPencilMinus color="green" />
                   </div>
                 </div>
-                <ModalEditEvents id={item.id} />
+                <ModalEditEvents id={item.id} data={item} />
               </div>
             ))}
           </div>

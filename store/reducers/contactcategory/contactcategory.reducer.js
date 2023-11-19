@@ -6,7 +6,7 @@ export const contactCategoryReducers = (state = initialState, action) => {
     case types.DATA_CONTACTCATEGORY:
       return {
         ...state,
-        data_contactcategory: action.payload.data,
+        data_contactcategory: action.payload,
       };
     default:
       return state;

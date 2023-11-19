@@ -6,7 +6,7 @@ export const getContactCategory = () => async (dispatch) => {
     let response = await apiClient().get(`/contact-category`);
     dispatch({
       type: types.DATA_CONTACTCATEGORY,
-      payload: response?.data,
+      payload: response?.data.data,
     });
   } catch (err) {
     throw err;

@@ -4,13 +4,13 @@ import { useDispatch } from "react-redux";
 import * as yup from "yup";
 import {
   getFeedback,
-  postFeedback,
+  putFeedback,
 } from "../../../store/reducers/feedback/feedback.action";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-const Popup = () => {
+const PopupEdit = ({ id, data }) => {
   const dispatch = useDispatch();
-  const [rate, setRating] = useState(1);
+  const [rate, setRating] = useState(data.id);
   const schema = yup.object({
     rating: yup.number().required(),
     comment: yup.string().required(),
@@ -31,22 +31,20 @@ const Popup = () => {
     setValue("rating", value);
   };
 
-  const kirimData = (data) => {
-    dispatch(postFeedback(data));
+  const kirimData = (item) => {
+    dispatch(putFeedback(item));
     dispatch(getFeedback());
     reset();
-    document.getElementById("my_modal_2").close();
   };
+
+  useEffect(() => {
+    setValue("rating", data.id);
+    setValue("comment", data.feedback_message);
+  }, []);
 
   return (
     <>
-      <button
-        className="bg-sky-600 text-white text-xs font-semibold py-2 px-3 rounded-md"
-        onClick={() => document.getElementById("my_modal_2").showModal()}
-      >
-        Add Feedback
-      </button>
-      <dialog id="my_modal_2" className="modal">
+      <dialog id={`feedback_edit_${id}`} className="modal">
         <form onSubmit={handleSubmit(kirimData)} className="modal-box">
           <p>{errors.rating && errors.rating.message}</p>
           <p>{errors.comment && errors.comment.message}</p>
@@ -103,7 +101,7 @@ const Popup = () => {
             name="submit"
             className="font-semibold text-xs w-full bg-primary p-2 text-white rounded-md"
           >
-            Send Feedback
+            Edit Feedback
           </button>
         </form>
         <form method="dialog" className="modal-backdrop">
@@ -114,4 +112,4 @@ const Popup = () => {
   );
 };
 
-export default Popup;
+export default PopupEdit;

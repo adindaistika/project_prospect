@@ -6,10 +6,16 @@ import { IconClipboardText } from "@tabler/icons-react";
 import ModalTask from "@/components/modal/modalTask";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import {deleteTaskById,getTask,} from "../../../store/reducers/task/task.action";
+import {
+  deleteTaskById,
+  getTask,
+} from "../../../store/reducers/task/task.action";
+import ModalEditTask from "@/components/modal/modalEditTask";
+import { useRouter } from "next/router";
 
 export default function Task() {
   const dispatch = useDispatch();
+  const router = useRouter();
   const { data_task } = useSelector((state) => state.task);
 
   function formatTanggalBulanTahun(inputDate) {
@@ -102,7 +108,10 @@ export default function Task() {
                   </div>
                 </div>
                 <div className="flex items-center gap-2">
-                  <div className="text-black">
+                  <div
+                    onClick={() => router.push(`/task/${item.id}`)}
+                    className="cursor-pointer text-black"
+                  >
                     <IconClipboardText width={20} />
                   </div>
                   <div
@@ -113,9 +122,17 @@ export default function Task() {
                   >
                     <IconTrash width={20} />
                   </div>
-                  <div className="text-green-700 ">
+                  <div
+                    onClick={() =>
+                      document
+                        .getElementById(`modal-edit-${item.id}`)
+                        .showModal()
+                    }
+                    className="text-green-700 cursor-pointer"
+                  >
                     <IconPencilMinus width={20} />
                   </div>
+                  <ModalEditTask id={item.id} data={item} />
                 </div>
               </div>
             </div>

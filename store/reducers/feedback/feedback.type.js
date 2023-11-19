@@ -1,0 +1,4 @@
+export default {
+  DATA_FEEDBACK: "DATA_FEEDBACK",
+  DATA_FEEDBACK_ID: "DATA_FEEDBACK_ID",
+};

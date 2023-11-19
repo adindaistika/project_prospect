@@ -8,6 +8,11 @@ export const taskReducers = (state = initialState, action) => {
         ...state,
         data_task: action.payload.data,
       };
+    case types.DATA_TASK_ID:
+      return {
+        ...state,
+        data_task_id: action.payload.data,
+      };
     default:
       return state;
   }
