@@ -83,16 +83,16 @@ const Navbar = () => {
           </div>
           <div
             className={`items-center p-2 w-full rounded-md ${
-              url === "contact" ? "bg-sky-600" : ""
+              url === "contactcategory" ? "bg-sky-600" : ""
             }`}
           >
             <Link href={"/contactcategory"} className={`w-full flex flex-row`}>
               <IconUserCircle
-                color={url === "contact" ? "#FFFFFF" : "#0B588D"}
+                color={url === "contactcategory" ? "#FFFFFF" : "#0B588D"}
               />
               <div
                 className={`ml-2 cursor-pointer ${
-                  url === "contact" ? "text-white" : "text-sky-800"
+                  url === "contactcategory" ? "text-white" : "text-sky-800"
                 }`}
               >
                 Contact
@@ -217,7 +217,7 @@ const Navbar = () => {
             }`}
           >
             <Link href={"/feedback"} className={`w-full flex flex-row`}>
-              <IconQuote color={url === "feedback" ? "#FFFFFFF" : "#0B588D"} />
+              <IconQuote color={url === "feedback" ? "#FFF" : "#0B588D"} />
               <div
                 className={`ml-2 cursor-pointer ${
                   url === "feedback" ? "text-white" : "text-sky-800"

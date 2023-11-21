@@ -28,11 +28,7 @@ export const getEventById = (payload) => async (dispatch) => {
 export const putEvent = (payload) => async () => {
   console.log("From payload ", payload);
   try {
-    let response = await apiClient().put(`/event/${payload.id}`, payload, {
-      headers: {
-        "Content-type": "multipart/form-data",
-      },
-    });
+    let response = await apiClient().put(`/event/${payload.id}`, payload);
     return response?.data.status;
   } catch (err) {
     throw err;

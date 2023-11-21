@@ -1,16 +1,7 @@
-import { IconPencilMinus } from "@tabler/icons-react";
-import { IconTrash } from "@tabler/icons-react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  deleteEventComming,
-  getEventComming,
-  getGoal,
-  getTaskTerupdate,
-} from "../../store/reducers/dashboard/dashboard.action";
+import {getEventComming,getGoal,getTaskTerupdate,} from "../../store/reducers/dashboard/dashboard.action";
 import { getCookie } from "cookies-next";
-import ModalEditEvents from "@/components/modal/modalEditEvents";
-import ModalEditEventsComming from "@/components/modal/modalEditEventsComming";
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -43,15 +34,6 @@ export default function Home() {
 
     return tanggalBulanTahun;
   }
-
-  const handleDelete = (id) => {
-    dispatch(deleteEventComming({ id }));
-    dispatch(getEventComming());
-  };
-
-  const handleEdit = (id) => {
-    document.getElementById(`modalEditEventsComming_${id}`).showModal();
-  };
 
   useEffect(() => {
     dispatch(getTaskTerupdate());
@@ -108,21 +90,6 @@ export default function Home() {
                     {formatTanggalBulanTahun(item.date)}
                   </p>
                 </div>
-                <div className="flex items-center gap-2">
-                  <div
-                    onClick={() => handleDelete(item.id)}
-                    className="bg-transparent cursor-pointer w-max"
-                  >
-                    <IconTrash color="red" />
-                  </div>
-                  <div
-                    onClick={() => handleEdit(item.id)}
-                    className="bg-transparent cursor-pointer p-1 w-max"
-                  >
-                    <IconPencilMinus color="green" />
-                  </div>
-                </div>
-                <ModalEditEventsComming id={item.id} />
               </div>
             ))
           ) : (
@@ -135,15 +102,15 @@ export default function Home() {
           </h3>
           {data_event_terupdate.length > 0 ? (
             data_event_terupdate.map((item, i) => (
-              <div className="bg-sky-100 shadow-md rounded-md p-3 flex justify-between items-center">
+              <div className="hover:bg-sky-100 shadow-md rounded-md p-3 flex justify-between items-center">
                 <div>
                   <h5 className="text-[10px] font-bold md:text-[18px]">
-                    {item.name}
+                    {item.title}
                   </h5>
                   <div className="text-xs my-2 flex gap-2 items-center flex-wrap">
-                    <div> Contact Adinda </div>
-                    <div className="bg-slate-400 text-[10px] px-2 py-1 rounded-full">
-                      Reminder : {item.due_date}
+                    <div> Contact {item.full_name} </div>
+                    <div className="bg-slate-300 text-[10px] px-2 py-1 rounded-full">
+                      Reminder : {item.reminder}
                     </div>
                   </div>
                 </div>

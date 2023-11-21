@@ -40,9 +40,11 @@ const ModalEditTask = ({ id, data }) => {
   };
 
   useEffect(() => {
-    console.log(data);
     setValue("id", data.id);
     setValue("title", data.title);
+    setValue("due_date", data.due_date);
+    setValue("due_time", data.due_time);
+    setValue("reminder", data.reminder);
     setValue("contact_id", data.relate_to);
     setValue("note", data.note);
   }, []);
@@ -121,19 +123,21 @@ const ModalEditTask = ({ id, data }) => {
                   type="date"
                   required
                   placeholder="Add Start Date"
-                  name="startdate"
-                  id="startdate"
+                  name="due_date"
+                  id="due_date"
+                  {...register("due_date")}
                 />
               </label>
               <label className="flex flex-col gap-1 text-xs w-ful">
-                <span className="text-xs font-bold text-black">End Date</span>
+                <span className="text-xs font-bold text-black">Start Time</span>
                 <input
                   className="p-3 rounded-md outline-none border border-slate-300 text-black"
-                  type="date"
+                  type="time"
                   required
-                  placeholder="Add End Date"
-                  name="enddate"
-                  id="enddate"
+                  placeholder="Add Start Time"
+                  name="due_time"
+                  id="due_time"
+                  {...register("due_time")}
                 />
               </label>
             </div>
@@ -162,11 +166,12 @@ const ModalEditTask = ({ id, data }) => {
               </div>
               <input
                 className="p-3 rounded-md outline-none border border-slate-300 text-black"
-                type="time"
+                type="datetime-local"
                 required
                 placeholder="Add Set Time Reminder"
                 name="reminder"
                 id="reminder"
+                {...register("reminder")}
               />
             </label>
             <button

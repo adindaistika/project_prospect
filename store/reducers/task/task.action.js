@@ -43,11 +43,7 @@ export const postTask = (payload) => async () => {
 export const putTask = (payload) => async () => {
   try {
     console.log("edit payload ", payload);
-    let response = await apiClient().put(`/task/${payload.id}`, payload, {
-      headers: {
-        "Content-type": "multipart/form-data",
-      },
-    });
+    let response = await apiClient().put(`/task/${payload.id}`, payload);
     return response?.data.status;
   } catch (err) {
     throw err;

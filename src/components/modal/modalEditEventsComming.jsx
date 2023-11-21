@@ -6,9 +6,13 @@ import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useDispatch } from "react-redux";
-import {getEvent,postEvent,} from "../../../store/reducers/events/events.action";
+import {
+  getEvent,
+  postEvent,
+} from "../../../store/reducers/events/events.action";
+import { editEventComming } from "../../../store/reducers/dashboard/dashboard.action";
 
-const ModalEditEventsComming = ({ id }) => {
+const ModalEditEventsComming = ({ id, data }) => {
   const [location, setLocation] = useState({ lat: 0, lng: 0 });
   const [locationSelect, setLocationSelect] = useState();
   const dispatch = useDispatch();
@@ -21,16 +25,13 @@ const ModalEditEventsComming = ({ id }) => {
   const schema = yup
     .object({
       title: yup.string().required(),
-      meeting_with: yup.string().required(),
-      latitude: yup.string().required(),
-      longitude: yup.string().required(),
-      location: yup.string().required(),
-      note: yup.string().required(),
+      date: yup.string().required(),
     })
     .required();
 
   const {
     register,
+    setValue,
     reset,
     handleSubmit,
     formState: { errors },
@@ -38,16 +39,17 @@ const ModalEditEventsComming = ({ id }) => {
     resolver: yupResolver(schema),
   });
 
-  const addEvent = async (data) => {
-    dispatch(postEvent(data));
+  const editEvent = async (data) => {
+    dispatch(editEventComming({ id, ...data }));
     dispatch(getEvent());
     reset();
     document.getElementById(`modalEditEventsComming_${id}`).close();
   };
 
   useEffect(() => {
-    setLocationSelect(`${location.lat}  ${location.lng}`);
-  }, [location]);
+    setValue("name", data.name);
+    setValue("date", data.date);
+  }, []);
 
   return (
     <>
@@ -61,7 +63,7 @@ const ModalEditEventsComming = ({ id }) => {
           <h3 className="font-bold text-lg text-black">Edit Events</h3>
           <form
             className="flex flex-col gap-3"
-            onSubmit={handleSubmit(addEvent)}
+            onSubmit={handleSubmit(editEvent)}
             action=""
           >
             <label className="flex my-2 flex-col gap-1 text-xs w-ful">
@@ -71,20 +73,21 @@ const ModalEditEventsComming = ({ id }) => {
                 type="text"
                 required
                 placeholder="Add Title"
-                name="title"
-                id="title"
-                {...register("title")}
+                name="name"
+                id="name"
+                {...register("name")}
               />
             </label>
             <label className="flex  flex-col gap-1 text-xs w-full">
               <span className="text-xs font-bold text-black">Start Date</span>
               <input
                 className="p-3 rounded-md outline-none border border-slate-300 text-black"
-                type="date"
+                type="datetime-local"
                 required
                 placeholder="Add Start Date"
-                name="startdate"
-                id="startdate"
+                name="date"
+                id="date"
+                {...register("date")}
               />
             </label>
             <button

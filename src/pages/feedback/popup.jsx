@@ -13,7 +13,9 @@ const Popup = () => {
   const [rate, setRating] = useState(1);
   const schema = yup.object({
     rating: yup.number().required(),
-    comment: yup.string().required(),
+    user_first_name: yup.string().required(),
+    title: yup.string().required(),
+    feedback_message: yup.string().required(),
   });
 
   const {
@@ -32,7 +34,8 @@ const Popup = () => {
   };
 
   const kirimData = (data) => {
-    dispatch(postFeedback(data));
+    console.log("Ini data submit ", { rating: rate, ...data });
+    dispatch(postFeedback({ rating: rate, ...data }));
     dispatch(getFeedback());
     reset();
     document.getElementById("my_modal_2").close();
@@ -48,8 +51,6 @@ const Popup = () => {
       </button>
       <dialog id="my_modal_2" className="modal">
         <form onSubmit={handleSubmit(kirimData)} className="modal-box">
-          <p>{errors.rating && errors.rating.message}</p>
-          <p>{errors.comment && errors.comment.message}</p>
           <p className="text-primary font-semibold my-3">Rating</p>
           <div className="rating">
             <input
@@ -88,14 +89,46 @@ const Popup = () => {
               checked={rate == 5}
             />
           </div>
-          <label className="block my-3 w-full" htmlFor="comment">
+          <div className="flex items-center gap-3">
+            <label className="block my-3 w-full" htmlFor="user_first_name">
+              <span className="text-primary font-semibold">First Name</span>
+              <input
+                type="text"
+                className="w-full my-3 border-b border-primary outline-none"
+                name="user_first_name"
+                id="user_first_name"
+                {...register("user_first_name")}
+              />
+            </label>
+            <label className="block my-3 w-full" htmlFor="user_last_name">
+              <span className="text-primary font-semibold">Last Name</span>
+              <input
+                type="text"
+                className="w-full my-3 border-b border-primary outline-none"
+                name="user_last_name"
+                id="user_last_name"
+                {...register("user_last_name")}
+              />
+            </label>
+          </div>
+          <label className="block my-3 w-full" htmlFor="title">
+            <span className="text-primary font-semibold">Title</span>
+            <input
+              type="text"
+              className="w-full my-3 border-b border-primary outline-none"
+              name="title"
+              id="title"
+              {...register("title")}
+            />
+          </label>
+          <label className="block my-3 w-full" htmlFor="feedback_message">
             <span className="text-primary font-semibold">Comment</span>
             <input
               type="text"
               className="w-full my-3 border-b border-primary outline-none"
-              name="comment"
-              id="comment"
-              {...register("comment")}
+              name="feedback_message"
+              id="feedback_message"
+              {...register("feedback_message")}
             />
           </label>
           <button

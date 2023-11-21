@@ -4,10 +4,7 @@ import { IconClipboardText } from "@tabler/icons-react";
 import Link from "next/link";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  getContact,
-  getContactCategory,
-} from "../../../store/reducers/contact/contact.action";
+import { getContact, getContactCategory,} from "../../../store/reducers/contact/contact.action";
 import ModalContact from "@/components/modal/modalContact";
 import { useState } from "react";
 import { useRouter } from "next/router";
@@ -56,9 +53,9 @@ export default function contactcategori() {
         id={item_id}
         category_id={id}
       ></ModalContact>
-      <div className="shadow-2xl rounded-md">
+      <div className="shadow-lg rounded-md">
         <table className="w-full table-auto text-left text-sm font-light">
-          <thead className="font-medium dark:border-neutral-500">
+          <thead className="font-medium dark:border-neutral-500 w-full">
             <tr>
               <th scope="col" className="px-6 py-4">
                 ID
@@ -66,9 +63,9 @@ export default function contactcategori() {
               <th scope="col" className="px-6 py-4">
                 Nama
               </th>
-              <th scope="col" className="px-6 py-4">
+              {/* <th scope="col" className="px-6 py-4">
                 Title
-              </th>
+              </th> */}
               <th scope="col" className="px-6 py-4">
                 Action
               </th>
@@ -84,9 +81,9 @@ export default function contactcategori() {
                   <td className="whitespace-nowrap px-6 py-4  items-center ">
                     <span>{item.category_name}</span>
                   </td>
-                  <td className="whitespace-nowrap px-6 py-4">
+                  {/* <td className="whitespace-nowrap px-6 py-4">
                     bc tgl 14 mei batch 1
-                  </td>
+                  </td> */}
                   <td className="whitespace-nowrap px-6 py-4 flex items-center gap-2">
                     <Link
                       href={`/contactcategory/${item.id}`}

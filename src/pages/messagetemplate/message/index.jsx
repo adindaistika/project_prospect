@@ -133,8 +133,8 @@ export default function Message() {
                                         </td>
                                         <td className="whitespace-nowrap px-6 py-4">08123455777</td>
                                         <td className="whitespace-nowrap px-6 py-4">
-                                            <span className="px-2 py-1 rounded-md text-xs bg-sky-600 text-white">
-                                                Mengirim
+                                            <span className="px-2 py-1 rounded-md text-xs bg-red-600 text-white">
+                                                Gagal
                                             </span>
                                         </td>
                                         <td className="whitespace-nowrap px-6 py-4 text-slate-600">
@@ -160,38 +160,12 @@ export default function Message() {
                                         </td>
                                         <td className="whitespace-nowrap px-6 py-4">08123455777</td>
                                         <td className="whitespace-nowrap px-6 py-4">
-                                            <span className="px-2 py-1 rounded-md text-xs bg-red-600 text-white">
-                                               Gagal
+                                            <span className="px-2 py-1 rounded-md text-xs bg-green-600 text-white">
+                                                Sukses
                                             </span>
                                         </td>
                                         <td className="whitespace-nowrap px-6 py-4">
-                                            Gagal Mengirim Pesan
-                                        </td>
-                                        <td className="whitespace-nowrap px-6 py-4 flex items-center gap-2">
-                                            <div className="bg-transparent p-1 w-max">
-                                                <IconPencilMinus color="green" />
-                                            </div>
-                                            <div className="bg-transparent w-max">
-                                                <IconTrash color="red" />
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr className="border-t dark:border-neutral-500 text-slate-600">
-                                        <td className="whitespace-nowrap px-6 py-4 font-medium">
-                                            3
-                                        </td>
-                                        <td className="whitespace-nowrap px-6 py-4 flex items-center gap-3">
-                                            <Image src="/static/auth/kontak.jpg" className="rounded-full w-10 h-10 object-cover" width={42} height={42} alt="Image-kontak" />
-                                            <span>jono bin joni</span>
-                                        </td>
-                                        <td className="whitespace-nowrap px-6 py-4">08123455777</td>
-                                        <td className="whitespace-nowrap px-6 py-4">
-                                            <span className="px-2 py-1 rounded-md text-xs bg-yellow-400 text-white">
-                                                Pending
-                                            </span>
-                                        </td>
-                                        <td className="whitespace-nowrap px-6 py-4">
-                                            Sedang Mengirim Pesan
+                                            Berhasil Mengirim Pesan
                                         </td>
                                         <td className="whitespace-nowrap px-6 py-4 flex items-center gap-2">
                                             <div className="bg-transparent p-1 w-max">

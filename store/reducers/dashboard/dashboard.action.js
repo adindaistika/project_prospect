@@ -41,12 +41,7 @@ export const editEventComming = (payload) => async () => {
   try {
     let response = await apiClient().put(
       `/dashboard/up-coming-event/${payload.id}`,
-      payload,
-      {
-        headers: {
-          "Content-type": "multipart/form-data",
-        },
-      }
+      payload
     );
     return response?.data.status;
   } catch (err) {

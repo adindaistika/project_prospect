@@ -1,3 +1,4 @@
 export default {
   DATA_TUTORIAL: "DATA_TUTORIAL",
+  DATA_TUTORIAL_ID: "DATA_TUTORIAL_ID",
 };

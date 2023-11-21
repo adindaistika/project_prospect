@@ -18,7 +18,7 @@ export const getTutorialById = (payload) => async (dispatch) => {
     let response = await apiClient().get(`/tutorial/${payload.id}`);
 
     dispatch({
-      type: types.DATA_TUTORIAL,
+      type: types.DATA_TUTORIAL_ID,
       payload: response?.data,
     });
   } catch (err) {

@@ -53,7 +53,7 @@ const TaskDetail = () => {
         <p className="font-semibold text-gray-400">{data_task_id.reminder}</p>
       </div>
       <div className="w-full p-3 rounded-md shadow-md">
-        <p className="font-bold">Note Task</p>
+        <p className="font-bold">Note Event</p>
         <p className="font-semibold text-gray-400">{data_task_id.note}</p>
       </div>
     </div>
