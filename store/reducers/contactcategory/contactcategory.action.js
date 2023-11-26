@@ -3,7 +3,7 @@ import types from "./contactcategory.type";
 
 export const getContactCategory = () => async (dispatch) => {
   try {
-    let response = await apiClient().get(`/contact-category`);
+    let response = await apiClient().get(`/contact-category/1`);
     dispatch({
       type: types.DATA_CONTACTCATEGORY,
       payload: response?.data.data,
@@ -21,6 +21,32 @@ export const getContactCategoryById = (payload) => async (dispatch) => {
       type: types.DATA_CONTACTCATEGORY,
       payload: response?.data,
     });
+  } catch (err) {
+    throw err;
+  }
+};
+
+export const postCategory = (payload) => async () => {
+  try {
+    let response = await apiClient().post(`/category`, payload);
+    return response?.data.status;
+  } catch (err) {
+    throw err;
+  }
+};
+export const putCategory = (payload) => async () => {
+  try {
+    let response = await apiClient().put(`/category/${payload.id}`, payload);
+    return response?.data.status;
+  } catch (err) {
+    throw err;
+  }
+};
+
+export const deleteCategory = (payload) => async () => {
+  try {
+    let response = await apiClient().delete(`/category/${payload.id}`);
+    return response?.data.status;
   } catch (err) {
     throw err;
   }

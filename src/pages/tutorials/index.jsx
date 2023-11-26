@@ -2,7 +2,10 @@ import { IconSearch } from "@tabler/icons-react";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {deleteTutorialById,getTutorial,} from "../../../store/reducers/tutorial/tutorial.action";
+import {
+  deleteTutorialById,
+  getTutorial,
+} from "../../../store/reducers/tutorial/tutorial.action";
 import ModalTutorial from "@/components/modal/modalTutorial";
 import { IconTrash } from "@tabler/icons-react";
 
@@ -26,7 +29,7 @@ export default function Tutorials() {
   return (
     <main className="p-5 rounded-md  shadow-md border bg-white text-black">
       <button
-        className="bg-sky-600 p-3 mb-3 rounded-md shadow-md text-xs text-white font-regular"
+        className="bg-sky-600 p-3 mb-3 hidden rounded-md shadow-md text-xs text-white font-regular"
         onClick={() => document.getElementById("modal-tutorial").showModal()}
       >
         Add Tutorial
@@ -39,6 +42,7 @@ export default function Tutorials() {
         <input
           className="w-full border-none outline-none"
           type="text"
+          placeholder="Search tutorial by name"
           name="search"
           id="search"
         />
@@ -47,22 +51,16 @@ export default function Tutorials() {
       <div className="mt-5 flex flex-wrap gap-3">
         {data_tutorial.length > 0 ? (
           data_tutorial.map((item, i) => (
-            <div
-              onClick={() => router.push(`tutorials/${item.id}`)}
-              className="cursor-pointer gap-3"
-            >
-              <img
-                src={item.thumbnail_url}
-                className="w-56 h-36 bg-slate-400 rounded-md"
-              />
-              <p className="font-bold pt-1">{item.title || "LKAS"}</p>
+            <div className="flex flex-col gap-3">
               <div
-                onClick={() => {
-                  handleDelete(item.id);
-                }}
-                className="text-red-600 flex justify-end cursor-pointer"
+                onClick={() => router.push(`tutorials/${item.id}`)}
+                className="cursor-pointer gap-3"
               >
-                <IconTrash width={20} />
+                <img
+                  src={item.thumbnail_url}
+                  className="w-56 h-36 bg-slate-400 rounded-md"
+                />
+                <p className="font-bold pt-1">{item.title || "LKAS"}</p>
               </div>
             </div>
           ))

@@ -1,6 +1,10 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {getEventComming,getGoal,getTaskTerupdate,} from "../../store/reducers/dashboard/dashboard.action";
+import {
+  getEventComming,
+  getGoal,
+  getTaskTerupdate,
+} from "../../store/reducers/dashboard/dashboard.action";
 import { getCookie } from "cookies-next";
 
 export default function Home() {

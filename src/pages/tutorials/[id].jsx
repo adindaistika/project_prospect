@@ -33,7 +33,7 @@ export default function Tutorials() {
       <div className="collapse collapse-arrow">
         <input type="radio" name="my-accordion-2" checked="checked" />
         <div className="collapse-title text-xl font-semibold">
-          {data_tutorial_id.title || "Tutorial 1"}
+          {data_tutorial_id.title || `Tutorial ${params.id}`}
         </div>
         <div className="collapse-content pt-3 border-t">
           <p>{data_tutorial_id.description || "Ini deskripsinya"}</p>

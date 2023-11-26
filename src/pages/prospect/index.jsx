@@ -18,8 +18,9 @@ export default function prospect() {
     <main className=" min-h-screen">
       <div className="flex w-full mx-auto my-4 p-2 rounded-md shadow-md">
         <input
-          className="outline-none w-full"
+          className="outline-none px-2 w-full"
           type="text"
+          placeholder="Search contact"
           name="search"
           id="search"
         />
@@ -36,33 +37,6 @@ export default function prospect() {
             <IconSquareRoundedChevronRight />
           </button>
         </div>
-        <select
-          className="bg-sky-600 p-2 rounded-md outline-none w-full md:w-40 text-white"
-          name="filter"
-          id="filter"
-        >
-          <option className="bg-white text-sky-600" selected>
-            Filter
-          </option>
-          <option className="bg-white text-sky-600" value="Prospect">
-            Prospect
-          </option>
-          <option className="bg-white text-sky-600" value="Hot Leads">
-            Hot Leads
-          </option>
-          <option className="bg-white text-sky-600" value="Actively Selling">
-            Actively Selling
-          </option>
-          <option className="bg-white text-sky-600" value="Actively Followup">
-            Actively Followup
-          </option>
-          <option className="bg-white text-sky-600" value="Won">
-            Won
-          </option>
-          <option className="bg-white text-sky-600" value="Lost">
-            Lost
-          </option>
-        </select>
       </div>
       <div className="grid md:grid-cols-2 mt-5 gap-3">
         {data_contactcategory.length > 0 ? (
@@ -73,10 +47,9 @@ export default function prospect() {
                 className="w-[60px] mb-3 rounded-full"
               ></img>
               <div>
-                <p className="font-semibold">Adinda Istika Maulia</p>
+                <p className="font-semibold">{item.contact_name}</p>
                 <p className="text-xs font-semibold text-slate-400">
-                  {" "}
-                  Company ----{" "}
+                  {item.category_name}
                 </p>
               </div>
             </div>

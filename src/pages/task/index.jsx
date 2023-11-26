@@ -6,10 +6,7 @@ import { IconClipboardText } from "@tabler/icons-react";
 import ModalTask from "@/components/modal/modalTask";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import {
-  deleteTaskById,
-  getTask,
-} from "../../../store/reducers/task/task.action";
+import {deleteTaskById,getTask,} from "../../../store/reducers/task/task.action";
 import ModalEditTask from "@/components/modal/modalEditTask";
 import { useRouter } from "next/router";
 
@@ -92,7 +89,7 @@ export default function Task() {
             <div key={i} className="shadow-xl rounded-md w-full md:w-64 p-3">
               <div className="flex justify-between text-sky-900">
                 <p className="bg-blue-300 p-2 rounded-md text-xs font-regular">
-                  {selisihWaktu(item.reminder)}
+                  {selisihWaktu(item.start_date)}
                 </p>
               </div>
               <p className="font-bold my-3">{item.title}</p>
@@ -100,11 +97,11 @@ export default function Task() {
                 <div className="opacity-40">
                   <div className="flex gap-2 text-xs items-center text-slate-600">
                     <IconCalendarEvent />
-                    <p>{formatTanggalBulanTahun(item.due_date)}</p>
+                    <p>{formatTanggalBulanTahun(item.end_date)}</p>
                   </div>
                   <div className="flex gap-2 text-xs items-center text-slate-600">
                     <IconClockHour4 />
-                    <p>{item.due_time}</p>
+                    <p>{item.reminder}</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-2">

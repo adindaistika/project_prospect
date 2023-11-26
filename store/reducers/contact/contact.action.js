@@ -14,9 +14,7 @@ export const getContactCategory = (payload) => async (dispatch) => {
 };
 export const getContact = (payload) => async (dispatch) => {
   try {
-    let response = await apiClient().get(
-      `/contact?perPage=10&page=${payload.page}`
-    );
+    let response = await apiClient().get(`/contact`);
     dispatch({
       type: types.DATA_CONTACT,
       payload: response?.data,

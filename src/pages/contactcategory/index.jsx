@@ -4,10 +4,16 @@ import { IconClipboardText } from "@tabler/icons-react";
 import Link from "next/link";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getContact, getContactCategory,} from "../../../store/reducers/contact/contact.action";
+import {
+  getContact,
+  getContactCategory,
+} from "../../../store/reducers/contact/contact.action";
 import ModalContact from "@/components/modal/modalContact";
 import { useState } from "react";
 import { useRouter } from "next/router";
+import ModalCategory from "@/components/modal/modalCategory";
+import ModalEditCategory from "@/components/modal/modalEditCategory";
+import { deleteCategory } from "../../../store/reducers/contactcategory/contactcategory.action";
 
 export default function contactcategori() {
   const dispatch = useDispatch();
@@ -18,7 +24,7 @@ export default function contactcategori() {
   const { id } = router.query;
 
   useEffect(() => {
-    dispatch(getContactCategory(1));
+    dispatch(getContactCategory());
   }, []);
 
   const handleEdit = async (data) => {
@@ -29,7 +35,8 @@ export default function contactcategori() {
     try {
       let konfirmasi = confirm("Are you sure?");
       if (konfirmasi) {
-        dispatch(deleteContactById({ id }));
+        dispatch(deleteCategory({ id }));
+        dispatch(getContactCategory());
       }
     } catch (e) {
       console.log(e);
@@ -41,21 +48,29 @@ export default function contactcategori() {
     set_modal(true);
   };
 
+  const showModal = () => {
+    set_item_id(null);
+    set_modal(true);
+  };
+
   useEffect(() => {
     console.log(show_modal);
   }, [show_modal]);
 
   return (
     <div className="w-full">
-      <ModalContact
-        set_show_modal={set_modal}
-        show={show_modal}
-        id={item_id}
-        category_id={id}
-      ></ModalContact>
+      <div className="flex w-full justify-end">
+        <button
+          className=" mb-5 block text-right btn font-semibold"
+          onClick={() => document.getElementById("addcategory").showModal()}
+        >
+          + Add Category
+        </button>
+        <ModalCategory />
+      </div>
       <div className="shadow-lg rounded-md">
         <table className="w-full table-auto text-left text-sm font-light">
-          <thead className="font-medium dark:border-neutral-500 w-full">
+          <thead className="font-medium dark:border-neutral-500">
             <tr>
               <th scope="col" className="px-6 py-4">
                 ID
@@ -63,9 +78,6 @@ export default function contactcategori() {
               <th scope="col" className="px-6 py-4">
                 Nama
               </th>
-              {/* <th scope="col" className="px-6 py-4">
-                Title
-              </th> */}
               <th scope="col" className="px-6 py-4">
                 Action
               </th>
@@ -81,9 +93,6 @@ export default function contactcategori() {
                   <td className="whitespace-nowrap px-6 py-4  items-center ">
                     <span>{item.category_name}</span>
                   </td>
-                  {/* <td className="whitespace-nowrap px-6 py-4">
-                    bc tgl 14 mei batch 1
-                  </td> */}
                   <td className="whitespace-nowrap px-6 py-4 flex items-center gap-2">
                     <Link
                       href={`/contactcategory/${item.id}`}
@@ -93,16 +102,21 @@ export default function contactcategori() {
                     </Link>
                     <div
                       onClick={() => handleDelete(item.id)}
-                      className="bg-transparent w-max"
+                      className="bg-transparent cursor-pointer w-max"
                     >
                       <IconTrash color="red" />
                     </div>
                     <div
-                      onClick={() => showUpdateModal(item.id)}
-                      className="bg-transparent p-1 w-max"
+                      onClick={() =>
+                        document
+                          .getElementById(`editcategory_${item.id}`)
+                          .showModal()
+                      }
+                      className="bg-transparent cursor-pointer p-1 w-max"
                     >
                       <IconPencilMinus color="green" />
                     </div>
+                    <ModalEditCategory id={item.id} data={item} />
                   </td>
                 </tr>
               ))}

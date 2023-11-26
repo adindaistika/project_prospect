@@ -2,7 +2,10 @@ import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useDispatch } from "react-redux";
-import {getTutorial,postTutorial,} from "../../../store/reducers/tutorial/tutorial.action";
+import {
+  getTutorial,
+  postTutorial,
+} from "../../../store/reducers/tutorial/tutorial.action";
 
 const ModalTutorial = () => {
   const dispatch = useDispatch();

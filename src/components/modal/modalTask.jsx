@@ -1,11 +1,14 @@
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getTask, postTask } from "../../../store/reducers/task/task.action";
+import { useEffect } from "react";
+import { getContact } from "../../../store/reducers/contact/contact.action";
 
 const ModalTask = () => {
   const dispatch = useDispatch();
+  const { data_contact } = useSelector((state) => state.contact);
   const schema = yup
     .object({
       title: yup.string().required(),
@@ -19,6 +22,7 @@ const ModalTask = () => {
   const {
     register,
     handleSubmit,
+    getValues,
     formState: { errors },
     reset,
   } = useForm({
@@ -31,6 +35,10 @@ const ModalTask = () => {
     reset();
     document.getElementById("modal-task").close();
   };
+
+  useEffect(() => {
+    dispatch(getContact());
+  }, []);
   return (
     <>
       <dialog id="modal-task" className="modal">
@@ -45,17 +53,25 @@ const ModalTask = () => {
             className="flex flex-col gap-3"
             onSubmit={handleSubmit(addTask)}
           >
-            <label className="flex my-2 flex-col gap-1 text-xs w-ful">
-              <div className="text-xs font-bold">Contact Id</div>
-              <input
-                className="p-3 rounded-md outline-none border-slate-300 border text-sky"
-                type="text"
-                required
-                placeholder="Add Contact Id"
+            <label className="flex flex-col my-2" htmlFor="contact_id">
+              <div className="font-bold text-xs">Contact Id</div>
+              <select
+                className="outline-none w-full bg-white font-bold border-slate-300 border p-2 rounded-md text-xs"
                 name="contact_id"
                 id="contact_id"
                 {...register("contact_id")}
-              />
+              >
+                <option selected disabled value="">
+                  Pilih contact id
+                </option>
+                {data_contact.map((item, index) => (
+                  <option
+                    key={index}
+                    selected={item.id == getValues("contact_id")}
+                    value={item.id}
+                  >{`${item.id} - ${item.user_first_name} ${item.user_last_name}`}</option>
+                ))}
+              </select>
             </label>
             <label className="flex my-2 flex-col gap-1 text-xs w-ful">
               <div className="text-xs font-bold">Title</div>
@@ -63,29 +79,27 @@ const ModalTask = () => {
                 className="p-3 rounded-md outline-none border-slate-300 border text-sky"
                 type="text"
                 required
-                placeholder="Add Title"
+                placeholder="Edit Title"
                 name="title"
                 id="title"
                 {...register("title")}
               />
             </label>
-            <label className="flex flex-col" htmlFor="selectContact">
+            <label className="flex flex-col" htmlFor="relate_to">
               <div className="font-bold text-xs">Relate to</div>
               <select
                 className="outline-none w-full bg-white font-bold border-slate-300 border p-2 rounded-md text-xs"
-                name="selectContact"
-                id="selectContact"
+                name="relate_to"
+                id="relate_to"
                 {...register("relate_to")}
               >
-                <option className="" value="1">
-                  Adinda
-                </option>
-                <option className="" value="2">
-                  Vivi
-                </option>
-                <option className="" value="3">
-                  Rahmat
-                </option>
+                {data_contact.map((item, index) => (
+                  <option
+                    key={index}
+                    selected={item.id == getValues("relate_to")}
+                    value={item.id}
+                  >{` ${item.user_first_name} ${item.user_last_name}`}</option>
+                ))}
               </select>
             </label>
             <label className="flex flex-col" htmlFor="note">
@@ -106,8 +120,9 @@ const ModalTask = () => {
                   type="date"
                   required
                   placeholder="Add Start Date"
-                  name="startdate"
-                  id="startdate"
+                  name="start_date"
+                  id="start_date"
+                  {...register("start_date")}
                 />
               </label>
               <label className="flex flex-col gap-1 text-xs w-ful">
@@ -117,8 +132,9 @@ const ModalTask = () => {
                   type="date"
                   required
                   placeholder="Add End Date"
-                  name="enddate"
-                  id="enddate"
+                  name="end_date"
+                  id="end_date"
+                  {...register("end_date")}
                 />
               </label>
             </div>
@@ -130,7 +146,7 @@ const ModalTask = () => {
                 id="selectContact"
                 {...register("priority")}
               >
-                <option className="" value="high">
+                <option className="" value="hight">
                   High
                 </option>
                 <option className="" value="medium">
@@ -152,6 +168,7 @@ const ModalTask = () => {
                 placeholder="Add Set Time Reminder"
                 name="reminder"
                 id="reminder"
+                {...register("reminder")}
               />
             </label>
             <button

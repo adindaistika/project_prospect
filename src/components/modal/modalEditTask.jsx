@@ -1,16 +1,18 @@
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   getTask,
   postTask,
   putTask,
 } from "../../../store/reducers/task/task.action";
 import { useEffect } from "react";
+import { getContact } from "../../../store/reducers/contact/contact.action";
 
 const ModalEditTask = ({ id, data }) => {
   const dispatch = useDispatch();
+  const { data_contact } = useSelector((state) => state.contact);
   const schema = yup
     .object({
       contact_id: yup.number().required(),
@@ -25,6 +27,7 @@ const ModalEditTask = ({ id, data }) => {
   const {
     register,
     setValue,
+    getValues,
     handleSubmit,
     formState: { errors },
     reset,
@@ -42,16 +45,18 @@ const ModalEditTask = ({ id, data }) => {
   useEffect(() => {
     setValue("id", data.id);
     setValue("title", data.title);
-    setValue("due_date", data.due_date);
-    setValue("due_time", data.due_time);
+    setValue("start_date", data.start_date);
+    setValue("end_date", data.end_date);
     setValue("reminder", data.reminder);
     setValue("contact_id", data.relate_to);
     setValue("note", data.note);
+
+    dispatch(getContact());
   }, []);
   return (
     <>
       <dialog id={`modal-edit-${id}`} className="modal">
-        <div className="modal-box">
+        <div className="modal-box text-black">
           <form method="dialog">
             <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
               ✕
@@ -62,17 +67,25 @@ const ModalEditTask = ({ id, data }) => {
             className="flex flex-col gap-3"
             onSubmit={handleSubmit(editTask)}
           >
-            <label className="flex my-2 flex-col gap-1 text-xs w-ful">
-              <div className="text-xs font-bold">Contact Id</div>
-              <input
-                className="p-3 rounded-md outline-none border-slate-300 border text-sky"
-                type="text"
-                required
-                placeholder="Edit Contact Id"
+            <label className="flex flex-col my-2" htmlFor="contact_id">
+              <div className="font-bold text-xs">Contact Id</div>
+              <select
+                className="outline-none w-full bg-white font-bold border-slate-300 border p-2 rounded-md text-xs"
                 name="contact_id"
                 id="contact_id"
                 {...register("contact_id")}
-              />
+              >
+                <option selected disabled value="">
+                  Pilih contact id
+                </option>
+                {data_contact.map((item, index) => (
+                  <option
+                    key={index}
+                    selected={item.id == getValues("contact_id")}
+                    value={item.id}
+                  >{`${item.id} - ${item.user_first_name} ${item.user_last_name}`}</option>
+                ))}
+              </select>
             </label>
             <label className="flex my-2 flex-col gap-1 text-xs w-ful">
               <div className="text-xs font-bold">Title</div>
@@ -86,23 +99,21 @@ const ModalEditTask = ({ id, data }) => {
                 {...register("title")}
               />
             </label>
-            <label className="flex flex-col" htmlFor="selectContact">
+            <label className="flex flex-col" htmlFor="relate_to">
               <div className="font-bold text-xs">Relate to</div>
               <select
                 className="outline-none w-full bg-white font-bold border-slate-300 border p-2 rounded-md text-xs"
-                name="selectContact"
-                id="selectContact"
+                name="relate_to"
+                id="relate_to"
                 {...register("relate_to")}
               >
-                <option className="" value="1">
-                  Adinda
-                </option>
-                <option className="" value="2">
-                  Vivi
-                </option>
-                <option className="" value="3">
-                  Rahmat
-                </option>
+                {data_contact.map((item, index) => (
+                  <option
+                    key={index}
+                    selected={item.id == getValues("relate_to")}
+                    value={item.id}
+                  >{` ${item.user_first_name} ${item.user_last_name}`}</option>
+                ))}
               </select>
             </label>
             <label className="flex flex-col" htmlFor="note">
@@ -123,21 +134,21 @@ const ModalEditTask = ({ id, data }) => {
                   type="date"
                   required
                   placeholder="Add Start Date"
-                  name="due_date"
-                  id="due_date"
-                  {...register("due_date")}
+                  name="start_date"
+                  id="start_date"
+                  {...register("start_date")}
                 />
               </label>
               <label className="flex flex-col gap-1 text-xs w-ful">
-                <span className="text-xs font-bold text-black">Start Time</span>
+                <span className="text-xs font-bold text-black">End Date</span>
                 <input
                   className="p-3 rounded-md outline-none border border-slate-300 text-black"
-                  type="time"
+                  type="date"
                   required
-                  placeholder="Add Start Time"
-                  name="due_time"
-                  id="due_time"
-                  {...register("due_time")}
+                  placeholder="Add End Date"
+                  name="end_date"
+                  id="end_date"
+                  {...register("end_date")}
                 />
               </label>
             </div>
@@ -166,7 +177,7 @@ const ModalEditTask = ({ id, data }) => {
               </div>
               <input
                 className="p-3 rounded-md outline-none border border-slate-300 text-black"
-                type="datetime-local"
+                type="time"
                 required
                 placeholder="Add Set Time Reminder"
                 name="reminder"
