@@ -35,7 +35,7 @@ const ModalCategory = () => {
               ✕
             </button>
           </form>
-          <h3 className="font-bold text-lg">Add Category</h3>
+          <h3 className="font-bold text-lg">Add Contact Category</h3>
           <form
             className="flex flex-col gap-3"
             onSubmit={handleSubmit(addcategory)}

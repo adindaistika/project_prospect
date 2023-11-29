@@ -219,6 +219,41 @@ export default function ModalContact(payload) {
                   />
                   <p className="text-red-500">{errors.email?.message}</p>
                 </label>
+                <label className="flex flex-col w-full" htmlFor="category_id">
+                  <span className="font-bold text-xs text-black">Category</span>
+                  <select
+                    className="bg-white-700 text-xs text-black border border-slate-300 p-2 rounded-md outline-none"
+                    name="category_id"
+                    id="category_id"
+                    {...register("category_id")}
+                  >
+                    <option className="text-black text-xs" value="Prospects">
+                      Prospects
+                    </option>
+                    <option className="text-black text-xs" value="Hot Leads">
+                      Hot Leads
+                    </option>
+                    <option
+                      className="text-black text-xs"
+                      value="Actively Selling"
+                    >
+                      Actively Selling
+                    </option>
+                    <option
+                      className="text-black text-xs"
+                      value="Actively Followup"
+                    >
+                      Actively Followup
+                    </option>
+                    <option className="text-black text-xs" value="Won">
+                      Won
+                    </option>
+                    <option className="text-black text-xs" value="Lost">
+                      Lost
+                    </option>
+                  </select>
+                  <p className="text-red-500">{errors.category_id?.message}</p>
+                </label>
                 <button
                   className="mt-3 w-full bg-sky-800 hover:bg-transparent hover:text-sky-800 hover:border-2 hover:border-sky-800 transition-all ease-in-out p-3 text-xs rounded-md text-white font-bold"
                   type="button"

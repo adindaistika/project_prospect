@@ -6,7 +6,10 @@ import { IconClipboardText } from "@tabler/icons-react";
 import ModalTask from "@/components/modal/modalTask";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import {deleteTaskById,getTask,} from "../../../store/reducers/task/task.action";
+import {
+  deleteTaskById,
+  getTask,
+} from "../../../store/reducers/task/task.action";
 import ModalEditTask from "@/components/modal/modalEditTask";
 import { useRouter } from "next/router";
 

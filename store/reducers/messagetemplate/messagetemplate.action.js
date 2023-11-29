@@ -6,7 +6,7 @@ export const getMessagetemplate = () => async (dispatch) => {
     let response = await apiClient().get(`/message-template`);
     dispatch({
       type: types.DATA_MESSAGETEMPLATE,
-      payload: response?.data,
+      payload: response?.data.data,
     });
   } catch (err) {
     throw err;
@@ -15,10 +15,10 @@ export const getMessagetemplate = () => async (dispatch) => {
 
 export const getMessagetemplateById = (payload) => async (dispatch) => {
   try {
-    let response = await apiClient().get(`/message-template/${payload.id}`);
+    let response = await apiClient().get(`/message-template/${payload}`);
     dispatch({
-      type: types.DATA_MESSAGETEMPLATE,
-      payload: response?.data,
+      type: types.DATA_MESSAGETEMPLATEID,
+      payload: response?.data.data,
     });
   } catch (err) {
     throw err;
@@ -27,16 +27,12 @@ export const getMessagetemplateById = (payload) => async (dispatch) => {
 
 export const postMessagetemplate = (payload) => async () => {
   try {
-    let response = await apiClient().post(
-      `/message-template?title=${payload.title}&message=${payload.message}`,
-      payload,
-      {
-        headers: {
-          "Content-type": "multipart/form-data",
-        },
-      }
-    );
-    return response?.data.status;
+    let response = await apiClient().post(`/message-template`, payload, {
+      headers: {
+        "Content-type": "multipart/form-data",
+      },
+    });
+    return response?.data.data;
   } catch (err) {
     throw err;
   }
@@ -53,6 +49,15 @@ export const putMessagetemplate = (payload) => async () => {
         },
       }
     );
+    return response?.data.status;
+  } catch (err) {
+    throw err;
+  }
+};
+
+export const deleteMessagetemplate = (payload) => async () => {
+  try {
+    let response = await apiClient().delete(`/message-template/${payload}`);
     return response?.data.status;
   } catch (err) {
     throw err;

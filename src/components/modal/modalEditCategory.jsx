@@ -44,7 +44,7 @@ const ModalEditCategory = ({ id, data }) => {
               ✕
             </button>
           </form>
-          <h3 className="font-bold text-lg">Edit Category</h3>
+          <h3 className="font-bold text-lg">Edit Contact Category</h3>
           <form
             className="flex flex-col gap-3"
             onSubmit={handleSubmit(editcategory)}

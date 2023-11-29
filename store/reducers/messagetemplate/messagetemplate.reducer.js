@@ -8,6 +8,11 @@ export const messagetemplateReducer = (state = initialState, action) => {
         ...state,
         data_messagetemplate: action.payload,
       };
+    case types.DATA_MESSAGETEMPLATEID:
+      return {
+        ...state,
+        data_messagetemplateid: action.payload,
+      };
     default:
       return state;
   }
