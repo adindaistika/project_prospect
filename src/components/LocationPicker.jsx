@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { GoogleMap, Marker, LoadScript } from '@react-google-maps/api';
 
 const mapContainerStyle = {
@@ -6,7 +6,8 @@ const mapContainerStyle = {
   height: '400px',
 };
 
-function LocationPicker({ onLocationChange }) {
+export default function LocationPicker(prop) {
+  const {onLocationChange, location} = prop;
   const [selectedLocation, setSelectedLocation] = useState(null);
 
   const handleMapClick = (event) => {
@@ -16,6 +17,10 @@ function LocationPicker({ onLocationChange }) {
     setSelectedLocation({ lat, lng });
     onLocationChange({ lat, lng });
   };
+
+  useEffect(() => {
+    location(selectedLocation)
+  },[selectedLocation])
 
   return (
     <LoadScript googleMapsApiKey="AIzaSyAnmM8OLUvMzuqkyv7Jjjai6kUkYtWMIjk">
@@ -34,5 +39,3 @@ function LocationPicker({ onLocationChange }) {
     </LoadScript>
   );
 }
-
-export default LocationPicker;

@@ -41,10 +41,7 @@ export default function Contact() {
   };
 
   useEffect(() => {
-    let payload = {
-      page: 1,
-    };
-    dispatch(getContact(payload));
+    dispatch(getContact(1));
   }, []);
 
   useEffect(() => {
@@ -65,7 +62,7 @@ export default function Contact() {
     let currentQuery = {
       page: page.selected + 1,
     };
-    dispatch(getContact(currentQuery));
+    dispatch(getContact(currentQuery.page));
   };
 
   return (

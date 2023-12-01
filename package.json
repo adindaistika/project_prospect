@@ -31,7 +31,8 @@
     "redux": "^4.2.0",
     "redux-devtools-extension": "^2.13.9",
     "redux-thunk": "^2.4.2",
-    "sweetalert2": "^11.4.8"
+    "sweetalert2": "^11.4.8",
+    "moment": "^2.29.4"
   },
   "devDependencies": {
     "postcss": "^8.4.31",

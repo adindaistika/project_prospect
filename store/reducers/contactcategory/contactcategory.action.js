@@ -3,7 +3,7 @@ import types from "./contactcategory.type";
 
 export const getContactCategory = () => async (dispatch) => {
   try {
-    let response = await apiClient().get(`/contact-category/1`);
+    let response = await apiClient().get(`/category`);
     dispatch({
       type: types.DATA_CONTACTCATEGORY,
       payload: response?.data.data,

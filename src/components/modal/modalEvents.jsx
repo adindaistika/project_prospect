@@ -6,15 +6,18 @@ import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useDispatch } from "react-redux";
+import moment from 'moment/moment.js';
 import {
   getEvent,
   postEvent,
 } from "../../../store/reducers/events/events.action";
+import { Swallalert } from "../../../helper/helper";
 
 const ModalEvents = () => {
   const [location, setLocation] = useState({ lat: 0, lng: 0 });
   const [locationSelect, setLocationSelect] = useState();
   const dispatch = useDispatch();
+  const [time, setTime] = useState();
 
   const handleLocationChange = (newLocation) => {
     setLocation(newLocation);
@@ -36,26 +39,58 @@ const ModalEvents = () => {
     register,
     reset,
     handleSubmit,
+    setValue,
+    getValues,
     formState: { errors },
   } = useForm({
     resolver: yupResolver(schema),
   });
 
   const addEvent = async (data) => {
-    dispatch(postEvent(data));
-    dispatch(getEvent());
-    reset();
-    document.getElementById("modalevents").close();
+    try {
+      await dispatch(postEvent(data));
+      Swallalert('success', {
+        message:'Data berhasil disimpan'
+      });
+      document.getElementById("modalevents").close();
+      reset();
+      dispatch(getEvent());
+    } catch (e) {
+        Swallalert('error', e.response);
+    }
   };
 
   useEffect(() => {
     setLocationSelect(`${location.lat}  ${location.lng}`);
   }, [location]);
 
+  const selectLocation = (loc) => {
+    setLocation({ lat: loc?.lat, lng: loc?.lng })
+    setValue('latitude', loc?.lat);
+    setValue('longitude', loc?.lng);
+  }
+
+  const handleChangeReminder = (e) => {
+    setTime(e+':00')
+    setValue('reminder', e+':00')
+  }
+
   return (
     <>
       <dialog id="modalevents" className="modal">
         <div className="modal-box">
+          
+          <dialog id="my_modal_1" className="modal">
+            <div className="modal-box pt-[40px]">
+              <form method="dialog">
+                <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
+                  ✕
+                </button>
+              </form>
+              <LocationPicker location={(e) => selectLocation(e)} onLocationChange={handleLocationChange} />
+            </div>
+          </dialog>
+
           <form method="dialog">
             <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
               ✕
@@ -79,6 +114,7 @@ const ModalEvents = () => {
                 {...register("title")}
               />
             </label>
+
             <label className="flex my-2 flex-col gap-1 text-xs w-ful">
               <div className="text-xs font-bold text-black">Meeting With</div>
               <input
@@ -91,6 +127,7 @@ const ModalEvents = () => {
                 {...register("meeting_with")}
               />
             </label>
+
             <label className="flex flex-col" htmlFor="selectContact">
               <div className="font-bold text-xs text-black">Meeting Type</div>
               <select
@@ -112,6 +149,7 @@ const ModalEvents = () => {
                 </option>
               </select>
             </label>
+
             <div className="grid grid-cols-2 gap-3 ">
               <label className="flex  flex-col gap-1 text-xs w-full">
                 <span className="text-xs font-bold text-black">Start Date</span>
@@ -122,10 +160,11 @@ const ModalEvents = () => {
                   placeholder="Add Start Date"
                   name="startdate"
                   id="startdate"
+                  {...register('start_date')}
                 />
               </label>
               <label className="flex flex-col gap-1 text-xs w-ful">
-                <span className="text-xs font-bold text-black">Reminder</span>
+                <span className="text-xs font-bold text-black">End Date</span>
                 <input
                   className="p-3 rounded-md outline-none border border-slate-300 text-black"
                   type="date"
@@ -133,16 +172,34 @@ const ModalEvents = () => {
                   placeholder="Add Reminder"
                   name="reminder"
                   id="reminder"
+                  {...register('end_date')}
                 />
               </label>
             </div>
-            <div className="grid grid-cols-2 gap-3 ">
+
+            <label className="flex flex-col gap-1 text-xs w-full">
+              <span className="text-xs font-bold text-black">Location</span>
+              <div className="flex rounded-md outline-none bordertext-sky-full">
+                <input
+                  className="p-3 w-full rounded-md outline-none border-slate-300 border text-black"
+                  type="text"
+                  required
+                  placeholder="Add Your Location"
+                  name="location"
+                  id="location"
+                  {...register("location")}
+                />
+              </div>
+            </label>
+
+            {/* <div className="grid grid-cols-2 gap-3 " onClick={() => document.getElementById("my_modal_1").showModal()}>
               <label className="flex  flex-col gap-1 text-xs w-full">
                 <span className="text-xs font-bold text-black">Latitude</span>
                 <input
                   className="p-3 rounded-md outline-none border border-slate-300 text-black"
                   type="text"
                   required
+                  disabled
                   placeholder="Add your latitude"
                   name="latitude"
                   id="latitude"
@@ -155,40 +212,31 @@ const ModalEvents = () => {
                   className="p-3 rounded-md outline-none border border-slate-300 text-black"
                   type="text"
                   required
+                  disabled
                   placeholder="Add your longitude"
                   name="longitude"
                   id="longitude"
                   {...register("longitude")}
                 />
               </label>
-            </div>
-            <label className="flex flex-col gap-1 text-xs w-full">
-              <span className="text-xs font-bold text-black">Location</span>
-              <div className="flex p-2 rounded-md outline-none border border-slate-300 text-skyw-full">
+            </div> */}
+
+            <div className="relative">
+              <label className="flex flex-col gap-1 text-xs w-full">
+                <span className="text-xs font-bold text-black">Latitude and Longitude</span>
                 <input
-                  className="w-full rounded-md outline-none text-black"
+                  className="p-3 rounded-md outline-none border border-slate-300 text-[#9ca3af]"
                   type="text"
                   required
-                  placeholder="Add Your Location"
-                  name="location"
-                  id="location"
-                  {...register("location")}
+                  disabled
+                  placeholder="Add your latitude"
+                  id="latitude"
+                  value={`${getValues('latitude')} ${getValues('longitude')}`}
                 />
-                <IconMapPin width={20} />
-                {/* <button
-                  className="btn"
-                  onClick={() =>
-                    document.getElementById("my_modal_1").showModal()
-                  }
-                >
-                </button>
-                <dialog id="my_modal_1" className="modal">
-                  <div className="modal-box">
-                    <LocationPicker onLocationChange={handleLocationChange} />
-                  </div>
-                </dialog> */}
-              </div>
-            </label>
+              </label>
+              <IconMapPin color="#9ca3af" className="absolute bottom-[10px] right-[10px]" onClick={() => document.getElementById("my_modal_1").showModal()}/>
+            </div>
+
             <label className="flex  flex-col gap-1 text-xs w-full">
               <div className="text-xs font-bold text-black">
                 Set Time Reminder
@@ -200,6 +248,9 @@ const ModalEvents = () => {
                 placeholder="Add Set Time Reminder"
                 name="settimereminder"
                 id="settimereminder"
+                onChange={(e) => handleChangeReminder(e.target.value)}
+                value={time}
+                // {...register("reminder")}
               />
             </label>
             <label className="flex flex-col" htmlFor="Note">
