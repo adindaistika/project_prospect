@@ -81,29 +81,29 @@ export default function Contact() {
         id={item_id}
         category_id={id}
       ></ModalContact>
-      <div className=" shadow-2xl rounded-md">
+      <div className=" shadow-lg rounded-md">
         <table className="w-full table-auto text-left text-sm font-light">
-          <thead className="border-t font-medium dark:border-neutral-500">
+          <thead className="font-medium">
             <tr>
-              <th scope="col" className="px-6 py-4">
+              <th scope="col" className="p-6">
                 ID
               </th>
-              <th scope="col" className="px-6 py-4">
+              <th scope="col" className="p-6">
                 Nama
               </th>
-              <th scope="col" className="px-6 py-4">
+              <th scope="col" className="p-6">
                 Phone Number
               </th>
-              <th scope="col" className="px-6 py-4">
+              <th scope="col" className="p-6">
                 Work Phone Number
               </th>
-              <th scope="col" className="px-6 py-4">
+              <th scope="col" className="p-6">
                 Home Phone Number
               </th>
-              <th scope="col" className="px-6 py-4">
+              <th scope="col" className="p-6">
                 Email
               </th>
-              <th scope="col" className="px-6 py-4">
+              <th scope="col" className="p-6">
                 Action
               </th>
             </tr>
@@ -115,7 +115,7 @@ export default function Contact() {
                   <td className="whitespace-nowrap px-6 py-4 font-medium">
                     {k + 1}
                   </td>
-                  <td className="whitespace-nowrap px-6 py-4 flex items-center gap-3">
+                  <td className="whitespace-nowrap font-medium px-6 py-4 flex items-center gap-3">
                     <Image
                       src="/static/auth/kontak.jpg"
                       className="rounded-full w-10 h-10 object-cover"
@@ -127,16 +127,18 @@ export default function Contact() {
                       {item.firstName} {item.lastName}
                     </span>
                   </td>
-                  <td className="whitespace-nowrap px-6 py-4">
+                  <td className="whitespace-nowrap font-medium px-6 py-4">
                     {item.phoneNumber}
                   </td>
-                  <td className="whitespace-nowrap px-6 py-4">
+                  <td className="whitespace-nowrap font-medium px-6 py-4">
                     {item.workNumber}
                   </td>
-                  <td className="whitespace-nowrap px-6 py-4">
+                  <td className="whitespace-nowrap font-medium px-6 py-4">
                     {item.homeNumber}
                   </td>
-                  <td className="whitespace-nowrap px-6 py-4">{item.email}</td>
+                  <td className="whitespace-nowrap font-medium px-6 py-4">
+                    {item.email}
+                  </td>
                   <td className="whitespace-nowrap px-6 py-4 flex items-center gap-2">
                     <div
                       onClick={() => handleDelete(item.id)}

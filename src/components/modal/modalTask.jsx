@@ -53,7 +53,7 @@ const ModalTask = () => {
             className="flex flex-col gap-3"
             onSubmit={handleSubmit(addTask)}
           >
-            <label className="flex flex-col my-2" htmlFor="contact_id">
+            <label className="flex flex-col" htmlFor="contact_id">
               <div className="font-bold text-xs">Contact Id</div>
               <select
                 className="outline-none w-full bg-white font-bold border-slate-300 border p-2 rounded-md text-xs"
@@ -73,7 +73,7 @@ const ModalTask = () => {
                 ))}
               </select>
             </label>
-            <label className="flex my-2 flex-col gap-1 text-xs w-ful">
+            <label className="flex flex-col gap-1 text-xs w-ful">
               <div className="text-xs font-bold">Title</div>
               <input
                 className="p-3 rounded-md outline-none border-slate-300 border text-sky"
@@ -139,7 +139,7 @@ const ModalTask = () => {
               </label>
             </div>
             <label className="flex flex-col" htmlFor="selectContact">
-              <div className="font-semibold text-xs">Priority</div>
+              <div className="text-xs font-bold text-black">Priority</div>
               <select
                 className="outline-none w-full bg-white font-semibold border-slate-300 border p-2 rounded-md text-xs"
                 name="selectContact"
