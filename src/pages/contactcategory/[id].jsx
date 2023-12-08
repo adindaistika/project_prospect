@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   deleteContactById,
   getContact,
+  getContactByCategory,
   postContact,
 } from "../../../store/reducers/contact/contact.action";
 import { useEffect } from "react";
@@ -27,13 +28,16 @@ export default function Contact() {
     console.log(data);
   };
 
-  const handleDelete = async (id) => {
-    console.log(id);
+  const handleDelete = async (val) => {
+    let payload = {
+      id : id,
+      page : 1
+    }
     try {
       let konfirmasi = confirm("Are you sure?");
       if (konfirmasi) {
-        dispatch(deleteContactById({ id }));
-        dispatch(getContact());
+        dispatch(deleteContactById({ val }));
+        dispatch(getContactByCategory(payload));
       }
     } catch (e) {
       console.log(e);
@@ -41,7 +45,11 @@ export default function Contact() {
   };
 
   useEffect(() => {
-    dispatch(getContact(1));
+    let payload = {
+      id : id,
+      page : 1
+    }
+    dispatch(getContactByCategory(payload));
   }, []);
 
   useEffect(() => {
@@ -156,7 +164,7 @@ export default function Contact() {
           </tbody>
         </table>
         <div>
-          {data_contact?.length > 0 && (
+          {data_contact_meta?.last_page > 1  && (
             <ReactPaginate
               previousLabel={"<"}
               nextLabel={">"}
