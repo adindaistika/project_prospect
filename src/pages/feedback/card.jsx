@@ -21,7 +21,7 @@ const Card = ({ comment }) => {
     }
   };
   return (
-    <div className="flex flex-col gap-1 p-3 rounded-md shadow-md">
+    <div className="flex bg-white flex-col gap-1 p-3 rounded-md shadow-md">
       <div className="flex gap-2 justify-between">
         <div>
           <h5 className="font-bold">{comment.title}</h5>

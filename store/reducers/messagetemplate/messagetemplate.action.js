@@ -40,9 +40,9 @@ export const postMessagetemplate = (payload) => async () => {
 
 export const putMessagetemplate = (payload) => async () => {
   try {
-    let response = await apiClient().put(
+    let response = await apiClient().post(
       `/message-template/${payload.id}`,
-      payload,
+      { _method: "PUT", ...payload },
       {
         headers: {
           "Content-type": "multipart/form-data",
@@ -57,6 +57,7 @@ export const putMessagetemplate = (payload) => async () => {
 
 export const deleteMessagetemplate = (payload) => async () => {
   try {
+    console.log("INI id untuk dihapus ", payload);
     let response = await apiClient().delete(`/message-template/${payload}`);
     return response?.data.status;
   } catch (err) {

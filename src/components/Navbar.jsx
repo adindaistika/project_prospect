@@ -66,11 +66,17 @@ const Navbar = () => {
         </div>
         <div className="flex flex-col items-center gap-[10px] menu-sidebar overflow-y-auto pr-[2px]">
           <div
+            style={{
+              background: "linear-gradient(0deg, #1E69A0 0%, #469FE1 100%);",
+            }}
             className={`items-center p-2 w-full rounded-md ${
               url === "" ? "bg-sky-600" : ""
             }`}
           >
-            <Link href={"/"} className={`w-full flex flex-row`}>
+            <Link
+              href={"/"}
+              className={`w-full items-center flex items-center flex-row`}
+            >
               <IconHome2 color={url === "" ? "#FFFFFF" : "#0B588D"} />
               <div
                 className={`ml-2 cursor-pointer ${
@@ -86,7 +92,10 @@ const Navbar = () => {
               url === "contactcategory" ? "bg-sky-600" : ""
             }`}
           >
-            <Link href={"/contactcategory"} className={`w-full flex flex-row`}>
+            <Link
+              href={"/contactcategory"}
+              className={`w-full items-center flex flex-row`}
+            >
               <IconUserCircle
                 color={url === "contactcategory" ? "#FFFFFF" : "#0B588D"}
               />
@@ -104,7 +113,10 @@ const Navbar = () => {
               url === "prospect" ? "bg-sky-600" : ""
             }`}
           >
-            <Link href={"/prospect"} className={`w-full flex flex-row`}>
+            <Link
+              href={"/prospect"}
+              className={`w-full items-center flex flex-row`}
+            >
               <IconUsersGroup
                 color={url === "prospect" ? "#FFFFFF" : "#0B588D"}
               />
@@ -122,7 +134,10 @@ const Navbar = () => {
               url === "task" ? "bg-sky-600" : ""
             }`}
           >
-            <Link href={"/task"} className={`w-full flex flex-row`}>
+            <Link
+              href={"/task"}
+              className={`w-full items-center flex flex-row`}
+            >
               <IconClipboardText
                 color={url === "task" ? "#FFFFFF" : "#0B588D"}
               />
@@ -140,7 +155,10 @@ const Navbar = () => {
               url === "events" ? "bg-sky-600" : ""
             }`}
           >
-            <Link href={"/events"} className={`w-full flex flex-row`}>
+            <Link
+              href={"/events"}
+              className={`w-full items-center flex flex-row`}
+            >
               <IconCalendarDue
                 color={url === "events" ? "#FFFFFF" : "#0B588D"}
               />
@@ -158,7 +176,10 @@ const Navbar = () => {
               url === "tutorials" ? "bg-sky-600" : ""
             }`}
           >
-            <Link href={"/tutorials"} className={`w-full flex flex-row`}>
+            <Link
+              href={"/tutorials"}
+              className={`w-full items-center flex flex-row`}
+            >
               <IconMovie color={url === "tutorials" ? "#FFFFFF" : "#0B588D"} />
               <div
                 className={`ml-2 cursor-pointer ${
@@ -174,7 +195,7 @@ const Navbar = () => {
               url === "/subscription" ? "bg-sky-600" : ""
             }`}
           >
-            <Link href={"/subscription"} className={`w-full flex flex-row`}>
+            <Link href={"/subscription"} className={`w-full items-center flex flex-row`}>
               <IconAddressBook
                 color={
                   url === "/subscription" ? "#FFFFFF" : "#0B588D"
@@ -196,7 +217,7 @@ const Navbar = () => {
               url === "/referrals" ? "bg-sky-600" : ""
             }`}
           >
-            <Link href={"/referrals"} className={`w-full flex flex-row`}>
+            <Link href={"/referrals"} className={`w-full items-center flex flex-row`}>
               <IconAffiliate
                 color={url === "/referrals" ? "#FFFFFF" : "#0B588D"}
               />
@@ -216,7 +237,10 @@ const Navbar = () => {
               url === "feedback" ? "bg-sky-600" : ""
             }`}
           >
-            <Link href={"/feedback"} className={`w-full flex flex-row`}>
+            <Link
+              href={"/feedback"}
+              className={`w-full items-center flex flex-row`}
+            >
               <IconQuote color={url === "feedback" ? "#FFF" : "#0B588D"} />
               <div
                 className={`ml-2 cursor-pointer ${
@@ -232,7 +256,10 @@ const Navbar = () => {
               url === "messagetemplate" ? "bg-sky-600" : ""
             }`}
           >
-            <Link href={"/messagetemplate"} className={`w-full flex flex-row`}>
+            <Link
+              href={"/messagetemplate"}
+              className={`w-full items-center flex flex-row`}
+            >
               <IconMessage
                 color={url === "messagetemplate" ? "#FFFFFF" : "#0B588D"}
               />

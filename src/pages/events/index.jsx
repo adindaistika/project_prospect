@@ -20,6 +20,7 @@ export default function Events() {
     ssr: false,
   });
   const dispatch = useDispatch();
+  const [busy, set_busy] = useState(false);
   const { data_event } = useSelector((state) => state.event);
 
   const changeDate = () => {};
@@ -36,11 +37,13 @@ export default function Events() {
   };
 
   useEffect(() => {
+    set_busy(true);
     dispatch(getEvent());
+    set_busy(false);
   }, []);
 
   return (
-    <main className=" min-h-screen">
+    <main className="min-h-screen">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
         <div className="calendar rounded-md">
           <DynamicCalendar
@@ -55,23 +58,23 @@ export default function Events() {
             prev2Label={""}
           />
         </div>
-        <div className="w-full">
-          <div className="flex justify-between items-center text-primary">
-            <h5 className="font-bold">Your Event</h5>
+        <div className="w-full shadow-md rounded-md bg-white">
+          <div className="flex justify-between px-3 pt-3 items-center text-primary">
+            <h5 className="font-bold text-black text-xl">Event</h5>
             <button
-              className="text-xs text-primary font-bold"
+              className="text-primary"
               onClick={() => document.getElementById("modalevents").showModal()}
             >
               + Add Events
             </button>
             <ModalEvents />
           </div>
-          <p className="opacity-50">30 Januari 2023</p>
+          <p className="pl-3 pb-3 border-b-2 opacity-50">30 Januari 2023</p>
           <div className="space-y-3">
             {data_event.map((item, i) => (
               <div
                 key={i}
-                className="shadow-md rounded-md p-3 flex justify-between items-center"
+                className="p-3 border-b-2 border-slate-50 flex justify-between items-center"
               >
                 <div>
                   <h5 className="font-bold text-[10px] md:text-[18px]">
@@ -106,6 +109,14 @@ export default function Events() {
                 <ModalEditEvents id={item.id} data={item} />
               </div>
             ))}
+            {(busy || data_event.length < 0) && (
+              <div className="w-full h-full grid place-items-center">
+                <h5 className="mt-7 flex items-center gap-3 font-semibold">
+                  <span className="loading loading-spinner loading-lg"></span>{" "}
+                  Data sedang kosong...
+                </h5>
+              </div>
+            )}
           </div>
         </div>
       </div>

@@ -16,11 +16,20 @@ export default function Feedback() {
   return (
     <main>
       <Popup />
-      <div className="grid md:grid-cols-3 my-5 gap-3">
-        {data_feedback.map((item, i) => (
-          <Card key={i} comment={item} />
-        ))}
-      </div>
+      {data_feedback.length > 0 ? (
+        <div className="grid md:grid-cols-3 my-5 gap-3">
+          {data_feedback.map((item, i) => (
+            <Card key={i} comment={item} />
+          ))}
+        </div>
+      ) : (
+        <div className="w-full h-full my-5 grid place-items-center">
+          <h5 className="mt-7 flex items-center gap-3 font-semibold">
+            <span className="loading loading-spinner loading-lg"></span> Data
+            sedang kosong...
+          </h5>
+        </div>
+      )}
     </main>
   );
 }

@@ -17,6 +17,7 @@ import { deleteCategory } from "../../../store/reducers/contactcategory/contactc
 
 export default function contactcategori() {
   const dispatch = useDispatch();
+  const [busy, set_busy] = useState(false);
   const { data_contact_category } = useSelector((state) => state.contact);
   const [item_id, set_item_id] = useState(null);
   const [show_modal, set_modal] = useState(false);
@@ -24,7 +25,9 @@ export default function contactcategori() {
   const { id } = router.query;
 
   useEffect(() => {
+    set_busy(true);
     dispatch(getContactCategory());
+    set_busy(false);
   }, []);
 
   const handleEdit = async (data) => {
@@ -61,7 +64,7 @@ export default function contactcategori() {
     <div className="w-full">
       <div className="flex w-full justify-end">
         <button
-          className=" mb-5 block text-right btn font-semibold"
+          className="mb-5 block text-right btn font-semibold"
           onClick={() => document.getElementById("addcategory").showModal()}
         >
           + Add Category
@@ -84,13 +87,13 @@ export default function contactcategori() {
             </tr>
           </thead>
           <tbody>
-            {data_contact_category.length > 0 &&
+            {data_contact_category.length > 0 ? (
               data_contact_category.map((item, i) => (
                 <tr className="border-t dark:border-neutral-500 text-slate-600">
                   <td className="whitespace-nowrap px-6 py-4 font-medium">
                     {i + 1}
                   </td>
-                  <td className="whitespace-nowrap px-6 py-4  items-center ">
+                  <td className="whitespace-nowrap font-medium px-6 py-4 items-center ">
                     <span>{item.category_name}</span>
                   </td>
                   <td className="whitespace-nowrap px-6 py-4 flex items-center gap-2">
@@ -119,7 +122,19 @@ export default function contactcategori() {
                     <ModalEditCategory id={item.id} data={item} />
                   </td>
                 </tr>
-              ))}
+              ))
+            ) : (
+              <tr>
+                <td colSpan={3}>
+                  <div className="w-full h-full mb-3 grid place-items-center">
+                    <h5 className="mt-7 flex items-center gap-3 font-semibold">
+                      <span className="loading loading-spinner loading-lg"></span>{" "}
+                      Data sedang kosong...
+                    </h5>
+                  </div>
+                </td>
+              </tr>
+            )}
           </tbody>
         </table>
       </div>

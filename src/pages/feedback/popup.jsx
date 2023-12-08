@@ -44,10 +44,10 @@ const Popup = () => {
   return (
     <>
       <button
-        className="bg-sky-600 text-white text-xs font-semibold py-2 px-3 rounded-md"
+        className="bg-sky-600 shadow-md text-white text-xs font-semibold py-2 px-3 rounded-md"
         onClick={() => document.getElementById("my_modal_2").showModal()}
       >
-        Add Feedback
+        + Add Feedback
       </button>
       <dialog id="my_modal_2" className="modal">
         <form onSubmit={handleSubmit(kirimData)} className="modal-box">

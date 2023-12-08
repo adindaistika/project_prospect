@@ -45,7 +45,7 @@ const ModalEditEvents = ({ id, data }) => {
     resolver: yupResolver(schema),
   });
 
-  const addEvent = async (data) => {
+  const editEvent = async (data) => {
     dispatch(putEvent({ id, ...data }));
     dispatch(getEvent());
     reset();
@@ -57,6 +57,7 @@ const ModalEditEvents = ({ id, data }) => {
   }, [location]);
 
   useEffect(() => {
+    console.log(data);
     setValue("title", data.title);
     setValue("meeting_with", data.meeting_with);
     setValue("latitude", data.latitude);
@@ -80,7 +81,7 @@ const ModalEditEvents = ({ id, data }) => {
           <h3 className="font-bold text-lg text-black">Edit Events</h3>
           <form
             className="flex flex-col gap-3"
-            onSubmit={handleSubmit(addEvent)}
+            onSubmit={handleSubmit(editEvent)}
             action=""
           >
             <label className="flex my-2 flex-col gap-1 text-xs w-ful">
@@ -133,22 +134,24 @@ const ModalEditEvents = ({ id, data }) => {
                 <span className="text-xs font-bold text-black">Start Date</span>
                 <input
                   className="p-3 rounded-md outline-none border border-slate-300 text-black"
-                  type="date"
+                  type="datetime-local"
                   required
                   placeholder="Add Start Date"
                   name="startdate"
                   id="startdate"
+                  {...register("start_date")}
                 />
               </label>
               <label className="flex flex-col gap-1 text-xs w-ful">
                 <span className="text-xs font-bold text-black">Reminder</span>
                 <input
                   className="p-3 rounded-md outline-none border border-slate-300 text-black"
-                  type="date"
+                  type="datetime-local"
                   required
                   placeholder="Add Reminder"
                   name="reminder"
                   id="reminder"
+                  {...register("end_date")}
                 />
               </label>
             </div>
@@ -216,6 +219,7 @@ const ModalEditEvents = ({ id, data }) => {
                 placeholder="Add Set Time Reminder"
                 name="settimereminder"
                 id="settimereminder"
+                {...register("reminder")}
               />
             </label>
             <label className="flex flex-col" htmlFor="Note">

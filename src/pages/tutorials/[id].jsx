@@ -14,7 +14,7 @@ export default function Tutorials() {
   }, []);
 
   return (
-    <main className="p-2 rounded-md shadow-md border bg-white text-black">
+    <main className="p-5 rounded-lg shadow-md border bg-white text-black">
       <div>
         <iframe
           width="560"
@@ -30,7 +30,7 @@ export default function Tutorials() {
           allowfullscreen
         ></iframe>
       </div>
-      <div className="collapse collapse-arrow">
+      <div className="collapse border collapse-arrow">
         <input type="radio" name="my-accordion-2" checked="checked" />
         <div className="collapse-title text-xl font-semibold">
           {data_tutorial_id.title || `Tutorial ${params.id}`}

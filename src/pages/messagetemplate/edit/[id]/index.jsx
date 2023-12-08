@@ -4,22 +4,28 @@ import { IconX } from "@tabler/icons-react";
 import { IconPhoto } from "@tabler/icons-react";
 import { IconFileDescription } from "@tabler/icons-react";
 import { IconUpload } from "@tabler/icons-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import * as yup from "yup";
-import { postMessagetemplate } from "../../../../store/reducers/messagetemplate/messagetemplate.action";
 import { useRouter } from "next/router";
+import {
+  getMessagetemplateById,
+  putMessagetemplate,
+} from "../../../../../store/reducers/messagetemplate/messagetemplate.action";
 
 export default function AddMessage() {
   const [file, setFile] = useState([]);
   const dispatch = useDispatch();
   const router = useRouter();
 
+  const { data_messagetemplateid } = useSelector(
+    (state) => state.messagetemplate
+  );
+
   const handleFile = (e) => {
     const files = e.target.files;
     setFile(files);
-    console.log(files[0].name.split("."));
     for (let i = 0; i < files.length; i++) {
       const element = files[i];
     }
@@ -33,6 +39,7 @@ export default function AddMessage() {
   const {
     register,
     handleSubmit,
+    setValue,
     formState: { errors },
     reset,
   } = useForm({
@@ -46,12 +53,27 @@ export default function AddMessage() {
   };
 
   const submitTemplate = async (data) => {
-    const dataRes = await dispatch(postMessagetemplate(data));
+    const dataRes = await dispatch(
+      putMessagetemplate({ id: router.query.id, ...data })
+    );
     reset();
-    // console.log(data);
-    router.push(`/messagetemplate/${dataRes.id}`);
+    router.push(`/messagetemplate/${router.query.id}`);
     console.log(dataRes.id);
   };
+
+  useEffect(() => {
+    setValue("title", data_messagetemplateid.title);
+    setValue("message", data_messagetemplateid.message);
+    setFile([
+      { name: "File1.jpg" },
+      { name: "File2.png" },
+      { name: "File3.pdf" },
+    ]);
+  }, [data_messagetemplateid]);
+
+  useEffect(() => {
+    dispatch(getMessagetemplateById(router.query.id));
+  }, []);
 
   return (
     <div>
@@ -102,12 +124,10 @@ export default function AddMessage() {
                 item.name.split(".")[1] == "jpeg") && (
                 <IconPhoto width={64} color="#0B588D" />
               )}
-              {(item.name.split(".")[1] == "doc" ||
-                item.name.split(".")[1] == "xls" ||
-                item.name.split(".")[1] == "xlsx" ||
-                item.name.split(".")[1] == "docx") && (
-                <IconFileDescription width={64} color="#0B588D" />
-              )}
+              {item.name.split(".")[1] == "doc" ||
+                (item.name.split(".")[1] == "docx" && (
+                  <IconFileDescription width={64} color="#0B588D" />
+                ))}
               {item.name.split(".")[1] == "pdf" && (
                 <IconFileDescription width={64} color="#f29741" />
               )}

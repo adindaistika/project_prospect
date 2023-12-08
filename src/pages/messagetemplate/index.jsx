@@ -9,9 +9,11 @@ import {
   deleteMessagetemplate,
   getMessagetemplate,
 } from "../../../store/reducers/messagetemplate/messagetemplate.action";
+import { useRouter } from "next/router";
 
 export default function Messagetemplate() {
   const dispatch = useDispatch();
+  const router = useRouter();
   const { data_messagetemplate } = useSelector(
     (state) => state.messagetemplate
   );
@@ -21,53 +23,61 @@ export default function Messagetemplate() {
   }, []);
   return (
     <div className="w-full">
-      <div className="text-primary">
-        <Link className="mb-5 block text-right" href={"/messagetemplate/add"}>
+      <div className="flex justify-end text-primary">
+        <Link
+          className="mb-5 grid place-items-center text-right btn font-semibold"
+          href={"/messagetemplate/add"}
+        >
           + Add Template
         </Link>
       </div>
-      {data_messagetemplate.length > 0 ? (
-        <div className="overflow-x-scroll pb-[33px] shadow-lg rounded-md">
-          <table className="w-full inline-block text-left text-sm font-light">
-            <thead className="font-medium w-full border-neutral-500">
-              <tr>
-                <th scope="col" className="px-6 pt-[30px]  pl-[39px] pb-[18px]">
-                  ID
-                </th>
-                <th scope="col" className="px-6 pt-[30px] pb-[18px]">
-                  Title
-                </th>
-                <th scope="col" className="px-6 pt-[30px] pb-[18px]">
-                  Message
-                </th>
-                <th
-                  scope="col"
-                  className="px-6 pt-[30px] w-full pr-[75px] pb-[18px]"
-                >
-                  Action
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {data_messagetemplate.map((item, i) => (
+      <div className="overflow-x-scroll bg-white pb-[33px] shadow-lg rounded-md">
+        <table className="w-full inline-block text-left text-sm font-light">
+          <thead className="font-medium w-full border-neutral-500">
+            <tr>
+              <th scope="col" className="px-6 pt-[30px]  pl-[39px] pb-[18px]">
+                ID
+              </th>
+              <th scope="col" className="px-6 pt-[30px] pb-[18px]">
+                Title
+              </th>
+              <th scope="col" className="px-6 pt-[30px] pb-[18px]">
+                Message
+              </th>
+              <th
+                scope="col"
+                className="px-6 pt-[30px] w-full pr-[75px] pb-[18px]"
+              >
+                Action
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {data_messagetemplate.length > 0 ? (
+              data_messagetemplate.map((item, i) => (
                 <tr className="border-t border-neutral-300">
-                  <td className="whitespace-nowrap px-6 pt-[17px] pl-[39px] font-medium">
+                  <td className="whitespace-nowrap font-medium px-6 pt-[17px] pl-[39px] ">
                     {i + 1}
                   </td>
-                  <td className="whitespace-nowrap px-6 pt-[17px]">
+                  <td className="whitespace-nowrap font-medium text-slate-500 px-6 pt-[17px]">
                     {item.title}
                   </td>
-                  <td className="whitespace-nowrap px-6 pt-[17px]">
+                  <td className="min-w-[400px] font-medium text-slate-500 px-6 pt-[17px]">
                     {item.message}
                   </td>
-                  <td className="whitespace-nowrap px-6 pt-[17px] pr-[75px] flex items-center gap-2">
+                  <td className="whitespace-nowrap font-medium text-slate-500 px-6 pt-[17px] pr-[75px] flex items-center gap-2">
                     <Link
                       href={`/messagetemplate/${item.id}`}
                       className="bg-transparent p-1 w-max"
                     >
                       <IconSend color="black" />
                     </Link>
-                    <div className="bg-transparent p-1 w-max">
+                    <div
+                      onClick={() =>
+                        router.push(`/messagetemplate/edit/${item.id}`)
+                      }
+                      className="bg-transparent p-1 w-max"
+                    >
                       <IconPencilMinus color="green" />
                     </div>
                     <div
@@ -84,13 +94,22 @@ export default function Messagetemplate() {
                     </div>
                   </td>
                 </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      ) : (
-        <h5>Data message template kosong...</h5>
-      )}
+              ))
+            ) : (
+              <tr>
+                <td colSpan={4}>
+                  <div className="w-full h-full my-5 grid place-items-center">
+                    <h5 className="mt-7 flex items-center gap-3 font-semibold">
+                      <span className="loading loading-spinner loading-lg"></span>{" "}
+                      Data sedang kosong...
+                    </h5>
+                  </div>
+                </td>
+              </tr>
+            )}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 }

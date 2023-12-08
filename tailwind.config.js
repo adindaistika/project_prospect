@@ -17,6 +17,8 @@ module.exports = {
         primary: "#0B588D",
         second: "#fff",
       },
+      dropShadow: {
+      }
     },
   },
   plugins: [require("daisyui")],

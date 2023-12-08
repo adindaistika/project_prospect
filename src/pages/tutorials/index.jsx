@@ -14,14 +14,14 @@ export default function Tutorials() {
   const dispatch = useDispatch();
   const { data_tutorial } = useSelector((state) => state.tutorial);
 
-  const handleDelete = (id) => {
-    const konfirmasi = confirm("Are you sure?");
+  // const handleDelete = (id) => {
+  //   const konfirmasi = confirm("Are you sure?");
 
-    if (konfirmasi) {
-      dispatch(deleteTutorialById({ id }));
-      dispatch(getTutorial());
-    }
-  };
+  //   if (konfirmasi) {
+  //     dispatch(deleteTutorialById({ id }));
+  //     dispatch(getTutorial());
+  //   }
+  // };
 
   useEffect(() => {
     dispatch(getTutorial());
@@ -65,7 +65,12 @@ export default function Tutorials() {
             </div>
           ))
         ) : (
-          <h1>Data kosong...</h1>
+          <div className="w-full h-full grid place-items-center">
+            <h5 className="mt-7 flex items-center gap-3 font-semibold">
+              <span className="loading loading-spinner loading-lg"></span> Data
+              sedang kosong...
+            </h5>
+          </div>
         )}
       </div>
     </main>

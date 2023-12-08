@@ -6,7 +6,7 @@ import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useDispatch } from "react-redux";
-import moment from 'moment/moment.js';
+// import moment from 'moment/moment.js';
 import {
   getEvent,
   postEvent,
