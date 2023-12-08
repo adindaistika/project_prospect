@@ -26,20 +26,20 @@ const ModalProspect = () => {
             <div>
               <p className="font-semibold">Fullname</p>
               <p>
-                {detail_contact.firstName} {detail_contact.lastName}
+                {detail_contact.first_name} {detail_contact.last_name}
               </p>
             </div>
             <div>
               <p className="font-semibold">Phone Number</p>
-              <p>{detail_contact.phoneNumber}</p>
+              <p>{detail_contact.phone_number}</p>
             </div>
             <div>
               <p className="font-semibold">Home Number</p>
-              <p>{detail_contact.homeNumber}</p>
+              <p>{detail_contact.home_number}</p>
             </div>
             <div>
               <p className="font-semibold">Work Number</p>
-              <p>{detail_contact.workNumber}</p>
+              <p>{detail_contact.work_number}</p>
             </div>
             <div>
               <p className="font-semibold">Email</p>
