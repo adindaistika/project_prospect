@@ -143,23 +143,23 @@ export default function Message() {
       <h3 className="font-semibold mt-5">File Attachment</h3>
       <div className="flex gap-3">
         <div className="w-43 bg-white p-6 rounded-md shadow-[0_16px_50px_rgba(112,144,176,0.20)]">
-          <div className="flex gap-5 justify-between">
+          <div className="flex gap-20 justify-between">
             <IconFileDescription color="#19b9cf" />
-            <p>{countFile.dokumen} Files</p>
+            <p className="font-bold">{countFile.dokumen} Files</p>
           </div>
           <p className="font-semibold">Dokumen</p>
         </div>
         <div className="w-43 bg-white p-6 rounded-md shadow-[0_16px_50px_rgba(112,144,176,0.20)]">
-          <div className="flex gap-5 justify-between">
+          <div className="flex gap-20 justify-between">
             <IconVideo color="#6c7475" />
-            <p>{countFile.video} Files</p>
+            <p className="font-bold">{countFile.video} Files</p>
           </div>
           <p className="font-semibold">Video</p>
         </div>
         <div className="w-43 bg-white p-6 rounded-md shadow-[0_16px_50px_rgba(112,144,176,0.20)]">
-          <div className="flex gap-5 justify-between">
+          <div className="flex gap-20 justify-between">
             <IconPhoto color="#633985" />
-            <p>{countFile.foto} Files</p>
+            <p className="font-bold">{countFile.foto} Files</p>
           </div>
           <p className="font-semibold">Foto</p>
         </div>

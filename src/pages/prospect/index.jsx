@@ -1,4 +1,5 @@
 import { IconSearch } from "@tabler/icons-react";
+import { IconUserCircle } from "@tabler/icons-react";
 import { IconAddressBook } from "@tabler/icons-react";
 import { IconSquareRoundedChevronRight } from "@tabler/icons-react";
 import { useEffect, useState } from "react";
@@ -118,14 +119,15 @@ export default function prospect() {
               }}
               className="flex items-center gap-3 p-3 rounded-md shadow-md"
             >
-              <img
+              {/* <img
                 src="/static/auth/profile.jpeg"
                 className="w-[60px] mb-3 rounded-full"
-              ></img>
+              ></img> */}
+              <IconUserCircle />
               <div>
                 <p className="font-semibold">{item.full_name}</p>
                 <p className="text-xs font-semibold text-slate-400">
-                  {item.phoneNumber}
+                  {item.phone_number}
                 </p>
               </div>
             </div>
