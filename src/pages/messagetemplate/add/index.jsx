@@ -19,10 +19,6 @@ export default function AddMessage() {
   const handleFile = (e) => {
     const files = e.target.files;
     setFile(files);
-    console.log(files[0].name.split("."));
-    for (let i = 0; i < files.length; i++) {
-      const element = files[i];
-    }
   };
 
   const schema = yup.object({
@@ -46,9 +42,8 @@ export default function AddMessage() {
   };
 
   const submitTemplate = async (data) => {
-    const dataRes = await dispatch(postMessagetemplate(data));
+    const dataRes = await dispatch(postMessagetemplate({ file, ...data }));
     reset();
-    // console.log(data);
     router.push(`/messagetemplate/${dataRes.id}`);
     console.log(dataRes.id);
   };

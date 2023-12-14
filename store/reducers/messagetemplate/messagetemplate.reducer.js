@@ -13,6 +13,16 @@ export const messagetemplateReducer = (state = initialState, action) => {
         ...state,
         data_messagetemplateid: action.payload,
       };
+    case types.DATA_MESSAGE:
+      return {
+        ...state,
+        data_message: action.payload,
+      };
+    case types.DATA_FILEATTACHMENT:
+      return {
+        ...state,
+        data_filecount: action.payload,
+      };
     default:
       return state;
   }

@@ -19,7 +19,6 @@ const ModalEditTask = ({ id, data }) => {
       title: yup.string().required(),
       note: yup.string().required(),
       priority: yup.string().required(),
-      relate_to: yup.number().required(),
       id: yup.number(),
     })
     .required();
@@ -35,8 +34,9 @@ const ModalEditTask = ({ id, data }) => {
     resolver: yupResolver(schema),
   });
 
-  const editTask = async (item) => {
-    dispatch(putTask(item));
+  const editTask = async (data) => {
+    let reminder = `${data.end_date} ${data.reminder}:00`;
+    dispatch(putTask({ ...data, reminder }));
     dispatch(getTask());
     reset();
     document.getElementById(`modal-edit-${id}`).close();
@@ -98,23 +98,6 @@ const ModalEditTask = ({ id, data }) => {
                 id="title"
                 {...register("title")}
               />
-            </label>
-            <label className="flex flex-col" htmlFor="relate_to">
-              <div className="font-bold text-xs">Relate to</div>
-              <select
-                className="outline-none w-full bg-white font-bold border-slate-300 border p-2 rounded-md text-xs"
-                name="relate_to"
-                id="relate_to"
-                {...register("relate_to")}
-              >
-                {data_contact.map((item, index) => (
-                  <option
-                    key={index}
-                    selected={item.id == getValues("relate_to")}
-                    value={item.id}
-                  >{` ${item.user_first_name} ${item.user_last_name}`}</option>
-                ))}
-              </select>
             </label>
             <label className="flex flex-col" htmlFor="note">
               <div className="font-bold text-xs">Note</div>

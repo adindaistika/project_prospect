@@ -7,12 +7,18 @@ import { IconFileDescription } from "@tabler/icons-react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getMessagetemplateById } from "../../../../store/reducers/messagetemplate/messagetemplate.action";
+import {
+  getCountAttachment,
+  getMessage,
+  getMessagetemplateById,
+  postContactMessage,
+} from "../../../../store/reducers/messagetemplate/messagetemplate.action";
 import { useRouter } from "next/router";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as XLSX from "xlsx";
+import OverlayLoading from "@/components/OverlayLoading";
 
 export default function Message() {
   const dispatch = useDispatch();
@@ -21,16 +27,20 @@ export default function Message() {
   const [edit, setEdit] = useState(false);
   const [index, setIndex] = useState();
   const [excel, setExcel] = useState(false);
-  const [countFile, setCountFile] = useState({ dokumen: 0, video: 0, foto: 0 });
-  const { data_messagetemplateid } = useSelector(
+  const [busy, set_busy] = useState(false);
+  const id = router.query.id;
+  const { data_messagetemplateid, data_filecount, data_message } = useSelector(
     (state) => state.messagetemplate
   );
 
-  const schema = yup.object({
-    nama: yup.string().required(),
-    telp: yup.string().required(),
-    status: yup.string().required(),
-  });
+  const schema = yup
+    .object({
+      name: yup.string(),
+      phone_number: yup.string(),
+      message: yup.string(),
+      message_template_id: yup.string(),
+    })
+    .required();
 
   const {
     register,
@@ -42,36 +52,9 @@ export default function Message() {
     resolver: yupResolver(schema),
   });
 
-  const hitungFile = () => {
-    const data = ["sdfsd.xls", "sdfsd.xls", "sdfsd.xls", "sdkjdsf.png"];
-
-    let dokumen = 0;
-    let video = 0;
-    let foto = 0;
-
-    data.forEach((item) => {
-      const extensi = item.split(".");
-      if (
-        extensi[extensi.length - 1] == "xls" ||
-        extensi[extensi.length - 1] == "xlsx"
-      ) {
-        dokumen++;
-      } else if (extensi[extensi.length - 1] == "mp4") {
-        video++;
-      } else if (
-        extensi[extensi.length - 1] == "jpg" ||
-        extensi[extensi.length - 1] == "jpeg" ||
-        extensi[extensi.length - 1] == "png"
-      ) {
-        foto++;
-      }
-    });
-
-    setCountFile({ dokumen: dokumen, video: video, foto: foto });
-  };
-
   const addContact = (data) => {
-    setContact([...contact, data]);
+    dispatch(postContactMessage(data));
+    dispatch(getMessage());
     reset();
   };
 
@@ -123,342 +106,361 @@ export default function Message() {
   };
 
   useEffect(() => {
-    hitungFile();
+    setValue("message", data_messagetemplateid.message);
+    setContact(data_message.filter((item) => item.message_template_id == id));
   }, [data_messagetemplateid]);
 
   useEffect(() => {
-    const id = router.query.id;
+    set_busy(true);
+    setValue("message_template_id", id);
+    setValue("message", data_messagetemplateid.message);
+    dispatch(getMessage());
     dispatch(getMessagetemplateById(id));
+    dispatch(getCountAttachment(id));
+    set_busy(false);
   }, []);
   return (
-    <div>
-      <span className="font-semibold block mb-2">Title</span>
-      <div className="p-9 bg-white rounded-md shadow-[0_16px_50px_rgba(112,144,176,0.20)] text-slate-600">
-        <p>{data_messagetemplateid.title}</p>
-      </div>
-      <span className="font-semibold block my-2">Message</span>
-      <div className="p-9 bg-white rounded-md shadow-[0_16px_50px_rgba(112,144,176,0.20)] text-slate-600">
-        <p>{data_messagetemplateid.message}</p>
-      </div>
-      <h3 className="font-semibold mt-5">File Attachment</h3>
-      <div className="flex gap-3">
-        <div className="w-43 bg-white p-6 rounded-md shadow-[0_16px_50px_rgba(112,144,176,0.20)]">
-          <div className="flex gap-20 justify-between">
-            <IconFileDescription color="#19b9cf" />
-            <p className="font-bold">{countFile.dokumen} Files</p>
+    <>
+      {!busy ? (
+        <div>
+          <span className="font-semibold block mb-2">Title</span>
+          <div className="p-9 bg-white rounded-md shadow-[0_16px_50px_rgba(112,144,176,0.20)] text-slate-600">
+            <p>{data_messagetemplateid.title}</p>
           </div>
-          <p className="font-semibold">Dokumen</p>
-        </div>
-        <div className="w-43 bg-white p-6 rounded-md shadow-[0_16px_50px_rgba(112,144,176,0.20)]">
-          <div className="flex gap-20 justify-between">
-            <IconVideo color="#6c7475" />
-            <p className="font-bold">{countFile.video} Files</p>
+          <span className="font-semibold block my-2">Message</span>
+          <div className="p-9 bg-white rounded-md shadow-[0_16px_50px_rgba(112,144,176,0.20)] text-slate-600">
+            <p>{data_messagetemplateid.message}</p>
           </div>
-          <p className="font-semibold">Video</p>
-        </div>
-        <div className="w-43 bg-white p-6 rounded-md shadow-[0_16px_50px_rgba(112,144,176,0.20)]">
-          <div className="flex gap-20 justify-between">
-            <IconPhoto color="#633985" />
-            <p className="font-bold">{countFile.foto} Files</p>
+          <h3 className="font-semibold mt-5">File Attachment</h3>
+          <div className="flex gap-3">
+            <div className="w-43 bg-white p-6 rounded-md shadow-[0_16px_50px_rgba(112,144,176,0.20)]">
+              <div className="flex gap-20 justify-between">
+                <IconFileDescription color="#19b9cf" />
+                <p>{data_filecount.count_file} Files</p>
+              </div>
+              <p className="font-semibold">Dokumen</p>
+            </div>
+            <div className="w-43 bg-white p-6 rounded-md shadow-[0_16px_50px_rgba(112,144,176,0.20)]">
+              <div className="flex gap-20 justify-between">
+                <IconVideo color="#6c7475" />
+                <p>{data_filecount.count_image} Files</p>
+              </div>
+              <p className="font-semibold">Video</p>
+            </div>
+            <div className="w-43 bg-white p-6 rounded-md shadow-[0_16px_50px_rgba(112,144,176,0.20)]">
+              <div className="flex gap-20 justify-between">
+                <IconPhoto color="#633985" />
+                <p>{data_filecount.count_video} Files</p>
+              </div>
+              <p className="font-semibold">Foto</p>
+            </div>
           </div>
-          <p className="font-semibold">Foto</p>
-        </div>
-      </div>
-      <div className="my-5 flex gap-3">
-        <button
-          className="flex justify-center items-center gap-3 p-3 rounded-md bg-[#388DCB] text-white shadow-[0_16px_50px_rgba(112,144,176,0.20)]"
-          onClick={() => {
-            if (excel) {
-              setContact([]);
-            }
-            setExcel(false);
-            document.getElementById("modalcontact").showModal();
-          }}
-          type="button"
-        >
-          <IconPlus />
-          <span className="font-medium">Tambah Kontak</span>
-        </button>
-        {/* <button
+          <div className="my-5 flex gap-3">
+            <button
+              className="flex justify-center items-center gap-3 p-3 rounded-md bg-[#388DCB] text-white shadow-[0_16px_50px_rgba(112,144,176,0.20)]"
+              onClick={() => {
+                if (excel) {
+                  setContact([]);
+                }
+                setExcel(false);
+                document.getElementById("modalcontact").showModal();
+              }}
+              type="button"
+            >
+              <IconPlus />
+              <span className="font-medium">Tambah Kontak</span>
+            </button>
+            {/* <button
                     className="flex justify-center items-center gap-3 p-3 rounded-md bg-green-800 text-white shadow-md"
                     type="button"
                 >
                     <IconDownload />
                     <span className="font-medium">Import Phonebook</span>
                 </button> */}
-        <label
-          htmlFor="file"
-          className="flex justify-center items-center gap-3 p-3 rounded-md bg-[#44328D] text-white shadow-md"
-        >
-          <IconFileImport />
-          <input
-            className="hidden"
-            type="file"
-            name="file"
-            id="file"
-            onChange={handleFileChange}
-          />
-          <span className="font-medium">Import Form Excel</span>
-        </label>
-        <button
-          className="flex justify-center items-center gap-3 p-3 rounded-md bg-[#117E8D] text-white shadow-md "
-          onClick={() => setContact([])}
-          type="button"
-        >
-          <IconTrash />
-          <span className="font-medium">Hapus Antrean</span>
-        </button>
-      </div>
-      <div className="flex flex-col">
-        <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
-          <div className="inline-block min-w-full py-2 sm:px-6 lg:px-8">
-            <div className="overflow-hidden">
-              <table className="min-w-full shadow-md rounded-md bg-white text-left text-sm font-light ">
-                <thead className="font-medium">
-                  <tr>
-                    <th scope="col" className="px-6 py-4">
-                      ID
-                    </th>
-                    <th scope="col" className="px-6 py-4">
-                      Nama
-                    </th>
-                    <th scope="col" className="px-6 py-4">
-                      Nomor Telephone
-                    </th>
-                    <th scope="col" className="px-6 py-4">
-                      Status
-                    </th>
-                    <th scope="col" className="px-6 py-4">
-                      Keterangan
-                    </th>
-                    <th scope="col" className="px-6 py-4">
-                      Action
-                    </th>
-                  </tr>
-                </thead>
-                {contact.length > 0 ? (
-                  <tbody>
-                    {excel
-                      ? contact.map((item, i) => (
-                          <tr className="border-t dark:border-neutral-500 text-slate-500">
-                            <td className="whitespace-nowrap px-6 py-4 font-medium">
-                              {i + 1}
-                            </td>
-                            <td className="whitespace-nowrap font-medium px-6 py-4 flex items-center gap-3">
-                              <Image
-                                src="/static/auth/kontak.jpg"
-                                className="rounded-full w-10 h-10 object-cover"
-                                width={42}
-                                height={42}
-                                alt="Image-kontak"
-                              />
-                              <span>{item[0]}</span>
-                            </td>
-                            <td className="whitespace-nowrap font-medium px-6 py-4">
-                              {item[1]}
-                            </td>
-                            <td className="whitespace-nowrap font-medium px-6 py-4">
-                              {item[2].toLowerCase() == "success" ? (
-                                <span className="px-2 py-1 rounded-md text-xs bg-green-600 text-white">
-                                  Sukses
-                                </span>
-                              ) : (
-                                <span className="px-2 py-1 rounded-md text-xs bg-red-600 text-white">
-                                  Gagal
-                                </span>
-                              )}
-                            </td>
-                            <td className="whitespace-nowrap font-medium px-6 py-4">
-                              {data_messagetemplateid.message}
-                            </td>
-                            <td className="whitespace-nowrap px-6 py-4 flex items-center gap-2">
-                              <div
-                                onClick={() => {
-                                  setIndex(i);
-                                  setEdit(true);
-                                  setValue("nama", item[0]);
-                                  setValue("telp", item[1]);
-                                  setValue("status", item[2]);
-                                  return document
-                                    .getElementById("modalcontact")
-                                    .showModal();
-                                }}
-                                className="bg-transparent p-1 w-max"
-                              >
-                                <IconPencilMinus color="green" />
-                              </div>
-                              <div
-                                onClick={() => deleteContact(i)}
-                                className="bg-transparent w-max"
-                              >
-                                <IconTrash color="red" />
-                              </div>
-                            </td>
-                          </tr>
-                        ))
-                      : contact.map((item, i) => (
-                          <tr className="border-t dark:border-neutral-500 text-slate-500">
-                            <td className="whitespace-nowrap px-6 py-4 font-medium">
-                              {i + 1}
-                            </td>
-                            <td className="whitespace-nowrap font-medium px-6 py-4 flex items-center gap-3">
-                              <Image
-                                src="/static/auth/kontak.jpg"
-                                className="rounded-full w-10 h-10 object-cover"
-                                width={42}
-                                height={42}
-                                alt="Image-kontak"
-                              />
-                              <span>{item.nama}</span>
-                            </td>
-                            <td className="whitespace-nowrap font-medium px-6 py-4">
-                              {item.telp}
-                            </td>
-                            <td className="whitespace-nowrap font-medium px-6 py-4">
-                              {item.status.toLowerCase() == "success" ? (
-                                <span className="px-2 py-1 rounded-md text-xs bg-green-600 text-white">
-                                  Sukses
-                                </span>
-                              ) : (
-                                <span className="px-2 py-1 rounded-md text-xs bg-red-600 text-white">
-                                  Gagal
-                                </span>
-                              )}
-                            </td>
-                            <td className="min-w-[300px] font-medium px-6 py-4">
-                              {data_messagetemplateid.message}
-                            </td>
-                            <td className="whitespace-nowrap px-6 py-4 flex items-center gap-2">
-                              <div
-                                onClick={() => {
-                                  setIndex(i);
-                                  setEdit(true);
-                                  setValue("nama", item.nama);
-                                  setValue("telp", item.telp);
-                                  setValue("status", item.status);
-                                  return document
-                                    .getElementById("modalcontact")
-                                    .showModal();
-                                }}
-                                className="bg-transparent p-1 w-max"
-                              >
-                                <IconPencilMinus color="green" />
-                              </div>
-                              <div
-                                onClick={() => deleteContact(i)}
-                                className="bg-transparent w-max"
-                              >
-                                <IconTrash color="red" />
-                              </div>
-                            </td>
-                          </tr>
-                        ))}
-                  </tbody>
-                ) : (
-                  <tr>
-                    <td colSpan={6}>
-                      <h6 className="p-5 text-center font-semibold ">
-                        Data contact kosong...
-                      </h6>
-                    </td>
-                  </tr>
-                )}
-              </table>
-            </div>
+            <label
+              htmlFor="file"
+              className="flex justify-center items-center gap-3 p-3 rounded-md bg-[#44328D] text-white shadow-md"
+            >
+              <IconFileImport />
+              <input
+                className="hidden"
+                type="file"
+                name="file"
+                id="file"
+                onChange={handleFileChange}
+              />
+              <span className="font-medium">Import Form Excel</span>
+            </label>
+            <button
+              className="flex justify-center items-center gap-3 p-3 rounded-md bg-[#117E8D] text-white shadow-md "
+              onClick={() => setContact([])}
+              type="button"
+            >
+              <IconTrash />
+              <span className="font-medium">Hapus Antrean</span>
+            </button>
           </div>
-        </div>
-        {/* <div className="join mx-auto">
+          <div className="flex flex-col">
+            <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
+              <div className="inline-block min-w-full py-2 sm:px-6 lg:px-8">
+                <div className="overflow-hidden">
+                  <table className="min-w-full shadow-md rounded-md bg-white text-left text-sm font-light ">
+                    <thead className="font-medium">
+                      <tr>
+                        <th scope="col" className="px-6 py-4">
+                          ID
+                        </th>
+                        <th scope="col" className="px-6 py-4">
+                          Nama
+                        </th>
+                        <th scope="col" className="px-6 py-4">
+                          Nomor Telephone
+                        </th>
+                        <th scope="col" className="px-6 py-4">
+                          Status
+                        </th>
+                        <th scope="col" className="px-6 py-4">
+                          Keterangan
+                        </th>
+                        <th scope="col" className="px-6 py-4">
+                          Action
+                        </th>
+                      </tr>
+                    </thead>
+                    {contact.length > 0 ? (
+                      <tbody>
+                        {excel
+                          ? contact.map((item, i) => (
+                              <tr className="border-t dark:border-neutral-500 text-slate-500">
+                                <td className="whitespace-nowrap px-6 py-4 font-medium">
+                                  {i + 1}
+                                </td>
+                                <td className="whitespace-nowrap font-medium px-6 py-4 flex items-center gap-3">
+                                  <Image
+                                    src="/static/auth/kontak.jpg"
+                                    className="rounded-full w-10 h-10 object-cover"
+                                    width={42}
+                                    height={42}
+                                    alt="Image-kontak"
+                                  />
+                                  <span>{item[0]}</span>
+                                </td>
+                                <td className="whitespace-nowrap font-medium px-6 py-4">
+                                  {item[1]}
+                                </td>
+                                <td className="whitespace-nowrap font-medium px-6 py-4">
+                                  {item[2].toLowerCase() == "success" ? (
+                                    <span className="px-2 py-1 rounded-md text-xs bg-green-600 text-white">
+                                      Sukses
+                                    </span>
+                                  ) : (
+                                    <span className="px-2 py-1 rounded-md text-xs bg-red-600 text-white">
+                                      Gagal
+                                    </span>
+                                  )}
+                                </td>
+                                <td className="whitespace-nowrap font-medium px-6 py-4">
+                                  {data_messagetemplateid.message}
+                                </td>
+                                <td className="whitespace-nowrap px-6 py-4 flex items-center gap-2">
+                                  <div
+                                    onClick={() => {
+                                      setIndex(i);
+                                      setEdit(true);
+                                      setValue("nama", item[0]);
+                                      setValue("telp", item[1]);
+                                      setValue("status", item[2]);
+                                      return document
+                                        .getElementById("modalcontact")
+                                        .showModal();
+                                    }}
+                                    className="bg-transparent p-1 w-max"
+                                  >
+                                    <IconPencilMinus color="green" />
+                                  </div>
+                                  <div
+                                    onClick={() => deleteContact(i)}
+                                    className="bg-transparent w-max"
+                                  >
+                                    <IconTrash color="red" />
+                                  </div>
+                                </td>
+                              </tr>
+                            ))
+                          : contact.map((item, i) => (
+                              <tr className="border-t dark:border-neutral-500 text-slate-500">
+                                <td className="whitespace-nowrap px-6 py-4 font-medium">
+                                  {i + 1}
+                                </td>
+                                <td className="whitespace-nowrap font-medium px-6 py-4 flex items-center gap-3">
+                                  <Image
+                                    src="/static/auth/kontak.jpg"
+                                    className="rounded-full w-10 h-10 object-cover"
+                                    width={42}
+                                    height={42}
+                                    alt="Image-kontak"
+                                  />
+                                  <span>{item.name_message_template}</span>
+                                </td>
+                                <td className="whitespace-nowrap font-medium px-6 py-4">
+                                  {item.phone_number_message_template}
+                                </td>
+                                <td className="whitespace-nowrap font-medium px-6 py-4">
+                                  {item.status.toLowerCase() == "success" && (
+                                    <span className="px-2 py-1 rounded-md text-xs bg-green-600 text-white">
+                                      Sukses
+                                    </span>
+                                  )}
+                                  {item.status.toLowerCase() == "pending" && (
+                                    <span className="px-2 py-1 rounded-md text-xs bg-slate-500 text-white">
+                                      Pending
+                                    </span>
+                                  )}
+                                  {item.status.toLowerCase() == "failed" && (
+                                    <span className="px-2 py-1 rounded-md text-xs bg-red-600 text-white">
+                                      Gagal
+                                    </span>
+                                  )}
+                                </td>
+                                <td className="min-w-[300px] font-medium px-6 py-4">
+                                  {data_messagetemplateid.message}
+                                </td>
+                                <td className="whitespace-nowrap px-6 py-4 flex items-center gap-2">
+                                  <div
+                                    onClick={() => {
+                                      setIndex(i);
+                                      setEdit(true);
+                                      setValue("nama", item.nama);
+                                      setValue("telp", item.telp);
+                                      setValue("status", item.status);
+                                      return document
+                                        .getElementById("modalcontact")
+                                        .showModal();
+                                    }}
+                                    className="bg-transparent cursor-pointer p-1 w-max"
+                                  >
+                                    <IconPencilMinus color="green" />
+                                  </div>
+                                  <div
+                                    onClick={() => deleteContact(i)}
+                                    className="bg-transparent cursor-pointer w-max"
+                                  >
+                                    <IconTrash color="red" />
+                                  </div>
+                                </td>
+                              </tr>
+                            ))}
+                      </tbody>
+                    ) : (
+                      <tbody>
+                        <tr>
+                          <td colSpan={6}>
+                            <h6 className="p-5 text-center font-semibold ">
+                              Data contact kosong...
+                            </h6>
+                          </td>
+                        </tr>
+                      </tbody>
+                    )}
+                  </table>
+                </div>
+              </div>
+            </div>
+            {/* <div className="join mx-auto">
             <button className="join-item btn">«</button>
             <button className="join-item btn">2</button>
             <button className="join-item btn">»</button>
           </div> */}
-      </div>
+          </div>
 
-      <button
-        className="flex  mt-3 font-medium justify-center items-center gap-3 py-2 px-7 rounded-md bg-primary text-white"
-        type="button"
-      >
-        <span>Kirim</span>
-      </button>
-      <dialog id="modalcontact" className="modal">
-        <div className="modal-box">
-          <form method="dialog">
-            <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
-              ✕
-            </button>
-          </form>
-          <h3 className="font-bold text-lg text-black">Add Contact</h3>
-          <form
-            className="flex flex-col gap-3"
-            onSubmit={
-              edit ? handleSubmit(editContact) : handleSubmit(addContact)
-            }
-            action=""
+          <button
+            className="flex  mt-3 font-medium justify-center items-center gap-3 py-2 px-7 rounded-md bg-primary text-white"
+            type="button"
           >
-            <label className="flex my-2 flex-col gap-1 text-xs w-ful">
-              <div className="text-xs font-bold text-black">Nama</div>
-              <input
-                className="p-3 rounded-md outline-none border-slate-300 border text-black"
-                type="text"
-                required
-                placeholder="Add Nama"
-                name="Nama"
-                id="Nama"
-                {...register("nama")}
-              />
-            </label>
-            <label className="flex my-2 flex-col gap-1 text-xs w-ful">
-              <div className="text-xs font-bold text-black">
-                Nomor Telephone
-              </div>
-              <input
-                className="p-3 rounded-md outline-none border-slate-300 border text-black"
-                type="number"
-                required
-                placeholder="Add Nomor Telephone"
-                name="Nomor Telephone"
-                id="Nomor Telephone"
-                {...register("telp")}
-              />
-            </label>
-            <label className="flex flex-col" htmlFor="status">
-              <div className="font-bold text-xs text-black">Status</div>
-              <select
-                className="outline-none w-full bg-white  border-slate-300 border p-2 rounded-md text-xs text-black"
-                name="status"
-                id="status"
-                {...register("status")}
+            <span>Kirim</span>
+          </button>
+          <dialog id="modalcontact" className="modal">
+            <div className="modal-box">
+              <form method="dialog">
+                <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
+                  ✕
+                </button>
+              </form>
+              <h3 className="font-bold text-lg text-black">Add Contact</h3>
+              <form
+                className="flex flex-col gap-3"
+                onSubmit={
+                  edit ? handleSubmit(editContact) : handleSubmit(addContact)
+                }
               >
-                <option disabled className="text-black" value="">
-                  Pilih status{" "}
-                </option>
-                <option className="text-black" value="success">
-                  Success
-                </option>
-                <option className="text-black" value="Failed">
-                  Failed
-                </option>
-              </select>
-            </label>
-            <label className="flex my-2 flex-col gap-1 text-xs w-ful">
-              <div className="text-xs font-bold text-black">Keterangan</div>
-              <textarea
-                className="p-3 rounded-md outline-none border-slate-300 border text-black"
-                required
-                name="Keterangan"
-                id="Keterangan"
-              ></textarea>
-            </label>
-            <button
-              className="mt-3 w-full bg-sky-800 hover:bg-transparent hover:text-sky-800 hover:border-2 border-sky-800 transition-all ease-in-out p-3 text-xs rounded-md text-white font-bold"
-              type="submit"
-            >
-              Kirim
-            </button>
-          </form>
+                <label className="flex my-2 flex-col gap-1 text-xs w-ful">
+                  <div className="text-xs font-bold text-black">
+                    ID Message Template
+                  </div>
+                  <input
+                    className="p-3 rounded-md outline-none font-semibold bg-slate-100 border-slate-300 border text-black"
+                    type="text"
+                    required
+                    disabled
+                    placeholder="Add Nama"
+                    name="message_template_id"
+                    id="message_template_id"
+                    value={router.query.id}
+                    {...register("message_template_id")}
+                  />
+                </label>
+                <label className="flex my-2 flex-col gap-1 text-xs w-full">
+                  <div className="text-xs font-bold text-black">Nama</div>
+                  <input
+                    className="p-3 rounded-md outline-none border-slate-300 border text-black"
+                    type="text"
+                    required
+                    placeholder="Add Nama"
+                    name="name"
+                    id="name"
+                    {...register("name")}
+                  />
+                </label>
+                <label className="flex my-2 flex-col gap-1 text-xs w-full">
+                  <div className="text-xs font-bold text-black">
+                    Nomor Telephone
+                  </div>
+                  <input
+                    className="p-3 rounded-md outline-none border-slate-300 border text-black"
+                    type="number"
+                    required
+                    placeholder="Add Nomor Telephone"
+                    name="phone_number"
+                    id="phone_number"
+                    {...register("phone_number")}
+                  />
+                </label>
+                <label className="flex my-2 flex-col gap-1 text-xs w-ful">
+                  <div className="text-xs font-bold text-black">Keterangan</div>
+                  <textarea
+                    className="p-3 rounded-md outline-none font-semibold bg-slate-100 border-slate-300 border text-black"
+                    required
+                    disabled
+                    name="message"
+                    id="message"
+                    value={data_messagetemplateid.message}
+                    {...register("message")}
+                  ></textarea>
+                </label>
+                <button
+                  className="mt-3 w-full bg-sky-800 hover:bg-transparent hover:text-sky-800 hover:border-2 border-sky-800 transition-all ease-in-out p-3 text-xs rounded-md text-white font-bold"
+                  type="submit"
+                >
+                  Kirim
+                </button>
+              </form>
+            </div>
+          </dialog>
         </div>
-      </dialog>
-    </div>
+      ) : (
+        <OverlayLoading />
+      )}
+    </>
   );
 }
 

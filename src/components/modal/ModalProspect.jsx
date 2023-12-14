@@ -18,16 +18,11 @@ const ModalProspect = () => {
           <div className="grid mt-3 grid-cols-2 gap-3">
             <div>
               <p className="font-semibold">User Name</p>
-              <p>
-                {detail_contact.user_first_name} -{" "}
-                {detail_contact.user_first_name}
-              </p>
+              <p>{detail_contact.user_first_name}</p>
             </div>
             <div>
               <p className="font-semibold">Fullname</p>
-              <p>
-                {detail_contact.first_name} {detail_contact.last_name}
-              </p>
+              <p>{detail_contact.full_name}</p>
             </div>
             <div>
               <p className="font-semibold">Phone Number</p>

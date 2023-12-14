@@ -25,7 +25,6 @@ const Navbar = () => {
   const mobile = size.width < "992";
   const [hiddenSide, setHiddenSide] = useState(true);
   const url = router.pathname.split("/")[1];
-  console.log(router.pathname.split("/"));
 
   const handleSidebar = () => {
     setHiddenSide(!hiddenSide);
@@ -40,10 +39,9 @@ const Navbar = () => {
           </div>
           <div className="flex gap-3 items-center">
             <IconBell color="#0B588D" />
-            <img
-              src="../static/auth/profile.jpeg"
-              className="w-[50px] m-auto rounded-full"
-              alt="Logo"
+            <IconUserCircle
+              onClick={() => router.push("/profile")}
+              color={"#0B588D"}
             />
           </div>
         </div>
@@ -73,10 +71,7 @@ const Navbar = () => {
               url === "" ? "bg-sky-600" : ""
             }`}
           >
-            <Link
-              href={"/"}
-              className={`w-full items-center flex items-center flex-row`}
-            >
+            <Link href={"/"} className={`w-full flex items-center flex-row`}>
               <IconHome2 color={url === "" ? "#FFFFFF" : "#0B588D"} />
               <div
                 className={`ml-2 cursor-pointer ${
@@ -92,10 +87,7 @@ const Navbar = () => {
               url === "contactcategory" ? "bg-sky-600" : ""
             }`}
           >
-            <Link
-              href={"/contactcategory"}
-              className={`w-full items-center flex flex-row`}
-            >
+            <Link href={"/contactcategory"} className={`w-full flex flex-row`}>
               <IconUserCircle
                 color={url === "contactcategory" ? "#FFFFFF" : "#0B588D"}
               />
@@ -113,10 +105,7 @@ const Navbar = () => {
               url === "prospect" ? "bg-sky-600" : ""
             }`}
           >
-            <Link
-              href={"/prospect"}
-              className={`w-full items-center flex flex-row`}
-            >
+            <Link href={"/prospect"} className={`w-full flex flex-row`}>
               <IconUsersGroup
                 color={url === "prospect" ? "#FFFFFF" : "#0B588D"}
               />
@@ -134,10 +123,7 @@ const Navbar = () => {
               url === "task" ? "bg-sky-600" : ""
             }`}
           >
-            <Link
-              href={"/task"}
-              className={`w-full items-center flex flex-row`}
-            >
+            <Link href={"/task"} className={`w-full flex flex-row`}>
               <IconClipboardText
                 color={url === "task" ? "#FFFFFF" : "#0B588D"}
               />
@@ -155,10 +141,7 @@ const Navbar = () => {
               url === "events" ? "bg-sky-600" : ""
             }`}
           >
-            <Link
-              href={"/events"}
-              className={`w-full items-center flex flex-row`}
-            >
+            <Link href={"/events"} className={`w-full flex flex-row`}>
               <IconCalendarDue
                 color={url === "events" ? "#FFFFFF" : "#0B588D"}
               />
@@ -176,10 +159,7 @@ const Navbar = () => {
               url === "tutorials" ? "bg-sky-600" : ""
             }`}
           >
-            <Link
-              href={"/tutorials"}
-              className={`w-full items-center flex flex-row`}
-            >
+            <Link href={"/tutorials"} className={`w-full flex flex-row`}>
               <IconMovie color={url === "tutorials" ? "#FFFFFF" : "#0B588D"} />
               <div
                 className={`ml-2 cursor-pointer ${
@@ -195,7 +175,7 @@ const Navbar = () => {
               url === "/subscription" ? "bg-sky-600" : ""
             }`}
           >
-            <Link href={"/subscription"} className={`w-full items-center flex flex-row`}>
+            <Link href={"/subscription"} className={`w-full flex flex-row`}>
               <IconAddressBook
                 color={
                   url === "/subscription" ? "#FFFFFF" : "#0B588D"
@@ -217,7 +197,7 @@ const Navbar = () => {
               url === "/referrals" ? "bg-sky-600" : ""
             }`}
           >
-            <Link href={"/referrals"} className={`w-full items-center flex flex-row`}>
+            <Link href={"/referrals"} className={`w-full flex flex-row`}>
               <IconAffiliate
                 color={url === "/referrals" ? "#FFFFFF" : "#0B588D"}
               />
@@ -237,10 +217,7 @@ const Navbar = () => {
               url === "feedback" ? "bg-sky-600" : ""
             }`}
           >
-            <Link
-              href={"/feedback"}
-              className={`w-full items-center flex flex-row`}
-            >
+            <Link href={"/feedback"} className={`w-full flex flex-row`}>
               <IconQuote color={url === "feedback" ? "#FFF" : "#0B588D"} />
               <div
                 className={`ml-2 cursor-pointer ${
@@ -256,10 +233,7 @@ const Navbar = () => {
               url === "messagetemplate" ? "bg-sky-600" : ""
             }`}
           >
-            <Link
-              href={"/messagetemplate"}
-              className={`w-full items-center flex flex-row`}
-            >
+            <Link href={"/messagetemplate"} className={`w-full flex flex-row`}>
               <IconMessage
                 color={url === "messagetemplate" ? "#FFFFFF" : "#0B588D"}
               />

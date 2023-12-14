@@ -1,6 +1,6 @@
 import { IconSearch } from "@tabler/icons-react";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   deleteTutorialById,
@@ -8,10 +8,12 @@ import {
 } from "../../../store/reducers/tutorial/tutorial.action";
 import ModalTutorial from "@/components/modal/modalTutorial";
 import { IconTrash } from "@tabler/icons-react";
+import OverlayLoading from "@/components/OverlayLoading";
 
 export default function Tutorials() {
   const router = useRouter();
   const dispatch = useDispatch();
+  const [busy, set_busy] = useState(false);
   const { data_tutorial } = useSelector((state) => state.tutorial);
 
   // const handleDelete = (id) => {
@@ -24,56 +26,66 @@ export default function Tutorials() {
   // };
 
   useEffect(() => {
+    set_busy(true);
     dispatch(getTutorial());
+    set_busy(false);
   }, []);
   return (
-    <main className="p-5 rounded-md  shadow-md border bg-white text-black">
-      <button
-        className="bg-sky-600 p-3 mb-3 hidden rounded-md shadow-md text-xs text-white font-regular"
-        onClick={() => document.getElementById("modal-tutorial").showModal()}
-      >
-        Add Tutorial
-      </button>
-      <ModalTutorial />
-      <label
-        className="flex items-center p-2 rounded-md border-2 border-slate-200"
-        htmlFor="search"
-      >
-        <input
-          className="w-full border-none outline-none"
-          type="text"
-          placeholder="Search tutorial by name"
-          name="search"
-          id="search"
-        />
-        <IconSearch className="text-slate-300" />
-      </label>
-      <div className="mt-5 flex flex-wrap gap-3">
-        {data_tutorial.length > 0 ? (
-          data_tutorial.map((item, i) => (
-            <div className="flex flex-col gap-3">
-              <div
-                onClick={() => router.push(`tutorials/${item.id}`)}
-                className="cursor-pointer gap-3"
-              >
-                <img
-                  src={item.thumbnail_url}
-                  className="w-56 h-36 bg-slate-400 rounded-md"
-                />
-                <p className="font-bold pt-1">{item.title || "LKAS"}</p>
+    <>
+      {!busy ? (
+        <main className="p-5 rounded-md  shadow-md border bg-white text-black">
+          <button
+            className="bg-sky-600 p-3 mb-3 hidden rounded-md shadow-md text-xs text-white font-regular"
+            onClick={() =>
+              document.getElementById("modal-tutorial").showModal()
+            }
+          >
+            Add Tutorial
+          </button>
+          <ModalTutorial />
+          <label
+            className="flex items-center p-2 rounded-md border-2 border-slate-200"
+            htmlFor="search"
+          >
+            <input
+              className="w-full border-none outline-none"
+              type="text"
+              placeholder="Search tutorial by name"
+              name="search"
+              id="search"
+            />
+            <IconSearch className="text-slate-300" />
+          </label>
+          <div className="mt-5 flex flex-wrap gap-3">
+            {data_tutorial.length > 0 ? (
+              data_tutorial.map((item, i) => (
+                <div key={i} className="flex flex-col gap-3">
+                  <div
+                    onClick={() => router.push(`tutorials/${item.id}`)}
+                    className="cursor-pointer gap-3"
+                  >
+                    <img
+                      src={item.thumbnail_url}
+                      className="w-56 h-36 bg-slate-400 rounded-md"
+                    />
+                    <p className="font-bold pt-1">{item.title || "LKAS"}</p>
+                  </div>
+                </div>
+              ))
+            ) : (
+              <div className="w-full h-full grid place-items-center">
+                <h5 className="mt-7 flex items-center gap-3 font-semibold">
+                  <span className="loading loading-spinner loading-lg"></span>{" "}
+                  Data sedang kosong...
+                </h5>
               </div>
-            </div>
-          ))
-        ) : (
-          <div className="w-full h-full grid place-items-center">
-            <h5 className="mt-7 flex items-center gap-3 font-semibold">
-              <span className="loading loading-spinner loading-lg"></span> Data
-              sedang kosong...
-            </h5>
+            )}
           </div>
-        )}
-      </div>
-    </main>
+        </main>
+      ) : (
+        <OverlayLoading />
+      )}
+    </>
   );
 }
 

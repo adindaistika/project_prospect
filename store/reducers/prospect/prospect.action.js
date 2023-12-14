@@ -26,6 +26,21 @@ export const getProspectById = (payload) => async (dispatch) => {
   }
 };
 
+export const searchProspect = (payload) => async (dispatch) => {
+  try {
+    let response = await apiClient().get(
+      `contact-by-category/${payload.id}?query=${payload.query}`
+    );
+
+    dispatch({
+      type: types.DATA_PROSPECT,
+      payload: response?.data,
+    });
+  } catch (err) {
+    throw err;
+  }
+};
+
 export const postProspect = (payload) => async () => {
   try {
     let response = await apiClient().post(`/prospect`, payload);

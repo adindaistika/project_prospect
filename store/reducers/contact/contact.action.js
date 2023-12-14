@@ -12,6 +12,21 @@ export const getContactCategory = (payload) => async (dispatch) => {
     throw err;
   }
 };
+
+export const getContactByCategory = (payload) => async (dispatch) => {
+  try {
+    let response = await apiClient().get(
+      `/contact-by-category/${payload.id}?page=${payload.page}`
+    );
+    dispatch({
+      type: types.DATA_CONTACT,
+      payload: response?.data,
+    });
+  } catch (err) {
+    throw err;
+  }
+};
+
 export const getContact = (payload) => async (dispatch) => {
   try {
     let response = await apiClient().get(`/contact?page=${payload}`);
@@ -27,26 +42,26 @@ export const getContact = (payload) => async (dispatch) => {
 export const getContactById = (payload) => async (dispatch) => {
   try {
     let response = await apiClient().get(`/contact/${payload}`);
-
     dispatch({
       type: types.DETAIL_CONTACT,
       payload: response?.data,
     });
-    console.log(response.data)
+    console.log(response.data);
   } catch (err) {
     throw err;
   }
 };
 
-export const getContactByCategory = (payload) => async (dispatch) => {
+export const searchProspect = (payload) => async (dispatch) => {
   try {
-    let response = await apiClient().get(`/contact-by-category/${payload.id}?page=${payload.page}`);
-
+    let response = await apiClient().get(
+      `/contact-by-category/${payload.id}?query=${payload.page}`
+    );
     dispatch({
       type: types.DATA_CONTACT,
       payload: response?.data,
     });
-    console.log(response.data)
+    console.log(response.data);
   } catch (err) {
     throw err;
   }
