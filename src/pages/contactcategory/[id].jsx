@@ -129,7 +129,7 @@ export default function Contact() {
                           alt="Image-kontak"
                         />
                         <span>
-                          {item.firstName} {item.lastName}
+                          {item.first_name} {item.last_name}
                         </span>
                       </td>
                       <td className="whitespace-nowrap font-medium px-6 py-4">
