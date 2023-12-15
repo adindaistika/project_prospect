@@ -17,7 +17,7 @@ const EventsDetail = () => {
   }, []);
   return (
     <>
-      {busy ? (
+      {!busy ? (
         <div className="space-y-2">
           <div className="w-full p-3 rounded-md shadow-md">
             <p className="font-bold">Meeting With</p>

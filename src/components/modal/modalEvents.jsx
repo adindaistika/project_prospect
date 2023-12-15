@@ -256,7 +256,7 @@ const ModalEvents = () => {
             <label className="flex flex-col" htmlFor="Note">
               <div className="font-bold text-xs text-black">Note</div>
               <textarea
-                className="outline-none w-full bg-white border-slate-300 border p-2 rounded-md text-xs"
+                className="outline-none w-full bg-white border-slate-300 border p-2 rounded-md text-xs text-black"
                 name="note"
                 rows={5}
                 id="note"

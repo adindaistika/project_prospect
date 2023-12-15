@@ -11,9 +11,8 @@ import OverlayLoading from "@/components/OverlayLoading";
 export default function Home() {
   const dispatch = useDispatch();
   const [busy, set_busy] = useState(false);
-  const { data_event_terupdate } = useSelector((state) => state.dashboard);
-  const { data_event_comming } = useSelector((state) => state.dashboard);
-  const { data_event_goal } = useSelector((state) => state.dashboard);
+  const { data_event_terupdate, data_event_comming, data_event_goal } =
+    useSelector((state) => state.dashboard);
 
   function formatTanggalBulanTahun(inputDate) {
     const date = new Date(inputDate);
@@ -46,6 +45,7 @@ export default function Home() {
     dispatch(getTaskTerupdate());
     dispatch(getEventComming());
     dispatch(getGoal());
+
     set_busy(false);
   }, []);
 
@@ -127,13 +127,11 @@ export default function Home() {
                 </svg>
                 <p className="text-center">
                   <span className="font-bold text-2xl">
-                    {data_event_goal[0].count}
+                    {data_event_goal[0].count_category}
                   </span>
-                  /{data_event_goal[0].total}
+                  /{data_event_goal[0].total_contact}
                 </p>
-                <p className="text-center">
-                  Prospect {data_event_goal[0].name}
-                </p>
+                <p className="text-center">{data_event_goal[0].goal_name}</p>
               </div>
               <div className="rectangle2-banner relative overflow-hidden p-8 bg-[#18046A] rounded-md flex-1">
                 <svg
@@ -166,13 +164,11 @@ export default function Home() {
                 </svg>
                 <p className="text-center">
                   <span className="font-bold text-2xl">
-                    {data_event_goal[1].count}
+                    {data_event_goal[1].total_message_template}
                   </span>
-                  /{data_event_goal[1].total}
+                  /{data_event_goal[1].total_message_template}
                 </p>
-                <p className="text-center">
-                  Prospect {data_event_goal[1].name}
-                </p>
+                <p className="text-center">{data_event_goal[1].goal_name}</p>
               </div>
               <div className="rectangle3-banner relative overflow-hidden p-8 bg-[#007383] rounded-md flex-1">
                 <svg
@@ -205,13 +201,11 @@ export default function Home() {
                 </svg>
                 <p className="text-center">
                   <span className="font-bold text-2xl">
-                    {data_event_goal[2].count}
+                    {data_event_goal[2].count_complited_task}
                   </span>
-                  /{data_event_goal[2].total}
+                  /{data_event_goal[2].total_task}
                 </p>
-                <p className="text-center">
-                  Prospect {data_event_goal[2].name}
-                </p>
+                <p className="text-center">{data_event_goal[2].goal_name}</p>
               </div>
             </div>
           )}

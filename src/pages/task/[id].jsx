@@ -29,12 +29,12 @@ const TaskDetail = () => {
             <p className="font-bold">Title</p>
             <p className="font-semibold text-gray-400">{data_task_id.title}</p>
           </div>
-          <div className="w-full p-3 border-t-2">
+          {/* <div className="w-full p-3 border-t-2">
             <p className="font-bold">Relate to</p>
             <p className="font-semibold text-gray-400">
               {data_task_id.relate_to}
             </p>
-          </div>
+          </div> */}
           <div className="grid grid-cols-2">
             <div className="w-full p-3 border-t-2">
               <p className="font-bold">Priority</p>

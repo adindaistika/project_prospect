@@ -18,7 +18,7 @@ export const getEventComming = () => async (dispatch) => {
     let response = await apiClient().get(`/dashboard/up-coming-event`);
     dispatch({
       type: types.DATA_EVENT_COMMING,
-      payload: response?.data,
+      payload: response?.data.data.upcomingEvents,
     });
   } catch (err) {
     throw err;

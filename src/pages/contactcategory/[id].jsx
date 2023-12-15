@@ -133,13 +133,13 @@ export default function Contact() {
                         </span>
                       </td>
                       <td className="whitespace-nowrap font-medium px-6 py-4">
-                        {item.phoneNumber}
+                        {item.phone_number}
                       </td>
                       <td className="whitespace-nowrap font-medium px-6 py-4">
-                        {item.workNumber}
+                        {item.work_number}
                       </td>
                       <td className="whitespace-nowrap font-medium px-6 py-4">
-                        {item.homeNumber}
+                        {item.home_number}
                       </td>
                       <td className="whitespace-nowrap font-medium px-6 py-4">
                         {item.email}

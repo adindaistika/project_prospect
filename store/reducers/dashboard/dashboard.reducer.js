@@ -11,7 +11,7 @@ export const dashboardReducers = (state = initialState, action) => {
     case types.DATA_EVENT_COMMING:
       return {
         ...state,
-        data_event_comming: action.payload.data,
+        data_event_comming: action.payload,
       };
     case types.DATA_EVENT_GOAL:
       return {
